@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ResipiLokal — Resepi Chef Malaysia Terbaik</title>
+  <meta name="description" content="Tonton dan masak resepi dari chef & influencer masakan Malaysia terbaik. Khairul Aming, Azie Kitchen, Che Sayang dan ramai lagi!"/>
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- ✅ ADSENSE: Replace with your real publisher ID when ready -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav class="navbar navbar-gradient" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-text">Resepi<span>Lokal</span></span>
+      <span class="nav-logo-badge">MY</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="chefs.html">Chef</a></li>
+      <li><a href="search.html">Semua Resepi</a></li>
+    </ul>
+
+    <div class="nav-search">
+      <a href="search.html" class="nav-search-btn" title="Cari resepi">🔍</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO BANNER (Featured Recipe)
+  ══════════════════════════════════════════ -->
+  <section class="hero-banner" id="heroBanner">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">⭐ Resepi Pilihan</div>
+      <h1 class="hero-title font-display" id="heroTitle">—</h1>
+      <div class="hero-meta">
+        <span class="hero-meta-item">⏱ <span id="heroCook">—</span></span>
+        <span class="hero-meta-item">🍽 <span id="heroServing">—</span> orang</span>
+        <span class="hero-chef-tag" id="heroChef">—</span>
+      </div>
+      <p class="hero-desc" id="heroDesc">—</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary" id="heroBtn">▶ Tengok Resepi</a>
+        <a href="search.html" class="btn btn-ghost">🔍 Cari Resepi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       AD BANNER TOP
+  ══════════════════════════════════════════ -->
+  <div class="ad-banner" style="margin-top:8px;">
+    <!-- ✅ ADSENSE AD SLOT — replace with real ad code -->
+    <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+    <p>[ Iklan / Advertisement ]</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       POPULAR THIS WEEK
+  ══════════════════════════════════════════ -->
+  <section class="section" id="popularSection">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">🔥 Trending</div>
+        <h2 class="section-title">Popular Minggu Ini</h2>
+      </div>
+      <a href="search.html" class="section-link">Lihat Semua →</a>
+    </div>
+    <div class="scroll-row" id="popularRow"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       BROWSE BY CHEF
+  ══════════════════════════════════════════ -->
+  <section class="section" style="background:var(--bg2); padding: 48px 0;">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">👨‍🍳 Chef & Influencer</div>
+        <h2 class="section-title">Pilih Chef Kesukaan Kamu</h2>
+      </div>
+      <a href="chefs.html" class="section-link">Semua Chef →</a>
+    </div>
+    <div class="scroll-row" id="chefsRow"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       LAUK-PAUK ROW
+  ══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">🍛 Kategori</div>
+        <h2 class="section-title">Lauk-Pauk</h2>
+      </div>
+      <a href="search.html?cat=Lauk" class="section-link">Lihat Semua →</a>
+    </div>
+    <div class="scroll-row" id="laukRow"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       AD MIDDLE
+  ══════════════════════════════════════════ -->
+  <div class="ad-banner">
+    <!-- ✅ ADSENSE AD SLOT -->
+    <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto"></ins> -->
+    <p>[ Iklan / Advertisement ]</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       KEK & KUIH ROW
+  ══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">🎂 Manis-Manis</div>
+        <h2 class="section-title">Kek & Kuih</h2>
+      </div>
+      <a href="search.html?cat=Kek" class="section-link">Lihat Semua →</a>
+    </div>
+    <div class="scroll-row" id="kekRow"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       MASAKAN KAMPUNG ROW
+  ══════════════════════════════════════════ -->
+  <section class="section" style="background:var(--bg2); padding:48px 0;">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">🏡 Nostalgia</div>
+        <h2 class="section-title">Masakan Kampung</h2>
+      </div>
+      <a href="search.html?cat=Lauk" class="section-link">Lihat Semua →</a>
+    </div>
+    <div class="scroll-row" id="kampungRow"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       AD BOTTOM
+  ══════════════════════════════════════════ -->
+  <div class="ad-banner" style="margin-bottom:8px;">
+    <!-- ✅ ADSENSE AD SLOT -->
+    <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto"></ins> -->
+    <p>[ Iklan / Advertisement ]</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Resepi<span>Lokal</span></div>
+        <p class="footer-desc">Platform resepi chef & influencer masakan Malaysia. Tonton video, baca resepi, masak dengan mudah.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigasi</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chefs.html">Semua Chef</a></li>
+          <li><a href="search.html">Cari Resepi</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Lain-lain</div>
+        <ul class="footer-links-list">
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Dasar Privasi</a></li>
+          <li><a href="#">Hubungi Kami</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ResipiLokal.com — Dibuat dengan ❤️ untuk rakyat Malaysia</p>
+      <p style="font-size:0.78rem; color:var(--text-muted);">ResipiLokal bukan milik mana-mana chef. Hak cipta video milik pemilik asal.</p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════ -->
+  <script src="data.js"></script>
+  <script>
+    // ── NAVBAR scroll effect ──────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+        navbar.classList.remove('navbar-gradient');
+      } else {
+        navbar.classList.remove('scrolled');
+        navbar.classList.add('navbar-gradient');
+      }
+    });
+
+    // ── Mobile nav toggle ─────────────────────
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // ── BUILD RECIPE CARD ─────────────────────
+    function buildRecipeCard(recipe) {
+      const chef = getChefById(recipe.chef_id);
+      const card = document.createElement('div');
+      card.className = 'recipe-card';
+      card.innerHTML = `
+        <div class="recipe-card-thumb">
+          <img src="${recipe.thumbnail}" alt="${recipe.title}" loading="lazy"/>
+          <span class="recipe-card-cat">${recipe.category}</span>
+          <div class="recipe-card-bottom">
+            <div class="recipe-card-title">${recipe.title}</div>
+            <div class="recipe-card-chef">by ${chef ? chef.name : ''}</div>
+          </div>
+        </div>
+        <div class="recipe-card-hover">
+          <div class="recipe-card-hover-title">${recipe.title}</div>
+          <div class="recipe-card-hover-meta">
+            <span>⏱ ${recipe.cook_time}</span>
+            <span>🍽 ${recipe.servings} org</span>
+            <span>📊 ${recipe.difficulty}</span>
+          </div>
+          <p class="recipe-card-hover-desc">${recipe.description}</p>
+          <a href="recipe-detail.html?id=${recipe.id}" class="btn btn-primary">▶ Tengok Resepi</a>
+        </div>
+      `;
+      card.addEventListener('click', () => {
+        window.location.href = `recipe-detail.html?id=${recipe.id}`;
+      });
+      return card;
+    }
+
+    // ── BUILD CHEF CARD ───────────────────────
+    function buildChefCard(chef) {
+      const card = document.createElement('div');
+      card.className = 'chef-card';
+      card.innerHTML = `
+        <div class="chef-card-avatar">
+          <img src="${chef.image}" alt="${chef.name}" loading="lazy"
+               onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(chef.name)}&background=f5a623&color=000&size=120'"/>
+          ${chef.verified ? '<div class="chef-verified">✓</div>' : ''}
+        </div>
+        <div class="chef-card-name">${chef.name}</div>
+        <div class="chef-card-count">${chef.followers} pengikut</div>
+      `;
+      card.addEventListener('click', () => {
+        window.location.href = `chef-detail.html?id=${chef.id}`;
+      });
+      return card;
+    }
+
+    // ── POPULATE HERO BANNER ──────────────────
+    function populateHero() {
+      const featured = getFeaturedRecipes();
+      if (!featured.length) return;
+      // rotate featured recipes every 8 seconds
+      let idx = 0;
+
+      function setHero(recipe) {
+        const chef = getChefById(recipe.chef_id);
+        document.getElementById('heroBg').style.backgroundImage = `url('${recipe.thumbnail}')`;
+        document.getElementById('heroTitle').textContent = recipe.title;
+        document.getElementById('heroCook').textContent = recipe.cook_time;
+        document.getElementById('heroServing').textContent = recipe.servings;
+        document.getElementById('heroChef').textContent = chef ? '👨‍🍳 ' + chef.name : '';
+        document.getElementById('heroDesc').textContent = recipe.description;
+        document.getElementById('heroBtn').href = `recipe-detail.html?id=${recipe.id}`;
+        setTimeout(() => {
+          document.getElementById('heroBg').classList.add('loaded');
+        }, 100);
+      }
+
+      setHero(featured[0]);
+
+      if (featured.length > 1) {
+        setInterval(() => {
+          idx = (idx + 1) % featured.length;
+          document.getElementById('heroBg').classList.remove('loaded');
+          setTimeout(() => setHero(featured[idx]), 300);
+        }, 8000);
+      }
+    }
+
+    // ── POPULATE ROWS ─────────────────────────
+    function populateRow(containerId, recipes) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      if (!recipes.length) {
+        container.innerHTML = '<p style="color:var(--text-muted);padding:0 5px;">Tiada resepi lagi.</p>';
+        return;
+      }
+      recipes.forEach(r => container.appendChild(buildRecipeCard(r)));
+    }
+
+    // ── POPULATE CHEFS ROW ────────────────────
+    function populateChefsRow() {
+      const container = document.getElementById('chefsRow');
+      CHEFS.forEach(chef => container.appendChild(buildChefCard(chef)));
+    }
+
+    // ── INIT ──────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      populateHero();
+      populateRow('popularRow', getPopularRecipes());
+      populateChefsRow();
+      populateRow('laukRow', getRecipesByCategory('Lauk'));
+      populateRow('kekRow', [...getRecipesByCategory('Kek'), ...getRecipesByCategory('Kuih')]);
+      // Kampung = Che Sayang's recipes
+      populateRow('kampungRow', getRecipesByChef('che-sayang'));
+    });
+  </script>
+
+</body>
+</html>
