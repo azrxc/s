@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resepi — ResipiLokal</title>
+  <meta name="description" content="Resepi masakan Malaysia terbaik di ResipiLokal."/>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- ✅ ADSENSE -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+  <style>
+    /* Lang toggle */
+    .lang-toggle {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      width: fit-content;
+      margin-bottom: 24px;
+    }
+    .lang-btn {
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* Ingredient checkbox */
+    .ingredient-item input[type="checkbox"] { display: none; }
+    .ingredient-item.checked {
+      opacity: 0.45;
+      text-decoration: line-through;
+    }
+    .ingredient-item { cursor: pointer; user-select: none; }
+
+    /* Step done state */
+    .step-item.done .step-num {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+    .step-item.done .step-text {
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    /* Share buttons */
+    .share-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .share-btn {
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg3);
+      color: var(--text);
+      transition: var(--transition);
+      font-family: inherit;
+    }
+    .share-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    /* Related recipes small cards */
+    .related-card {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+      margin-bottom: 10px;
+    }
+    .related-card:hover {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+    .related-card-thumb {
+      width: 64px; height: 64px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .related-card-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .related-card-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+    .related-card-meta {
+      font-size: 0.75rem;
+      color: var(--text-sub);
+    }
+
+    /* Progress bar */
+    .progress-bar-wrap {
+      background: var(--bg3);
+      border-radius: 99px;
+      height: 4px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 99px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    /* Sticky sidebar on desktop */
+    @media (min-width: 1025px) {
+      .sidebar-sticky {
+        position: sticky;
+        top: calc(var(--nav-h) + 24px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-text">Resepi<span>Lokal</span></span>
+      <span class="nav-logo-badge">MY</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chefs.html">Chef</a></li>
+      <li><a href="search.html">Semua Resepi</a></li>
+    </ul>
+    <div class="nav-search">
+      <a href="search.html" class="nav-search-btn">🔍</a>
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       RECIPE HERO
+  ══════════════════════════════════════════ -->
+  <div class="recipe-hero">
+    <div class="recipe-hero-bg" id="recipeHeroBg"></div>
+    <div class="recipe-hero-overlay"></div>
+    <div class="recipe-hero-content animate-up">
+      <!-- Breadcrumb -->
+      <div style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin-bottom:12px;">
+        <a href="index.html" style="color:inherit;">Home</a>
+        <span style="margin:0 6px;">›</span>
+        <a href="chefs.html" style="color:inherit;">Chef</a>
+        <span style="margin:0 6px;">›</span>
+        <a href="#" id="breadChef" style="color:var(--accent);">—</a>
+        <span style="margin:0 6px;">›</span>
+        <span id="breadTitle" style="color:rgba(255,255,255,0.7);">—</span>
+      </div>
+
+      <span class="hero-badge" id="recipeCatBadge">—</span>
+      <h1 class="hero-title font-display" id="recipeTitle">—</h1>
+      <div class="hero-meta" style="margin-top:10px;">
+        <span class="hero-meta-item">⏳ Prep: <strong id="recipePrep">—</strong></span>
+        <span class="hero-meta-item">🔥 Masak: <strong id="recipeCook">—</strong></span>
+        <span class="hero-meta-item">🍽 <strong id="recipeServing">—</strong> orang</span>
+        <span class="hero-meta-item">📊 <strong id="recipeDiff">—</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════ -->
+  <div class="recipe-main" id="recipeMain">
+
+    <!-- ── LEFT: Video + Steps ── -->
+    <div>
+
+      <!-- AD TOP -->
+      <div class="ad-banner" style="margin-bottom:28px;">
+        <!-- ✅ ADSENSE AD SLOT -->
+        <p>[ Iklan / Advertisement ]</p>
+      </div>
+
+      <!-- Language toggle -->
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnBM" onclick="setLang('bm')">🇲🇾 BM</button>
+        <button class="lang-btn" id="btnEN" onclick="setLang('en')">🇬🇧 English</button>
+      </div>
+
+      <!-- TikTok Video -->
+      <div class="recipe-video-wrap">
+        <div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+          <span style="font-size:1.1rem;">🎵</span>
+          <span style="font-weight:700;color:var(--white);font-size:0.95rem;">Video Resepi</span>
+          <span style="font-size:0.78rem;color:var(--text-muted);margin-left:auto;">via TikTok</span>
+        </div>
+        <div class="tiktok-embed-wrap" id="tiktokWrap">
+          <!-- TikTok embed loads here -->
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:400px;gap:16px;color:var(--text-muted);">
+            <div style="font-size:2.5rem;">🎵</div>
+            <p style="font-size:0.9rem;text-align:center;max-width:260px;line-height:1.6;">
+              Video TikTok akan dipaparkan di sini.<br>
+              <span style="color:var(--accent);font-size:0.8rem;">Tambah TikTok embed URL dalam data.js</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div style="margin-bottom:32px;">
+        <h2 class="recipe-section-title">Tentang Resepi</h2>
+        <p id="recipeDesc" style="color:var(--text-sub);line-height:1.8;font-size:0.95rem;">—</p>
+
+        <!-- Tags -->
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;" id="recipeTags"></div>
+      </div>
+
+      <!-- Ingredients -->
+      <div style="margin-bottom:36px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);">
+          <h2 class="recipe-section-title" style="margin:0;border:none;padding:0;">🥘 Bahan-bahan</h2>
+          <button onclick="clearIngredients()" style="font-size:0.78rem;color:var(--text-muted);background:none;border:none;cursor:pointer;font-family:inherit;">Reset ↺</button>
+        </div>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:14px;">💡 Tip: Klik pada bahan untuk tandakan sudah ada</p>
+        <div class="ingredients-list" id="ingredientsList"></div>
+      </div>
+
+      <!-- Steps with progress -->
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title">📋 Cara Memasak</h2>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:16px;">
+          💡 Tip: Klik pada langkah untuk tandakan selesai &nbsp;·&nbsp;
+          <span id="stepsProgress" style="color:var(--accent);">0 / 0 selesai</span>
+        </p>
+        <div class="steps-list" id="stepsList"></div>
+      </div>
+
+      <!-- AD BOTTOM LEFT -->
+      <div class="ad-banner" style="margin-bottom:32px;">
+        <!-- ✅ ADSENSE AD SLOT -->
+        <p>[ Iklan / Advertisement ]</p>
+      </div>
+
+      <!-- Share -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;margin-bottom:32px;">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--white);margin-bottom:6px;">📤 Kongsi Resepi Ini</h3>
+        <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:0;">Kongsi dengan kawan-kawan yang suka masak!</p>
+        <div class="share-row">
+          <button class="share-btn" onclick="shareWhatsApp()">📱 WhatsApp</button>
+          <button class="share-btn" onclick="shareTelegram()">✈️ Telegram</button>
+          <button class="share-btn" onclick="copyLink()">🔗 Salin Link</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── RIGHT: Sidebar ── -->
+    <div class="sidebar-sticky">
+
+      <!-- Chef mini card -->
+      <div class="sidebar-card" id="chefMiniWrap">
+        <div class="sidebar-card-title">👨‍🍳 Chef</div>
+        <div class="chef-mini" id="chefMiniCard"></div>
+        <div style="display:flex;gap:8px;margin-top:14px;" id="chefSocialMini"></div>
+      </div>
+
+      <!-- Recipe info grid -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">📊 Info Resepi</div>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-item-label">Prep</div>
+            <div class="info-item-val" id="sidePrep">—</div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-label">Masak</div>
+            <div class="info-item-val" id="sideCook">—</div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-label">Hidangan</div>
+            <div class="info-item-val" id="sideServing">—</div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-label">Tahap</div>
+            <div class="info-item-val" id="sideDiff">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AD sidebar -->
+      <div class="ad-banner" style="margin:0 0 20px;">
+        <!-- ✅ ADSENSE AD SLOT -->
+        <p>[ Iklan ]</p>
+      </div>
+
+      <!-- Related recipes -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">🍳 Resepi Lain Chef Ini</div>
+        <div id="relatedRecipes"></div>
+        <a id="allChefLink" href="#" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:8px;font-size:0.85rem;">
+          Lihat Semua →
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       MORE FROM THIS CATEGORY
+  ══════════════════════════════════════════ -->
+  <section style="padding:40px 0;background:var(--bg2);">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">🍛 Kategori Sama</div>
+        <h2 class="section-title" id="moreCatTitle">Resepi Lain</h2>
+      </div>
+      <a href="search.html" class="section-link">Lihat Semua →</a>
+    </div>
+    <div class="scroll-row" id="moreCatRow"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Resepi<span>Lokal</span></div>
+        <p class="footer-desc">Platform resepi chef & influencer masakan Malaysia. Tonton video, baca resepi, masak dengan mudah.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigasi</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chefs.html">Semua Chef</a></li>
+          <li><a href="search.html">Cari Resepi</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Lain-lain</div>
+        <ul class="footer-links-list">
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Dasar Privasi</a></li>
+          <li><a href="#">Hubungi Kami</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ResipiLokal.com — Dibuat dengan ❤️ untuk rakyat Malaysia</p>
+      <p style="font-size:0.78rem;color:var(--text-muted);">ResipiLokal bukan milik mana-mana chef. Hak cipta video milik pemilik asal.</p>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════ -->
+  <script src="data.js"></script>
+  <script>
+    // Mobile nav
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Get recipe ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const recipeId = params.get('id');
+    if (!recipeId) window.location.href = 'index.html';
+
+    const recipe = getRecipeById(recipeId);
+    if (!recipe) window.location.href = 'index.html';
+
+    const chef = getChefById(recipe.chef_id);
+
+    // ── Language state ────────────────────────
+    let currentLang = 'bm';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.getElementById('btnBM').classList.toggle('active', lang === 'bm');
+      document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+      renderIngredients();
+      renderSteps();
+      document.getElementById('recipeDesc').textContent =
+        lang === 'bm' ? recipe.description : recipe.description_en;
+      document.getElementById('recipeTitle').textContent =
+        lang === 'bm' ? recipe.title : recipe.title_en;
+    }
+
+    // ── Populate hero ─────────────────────────
+    document.title = `${recipe.title} — ResipiLokal`;
+    document.getElementById('recipeHeroBg').style.backgroundImage = `url('${recipe.thumbnail}')`;
+    document.getElementById('recipeTitle').textContent = recipe.title;
+    document.getElementById('recipeCatBadge').textContent = recipe.category;
+    document.getElementById('recipePrep').textContent = recipe.prep_time;
+    document.getElementById('recipeCook').textContent = recipe.cook_time;
+    document.getElementById('recipeServing').textContent = recipe.servings;
+    document.getElementById('recipeDiff').textContent = recipe.difficulty;
+    document.getElementById('recipeDesc').textContent = recipe.description;
+
+    // Breadcrumb
+    document.getElementById('breadTitle').textContent = recipe.title;
+    if (chef) {
+      const breadChef = document.getElementById('breadChef');
+      breadChef.textContent = chef.name;
+      breadChef.href = `chef-detail.html?id=${chef.id}`;
+    }
+
+    // Tags
+    const tagsEl = document.getElementById('recipeTags');
+    recipe.tags.forEach(t => {
+      const span = document.createElement('span');
+      span.className = 'tag';
+      span.textContent = t;
+      tagsEl.appendChild(span);
+    });
+
+    // Sidebar info
+    document.getElementById('sidePrep').textContent = recipe.prep_time;
+    document.getElementById('sideCook').textContent = recipe.cook_time;
+    document.getElementById('sideServing').textContent = recipe.servings + ' org';
+    document.getElementById('sideDiff').textContent = recipe.difficulty;
+
+    // ── TikTok embed ──────────────────────────
+    const tiktokWrap = document.getElementById('tiktokWrap');
+    // Check if a real embed URL is set (not the placeholder)
+    const isPlaceholder = recipe.tiktok_embed.includes('7100000000000000000') ||
+                          recipe.tiktok_embed.includes('7200000000000000000') ||
+                          recipe.tiktok_embed.includes('7300000000000000000') ||
+                          recipe.tiktok_embed.includes('7400000000000000000') ||
+                          recipe.tiktok_embed.includes('7500000000000000000') ||
+                          recipe.tiktok_embed.includes('7600000000000000000') ||
+                          recipe.tiktok_embed.includes('7700000000000000000') ||
+                          recipe.tiktok_embed.includes('7800000000000000000') ||
+                          recipe.tiktok_embed.includes('7900000000000000000');
+
+    if (!isPlaceholder && recipe.tiktok_embed) {
+      tiktokWrap.innerHTML = `
+        <iframe
+          src="${recipe.tiktok_embed}"
+          allowfullscreen
+          allow="encrypted-media;"
+          style="max-width:380px;width:100%;height:740px;border:none;">
+        </iframe>`;
+    }
+    // else shows the placeholder message already in HTML
+
+    // ── Chef mini card ────────────────────────
+    if (chef) {
+      const chefMini = document.getElementById('chefMiniCard');
+      chefMini.innerHTML = `
+        <div class="chef-mini-avatar">
+          <img src="${chef.image}" alt="${chef.name}"
+            onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(chef.name)}&background=f5a623&color=000&size=52'"/>
+        </div>
+        <div>
+          <div class="chef-mini-name">${chef.name}</div>
+          <div class="chef-mini-sub">👥 ${chef.followers} pengikut</div>
+          <div class="chef-mini-sub" style="margin-top:2px;">🍳 ${getRecipesByChef(chef.id).length} resepi</div>
+        </div>
+      `;
+      chefMini.addEventListener('click', () => {
+        window.location.href = `chef-detail.html?id=${chef.id}`;
+      });
+
+      document.getElementById('allChefLink').href = `chef-detail.html?id=${chef.id}`;
+
+      const socialMini = document.getElementById('chefSocialMini');
+      if (chef.tiktok) {
+        socialMini.innerHTML += `<a href="${chef.tiktok}" target="_blank" rel="noopener" class="btn btn-outline" style="flex:1;justify-content:center;padding:8px;font-size:0.78rem;">🎵 TikTok</a>`;
+      }
+      if (chef.youtube) {
+        socialMini.innerHTML += `<a href="${chef.youtube}" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;justify-content:center;padding:8px;font-size:0.78rem;">▶ YouTube</a>`;
+      }
+    }
+
+    // ── Related recipes (same chef, not this one) ──
+    const related = getRecipesByChef(recipe.chef_id).filter(r => r.id !== recipe.id).slice(0, 4);
+    const relatedEl = document.getElementById('relatedRecipes');
+    if (related.length) {
+      related.forEach(r => {
+        const card = document.createElement('div');
+        card.className = 'related-card';
+        card.innerHTML = `
+          <div class="related-card-thumb">
+            <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
+          </div>
+          <div>
+            <div class="related-card-title">${r.title}</div>
+            <div class="related-card-meta">⏱ ${r.cook_time} &nbsp;·&nbsp; 📊 ${r.difficulty}</div>
+          </div>
+        `;
+        card.addEventListener('click', () => {
+          window.location.href = `recipe-detail.html?id=${r.id}`;
+        });
+        relatedEl.appendChild(card);
+      });
+    } else {
+      relatedEl.innerHTML = '<p style="font-size:0.85rem;color:var(--text-muted);text-align:center;padding:12px 0;">Tiada resepi lain lagi.</p>';
+    }
+
+    // ── Ingredients with checkbox ─────────────
+    let checkedIngredients = new Set();
+
+    function renderIngredients() {
+      const list = currentLang === 'bm' ? recipe.ingredients : recipe.ingredients_en;
+      const el = document.getElementById('ingredientsList');
+      el.innerHTML = '';
+      list.forEach((item, i) => {
+        const div = document.createElement('div');
+        div.className = 'ingredient-item' + (checkedIngredients.has(i) ? ' checked' : '');
+        div.innerHTML = `<div class="ingredient-bullet"></div><span>${item}</span>`;
+        div.addEventListener('click', () => {
+          if (checkedIngredients.has(i)) checkedIngredients.delete(i);
+          else checkedIngredients.add(i);
+          renderIngredients();
+        });
+        el.appendChild(div);
+      });
+    }
+
+    function clearIngredients() {
+      checkedIngredients.clear();
+      renderIngredients();
+    }
+
+    // ── Steps with progress ───────────────────
+    let doneSteps = new Set();
+
+    function updateProgress() {
+      const total = recipe.steps.length;
+      const done = doneSteps.size;
+      const pct = total ? (done / total) * 100 : 0;
+      document.getElementById('progressBar').style.width = pct + '%';
+      document.getElementById('stepsProgress').textContent = `${done} / ${total} selesai`;
+    }
+
+    function renderSteps() {
+      const list = currentLang === 'bm' ? recipe.steps : recipe.steps;
+      const el = document.getElementById('stepsList');
+      el.innerHTML = '';
+      list.forEach((step, i) => {
+        const div = document.createElement('div');
+        div.className = 'step-item' + (doneSteps.has(i) ? ' done' : '');
+        div.innerHTML = `
+          <div class="step-num">${i + 1}</div>
+          <div class="step-text">${step}</div>
+        `;
+        div.addEventListener('click', () => {
+          if (doneSteps.has(i)) doneSteps.delete(i);
+          else doneSteps.add(i);
+          renderSteps();
+          updateProgress();
+        });
+        el.appendChild(div);
+      });
+      updateProgress();
+    }
+
+    // ── More from same category ───────────────
+    const moreCat = getRecipesByCategory(recipe.category)
+      .filter(r => r.id !== recipe.id)
+      .slice(0, 8);
+
+    document.getElementById('moreCatTitle').textContent = `Resepi ${recipe.category} Lain`;
+
+    const moreCatRow = document.getElementById('moreCatRow');
+    moreCat.forEach(r => {
+      const chef2 = getChefById(r.chef_id);
+      const card = document.createElement('div');
+      card.className = 'recipe-card';
+      card.innerHTML = `
+        <div class="recipe-card-thumb">
+          <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
+          <span class="recipe-card-cat">${r.category}</span>
+          <div class="recipe-card-bottom">
+            <div class="recipe-card-title">${r.title}</div>
+            <div class="recipe-card-chef">by ${chef2 ? chef2.name : ''}</div>
+          </div>
+        </div>
+        <div class="recipe-card-hover">
+          <div class="recipe-card-hover-title">${r.title}</div>
+          <div class="recipe-card-hover-meta">
+            <span>⏱ ${r.cook_time}</span>
+            <span>🍽 ${r.servings} org</span>
+          </div>
+          <p class="recipe-card-hover-desc">${r.description}</p>
+          <a href="recipe-detail.html?id=${r.id}" class="btn btn-primary">▶ Tengok Resepi</a>
+        </div>
+      `;
+      card.addEventListener('click', () => {
+        window.location.href = `recipe-detail.html?id=${r.id}`;
+      });
+      moreCatRow.appendChild(card);
+    });
+
+    if (!moreCat.length) {
+      moreCatRow.innerHTML = '<p style="color:var(--text-muted);padding:0 5%;">Tiada resepi lain dalam kategori ini buat masa ini.</p>';
+    }
+
+    // ── Share functions ───────────────────────
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function shareWhatsApp() {
+      const text = `Cuba resepi ${recipe.title} dari ${chef ? chef.name : 'ResipiLokal'}! 🍳\n${window.location.href}`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function shareTelegram() {
+      const text = `Cuba resepi ${recipe.title} dari ${chef ? chef.name : 'ResipiLokal'}! 🍳`;
+      window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showToast('✅ Link disalin!');
+      });
+    }
+
+    // ── INIT ──────────────────────────────────
+    renderIngredients();
+    renderSteps();
+  </script>
+
+</body>
+</html>
