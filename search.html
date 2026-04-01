@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cari Resepi — ResipiLokal</title>
+  <meta name="description" content="Cari resepi masakan Malaysia dari chef & influencer terbaik. Tapis mengikut kategori, chef dan tahap kesukaran."/>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- ✅ ADSENSE -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+  <style>
+    /* Search page specific styles */
+    .search-page-hero {
+      background: linear-gradient(135deg, var(--bg2) 0%, var(--bg) 100%);
+      padding: calc(var(--nav-h) + 40px) 5% 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .results-count {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding: 20px 5% 0;
+    }
+
+    .results-count strong { color: var(--accent); }
+
+    .no-results {
+      text-align: center;
+      padding: 80px 20px;
+      display: none;
+    }
+
+    .no-results-icon { font-size: 3.5rem; margin-bottom: 16px; }
+
+    .no-results h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .no-results p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+
+    /* Active filter pill */
+    .active-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 0 5%;
+      margin-top: 16px;
+    }
+
+    .active-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    .active-pill button {
+      background: none;
+      border: none;
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 0.85rem;
+      line-height: 1;
+      padding: 0;
+      font-family: inherit;
+    }
+
+    /* Sort dropdown */
+    .sort-select {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.83rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .sort-select:focus {
+      border-color: var(--accent);
+    }
+
+    /* Filter sidebar on desktop */
+    .search-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 32px;
+      padding: 28px 5%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .filter-sidebar {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      position: sticky;
+      top: calc(var(--nav-h) + 16px);
+    }
+
+    .filter-group { margin-bottom: 24px; }
+
+    .filter-group:last-child { margin-bottom: 0; }
+
+    .filter-group-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .filter-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      user-select: none;
+    }
+
+    .filter-option:hover {
+      background: var(--bg3);
+      color: var(--text);
+    }
+
+    .filter-option.active {
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .filter-option-count {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: var(--bg3);
+      padding: 2px 7px;
+      border-radius: 10px;
+    }
+
+    .filter-option.active .filter-option-count {
+      background: rgba(245,166,35,0.2);
+      color: var(--accent);
+    }
+
+    .clear-filters-btn {
+      width: 100%;
+      padding: 9px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: inherit;
+      transition: var(--transition);
+      margin-top: 4px;
+    }
+
+    .clear-filters-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Right side */
+    .search-right {}
+
+    .search-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* Mobile filter toggle */
+    .mobile-filter-btn {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+
+    .mobile-filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Mobile filter drawer */
+    .filter-drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+    }
+
+    .filter-drawer.open { display: block; }
+
+    .filter-drawer-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+    }
+
+    .filter-drawer-panel {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: var(--bg2);
+      border-radius: 20px 20px 0 0;
+      padding: 24px 20px 40px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .filter-drawer-handle {
+      width: 40px; height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      margin: 0 auto 20px;
+    }
+
+    @media (max-width: 900px) {
+      .search-layout {
+        grid-template-columns: 1fr;
+        padding: 20px 4%;
+      }
+      .filter-sidebar { display: none; }
+      .mobile-filter-btn { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-text">Resepi<span>Lokal</span></span>
+      <span class="nav-logo-badge">MY</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chefs.html">Chef</a></li>
+      <li><a href="search.html" class="active">Semua Resepi</a></li>
+    </ul>
+    <div class="nav-search">
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       SEARCH HERO
+  ══════════════════════════════════════════ -->
+  <div class="search-page-hero">
+    <div class="section-eyebrow animate-fade">🔍 Cari Resepi</div>
+    <h1 class="font-display animate-up" style="font-size:clamp(1.8rem,4vw,3rem);color:var(--white);margin:10px 0 24px;line-height:1.1;">
+      Jumpa Resepi<br><span style="color:var(--accent);">Kesukaan Kamu</span>
+    </h1>
+
+    <!-- Search bar -->
+    <div class="search-bar-wrap animate-up delay-1">
+      <input
+        type="text"
+        class="search-input"
+        id="searchInput"
+        placeholder="Cari resepi, chef, bahan... contoh: ayam, Khairul Aming, kek"
+        autocomplete="off"
+      />
+      <span class="search-icon">🔍</span>
+    </div>
+
+    <!-- Quick search suggestions -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;" id="quickSuggestions">
+      <span style="font-size:0.78rem;color:var(--text-muted);padding-top:6px;">Popular:</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       AD TOP
+  ══════════════════════════════════════════ -->
+  <div class="ad-banner" style="margin:16px 5% 0;">
+    <!-- ✅ ADSENSE AD SLOT -->
+    <p>[ Iklan / Advertisement ]</p>
+  </div>
+
+  <!-- Active filter pills -->
+  <div class="active-filters" id="activePills"></div>
+
+  <!-- Results count -->
+  <div class="results-count" id="resultsCount"></div>
+
+  <!-- ══════════════════════════════════════════
+       SEARCH LAYOUT (Sidebar + Results)
+  ══════════════════════════════════════════ -->
+  <div class="search-layout">
+
+    <!-- ── Filter Sidebar (desktop) ── -->
+    <aside class="filter-sidebar">
+
+      <!-- Category filter -->
+      <div class="filter-group">
+        <div class="filter-group-title">Kategori</div>
+        <div id="catFilterList"></div>
+      </div>
+
+      <!-- Chef filter -->
+      <div class="filter-group">
+        <div class="filter-group-title">Chef</div>
+        <div id="chefFilterList"></div>
+      </div>
+
+      <!-- Difficulty filter -->
+      <div class="filter-group">
+        <div class="filter-group-title">Tahap Kesukaran</div>
+        <div id="diffFilterList"></div>
+      </div>
+
+      <button class="clear-filters-btn" onclick="clearAllFilters()">↺ Reset Semua Filter</button>
+    </aside>
+
+    <!-- ── Right: Results ── -->
+    <div class="search-right">
+
+      <!-- Toolbar -->
+      <div class="search-toolbar">
+        <button class="mobile-filter-btn" id="mobileFilterBtn">
+          🎛 Filter
+          <span id="filterBadge" style="display:none;background:var(--accent);color:#000;font-size:0.68rem;font-weight:800;padding:1px 6px;border-radius:10px;"></span>
+        </button>
+        <select class="sort-select" id="sortSelect">
+          <option value="default">Susun: Default</option>
+          <option value="alpha">A - Z</option>
+          <option value="chef">Ikut Chef</option>
+          <option value="difficulty">Mudah Dahulu</option>
+        </select>
+      </div>
+
+      <!-- Recipe grid -->
+      <div class="results-grid" id="resultsGrid"></div>
+
+      <!-- No results -->
+      <div class="no-results" id="noResults">
+        <div class="no-results-icon">🍳</div>
+        <h3>Tiada resepi dijumpai</h3>
+        <p id="noResultsMsg">Cuba kata kunci lain atau tukar filter</p>
+        <button onclick="clearAllFilters()" class="btn btn-primary">↺ Reset Filter</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       AD BOTTOM
+  ══════════════════════════════════════════ -->
+  <div class="ad-banner" style="margin:0 5% 40px;">
+    <!-- ✅ ADSENSE AD SLOT -->
+    <p>[ Iklan / Advertisement ]</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       MOBILE FILTER DRAWER
+  ══════════════════════════════════════════ -->
+  <div class="filter-drawer" id="filterDrawer">
+    <div class="filter-drawer-overlay" id="drawerOverlay"></div>
+    <div class="filter-drawer-panel">
+      <div class="filter-drawer-handle"></div>
+      <h3 style="font-family:'Playfair Display',serif;color:var(--white);margin-bottom:20px;font-size:1.1rem;">🎛 Filter Resepi</h3>
+
+      <div style="margin-bottom:20px;">
+        <div class="filter-group-title">Kategori</div>
+        <div id="catFilterListMobile"></div>
+      </div>
+      <div style="margin-bottom:20px;">
+        <div class="filter-group-title">Chef</div>
+        <div id="chefFilterListMobile"></div>
+      </div>
+      <div style="margin-bottom:20px;">
+        <div class="filter-group-title">Tahap Kesukaran</div>
+        <div id="diffFilterListMobile"></div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:8px;">
+        <button onclick="clearAllFilters()" class="btn btn-ghost" style="flex:1;justify-content:center;">↺ Reset</button>
+        <button onclick="closeDrawer()" class="btn btn-primary" style="flex:1;justify-content:center;">✓ Guna Filter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Resepi<span>Lokal</span></div>
+        <p class="footer-desc">Platform resepi chef & influencer masakan Malaysia. Tonton video, baca resepi, masak dengan mudah.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigasi</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chefs.html">Semua Chef</a></li>
+          <li><a href="search.html">Cari Resepi</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Lain-lain</div>
+        <ul class="footer-links-list">
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Dasar Privasi</a></li>
+          <li><a href="#">Hubungi Kami</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ResipiLokal.com — Dibuat dengan ❤️ untuk rakyat Malaysia</p>
+      <p style="font-size:0.78rem;color:var(--text-muted);">ResipiLokal bukan milik mana-mana chef. Hak cipta video milik pemilik asal.</p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════ -->
+  <script src="data.js"></script>
+  <script>
+    // Mobile nav
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // ── Filter state ──────────────────────────
+    let activeQuery = '';
+    let activeCat   = 'all';
+    let activeChef  = 'all';
+    let activeDiff  = 'all';
+    let activeSort  = 'default';
+
+    // ── Read URL params (from category row links) ──
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('cat')) activeCat = urlParams.get('cat');
+    if (urlParams.get('chef')) activeChef = urlParams.get('chef');
+    if (urlParams.get('q')) {
+      activeQuery = urlParams.get('q');
+      document.getElementById('searchInput').value = activeQuery;
+    }
+
+    // ── Quick suggestions ─────────────────────
+    const suggestions = ['Ayam', 'Kek Coklat', 'Rendang', 'Nasi Goreng', 'Kuih', 'Seafood'];
+    const suggEl = document.getElementById('quickSuggestions');
+    suggestions.forEach(s => {
+      const chip = document.createElement('div');
+      chip.className = 'chip';
+      chip.textContent = s;
+      chip.addEventListener('click', () => {
+        document.getElementById('searchInput').value = s;
+        activeQuery = s;
+        renderResults();
+      });
+      suggEl.appendChild(chip);
+    });
+
+    // ── Build filter options ───────────────────
+    function buildFilterOptions(containerId, items, activeVal, setter) {
+      const el = document.getElementById(containerId);
+      if (!el) return;
+      el.innerHTML = '';
+
+      // "All" option
+      const allOpt = document.createElement('div');
+      allOpt.className = 'filter-option' + (activeVal === 'all' ? ' active' : '');
+      allOpt.innerHTML = `<span>Semua</span><span class="filter-option-count">${RECIPES.length}</span>`;
+      allOpt.addEventListener('click', () => { setter('all'); renderResults(); buildAllFilters(); });
+      el.appendChild(allOpt);
+
+      items.forEach(item => {
+        const count = item.count;
+        const val = item.value;
+        const label = item.label;
+        const opt = document.createElement('div');
+        opt.className = 'filter-option' + (activeVal === val ? ' active' : '');
+        opt.innerHTML = `<span>${label}</span><span class="filter-option-count">${count}</span>`;
+        opt.addEventListener('click', () => { setter(val); renderResults(); buildAllFilters(); });
+        el.appendChild(opt);
+      });
+    }
+
+    function buildAllFilters() {
+      // Categories
+      const catCounts = {};
+      RECIPES.forEach(r => { catCounts[r.category] = (catCounts[r.category] || 0) + 1; });
+      const catItems = Object.entries(catCounts).map(([k, v]) => ({ value: k, label: k, count: v }));
+
+      // Chefs
+      const chefItems = CHEFS.map(c => ({
+        value: c.id,
+        label: c.name,
+        count: getRecipesByChef(c.id).length
+      }));
+
+      // Difficulty
+      const diffCounts = {};
+      RECIPES.forEach(r => { diffCounts[r.difficulty] = (diffCounts[r.difficulty] || 0) + 1; });
+      const diffItems = Object.entries(diffCounts).map(([k, v]) => ({ value: k, label: k, count: v }));
+
+      // Desktop
+      buildFilterOptions('catFilterList',  catItems,  activeCat,  v => activeCat  = v);
+      buildFilterOptions('chefFilterList', chefItems, activeChef, v => activeChef = v);
+      buildFilterOptions('diffFilterList', diffItems, activeDiff, v => activeDiff = v);
+
+      // Mobile
+      buildFilterOptions('catFilterListMobile',  catItems,  activeCat,  v => activeCat  = v);
+      buildFilterOptions('chefFilterListMobile', chefItems, activeChef, v => activeChef = v);
+      buildFilterOptions('diffFilterListMobile', diffItems, activeDiff, v => activeDiff = v);
+
+      // Filter badge count
+      const activeCount = [activeCat, activeChef, activeDiff].filter(v => v !== 'all').length;
+      const badge = document.getElementById('filterBadge');
+      if (activeCount > 0) {
+        badge.style.display = 'inline';
+        badge.textContent = activeCount;
+      } else {
+        badge.style.display = 'none';
+      }
+
+      // Active pills
+      renderActivePills();
+    }
+
+    // ── Active pills ──────────────────────────
+    function renderActivePills() {
+      const el = document.getElementById('activePills');
+      el.innerHTML = '';
+
+      if (activeQuery) {
+        el.appendChild(makePill(`"${activeQuery}"`, () => {
+          activeQuery = '';
+          document.getElementById('searchInput').value = '';
+          renderResults(); buildAllFilters();
+        }));
+      }
+      if (activeCat !== 'all') {
+        el.appendChild(makePill(activeCat, () => { activeCat = 'all'; renderResults(); buildAllFilters(); }));
+      }
+      if (activeChef !== 'all') {
+        const chef = getChefById(activeChef);
+        el.appendChild(makePill(chef ? chef.name : activeChef, () => { activeChef = 'all'; renderResults(); buildAllFilters(); }));
+      }
+      if (activeDiff !== 'all') {
+        el.appendChild(makePill(activeDiff, () => { activeDiff = 'all'; renderResults(); buildAllFilters(); }));
+      }
+    }
+
+    function makePill(label, onRemove) {
+      const pill = document.createElement('div');
+      pill.className = 'active-pill';
+      pill.innerHTML = `${label}<button onclick="void(0)">✕</button>`;
+      pill.querySelector('button').addEventListener('click', onRemove);
+      return pill;
+    }
+
+    // ── Main render ───────────────────────────
+    function renderResults() {
+      let results = [...RECIPES];
+
+      // Query filter
+      if (activeQuery.trim()) {
+        const q = activeQuery.toLowerCase();
+        results = results.filter(r =>
+          r.title.toLowerCase().includes(q) ||
+          r.title_en.toLowerCase().includes(q) ||
+          r.tags.some(t => t.toLowerCase().includes(q)) ||
+          r.category.toLowerCase().includes(q) ||
+          getChefById(r.chef_id)?.name.toLowerCase().includes(q) ||
+          r.ingredients.some(i => i.toLowerCase().includes(q))
+        );
+      }
+
+      // Category filter
+      if (activeCat !== 'all') results = results.filter(r => r.category === activeCat);
+
+      // Chef filter
+      if (activeChef !== 'all') results = results.filter(r => r.chef_id === activeChef);
+
+      // Difficulty filter
+      if (activeDiff !== 'all') results = results.filter(r => r.difficulty === activeDiff);
+
+      // Sort
+      const sort = document.getElementById('sortSelect').value;
+      if (sort === 'alpha') results.sort((a, b) => a.title.localeCompare(b.title));
+      else if (sort === 'chef') results.sort((a, b) => a.chef_id.localeCompare(b.chef_id));
+      else if (sort === 'difficulty') {
+        const order = { 'Mudah': 0, 'Sederhana': 1, 'Susah': 2 };
+        results.sort((a, b) => (order[a.difficulty] ?? 9) - (order[b.difficulty] ?? 9));
+      }
+
+      // Update count
+      const countEl = document.getElementById('resultsCount');
+      if (activeQuery || activeCat !== 'all' || activeChef !== 'all' || activeDiff !== 'all') {
+        countEl.innerHTML = `Menunjukkan <strong>${results.length}</strong> resepi`;
+      } else {
+        countEl.innerHTML = `Semua resepi — <strong>${results.length}</strong> resepi`;
+      }
+
+      // Render grid
+      const grid = document.getElementById('resultsGrid');
+      const noRes = document.getElementById('noResults');
+      grid.innerHTML = '';
+
+      if (!results.length) {
+        noRes.style.display = 'block';
+        const q = activeQuery;
+        document.getElementById('noResultsMsg').textContent =
+          q ? `Tiada resepi untuk "${q}". Cuba kata kunci lain.` : 'Cuba tukar atau reset filter.';
+        return;
+      }
+
+      noRes.style.display = 'none';
+      results.forEach((r, i) => {
+        const chef = getChefById(r.chef_id);
+        const card = document.createElement('div');
+        card.className = 'recipe-card animate-up';
+        card.style.animationDelay = `${Math.min(i, 12) * 0.05}s`;
+        card.innerHTML = `
+          <div class="recipe-card-thumb">
+            <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
+            <span class="recipe-card-cat">${r.category}</span>
+            <div class="recipe-card-bottom">
+              <div class="recipe-card-title">${r.title}</div>
+              <div class="recipe-card-chef">by ${chef ? chef.name : ''}</div>
+            </div>
+          </div>
+          <div class="recipe-card-hover">
+            <div class="recipe-card-hover-title">${r.title}</div>
+            <div class="recipe-card-hover-meta">
+              <span>⏱ ${r.cook_time}</span>
+              <span>🍽 ${r.servings} org</span>
+              <span>📊 ${r.difficulty}</span>
+            </div>
+            <p class="recipe-card-hover-desc">${r.description}</p>
+            <a href="recipe-detail.html?id=${r.id}" class="btn btn-primary">▶ Tengok Resepi</a>
+          </div>
+        `;
+        card.addEventListener('click', () => {
+          window.location.href = `recipe-detail.html?id=${r.id}`;
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    function clearAllFilters() {
+      activeQuery = '';
+      activeCat   = 'all';
+      activeChef  = 'all';
+      activeDiff  = 'all';
+      document.getElementById('searchInput').value = '';
+      renderResults();
+      buildAllFilters();
+      closeDrawer();
+    }
+
+    // ── Search input ──────────────────────────
+    let searchTimeout;
+    document.getElementById('searchInput').addEventListener('input', e => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        activeQuery = e.target.value;
+        renderResults();
+        buildAllFilters();
+      }, 300);
+    });
+
+    // Sort change
+    document.getElementById('sortSelect').addEventListener('change', () => {
+      activeSort = document.getElementById('sortSelect').value;
+      renderResults();
+    });
+
+    // ── Mobile drawer ─────────────────────────
+    document.getElementById('mobileFilterBtn').addEventListener('click', () => {
+      document.getElementById('filterDrawer').classList.add('open');
+    });
+
+    document.getElementById('drawerOverlay').addEventListener('click', closeDrawer);
+
+    function closeDrawer() {
+      document.getElementById('filterDrawer').classList.remove('open');
+    }
+
+    // ── INIT ──────────────────────────────────
+    buildAllFilters();
+    renderResults();
+  </script>
+
+</body>
+</html>
