@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Semua Chef — ResipiLokal</title>
+  <meta name="description" content="Terokai resepi dari chef & influencer masakan Malaysia terbaik. Khairul Aming, Azie Kitchen, Che Sayang dan ramai lagi!"/>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- ✅ ADSENSE -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-text">Resepi<span>Lokal</span></span>
+      <span class="nav-logo-badge">MY</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chefs.html" class="active">Chef</a></li>
+      <li><a href="search.html">Semua Resepi</a></li>
+    </ul>
+    <div class="nav-search">
+      <a href="search.html" class="nav-search-btn" title="Cari resepi">🔍</a>
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       PAGE HERO
+  ══════════════════════════════════════════ -->
+  <div style="
+    background: linear-gradient(to bottom, var(--bg2), var(--bg));
+    padding: calc(var(--nav-h) + 48px) 5% 48px;
+    border-bottom: 1px solid var(--border);
+  ">
+    <div class="section-eyebrow animate-fade">👨‍🍳 Direktori Chef</div>
+    <h1 class="font-display animate-up" style="
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--white);
+      margin: 10px 0 14px;
+      line-height: 1.1;
+    ">Chef & Influencer<br><span style="color:var(--accent);">Masakan Malaysia</span></h1>
+    <p class="animate-up delay-1" style="color:var(--text-sub); max-width:520px; line-height:1.7; font-size:0.95rem;">
+      Terokai koleksi resepi dari chef dan influencer masakan Malaysia yang paling popular. Klik pada chef untuk tengok semua resepi mereka.
+    </p>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       AD BANNER
+  ══════════════════════════════════════════ -->
+  <div class="ad-banner" style="margin-top:20px;">
+    <!-- ✅ ADSENSE AD SLOT -->
+    <p>[ Iklan / Advertisement ]</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       STATS BAR
+  ══════════════════════════════════════════ -->
+  <div style="
+    display:flex; gap:32px; padding:24px 5%;
+    border-bottom:1px solid var(--border);
+    flex-wrap:wrap;
+  " id="statsBar">
+    <div>
+      <div style="font-size:1.6rem;font-weight:800;color:var(--white);font-family:'Playfair Display',serif;" id="statChefs">—</div>
+      <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">Chef Berdaftar</div>
+    </div>
+    <div>
+      <div style="font-size:1.6rem;font-weight:800;color:var(--white);font-family:'Playfair Display',serif;" id="statRecipes">—</div>
+      <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">Jumlah Resepi</div>
+    </div>
+    <div>
+      <div style="font-size:1.6rem;font-weight:800;color:var(--accent);font-family:'Playfair Display',serif;">100%</div>
+      <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">Percuma</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       CHEFS GRID
+  ══════════════════════════════════════════ -->
+  <div class="chefs-grid" id="chefsGrid"></div>
+
+  <!-- ══════════════════════════════════════════
+       AD BOTTOM
+  ══════════════════════════════════════════ -->
+  <div class="ad-banner" style="margin: 0 5% 40px;">
+    <!-- ✅ ADSENSE AD SLOT -->
+    <p>[ Iklan / Advertisement ]</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Resepi<span>Lokal</span></div>
+        <p class="footer-desc">Platform resepi chef & influencer masakan Malaysia. Tonton video, baca resepi, masak dengan mudah.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigasi</div>
+        <ul class="footer-links-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chefs.html">Semua Chef</a></li>
+          <li><a href="search.html">Cari Resepi</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Lain-lain</div>
+        <ul class="footer-links-list">
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Dasar Privasi</a></li>
+          <li><a href="#">Hubungi Kami</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ResipiLokal.com — Dibuat dengan ❤️ untuk rakyat Malaysia</p>
+      <p style="font-size:0.78rem;color:var(--text-muted);">ResipiLokal bukan milik mana-mana chef. Hak cipta video milik pemilik asal.</p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════ -->
+  <script src="data.js"></script>
+  <script>
+    // Mobile nav
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Stats
+    document.getElementById('statChefs').textContent = CHEFS.length;
+    document.getElementById('statRecipes').textContent = RECIPES.length;
+
+    // Build big chef card
+    function buildChefBigCard(chef) {
+      const recipeCount = getRecipesByChef(chef.id).length;
+      const card = document.createElement('div');
+      card.className = 'chef-big-card animate-up';
+      card.innerHTML = `
+        <div class="chef-big-card-cover" style="background-image:url('${chef.cover}')"></div>
+        <div class="chef-big-card-body">
+          <div class="chef-big-card-avatar">
+            <img src="${chef.image}" alt="${chef.name}"
+              onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(chef.name)}&background=f5a623&color=000&size=120'"/>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+            <div class="chef-big-card-name">${chef.name}</div>
+            ${chef.verified ? '<span style="background:var(--accent);color:#000;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;">✓ VERIFIED</span>' : ''}
+          </div>
+          <div class="chef-big-card-followers">👥 ${chef.followers} pengikut &nbsp;·&nbsp; 🍳 ${recipeCount} resepi</div>
+          <div class="chef-big-card-tags">
+            ${chef.speciality.map(s => `<span class="tag">${s}</span>`).join('')}
+          </div>
+          <p style="font-size:0.85rem;color:var(--text-sub);line-height:1.6;margin-bottom:18px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+            ${chef.bio}
+          </p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="chef-detail.html?id=${chef.id}" class="btn btn-primary" style="flex:1;justify-content:center;padding:10px;">
+              🍳 Lihat Resepi
+            </a>
+            ${chef.tiktok ? `<a href="${chef.tiktok}" target="_blank" rel="noopener" class="btn btn-outline" style="padding:10px 16px;" onclick="event.stopPropagation()">TikTok ↗</a>` : ''}
+          </div>
+        </div>
+      `;
+      card.addEventListener('click', () => {
+        window.location.href = `chef-detail.html?id=${chef.id}`;
+      });
+      return card;
+    }
+
+    // Render all chefs
+    const grid = document.getElementById('chefsGrid');
+    CHEFS.forEach((chef, i) => {
+      const card = buildChefBigCard(chef);
+      card.style.animationDelay = `${i * 0.1}s`;
+      grid.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
