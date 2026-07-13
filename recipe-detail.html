@@ -567,7 +567,7 @@
     }
 
     function renderSteps() {
-      const list = currentLang === 'bm' ? recipe.steps : recipe.steps;
+      const list = currentLang === 'bm' ? recipe.steps : (recipe.steps_en || recipe.steps);
       const el = document.getElementById('stepsList');
       el.innerHTML = '';
       list.forEach((step, i) => {
