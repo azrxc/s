@@ -13409,3 +13409,80 @@ const CATEGORIES = [
   { id: "sarapan", name: "Sarapan", emoji: "🍳" },
   { id: "western", name: "Western", emoji: "🍔" },
 ];
+
+// ── AFFILIATE LINKS (Shopee / TikTok Shop) ───────────────────
+// ✅ LETAK LINK AFFILIATE ANDA DI SINI — satu baris satu produk.
+//    Kunci = perkataan bahan (huruf kecil, Bahasa Malaysia).
+//    Nilai = URL affiliate anda (Shopee ATAU TikTok Shop).
+//    Mana-mana bahan dalam SEMUA resepi yang mengandungi perkataan itu
+//    akan papar butang "🛒 Beli" secara automatik.
+//    Biarkan "" untuk sembunyikan butang bagi produk itu.
+// Contoh / Example:
+//    "kicap manis": "https://s.shopee.com.my/ABC123",
+//    "santan": "https://vt.tiktok.com/ZSxxxxxxx/",
+const AFFILIATE_LINKS = {
+  "sambal nyet": "",
+  "dendeng nyet": "",
+  "santan": "",
+  "kicap manis": "",
+  "kicap": "",
+  "sos tiram": "",
+  "sos cili": "",
+  "sos tomato": "",
+  "serbuk kunyit": "",
+  "serbuk kari": "",
+  "serbuk cili": "",
+  "serbuk ketumbar": "",
+  "cili kering": "",
+  "cili padi": "",
+  "cili kisar": "",
+  "belacan": "",
+  "ikan bilis": "",
+  "minyak zaitun": "",
+  "minyak masak": "",
+  "tepung gandum": "",
+  "tepung jagung": "",
+  "tepung beras": "",
+  "gula melaka": "",
+  "susu pekat": "",
+  "susu cair": "",
+  "mentega": "",
+  "butter": "",
+  "keju": "",
+  "cheese": "",
+  "maggi": "",
+  "spaghetti": "",
+  "bawang putih": "",
+  "bawang merah": "",
+  "bawang besar": "",
+  "halia": "",
+  "serai": "",
+  "telur": "",
+  "ayam": "",
+  "udang": "",
+  "sotong": "",
+  "daging": "",
+  "beras": "",
+  "air fryer": "",
+  "periuk": "",
+  "kuali": "",
+};
+
+// Cari link affiliate untuk satu baris bahan.
+// Padanan kata kunci paling panjang menang (cth. "kicap manis" menang atas "kicap").
+function findAffiliateLink(text) {
+  if (!text) return "";
+  const t = String(text).toLowerCase();
+  let best = "";
+  let bestLen = 0;
+  for (const key in AFFILIATE_LINKS) {
+    const url = AFFILIATE_LINKS[key];
+    if (!url) continue;
+    const k = key.toLowerCase();
+    if (t.indexOf(k) !== -1 && k.length > bestLen) {
+      best = url;
+      bestLen = k.length;
+    }
+  }
+  return best;
+}

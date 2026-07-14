@@ -44,6 +44,25 @@
     }
     .ingredient-item { cursor: pointer; user-select: none; }
 
+    /* Affiliate buy button */
+    .ing-buy {
+      margin-left: auto;
+      flex-shrink: 0;
+      padding: 4px 12px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 99px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .ing-buy:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
     /* Step done state */
     .step-item.done .step-num {
       background: var(--accent);
@@ -473,6 +492,17 @@
           allow="encrypted-media;"
           style="max-width:380px;width:100%;height:740px;border:none;">
         </iframe>`;
+    } else if (chef && chef.tiktok) {
+      tiktokWrap.innerHTML = `
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:400px;gap:16px;color:var(--text-muted);">
+          <div style="font-size:2.5rem;">🎵</div>
+          <p style="font-size:0.9rem;text-align:center;max-width:280px;line-height:1.6;">
+            Video untuk resepi ini belum tersedia di sini.
+          </p>
+          <a href="${chef.tiktok}" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:0.85rem;">
+            🎵 Tonton di TikTok ${chef.name}
+          </a>
+        </div>`;
     }
     // else shows the placeholder message already in HTML
 
@@ -540,8 +570,15 @@
       list.forEach((item, i) => {
         const div = document.createElement('div');
         div.className = 'ingredient-item' + (checkedIngredients.has(i) ? ' checked' : '');
-        div.innerHTML = `<div class="ingredient-bullet"></div><span>${item}</span>`;
-        div.addEventListener('click', () => {
+        // Affiliate link: match against BM text (keywords are in Malay) + shown text
+        const bmText = (recipe.ingredients && recipe.ingredients[i]) ? recipe.ingredients[i] : '';
+        const buyUrl = (typeof findAffiliateLink === 'function') ? findAffiliateLink(bmText + ' ' + item) : '';
+        const buyBtn = buyUrl
+          ? `<a class="ing-buy" href="${buyUrl}" target="_blank" rel="sponsored noopener">🛒 Beli</a>`
+          : '';
+        div.innerHTML = `<div class="ingredient-bullet"></div><span style="flex:1;">${item}</span>${buyBtn}`;
+        div.addEventListener('click', (e) => {
+          if (e.target.closest && e.target.closest('.ing-buy')) return; // don't toggle when buying
           if (checkedIngredients.has(i)) checkedIngredients.delete(i);
           else checkedIngredients.add(i);
           renderIngredients();
