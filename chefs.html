@@ -37,7 +37,7 @@
       <li><a href="/chefs.html" class="active" style="color: var(--accent);">Chef</a></li>
       <li><a href="/search.html">Semua Resepi</a></li>
     <li><a href="/categories.html">Kategori</a></li></ul>
-    <div class="nav-search"><button id="themeToggle" class="nav-search-btn" type="button" aria-label="Tukar tema terang/gelap">☀️</button>
+    <div class="nav-search"><a id="favNavLink" href="/favorites.html" class="nav-search-btn" aria-label="Kegemaran saya">♥</a><button id="themeToggle" class="nav-search-btn" type="button" aria-label="Tukar tema terang/gelap">☀️</button>
       <a href="/search.html" class="nav-search-btn" title="Cari resepi">🔍</a>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
@@ -96,7 +96,7 @@
   <!-- ══════════════════════════════════════════
        CHEFS GRID
   ══════════════════════════════════════════ -->
-  <div class="chefs-grid" id="chefsGrid"><div class="chef-big-card animate-up" style="animation-delay: 0s;">
+  <div class="chefs-grid" id="chefsGrid"><div class="chef-big-card animate-up" data-chef-id="khairul-aming" style="animation-delay: 0s;">
         <div class="chef-big-card-cover" style="background-image:url('https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Nasi-Lemak.webp?fit=1080%2C1920&amp;ssl=1')"></div>
         <div class="chef-big-card-body">
           <div class="chef-big-card-avatar">
@@ -120,7 +120,7 @@
             <a href="https://www.tiktok.com/@khairulaming" target="_blank" rel="noopener" class="btn btn-outline" style="padding:10px 16px;" onclick="event.stopPropagation()">TikTok ↗</a>
           </div>
         </div>
-      </div><div class="chef-big-card animate-up" style="animation-delay: 0.1s;">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></div><div class="chef-big-card animate-up" data-chef-id="che-sayang" style="animation-delay: 0.1s;">
         <div class="chef-big-card-cover" style="background-image:url('/images/recipes/cs-ayam-masak-merah.jpg')"></div>
         <div class="chef-big-card-body">
           <div class="chef-big-card-avatar">
@@ -144,7 +144,7 @@
             <a href="https://www.tiktok.com/@chesayang_kitchen" target="_blank" rel="noopener" class="btn btn-outline" style="padding:10px 16px;" onclick="event.stopPropagation()">TikTok ↗</a>
           </div>
         </div>
-      </div></div>
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></div></div>
 
   <!-- ══════════════════════════════════════════
        AD BOTTOM
@@ -176,6 +176,7 @@
             <li><a href="/chefs.html">Semua Chef</a></li>
             <li><a href="/search.html">Cari Resepi</a></li>
             <li><a href="/categories.html">Kategori</a></li>
+            <li><a href="/favorites.html">Kegemaran Saya</a></li>
             <li><a href="/faq.html">Soalan Lazim</a></li>
           </ul>
         </div>
@@ -214,6 +215,7 @@
       const recipeCount = getRecipesByChef(chef.id).length;
       const card = document.createElement('div');
       card.className = 'chef-big-card animate-up';
+      card.dataset.chefId = chef.id;
       card.innerHTML = `
         <div class="chef-big-card-cover" style="background-image:url('${chef.cover}')"></div>
         <div class="chef-big-card-body">

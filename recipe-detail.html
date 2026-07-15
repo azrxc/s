@@ -234,7 +234,10 @@
         <span id="breadTitle" style="color:rgba(255,255,255,0.7);">—</span>
       </div>
 
-      <span class="hero-badge" id="recipeCatBadge">—</span>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span class="hero-badge" id="recipeCatBadge">—</span>
+        <button type="button" id="pageFavBtn" class="btn btn-outline" style="padding:6px 14px;font-size:0.85rem;">♡ Kegemaran</button>
+      </div>
       <h1 class="hero-title font-display" id="recipeTitle">—</h1>
       <div class="hero-meta" style="margin-top:10px;">
         <span class="hero-meta-item">⏳ Prep: <strong id="recipePrep">—</strong></span>
@@ -523,6 +526,7 @@
 
     // ── Populate hero ─────────────────────────
     document.title = `${recipe.title} — ResipiLokal`;
+    document.getElementById('pageFavBtn').dataset.recipeId = recipe.id;
     document.getElementById('recipeHeroBg').style.backgroundImage = `url('${recipe.thumbnail}')`;
     document.getElementById('recipeTitle').textContent = recipe.title;
     document.getElementById('recipeCatBadge').textContent = recipe.category;
@@ -542,6 +546,7 @@
 
     // Tags
     const tagsEl = document.getElementById('recipeTags');
+    tagsEl.innerHTML = '';
     recipe.tags.forEach(t => {
       const span = document.createElement('span');
       span.className = 'tag';
@@ -786,11 +791,13 @@
     // ── Related recipes (same chef, not this one) ──
     const related = getRecipesByChef(recipe.chef_id).filter(r => r.id !== recipe.id).slice(0, 4);
     const relatedEl = document.getElementById('relatedRecipes');
+    relatedEl.innerHTML = '';
     if (related.length) {
       related.forEach(r => {
         const card = document.createElement('a');
         card.className = 'related-card';
         card.href = recipeUrl(r.id);
+        card.dataset.recipeId = r.id;
         card.innerHTML = `
           <div class="related-card-thumb">
             <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
@@ -889,6 +896,7 @@
     document.getElementById('moreCatTitle').textContent = `Resepi ${recipe.category} Lain`;
 
     const moreCatRow = document.getElementById('moreCatRow');
+    moreCatRow.innerHTML = '';
     moreCat.forEach(r => {
       const chef2 = getChefById(r.chef_id);
       // A real <a> so it's a single tap on mobile and crawlable — same fix
@@ -896,6 +904,7 @@
       const card = document.createElement('a');
       card.className = 'recipe-card';
       card.href = recipeUrl(r.id);
+      card.dataset.recipeId = r.id;
       card.innerHTML = `
         <div class="recipe-card-thumb">
           <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>

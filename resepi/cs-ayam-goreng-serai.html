@@ -209,7 +209,7 @@
       <li><a href="/chefs.html">Chef</a></li>
       <li><a href="/search.html">Semua Resepi</a></li>
     <li><a href="/categories.html">Kategori</a></li></ul>
-    <div class="nav-search"><button id="themeToggle" class="nav-search-btn" type="button" aria-label="Tukar tema terang/gelap">☀️</button>
+    <div class="nav-search"><a id="favNavLink" href="/favorites.html" class="nav-search-btn" aria-label="Kegemaran saya">♥</a><button id="themeToggle" class="nav-search-btn" type="button" aria-label="Tukar tema terang/gelap">☀️</button>
       <a href="/search.html" class="nav-search-btn">🔍</a>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
@@ -233,7 +233,10 @@
         <span id="breadTitle" style="color:rgba(255,255,255,0.7);">Ayam Goreng Serai</span>
       </div>
 
-      <span class="hero-badge" id="recipeCatBadge">Lauk</span>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span class="hero-badge" id="recipeCatBadge">Lauk</span>
+        <button type="button" id="pageFavBtn" class="btn btn-outline" style="padding:6px 14px;font-size:0.85rem;" data-recipe-id="cs-ayam-goreng-serai">♡ Kegemaran</button>
+      </div>
       <h1 class="hero-title font-display" id="recipeTitle">Ayam Goreng Serai</h1>
       <div class="hero-meta" style="margin-top:10px;">
         <span class="hero-meta-item">⏳ Prep: <strong id="recipePrep">15 minit</strong></span>
@@ -497,7 +500,7 @@
       <!-- Related recipes -->
       <div class="sidebar-card">
         <div class="sidebar-card-title">🍳 Resepi Lain Chef Ini</div>
-        <div id="relatedRecipes"><a class="related-card" href="/resepi/cs-gulai-nangka-muda.html">
+        <div id="relatedRecipes"><a class="related-card" href="/resepi/cs-gulai-nangka-muda.html" data-recipe-id="cs-gulai-nangka-muda">
           <div class="related-card-thumb">
             <img src="/images/recipes/cs-gulai-nangka-muda.jpg" alt="Gulai Nangka Muda dengan Ikan Kurau Masin" loading="lazy" class="img-loaded">
           </div>
@@ -505,7 +508,7 @@
             <div class="related-card-title">Gulai Nangka Muda dengan Ikan Kurau Masin</div>
             <div class="related-card-meta">⏱ 25 minit &nbsp;·&nbsp; 📊 Sederhana</div>
           </div>
-        </a><a class="related-card" href="/resepi/cs-tilapia-goreng-sambal-santan.html">
+        <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="related-card" href="/resepi/cs-tilapia-goreng-sambal-santan.html" data-recipe-id="cs-tilapia-goreng-sambal-santan">
           <div class="related-card-thumb">
             <img src="/images/recipes/cs-tilapia-goreng-sambal-santan.jpg" alt="Tilapia Goreng Sambal Santan" loading="lazy" class="img-loaded">
           </div>
@@ -513,7 +516,7 @@
             <div class="related-card-title">Tilapia Goreng Sambal Santan</div>
             <div class="related-card-meta">⏱ 20 minit &nbsp;·&nbsp; 📊 Mudah</div>
           </div>
-        </a><a class="related-card" href="/resepi/cs-ayam-bakar-baker-cottage.html">
+        <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="related-card" href="/resepi/cs-ayam-bakar-baker-cottage.html" data-recipe-id="cs-ayam-bakar-baker-cottage">
           <div class="related-card-thumb">
             <img src="/images/recipes/cs-ayam-bakar-baker-cottage.jpg" alt="Ayam Bakar ala Baker Cottage" loading="lazy" class="img-loaded">
           </div>
@@ -521,7 +524,7 @@
             <div class="related-card-title">Ayam Bakar ala Baker Cottage</div>
             <div class="related-card-meta">⏱ 25 minit &nbsp;·&nbsp; 📊 Mudah</div>
           </div>
-        </a><a class="related-card" href="/resepi/cs-pizza-frying-pan.html">
+        <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="related-card" href="/resepi/cs-pizza-frying-pan.html" data-recipe-id="cs-pizza-frying-pan">
           <div class="related-card-thumb">
             <img src="/images/recipes/cs-pizza-frying-pan.jpg" alt="Pizza Frying Pan (Pizza Kampung)" loading="lazy" class="img-loaded">
           </div>
@@ -529,7 +532,7 @@
             <div class="related-card-title">Pizza Frying Pan (Pizza Kampung)</div>
             <div class="related-card-meta">⏱ 15 minit &nbsp;·&nbsp; 📊 Sederhana</div>
           </div>
-        </a></div>
+        <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a></div>
         <a id="allChefLink" href="/chef/che-sayang.html" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:8px;font-size:0.85rem;">
           Lihat Semua →
         </a>
@@ -549,7 +552,7 @@
       </div>
       <a href="/search.html" class="section-link">Lihat Semua →</a>
     </div>
-    <div class="scroll-row" id="moreCatRow"><a class="recipe-card" href="/resepi/ka-rendang-2-kilo-daging.html">
+    <div class="scroll-row" id="moreCatRow"><a class="recipe-card" href="/resepi/ka-rendang-2-kilo-daging.html" data-recipe-id="ka-rendang-2-kilo-daging">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Rendang-2-Kilo-Daging.webp?fit=1080%2C1920&amp;ssl=1" alt="Rendang 2 Kilo Daging" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Lauk</span>
@@ -567,7 +570,7 @@
           <p class="recipe-card-hover-desc">Resepi Rendang 2 Kilo Daging daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/ka-ayam-masak-ros-kacang-buncis-goreng-telur.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/ka-ayam-masak-ros-kacang-buncis-goreng-telur.html" data-recipe-id="ka-ayam-masak-ros-kacang-buncis-goreng-telur">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Ayam-Masak-Ros-Kacang-Buncis-Goreng-Telur.webp?fit=1080%2C1920&amp;ssl=1" alt="Ayam Masak Ros &amp; Kacang Buncis Goreng Telur" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Lauk</span>
@@ -585,7 +588,7 @@
           <p class="recipe-card-hover-desc">Resepi Ayam Masak Ros &amp; Kacang Buncis Goreng Telur daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/ka-telur-dadar-pad-kra-pao.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/ka-telur-dadar-pad-kra-pao.html" data-recipe-id="ka-telur-dadar-pad-kra-pao">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Telur-Dadar-Pad-Kra-Pao.webp?fit=720%2C1280&amp;ssl=1" alt="Telur Dadar Pad Kra Pao" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Lauk</span>
@@ -603,7 +606,7 @@
           <p class="recipe-card-hover-desc">Resepi Telur Dadar Pad Kra Pao daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/ka-ayam-goreng-bawang-putih-telur-itik-masak-lemak-cili-api.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/ka-ayam-goreng-bawang-putih-telur-itik-masak-lemak-cili-api.html" data-recipe-id="ka-ayam-goreng-bawang-putih-telur-itik-masak-lemak-cili-api">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Ayam-Goreng-Bawang-Putih-Telur-Itik-Masak-Lemak-Cili-Api.webp?fit=720%2C1280&amp;ssl=1" alt="Ayam Goreng Bawang Putih &amp; Telur Itik Masak Lemak Cili Api" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Lauk</span>
@@ -621,7 +624,7 @@
           <p class="recipe-card-hover-desc">Resepi Ayam Goreng Bawang Putih &amp; Telur Itik Masak Lemak Cili Api daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/ka-cheezy-korean-chicken.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/ka-cheezy-korean-chicken.html" data-recipe-id="ka-cheezy-korean-chicken">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Cheezy-Korean-Chicken.webp?fit=720%2C1280&amp;ssl=1" alt="Cheezy Korean Chicken" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Lauk</span>
@@ -639,7 +642,7 @@
           <p class="recipe-card-hover-desc">Resepi Cheezy Korean Chicken daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/ka-rendang-1-ekor-ayam.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/ka-rendang-1-ekor-ayam.html" data-recipe-id="ka-rendang-1-ekor-ayam">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Rendang-1-Ekor-Ayam.webp?fit=720%2C1280&amp;ssl=1" alt="Rendang 1 Ekor Ayam" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Lauk</span>
@@ -657,7 +660,7 @@
           <p class="recipe-card-hover-desc">Resepi Rendang 1 Ekor Ayam daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/ka-daging-dendeng.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/ka-daging-dendeng.html" data-recipe-id="ka-daging-dendeng">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Daging-Dendeng.webp?fit=720%2C1280&amp;ssl=1" alt="Daging Dendeng" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Lauk</span>
@@ -675,7 +678,7 @@
           <p class="recipe-card-hover-desc">Resepi Daging Dendeng daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/ka-salted-egg-chicken.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/ka-salted-egg-chicken.html" data-recipe-id="ka-salted-egg-chicken">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Salted-Egg-Chicken.webp?fit=720%2C1280&amp;ssl=1" alt="Salted Egg Chicken" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Lauk</span>
@@ -693,7 +696,7 @@
           <p class="recipe-card-hover-desc">Resepi Salted Egg Chicken daripada Khairul Aming. Bahan-bahan dan langkah penuh disediakan di bawah.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a></div>
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a></div>
   </section>
 
   <!-- ══════════════════════════════════════════
@@ -718,6 +721,7 @@
             <li><a href="/chefs.html">Semua Chef</a></li>
             <li><a href="/search.html">Cari Resepi</a></li>
             <li><a href="/categories.html">Kategori</a></li>
+            <li><a href="/favorites.html">Kegemaran Saya</a></li>
             <li><a href="/faq.html">Soalan Lazim</a></li>
           </ul>
         </div>
@@ -785,6 +789,7 @@
 
     // ── Populate hero ─────────────────────────
     document.title = `${recipe.title} — ResipiLokal`;
+    document.getElementById('pageFavBtn').dataset.recipeId = recipe.id;
     document.getElementById('recipeHeroBg').style.backgroundImage = `url('${recipe.thumbnail}')`;
     document.getElementById('recipeTitle').textContent = recipe.title;
     document.getElementById('recipeCatBadge').textContent = recipe.category;
@@ -804,6 +809,7 @@
 
     // Tags
     const tagsEl = document.getElementById('recipeTags');
+    tagsEl.innerHTML = '';
     recipe.tags.forEach(t => {
       const span = document.createElement('span');
       span.className = 'tag';
@@ -1048,11 +1054,13 @@
     // ── Related recipes (same chef, not this one) ──
     const related = getRecipesByChef(recipe.chef_id).filter(r => r.id !== recipe.id).slice(0, 4);
     const relatedEl = document.getElementById('relatedRecipes');
+    relatedEl.innerHTML = '';
     if (related.length) {
       related.forEach(r => {
         const card = document.createElement('a');
         card.className = 'related-card';
         card.href = recipeUrl(r.id);
+        card.dataset.recipeId = r.id;
         card.innerHTML = `
           <div class="related-card-thumb">
             <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
@@ -1151,6 +1159,7 @@
     document.getElementById('moreCatTitle').textContent = `Resepi ${recipe.category} Lain`;
 
     const moreCatRow = document.getElementById('moreCatRow');
+    moreCatRow.innerHTML = '';
     moreCat.forEach(r => {
       const chef2 = getChefById(r.chef_id);
       // A real <a> so it's a single tap on mobile and crawlable — same fix
@@ -1158,6 +1167,7 @@
       const card = document.createElement('a');
       card.className = 'recipe-card';
       card.href = recipeUrl(r.id);
+      card.dataset.recipeId = r.id;
       card.innerHTML = `
         <div class="recipe-card-thumb">
           <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>

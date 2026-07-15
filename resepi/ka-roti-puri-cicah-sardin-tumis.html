@@ -209,7 +209,7 @@
       <li><a href="/chefs.html">Chef</a></li>
       <li><a href="/search.html">Semua Resepi</a></li>
     <li><a href="/categories.html">Kategori</a></li></ul>
-    <div class="nav-search"><button id="themeToggle" class="nav-search-btn" type="button" aria-label="Tukar tema terang/gelap">☀️</button>
+    <div class="nav-search"><a id="favNavLink" href="/favorites.html" class="nav-search-btn" aria-label="Kegemaran saya">♥</a><button id="themeToggle" class="nav-search-btn" type="button" aria-label="Tukar tema terang/gelap">☀️</button>
       <a href="/search.html" class="nav-search-btn">🔍</a>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
@@ -233,7 +233,10 @@
         <span id="breadTitle" style="color:rgba(255,255,255,0.7);">Roti Puri Cicah Sardin Tumis</span>
       </div>
 
-      <span class="hero-badge" id="recipeCatBadge">Seafood</span>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span class="hero-badge" id="recipeCatBadge">Seafood</span>
+        <button type="button" id="pageFavBtn" class="btn btn-outline" style="padding:6px 14px;font-size:0.85rem;" data-recipe-id="ka-roti-puri-cicah-sardin-tumis">♡ Kegemaran</button>
+      </div>
       <h1 class="hero-title font-display" id="recipeTitle">Roti Puri Cicah Sardin Tumis</h1>
       <div class="hero-meta" style="margin-top:10px;">
         <span class="hero-meta-item">⏳ Prep: <strong id="recipePrep">22 minit</strong></span>
@@ -514,7 +517,7 @@
       <!-- Related recipes -->
       <div class="sidebar-card">
         <div class="sidebar-card-title">🍳 Resepi Lain Chef Ini</div>
-        <div id="relatedRecipes"><a class="related-card" href="/resepi/ka-nasi-minyak-gulai-ayam-acar.html">
+        <div id="relatedRecipes"><a class="related-card" href="/resepi/ka-nasi-minyak-gulai-ayam-acar.html" data-recipe-id="ka-nasi-minyak-gulai-ayam-acar">
           <div class="related-card-thumb">
             <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Nasi-Minyak-Gulai-Ayam-Acar.webp?fit=1080%2C1920&amp;ssl=1" alt="Nasi Minyak, Gulai Ayam &amp; Acar" loading="lazy" class="img-loaded">
           </div>
@@ -522,7 +525,7 @@
             <div class="related-card-title">Nasi Minyak, Gulai Ayam &amp; Acar</div>
             <div class="related-card-meta">⏱ 45 minit &nbsp;·&nbsp; 📊 Susah</div>
           </div>
-        </a><a class="related-card" href="/resepi/ka-rendang-2-kilo-daging.html">
+        <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="related-card" href="/resepi/ka-rendang-2-kilo-daging.html" data-recipe-id="ka-rendang-2-kilo-daging">
           <div class="related-card-thumb">
             <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Rendang-2-Kilo-Daging.webp?fit=1080%2C1920&amp;ssl=1" alt="Rendang 2 Kilo Daging" loading="lazy" class="img-loaded">
           </div>
@@ -530,7 +533,7 @@
             <div class="related-card-title">Rendang 2 Kilo Daging</div>
             <div class="related-card-meta">⏱ 120 minit &nbsp;·&nbsp; 📊 Susah</div>
           </div>
-        </a><a class="related-card" href="/resepi/ka-badak-berendam.html">
+        <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="related-card" href="/resepi/ka-badak-berendam.html" data-recipe-id="ka-badak-berendam">
           <div class="related-card-thumb">
             <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Badak-Berendam.webp?fit=720%2C1280&amp;ssl=1" alt="Badak Berendam" loading="lazy" class="img-loaded">
           </div>
@@ -538,7 +541,7 @@
             <div class="related-card-title">Badak Berendam</div>
             <div class="related-card-meta">⏱ 30 minit &nbsp;·&nbsp; 📊 Susah</div>
           </div>
-        </a><a class="related-card" href="/resepi/ka-ayam-masak-ros-kacang-buncis-goreng-telur.html">
+        <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="related-card" href="/resepi/ka-ayam-masak-ros-kacang-buncis-goreng-telur.html" data-recipe-id="ka-ayam-masak-ros-kacang-buncis-goreng-telur">
           <div class="related-card-thumb">
             <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Ayam-Masak-Ros-Kacang-Buncis-Goreng-Telur.webp?fit=1080%2C1920&amp;ssl=1" alt="Ayam Masak Ros &amp; Kacang Buncis Goreng Telur" loading="lazy" class="img-loaded">
           </div>
@@ -546,7 +549,7 @@
             <div class="related-card-title">Ayam Masak Ros &amp; Kacang Buncis Goreng Telur</div>
             <div class="related-card-meta">⏱ 30 minit &nbsp;·&nbsp; 📊 Susah</div>
           </div>
-        </a></div>
+        <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a></div>
         <a id="allChefLink" href="/chef/khairul-aming.html" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:8px;font-size:0.85rem;">
           Lihat Semua →
         </a>
@@ -566,7 +569,7 @@
       </div>
       <a href="/search.html" class="section-link">Lihat Semua →</a>
     </div>
-    <div class="scroll-row" id="moreCatRow"><a class="recipe-card" href="/resepi/ka-siakap-goreng-ala-thai.html">
+    <div class="scroll-row" id="moreCatRow"><a class="recipe-card" href="/resepi/ka-siakap-goreng-ala-thai.html" data-recipe-id="ka-siakap-goreng-ala-thai">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Siakap-Goreng-Ala-Thai.webp?fit=1080%2C1920&amp;ssl=1" alt="Siakap Goreng Ala Thai" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Seafood</span>
@@ -584,7 +587,7 @@
           <p class="recipe-card-hover-desc">Resepi Siakap Goreng Ala Thai daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/ka-ikan-miang-pla-pao.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/ka-ikan-miang-pla-pao.html" data-recipe-id="ka-ikan-miang-pla-pao">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Ikan-Miang-Pla-Pao.webp?fit=720%2C1280&amp;ssl=1" alt="Ikan Miang Pla Pao" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Seafood</span>
@@ -602,7 +605,7 @@
           <p class="recipe-card-hover-desc">Resepi Ikan Miang Pla Pao daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/ka-kerang-rebus-cicah-sos-thai.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/ka-kerang-rebus-cicah-sos-thai.html" data-recipe-id="ka-kerang-rebus-cicah-sos-thai">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Kerang-Rebus-Cicah-Sos-Thai.webp?fit=720%2C1280&amp;ssl=1" alt="Kerang Rebus Cicah Sos Thai" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Seafood</span>
@@ -620,7 +623,7 @@
           <p class="recipe-card-hover-desc">Resepi Kerang Rebus Cicah Sos Thai daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/ka-keli-goreng-balado.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/ka-keli-goreng-balado.html" data-recipe-id="ka-keli-goreng-balado">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Keli-Goreng-Balado.webp?fit=720%2C1280&amp;ssl=1" alt="Keli Goreng Balado" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Seafood</span>
@@ -638,7 +641,7 @@
           <p class="recipe-card-hover-desc">Resepi Keli Goreng Balado daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/ka-chilli-crab.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/ka-chilli-crab.html" data-recipe-id="ka-chilli-crab">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Chilli-Crab.webp?fit=720%2C720&amp;ssl=1" alt="Chilli Crab" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Seafood</span>
@@ -656,7 +659,7 @@
           <p class="recipe-card-hover-desc">Resepi Chilli Crab daripada Khairul Aming. Bahan-bahan dan langkah penuh disediakan di bawah.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/ka-siakap-stim-limau.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/ka-siakap-stim-limau.html" data-recipe-id="ka-siakap-stim-limau">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Siakap-Stim-Limau.webp?fit=720%2C720&amp;ssl=1" alt="Siakap Stim Limau" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Seafood</span>
@@ -674,7 +677,7 @@
           <p class="recipe-card-hover-desc">Resepi Siakap Stim Limau daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/cs-tilapia-goreng-sambal-santan.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/cs-tilapia-goreng-sambal-santan.html" data-recipe-id="cs-tilapia-goreng-sambal-santan">
         <div class="recipe-card-thumb">
           <img src="/images/recipes/cs-tilapia-goreng-sambal-santan.jpg" alt="Tilapia Goreng Sambal Santan" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Seafood</span>
@@ -692,7 +695,7 @@
           <p class="recipe-card-hover-desc">Episod 239 — Ikan tilapia digoreng dengan kunyit dan garam, disajikan dengan sambal masam manis pedas gaya Che Sayang Kitchen.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a><a class="recipe-card" href="/resepi/cs-kari-sotong.html">
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="recipe-card" href="/resepi/cs-kari-sotong.html" data-recipe-id="cs-kari-sotong">
         <div class="recipe-card-thumb">
           <img src="/images/recipes/cs-kari-sotong.jpg" alt="Kari Sotong" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Seafood</span>
@@ -710,7 +713,7 @@
           <p class="recipe-card-hover-desc">Episod 780 — Kari sotong pekat dan wangi gaya Che Sayang Kitchen, sesuai untuk hidangan berbuka.</p>
           <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </a></div>
+      <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a></div>
   </section>
 
   <!-- ══════════════════════════════════════════
@@ -735,6 +738,7 @@
             <li><a href="/chefs.html">Semua Chef</a></li>
             <li><a href="/search.html">Cari Resepi</a></li>
             <li><a href="/categories.html">Kategori</a></li>
+            <li><a href="/favorites.html">Kegemaran Saya</a></li>
             <li><a href="/faq.html">Soalan Lazim</a></li>
           </ul>
         </div>
@@ -802,6 +806,7 @@
 
     // ── Populate hero ─────────────────────────
     document.title = `${recipe.title} — ResipiLokal`;
+    document.getElementById('pageFavBtn').dataset.recipeId = recipe.id;
     document.getElementById('recipeHeroBg').style.backgroundImage = `url('${recipe.thumbnail}')`;
     document.getElementById('recipeTitle').textContent = recipe.title;
     document.getElementById('recipeCatBadge').textContent = recipe.category;
@@ -821,6 +826,7 @@
 
     // Tags
     const tagsEl = document.getElementById('recipeTags');
+    tagsEl.innerHTML = '';
     recipe.tags.forEach(t => {
       const span = document.createElement('span');
       span.className = 'tag';
@@ -1065,11 +1071,13 @@
     // ── Related recipes (same chef, not this one) ──
     const related = getRecipesByChef(recipe.chef_id).filter(r => r.id !== recipe.id).slice(0, 4);
     const relatedEl = document.getElementById('relatedRecipes');
+    relatedEl.innerHTML = '';
     if (related.length) {
       related.forEach(r => {
         const card = document.createElement('a');
         card.className = 'related-card';
         card.href = recipeUrl(r.id);
+        card.dataset.recipeId = r.id;
         card.innerHTML = `
           <div class="related-card-thumb">
             <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
@@ -1168,6 +1176,7 @@
     document.getElementById('moreCatTitle').textContent = `Resepi ${recipe.category} Lain`;
 
     const moreCatRow = document.getElementById('moreCatRow');
+    moreCatRow.innerHTML = '';
     moreCat.forEach(r => {
       const chef2 = getChefById(r.chef_id);
       // A real <a> so it's a single tap on mobile and crawlable — same fix
@@ -1175,6 +1184,7 @@
       const card = document.createElement('a');
       card.className = 'recipe-card';
       card.href = recipeUrl(r.id);
+      card.dataset.recipeId = r.id;
       card.innerHTML = `
         <div class="recipe-card-thumb">
           <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>

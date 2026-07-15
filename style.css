@@ -435,9 +435,46 @@ h1, h2, h3 { line-height: 1.2; }
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  cursor: grab;
 }
 
 .scroll-row::-webkit-scrollbar { display: none; }
+
+/* Mouse wheel/drag scrolling (see site.js initScrollRows) — desktop mice
+   have no horizontal scroll by default, so this row is enhanced with
+   wheel-to-horizontal translation and click-and-drag. */
+.scroll-row.dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+.scroll-row.dragging * { pointer-events: none; }
+.scroll-row a, .scroll-row img { -webkit-user-drag: none; user-drag: none; }
+
+/* ── FAVORITE BADGE (heart toggle on cards) ───────────────────── */
+[data-recipe-id], [data-chef-id] { position: relative; }
+.fav-badge {
+  position: absolute;
+  top: 10px; right: 10px;
+  z-index: 3;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(13,13,13,0.55);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 1.05rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.fav-badge:hover { background: rgba(13,13,13,0.8); border-color: var(--accent); transform: scale(1.08); }
+.fav-badge.active { color: var(--hot); background: rgba(13,13,13,0.7); }
+.chef-big-card .fav-badge, .chef-card .fav-badge { top: 10px; right: 10px; }
+#pageFavBtn.active-fav { color: var(--hot); border-color: var(--hot); }
 
 /* ── RECIPE CARD ───────────────────────────────────────────── */
 .recipe-card {

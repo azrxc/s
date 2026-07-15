@@ -54,9 +54,10 @@
         <img id="chefAvatar" src="" alt="Chef"/>
       </div>
       <div class="chef-hero-info">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;">
           <h1 class="chef-hero-name" id="chefName">—</h1>
           <span id="chefVerifiedBadge" style="display:none;background:var(--accent);color:#000;font-size:0.65rem;font-weight:800;padding:3px 8px;border-radius:4px;">✓ VERIFIED</span>
+          <button type="button" id="pageFavBtn" class="btn btn-outline" style="padding:6px 14px;font-size:0.85rem;">♡ Kegemaran</button>
         </div>
         <div class="chef-hero-tags" id="chefTags"></div>
         <div class="chef-hero-followers">
@@ -182,6 +183,7 @@
     };
 
     document.getElementById('chefName').textContent = chef.name;
+    document.getElementById('pageFavBtn').dataset.chefId = chef.id;
     document.getElementById('chefFollowers').textContent = chef.followers;
 
     if (chef.verified) {
@@ -190,6 +192,7 @@
 
     // Tags / speciality
     const tagsEl = document.getElementById('chefTags');
+    tagsEl.innerHTML = '';
     chef.speciality.forEach(s => {
       const t = document.createElement('span');
       t.className = 'tag';
@@ -261,6 +264,7 @@
     // Build category chips from this chef's recipes
     const cats = [...new Set(allRecipes.map(r => r.category))];
     const chipsEl = document.getElementById('categoryChips');
+    chipsEl.querySelectorAll('.chip:not([data-cat="all"])').forEach(c => c.remove());
     cats.forEach(cat => {
       const chip = document.createElement('div');
       chip.className = 'chip';
@@ -271,8 +275,12 @@
 
     // Build recipe card (same as index.html)
     function buildRecipeCard(recipe) {
-      const card = document.createElement('div');
+      // A real <a> (not a div + click listener) so the card works with a
+      // single tap on mobile and is crawlable by search engines.
+      const card = document.createElement('a');
       card.className = 'recipe-card animate-up';
+      card.href = recipeUrl(recipe.id);
+      card.dataset.recipeId = recipe.id;
       card.innerHTML = `
         <div class="recipe-card-thumb">
           <img src="${recipe.thumbnail}" alt="${recipe.title}" loading="lazy"/>
@@ -290,12 +298,9 @@
             <span>📊 ${recipe.difficulty}</span>
           </div>
           <p class="recipe-card-hover-desc">${recipe.description}</p>
-          <a href="${recipeUrl(recipe.id)}" class="btn btn-primary">▶ Tengok Resepi</a>
+          <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
       `;
-      card.addEventListener('click', () => {
-        window.location.href = recipeUrl(recipe.id);
-      });
       return card;
     }
 
@@ -330,9 +335,12 @@
 
     // ── Other chefs row ───────────────────────
     const otherRow = document.getElementById('otherChefsRow');
+    otherRow.innerHTML = '';
     CHEFS.filter(c => c.id !== chefId).forEach(c => {
-      const card = document.createElement('div');
+      const card = document.createElement('a');
       card.className = 'chef-card';
+      card.href = chefUrl(c.id);
+      card.dataset.chefId = c.id;
       card.innerHTML = `
         <div class="chef-card-avatar">
           <img src="${c.image}" alt="${c.name}" loading="lazy"
@@ -342,9 +350,6 @@
         <div class="chef-card-name">${c.name}</div>
         <div class="chef-card-count">${c.followers} pengikut</div>
       `;
-      card.addEventListener('click', () => {
-        window.location.href = chefUrl(c.id);
-      });
       otherRow.appendChild(card);
     });
 

@@ -31,6 +31,7 @@
             <li><a href="/chefs.html">Semua Chef</a></li>
             <li><a href="/search.html">Cari Resepi</a></li>
             <li><a href="/categories.html">Kategori</a></li>
+            <li><a href="/favorites.html">Kegemaran Saya</a></li>
             <li><a href="/faq.html">Soalan Lazim</a></li>
           </ul>
         </div>
@@ -104,17 +105,23 @@
   }
 
   // ── Theme toggle (dark/light) ────────────────────────────────
-  // Idempotent: guarded by #themeToggle existence check so re-running this
-  // on an already-baked page (site.js runs on every real page load) never
-  // inserts a second button.
+  // The button's markup gets baked into every prerendered page, but a
+  // baked <button> has no JS listener attached — event listeners live in
+  // the script, not the DOM snapshot. So only the CREATION is conditional
+  // (avoids a duplicate button); the listener must be (re-)attached every
+  // real page load regardless of whether the button already existed.
   function initTheme() {
     const nav = document.querySelector('.nav-search');
-    if (!nav || document.getElementById('themeToggle')) return;
-    const btn = document.createElement('button');
-    btn.id = 'themeToggle';
-    btn.className = 'nav-search-btn';
-    btn.type = 'button';
-    btn.setAttribute('aria-label', 'Tukar tema terang/gelap');
+    if (!nav) return;
+    let btn = document.getElementById('themeToggle');
+    if (!btn) {
+      btn = document.createElement('button');
+      btn.id = 'themeToggle';
+      btn.className = 'nav-search-btn';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Tukar tema terang/gelap');
+      nav.insertBefore(btn, nav.firstChild);
+    }
     const setIcon = () => {
       btn.textContent = document.documentElement.getAttribute('data-theme') === 'light' ? '🌙' : '☀️';
     };
@@ -130,7 +137,151 @@
       }
       setIcon();
     });
-    nav.insertBefore(btn, nav.firstChild);
+  }
+
+  // ── Horizontal scroll rows: mouse wheel + drag support ───────
+  // .scroll-row only supports touch/trackpad swipe out of the box — a
+  // plain desktop mouse has no way to scroll it. This translates a normal
+  // vertical wheel into horizontal scroll while hovering, and adds
+  // click-and-drag scrolling. Runs once per real page load (init() only
+  // runs once), so no duplicate-attachment risk — no idempotency guard
+  // needed here (unlike DOM content, listeners never get baked into HTML).
+  function initScrollRows() {
+    document.querySelectorAll('.scroll-row').forEach(row => {
+      row.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+        if (row.scrollWidth <= row.clientWidth) return;
+        e.preventDefault();
+        row.scrollLeft += e.deltaY;
+      }, { passive: false });
+
+      let isDown = false, startX = 0, startScroll = 0, moved = false;
+      row.addEventListener('mousedown', (e) => {
+        isDown = true; moved = false;
+        startX = e.pageX;
+        startScroll = row.scrollLeft;
+        row.classList.add('dragging');
+      });
+      window.addEventListener('mouseup', () => {
+        if (!isDown) return;
+        isDown = false;
+        row.classList.remove('dragging');
+      });
+      row.addEventListener('mouseleave', () => {
+        isDown = false;
+        row.classList.remove('dragging');
+      });
+      row.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        const dx = e.pageX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        row.scrollLeft = startScroll - dx;
+      });
+      // Swallow the click that follows a drag so cards don't navigate
+      // away when the user was just trying to scroll.
+      row.addEventListener('click', (e) => {
+        if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+      }, true);
+    });
+  }
+
+  // ── Quick nav link to the favorites page ─────────────────────
+  function initFavNavLink() {
+    const nav = document.querySelector('.nav-search');
+    if (!nav || document.getElementById('favNavLink')) return;
+    const a = document.createElement('a');
+    a.id = 'favNavLink';
+    a.href = '/favorites.html';
+    a.className = 'nav-search-btn';
+    a.setAttribute('aria-label', 'Kegemaran saya');
+    a.textContent = '♥';
+    nav.insertBefore(a, nav.firstChild);
+  }
+
+  // ── Favorites (localStorage, client-side only) ───────────────
+  const FAV_KEY = 'rl_favorites';
+  function getFavorites() {
+    try {
+      const raw = localStorage.getItem(FAV_KEY);
+      const parsed = raw ? JSON.parse(raw) : null;
+      return { recipes: (parsed && parsed.recipes) || [], chefs: (parsed && parsed.chefs) || [] };
+    } catch (e) { return { recipes: [], chefs: [] }; }
+  }
+  function isFavorite(type, id) {
+    const favs = getFavorites();
+    return favs[type].indexOf(id) !== -1;
+  }
+  function toggleFavorite(type, id) {
+    const favs = getFavorites();
+    const idx = favs[type].indexOf(id);
+    if (idx === -1) favs[type].push(id); else favs[type].splice(idx, 1);
+    try { localStorage.setItem(FAV_KEY, JSON.stringify(favs)); } catch (e) { /* storage unavailable */ }
+    return idx === -1;
+  }
+  // Exposed globally so recipe-detail.html / chef-detail.html can drive a
+  // larger, page-level favorite button (not just the small card badge).
+  window.rlFavorites = { get: getFavorites, is: isFavorite, toggle: toggleFavorite };
+
+  // Adds a heart-toggle badge to every card that carries a
+  // data-recipe-id / data-chef-id marker. This runs once per real page
+  // load and reads current DOM state each time, so it naturally covers
+  // cards added later by page-specific scripts as long as those scripts
+  // run before this (they do — site.js loads last) or initFavoriteBadges
+  // is called again after new cards are injected (see recipe-detail.html's
+  // renderIngredients-style re-render pattern; card grids here are only
+  // built once per page load, so a single pass is sufficient).
+  function initFavoriteBadges() {
+    // As with the theme toggle: the badge's markup can already be baked
+    // into static HTML, but a baked element has no listener attached — so
+    // only the element's CREATION is conditional; the listener must always
+    // be (re-)attached on every real page load.
+    function addBadge(card, type, id) {
+      if (!id) return;
+      let btn = card.querySelector(':scope > .fav-badge');
+      if (!btn) {
+        btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'fav-badge';
+        btn.setAttribute('aria-label', 'Tambah ke kegemaran');
+        card.appendChild(btn);
+      }
+      const setState = () => {
+        const fav = isFavorite(type, id);
+        btn.classList.toggle('active', fav);
+        btn.textContent = fav ? '♥' : '♡';
+      };
+      setState();
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleFavorite(type, id);
+        setState();
+      });
+    }
+    document.querySelectorAll('[data-recipe-id]').forEach(card => addBadge(card, 'recipes', card.dataset.recipeId));
+    document.querySelectorAll('[data-chef-id]').forEach(card => addBadge(card, 'chefs', card.dataset.chefId));
+  }
+
+  // A bigger, page-level favorite button (recipe-detail.html / chef-detail.html
+  // set data-recipe-id / data-chef-id on #pageFavBtn once they know which
+  // recipe/chef is being viewed — this runs after that, per the script-order
+  // note above).
+  function initPageFavButton() {
+    const btn = document.getElementById('pageFavBtn');
+    if (!btn) return;
+    const type = btn.dataset.recipeId ? 'recipes' : (btn.dataset.chefId ? 'chefs' : null);
+    const id = btn.dataset.recipeId || btn.dataset.chefId;
+    if (!type || !id) return;
+    const setState = () => {
+      const fav = isFavorite(type, id);
+      btn.textContent = (fav ? '♥' : '♡') + ' Kegemaran';
+      btn.classList.toggle('active-fav', fav);
+    };
+    setState();
+    btn.addEventListener('click', () => {
+      toggleFavorite(type, id);
+      setState();
+    });
   }
 
   // ── Images: fade in when loaded (pairs with skeleton CSS) ───
@@ -146,6 +297,10 @@
     renderFooter();
     normalizeNav();
     initTheme();
+    initFavNavLink();
+    initScrollRows();
+    initFavoriteBadges();
+    initPageFavButton();
     watchImages();
     // re-watch images added later by page scripts
     setTimeout(watchImages, 600);

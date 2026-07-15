@@ -209,7 +209,7 @@
       <li><a href="/chefs.html">Chef</a></li>
       <li><a href="/search.html">Semua Resepi</a></li>
     <li><a href="/categories.html">Kategori</a></li></ul>
-    <div class="nav-search"><button id="themeToggle" class="nav-search-btn" type="button" aria-label="Tukar tema terang/gelap">☀️</button>
+    <div class="nav-search"><a id="favNavLink" href="/favorites.html" class="nav-search-btn" aria-label="Kegemaran saya">♥</a><button id="themeToggle" class="nav-search-btn" type="button" aria-label="Tukar tema terang/gelap">☀️</button>
       <a href="/search.html" class="nav-search-btn">🔍</a>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
@@ -233,7 +233,10 @@
         <span id="breadTitle" style="color:rgba(255,255,255,0.7);">Potato Pancake (Inspirasi Culinary Class Wars)</span>
       </div>
 
-      <span class="hero-badge" id="recipeCatBadge">Sarapan</span>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span class="hero-badge" id="recipeCatBadge">Sarapan</span>
+        <button type="button" id="pageFavBtn" class="btn btn-outline" style="padding:6px 14px;font-size:0.85rem;" data-recipe-id="cs-potato-pancake">♡ Kegemaran</button>
+      </div>
       <h1 class="hero-title font-display" id="recipeTitle">Potato Pancake (Inspirasi Culinary Class Wars)</h1>
       <div class="hero-meta" style="margin-top:10px;">
         <span class="hero-meta-item">⏳ Prep: <strong id="recipePrep">10 minit</strong></span>
@@ -488,7 +491,7 @@
       <!-- Related recipes -->
       <div class="sidebar-card">
         <div class="sidebar-card-title">🍳 Resepi Lain Chef Ini</div>
-        <div id="relatedRecipes"><a class="related-card" href="/resepi/cs-gulai-nangka-muda.html">
+        <div id="relatedRecipes"><a class="related-card" href="/resepi/cs-gulai-nangka-muda.html" data-recipe-id="cs-gulai-nangka-muda">
           <div class="related-card-thumb">
             <img src="/images/recipes/cs-gulai-nangka-muda.jpg" alt="Gulai Nangka Muda dengan Ikan Kurau Masin" loading="lazy" class="img-loaded">
           </div>
@@ -496,7 +499,7 @@
             <div class="related-card-title">Gulai Nangka Muda dengan Ikan Kurau Masin</div>
             <div class="related-card-meta">⏱ 25 minit &nbsp;·&nbsp; 📊 Sederhana</div>
           </div>
-        </a><a class="related-card" href="/resepi/cs-tilapia-goreng-sambal-santan.html">
+        <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="related-card" href="/resepi/cs-tilapia-goreng-sambal-santan.html" data-recipe-id="cs-tilapia-goreng-sambal-santan">
           <div class="related-card-thumb">
             <img src="/images/recipes/cs-tilapia-goreng-sambal-santan.jpg" alt="Tilapia Goreng Sambal Santan" loading="lazy" class="img-loaded">
           </div>
@@ -504,7 +507,7 @@
             <div class="related-card-title">Tilapia Goreng Sambal Santan</div>
             <div class="related-card-meta">⏱ 20 minit &nbsp;·&nbsp; 📊 Mudah</div>
           </div>
-        </a><a class="related-card" href="/resepi/cs-ayam-bakar-baker-cottage.html">
+        <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="related-card" href="/resepi/cs-ayam-bakar-baker-cottage.html" data-recipe-id="cs-ayam-bakar-baker-cottage">
           <div class="related-card-thumb">
             <img src="/images/recipes/cs-ayam-bakar-baker-cottage.jpg" alt="Ayam Bakar ala Baker Cottage" loading="lazy" class="img-loaded">
           </div>
@@ -512,7 +515,7 @@
             <div class="related-card-title">Ayam Bakar ala Baker Cottage</div>
             <div class="related-card-meta">⏱ 25 minit &nbsp;·&nbsp; 📊 Mudah</div>
           </div>
-        </a><a class="related-card" href="/resepi/cs-pizza-frying-pan.html">
+        <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a><a class="related-card" href="/resepi/cs-pizza-frying-pan.html" data-recipe-id="cs-pizza-frying-pan">
           <div class="related-card-thumb">
             <img src="/images/recipes/cs-pizza-frying-pan.jpg" alt="Pizza Frying Pan (Pizza Kampung)" loading="lazy" class="img-loaded">
           </div>
@@ -520,7 +523,7 @@
             <div class="related-card-title">Pizza Frying Pan (Pizza Kampung)</div>
             <div class="related-card-meta">⏱ 15 minit &nbsp;·&nbsp; 📊 Sederhana</div>
           </div>
-        </a></div>
+        <button type="button" class="fav-badge" aria-label="Tambah ke kegemaran">♡</button></a></div>
         <a id="allChefLink" href="/chef/che-sayang.html" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:8px;font-size:0.85rem;">
           Lihat Semua →
         </a>
@@ -565,6 +568,7 @@
             <li><a href="/chefs.html">Semua Chef</a></li>
             <li><a href="/search.html">Cari Resepi</a></li>
             <li><a href="/categories.html">Kategori</a></li>
+            <li><a href="/favorites.html">Kegemaran Saya</a></li>
             <li><a href="/faq.html">Soalan Lazim</a></li>
           </ul>
         </div>
@@ -632,6 +636,7 @@
 
     // ── Populate hero ─────────────────────────
     document.title = `${recipe.title} — ResipiLokal`;
+    document.getElementById('pageFavBtn').dataset.recipeId = recipe.id;
     document.getElementById('recipeHeroBg').style.backgroundImage = `url('${recipe.thumbnail}')`;
     document.getElementById('recipeTitle').textContent = recipe.title;
     document.getElementById('recipeCatBadge').textContent = recipe.category;
@@ -651,6 +656,7 @@
 
     // Tags
     const tagsEl = document.getElementById('recipeTags');
+    tagsEl.innerHTML = '';
     recipe.tags.forEach(t => {
       const span = document.createElement('span');
       span.className = 'tag';
@@ -895,11 +901,13 @@
     // ── Related recipes (same chef, not this one) ──
     const related = getRecipesByChef(recipe.chef_id).filter(r => r.id !== recipe.id).slice(0, 4);
     const relatedEl = document.getElementById('relatedRecipes');
+    relatedEl.innerHTML = '';
     if (related.length) {
       related.forEach(r => {
         const card = document.createElement('a');
         card.className = 'related-card';
         card.href = recipeUrl(r.id);
+        card.dataset.recipeId = r.id;
         card.innerHTML = `
           <div class="related-card-thumb">
             <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
@@ -998,6 +1006,7 @@
     document.getElementById('moreCatTitle').textContent = `Resepi ${recipe.category} Lain`;
 
     const moreCatRow = document.getElementById('moreCatRow');
+    moreCatRow.innerHTML = '';
     moreCat.forEach(r => {
       const chef2 = getChefById(r.chef_id);
       // A real <a> so it's a single tap on mobile and crawlable — same fix
@@ -1005,6 +1014,7 @@
       const card = document.createElement('a');
       card.className = 'recipe-card';
       card.href = recipeUrl(r.id);
+      card.dataset.recipeId = r.id;
       card.innerHTML = `
         <div class="recipe-card-thumb">
           <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>

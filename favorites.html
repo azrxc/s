@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8"/>
+  <script>(function(){try{if(localStorage.getItem('rl_theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#f5a623">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kegemaran Saya — ResipiLokal</title>
+  <meta name="description" content="Resepi dan chef kegemaran anda di ResipiLokal, disimpan terus pada peranti anda.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://s-chi-puce.vercel.app/favorites.html">
+  <meta property="og:title" content="Kegemaran Saya — ResipiLokal">
+  <meta property="og:description" content="Resepi dan chef kegemaran anda di ResipiLokal.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://s-chi-puce.vercel.app/favorites.html">
+  <meta property="og:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg">
+  <meta property="og:site_name" content="ResipiLokal">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav class="navbar scrolled" id="navbar" aria-label="Navigasi utama">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-text">Resepi<span>Lokal</span></span>
+      <span class="nav-logo-badge">MY</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/chefs.html">Chef</a></li>
+      <li><a href="/search.html">Semua Resepi</a></li>
+      <li><a href="/categories.html">Kategori</a></li>
+    </ul>
+    <div class="nav-search">
+      <a href="/search.html" class="nav-search-btn" aria-label="Cari resepi">🔍</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main class="page-wrap" style="max-width:1400px;">
+    <h1>♥ Kegemaran Saya</h1>
+    <p class="page-sub">Resepi dan chef yang anda simpan — disimpan terus pada peranti/pelayar ini sahaja.</p>
+
+    <h2 style="margin-top:40px;">Resepi Kegemaran</h2>
+    <div id="favRecipesEmpty" style="display:none;color:var(--text-muted);font-size:0.9rem;padding:20px 0;">
+      Tiada resepi kegemaran lagi. Klik ikon ♡ pada mana-mana resepi untuk simpan di sini.
+    </div>
+    <div class="scroll-row" id="favRecipesGrid" style="flex-wrap:wrap;overflow:visible;"></div>
+
+    <h2 style="margin-top:40px;">Chef Kegemaran</h2>
+    <div id="favChefsEmpty" style="display:none;color:var(--text-muted);font-size:0.9rem;padding:20px 0;">
+      Tiada chef kegemaran lagi. Klik ikon ♡ pada mana-mana chef untuk simpan di sini.
+    </div>
+    <div class="scroll-row" id="favChefsGrid" style="flex-wrap:wrap;overflow:visible;"></div>
+  </main>
+
+  <footer class="footer"></footer>
+
+  <script src="/data.js"></script>
+  <script>
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    function getFavIds() {
+      try {
+        const raw = localStorage.getItem('rl_favorites');
+        const parsed = raw ? JSON.parse(raw) : null;
+        return { recipes: (parsed && parsed.recipes) || [], chefs: (parsed && parsed.chefs) || [] };
+      } catch (e) { return { recipes: [], chefs: [] }; }
+    }
+
+    function buildRecipeCard(recipe) {
+      const chef = getChefById(recipe.chef_id);
+      const card = document.createElement('a');
+      card.className = 'recipe-card';
+      card.href = recipeUrl(recipe.id);
+      card.dataset.recipeId = recipe.id;
+      card.innerHTML = `
+        <div class="recipe-card-thumb">
+          <img src="${recipe.thumbnail}" alt="${recipe.title}" loading="lazy"/>
+          <span class="recipe-card-cat">${recipe.category}</span>
+          <div class="recipe-card-bottom">
+            <div class="recipe-card-title">${recipe.title}</div>
+            <div class="recipe-card-chef">by ${chef ? chef.name : ''}</div>
+          </div>
+        </div>
+        <div class="recipe-card-hover">
+          <div class="recipe-card-hover-title">${recipe.title}</div>
+          <div class="recipe-card-hover-meta">
+            <span>⏱ ${recipe.cook_time}</span>
+            <span>🍽 ${recipe.servings} org</span>
+          </div>
+          <p class="recipe-card-hover-desc">${recipe.description}</p>
+          <span class="btn btn-primary">▶ Tengok Resepi</span>
+        </div>
+      `;
+      return card;
+    }
+
+    function buildChefCard(chef) {
+      const card = document.createElement('a');
+      card.className = 'chef-card';
+      card.href = chefUrl(chef.id);
+      card.dataset.chefId = chef.id;
+      card.innerHTML = `
+        <div class="chef-card-avatar">
+          <img src="${chef.image}" alt="${chef.name}" loading="lazy"
+               onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(chef.name)}&background=f5a623&color=000&size=120'"/>
+          ${chef.verified ? '<div class="chef-verified">✓</div>' : ''}
+        </div>
+        <div class="chef-card-name">${chef.name}</div>
+        <div class="chef-card-count">${chef.followers} pengikut</div>
+      `;
+      return card;
+    }
+
+    function render() {
+      const ids = getFavIds();
+      const recipeGrid = document.getElementById('favRecipesGrid');
+      const chefGrid = document.getElementById('favChefsGrid');
+      recipeGrid.innerHTML = '';
+      chefGrid.innerHTML = '';
+
+      const favRecipes = ids.recipes.map(id => getRecipeById(id)).filter(Boolean);
+      const favChefs = ids.chefs.map(id => getChefById(id)).filter(Boolean);
+
+      document.getElementById('favRecipesEmpty').style.display = favRecipes.length ? 'none' : 'block';
+      document.getElementById('favChefsEmpty').style.display = favChefs.length ? 'none' : 'block';
+
+      favRecipes.forEach(r => recipeGrid.appendChild(buildRecipeCard(r)));
+      favChefs.forEach(c => chefGrid.appendChild(buildChefCard(c)));
+    }
+
+    render();
+    // Re-render if a favorite gets removed from this same page (the heart
+    // badge toggle doesn't know it needs to re-run render() otherwise).
+    document.addEventListener('click', (e) => {
+      if (e.target.closest && e.target.closest('.fav-badge')) {
+        setTimeout(render, 0);
+      }
+    });
+  </script>
+  <script src="/site.js"></script>
+</body>
+</html>
