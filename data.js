@@ -11,13 +11,13 @@ const CHEFS = [
     name: "Khairul Aming",
     slug: "khairul-aming",
     image: "/images/chefs/khairul-aming.jpg",
-    cover: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80",
+    cover: "https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Nasi-Lemak.webp?fit=1080%2C1920&ssl=1",
     bio: "Pencipta kandungan masakan paling terkenal Malaysia. Dikenali dengan resepi mudah, bahan simple tapi sedap gila — dan produk viral Sambal Nyet Berapi. Siri '30 Hari 30 Resipi' beliau setiap Ramadan menjadi fenomena tahunan.",
     bio_en: "Malaysia's most famous recipe content creator. Known for simple ingredients, easy steps, and incredibly delicious results — plus the viral Sambal Nyet Berapi product. His annual '30 Days 30 Recipes' Ramadan series is a national phenomenon.",
     followers: "10M+",
     recipes_count: 124,
     tiktok: "https://www.tiktok.com/@khairulaming",
-    youtube: "https://www.youtube.com/@KhairulAming",
+    // youtube: not linked — channel activity unconfirmed, add back once verified.
     instagram: "",
     facebook: "",
     website: "https://khairulaming.my",
@@ -6953,8 +6953,8 @@ const RECIPES = [
     servings: 4,
     difficulty: "Sederhana",
     calories: 300,
-    description: "Episod 710 — Gulai nangka muda gaya Che Sayang Kitchen dengan kuah kari ikan bersantan dan ikan kurau masin. Resepi penuh terus daripada caption TikTok beliau.",
-    description_en: "Episode 710 — Che Sayang Kitchen's young jackfruit curry with a fish-curry coconut gravy and salted threadfin fish. Full recipe straight from her TikTok caption.",
+    description: "Episod 710 — Gulai nangka muda gaya Che Sayang Kitchen dengan kuah kari ikan bersantan dan ikan kurau masin.",
+    description_en: "Episode 710 — Che Sayang Kitchen's young jackfruit curry with a fish-curry coconut gravy and salted threadfin fish.",
     ingredients: [
       "Nangka muda, garam, sedikit minyak",
       "Bahan Kuah:",
@@ -8104,6 +8104,29 @@ function getShoppingLinks(displayText, bmText) {
   const q = encodeURIComponent(kw);
   return {
     label: kw,
+    shopee: (ov && ov.shopee) ? ov.shopee : AFFILIATE_CONFIG.shopee.replace("{q}", q),
+    tiktok: (ov && ov.tiktok) ? ov.tiktok : AFFILIATE_CONFIG.tiktokshop.replace("{q}", q),
+  };
+}
+
+// Dapatkan link beli untuk NAMA PERALATAN (bukan baris bahan).
+// Tool names ("Senduk", "Mangkuk", "Papan pemotong"...) are already clean,
+// short labels — running them through cleanIngredientKeyword() would wrongly
+// strip words that are also measurement units (e.g. "Senduk" and "Mangkuk"
+// are themselves unit words in that list), leaving an empty/wrong keyword
+// and silently dropping the shopping links. This skips that step entirely.
+function getToolShoppingLinks(tool) {
+  const label = String(tool || "").split("/")[0].trim();
+  if (!label) return null;
+  const hay = label.toLowerCase();
+  let ov = null, bestLen = 0;
+  for (const key in AFFILIATE_LINKS) {
+    const k = key.toLowerCase();
+    if (hay.indexOf(k) !== -1 && k.length > bestLen) { ov = AFFILIATE_LINKS[key]; bestLen = k.length; }
+  }
+  const q = encodeURIComponent(label);
+  return {
+    label: label,
     shopee: (ov && ov.shopee) ? ov.shopee : AFFILIATE_CONFIG.shopee.replace("{q}", q),
     tiktok: (ov && ov.tiktok) ? ov.tiktok : AFFILIATE_CONFIG.tiktokshop.replace("{q}", q),
   };

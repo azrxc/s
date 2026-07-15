@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ms"><head>
   <meta charset="UTF-8">
+  <script>(function(){try{if(localStorage.getItem('rl_theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/favicon.svg">
@@ -208,7 +209,7 @@
       <li><a href="/chefs.html">Chef</a></li>
       <li><a href="/search.html">Semua Resepi</a></li>
     <li><a href="/categories.html">Kategori</a></li></ul>
-    <div class="nav-search">
+    <div class="nav-search"><button id="themeToggle" class="nav-search-btn" type="button" aria-label="Tukar tema terang/gelap">☀️</button>
       <a href="/search.html" class="nav-search-btn">🔍</a>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
@@ -386,6 +387,23 @@
         <div id="tipsList" style="display: flex; flex-direction: column; gap: 10px;"><div class="ingredient-item" style="cursor: default;"><div class="ingredient-bullet"></div><span style="flex:1;">Tumis sambal sehingga betul-betul naik minyak — ini rahsia sambal tahan lama dan tak berbau mentah.</span></div><div class="ingredient-item" style="cursor: default;"><div class="ingredient-bullet"></div><span style="flex:1;">Guna api kecil dan kacau selalu supaya sambal tidak hangit di dasar kuali.</span></div><div class="ingredient-item" style="cursor: default;"><div class="ingredient-bullet"></div><span style="flex:1;">Rebus cili kering dahulu supaya sambal lebih lembut dan warna lebih cantik.</span></div></div>
       </div>
 
+      <!-- Best for / Common mistakes / Substitutes — original site
+           content written for ResipiLokal, not from the source creator. -->
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title" id="bestForTitle">🎯 Sesuai Untuk</h2>
+        <div id="bestForList" style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag">✓ Tambahan rasa pelbagai hidangan</span><span class="tag">✓ Stok simpanan dapur</span><span class="tag">✓ Nak cuba resepi viral</span></div>
+      </div>
+
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title" id="mistakesTitle">⚠️ Kesilapan Biasa</h2>
+        <div id="mistakesList" style="display: flex; flex-direction: column; gap: 10px;"><div class="ingredient-item" style="cursor: default;"><div class="ingredient-bullet"></div><span style="flex:1;">Jangan tumis dengan api besar — cili mudah hangus dan pahit sebelum sempat naik minyak.</span></div><div class="ingredient-item" style="cursor: default;"><div class="ingredient-bullet"></div><span style="flex:1;">Jangan masukkan garam terlalu awal — tumis dahulu sehingga wangi baru perasakan.</span></div></div>
+      </div>
+
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title" id="substitutesTitle">🔄 Boleh Gantikan</h2>
+        <div id="substitutesList" style="display: flex; flex-direction: column; gap: 10px;"><div class="ingredient-item" style="cursor: default;"><div class="ingredient-bullet"></div><span style="flex:1;">Cili padi → kurangkan kuantiti atau guna cili boh untuk versi kurang pedas.</span></div><div class="ingredient-item" style="cursor: default;"><div class="ingredient-bullet"></div><span style="flex:1;">Ayam → guna bahagian dada untuk rendah lemak, atau paha untuk hasil lebih juicy.</span></div><div class="ingredient-item" style="cursor: default;"><div class="ingredient-bullet"></div><span style="flex:1;">Serai segar → serbuk serai boleh digunakan, tapi kurangkan sukatan sedikit.</span></div></div>
+      </div>
+
       <!-- Storage & Reheating -->
       <div style="margin-bottom:36px;">
         <h2 class="recipe-section-title" id="storageTitle">🧊 Penyimpanan &amp; Panaskan Semula</h2>
@@ -402,11 +420,11 @@
       <!-- Kitchen tools -->
       <div style="margin-bottom:36px;">
         <h2 class="recipe-section-title" id="toolsTitle">🔧 Peralatan Dapur</h2>
-        <div id="toolsList" style="display:flex;flex-wrap:wrap;gap:10px;"><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Blender / Lesung</span><a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=blender%20lesung" target="_blank" rel="sponsored noopener" aria-label="Beli Blender / Lesung di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg></a>
-             <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=blender%20lesung" target="_blank" rel="sponsored noopener" aria-label="Beli Blender / Lesung di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg></a></div><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Kuali</span><a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=kuali" target="_blank" rel="sponsored noopener" aria-label="Beli Kuali di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg></a>
-             <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=kuali" target="_blank" rel="sponsored noopener" aria-label="Beli Kuali di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg></a></div><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Balang kaca</span><a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=balang%20kaca" target="_blank" rel="sponsored noopener" aria-label="Beli Balang kaca di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg></a>
-             <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=balang%20kaca" target="_blank" rel="sponsored noopener" aria-label="Beli Balang kaca di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg></a></div><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Senduk kayu</span><a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=kayu" target="_blank" rel="sponsored noopener" aria-label="Beli Senduk kayu di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg></a>
-             <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=kayu" target="_blank" rel="sponsored noopener" aria-label="Beli Senduk kayu di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg></a></div></div>
+        <div id="toolsList" style="display:flex;flex-wrap:wrap;gap:10px;"><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Blender / Lesung</span><a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=Blender" target="_blank" rel="sponsored noopener" aria-label="Beli Blender / Lesung di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg></a>
+             <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=Blender" target="_blank" rel="sponsored noopener" aria-label="Beli Blender / Lesung di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg></a></div><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Kuali</span><a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=Kuali" target="_blank" rel="sponsored noopener" aria-label="Beli Kuali di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg></a>
+             <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=Kuali" target="_blank" rel="sponsored noopener" aria-label="Beli Kuali di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg></a></div><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Balang kaca</span><a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=Balang%20kaca" target="_blank" rel="sponsored noopener" aria-label="Beli Balang kaca di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg></a>
+             <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=Balang%20kaca" target="_blank" rel="sponsored noopener" aria-label="Beli Balang kaca di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg></a></div><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Senduk kayu</span><a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=Senduk%20kayu" target="_blank" rel="sponsored noopener" aria-label="Beli Senduk kayu di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg></a>
+             <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=Senduk%20kayu" target="_blank" rel="sponsored noopener" aria-label="Beli Senduk kayu di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg></a></div></div>
       </div>
 
       <!-- Nutrition -->
@@ -466,13 +484,14 @@
           <div class="chef-mini-sub" style="margin-top:2px;">🍳 124 resepi</div>
         </div>
       </div>
-        <div style="display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;" id="chefSocialMini"><a href="https://www.tiktok.com/@khairulaming" target="_blank" rel="noopener" class="chip-icon-btn brand-tiktok icon-only" style="justify-content:center;padding:8px 10px;" aria-label="tiktok"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M33.5 6h-6.8v27.2c0 3.4-2.7 6.1-6.1 6.1s-6.1-2.7-6.1-6.1 2.7-6.1 6.1-6.1c.6 0 1.2.1 1.8.3v-7c-.6-.1-1.2-.1-1.8-.1-7.2 0-13 5.8-13 13s5.8 13 13 13 13-5.8 13-13V18.9c2.6 1.9 5.8 3 9.2 3v-6.9c-5.1-.2-9.3-4.4-9.3-9.5V6z"></path></svg></a><a href="https://www.youtube.com/@KhairulAming" target="_blank" rel="noopener" class="chip-icon-btn brand-youtube icon-only" style="justify-content:center;padding:8px 10px;" aria-label="youtube"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M43.5 14.5c-.5-2-2.1-3.5-4.1-4C35.9 9.5 24 9.5 24 9.5s-11.9 0-15.4 1c-2 .5-3.6 2.1-4.1 4C3.5 18 3.5 24 3.5 24s0 6 1 9.5c.5 2 2.1 3.5 4.1 4 3.5 1 15.4 1 15.4 1s11.9 0 15.4-1c2-.5 3.6-2.1 4.1-4 1-3.5 1-9.5 1-9.5s0-6-1-9.5zM19.5 30V18l10.5 6-10.5 6z"></path></svg></a><a href="https://khairulaming.my" target="_blank" rel="noopener" class="chip-icon-btn brand-web icon-only" style="justify-content:center;padding:8px 10px;" aria-label="web"><svg viewBox="0 0 48 48" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><circle cx="24" cy="24" r="18"></circle><path d="M6 24h36M24 6c4.5 5 7 11.3 7 18s-2.5 13-7 18c-4.5-5-7-11.3-7-18s2.5-13 7-18z"></path></svg></a></div>
+        <div style="display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;" id="chefSocialMini"><a href="https://www.tiktok.com/@khairulaming" target="_blank" rel="noopener" class="chip-icon-btn brand-tiktok icon-only" style="justify-content:center;padding:8px 10px;" aria-label="tiktok"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M33.5 6h-6.8v27.2c0 3.4-2.7 6.1-6.1 6.1s-6.1-2.7-6.1-6.1 2.7-6.1 6.1-6.1c.6 0 1.2.1 1.8.3v-7c-.6-.1-1.2-.1-1.8-.1-7.2 0-13 5.8-13 13s5.8 13 13 13 13-5.8 13-13V18.9c2.6 1.9 5.8 3 9.2 3v-6.9c-5.1-.2-9.3-4.4-9.3-9.5V6z"></path></svg></a><a href="https://khairulaming.my" target="_blank" rel="noopener" class="chip-icon-btn brand-web icon-only" style="justify-content:center;padding:8px 10px;" aria-label="web"><svg viewBox="0 0 48 48" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><circle cx="24" cy="24" r="18"></circle><path d="M6 24h36M24 6c4.5 5 7 11.3 7 18s-2.5 13-7 18c-4.5-5-7-11.3-7-18s2.5-13 7-18z"></path></svg></a></div>
       </div>
+      <div id="chefSupportMini">
           <div class="support-card">
             <h3 style="font-size:0.9rem;">🛍️ Sokong Khairul Aming</h3>
             <p style="font-size:0.8rem;">Produk rasmi Khairul Aming:</p>
             <div class="support-links"><a href="https://shope.ee/AKCF5tXW44" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee" style="justify-content:center;"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg> Sambal Nyet Berapi</a><a href="https://shope.ee/ViJNuXbXV" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee" style="justify-content:center;"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg> Dendeng Nyet Berapi</a></div>
-          </div>
+          </div></div>
 
       <!-- Recipe info grid -->
       <div class="sidebar-card">
@@ -515,7 +534,7 @@
       <!-- Related recipes -->
       <div class="sidebar-card">
         <div class="sidebar-card-title">🍳 Resepi Lain Chef Ini</div>
-        <div id="relatedRecipes"><div class="related-card">
+        <div id="relatedRecipes"><a class="related-card" href="/resepi/ka-nasi-minyak-gulai-ayam-acar.html">
           <div class="related-card-thumb">
             <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Nasi-Minyak-Gulai-Ayam-Acar.webp?fit=1080%2C1920&amp;ssl=1" alt="Nasi Minyak, Gulai Ayam &amp; Acar" loading="lazy" class="img-loaded">
           </div>
@@ -523,7 +542,7 @@
             <div class="related-card-title">Nasi Minyak, Gulai Ayam &amp; Acar</div>
             <div class="related-card-meta">⏱ 45 minit &nbsp;·&nbsp; 📊 Susah</div>
           </div>
-        </div><div class="related-card">
+        </a><a class="related-card" href="/resepi/ka-rendang-2-kilo-daging.html">
           <div class="related-card-thumb">
             <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Rendang-2-Kilo-Daging.webp?fit=1080%2C1920&amp;ssl=1" alt="Rendang 2 Kilo Daging" loading="lazy" class="img-loaded">
           </div>
@@ -531,7 +550,7 @@
             <div class="related-card-title">Rendang 2 Kilo Daging</div>
             <div class="related-card-meta">⏱ 120 minit &nbsp;·&nbsp; 📊 Susah</div>
           </div>
-        </div><div class="related-card">
+        </a><a class="related-card" href="/resepi/ka-badak-berendam.html">
           <div class="related-card-thumb">
             <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Badak-Berendam.webp?fit=720%2C1280&amp;ssl=1" alt="Badak Berendam" loading="lazy" class="img-loaded">
           </div>
@@ -539,7 +558,7 @@
             <div class="related-card-title">Badak Berendam</div>
             <div class="related-card-meta">⏱ 30 minit &nbsp;·&nbsp; 📊 Susah</div>
           </div>
-        </div><div class="related-card">
+        </a><a class="related-card" href="/resepi/ka-ayam-masak-ros-kacang-buncis-goreng-telur.html">
           <div class="related-card-thumb">
             <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Ayam-Masak-Ros-Kacang-Buncis-Goreng-Telur.webp?fit=1080%2C1920&amp;ssl=1" alt="Ayam Masak Ros &amp; Kacang Buncis Goreng Telur" loading="lazy" class="img-loaded">
           </div>
@@ -547,7 +566,7 @@
             <div class="related-card-title">Ayam Masak Ros &amp; Kacang Buncis Goreng Telur</div>
             <div class="related-card-meta">⏱ 30 minit &nbsp;·&nbsp; 📊 Susah</div>
           </div>
-        </div></div>
+        </a></div>
         <a id="allChefLink" href="/chef/khairul-aming.html" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:8px;font-size:0.85rem;">
           Lihat Semua →
         </a>
@@ -567,7 +586,7 @@
       </div>
       <a href="/search.html" class="section-link">Lihat Semua →</a>
     </div>
-    <div class="scroll-row" id="moreCatRow"><div class="recipe-card">
+    <div class="scroll-row" id="moreCatRow"><a class="recipe-card" href="/resepi/ka-sambal-hijau-bilis-telur-dadar.html">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Sambal-Hijau-Bilis-Telur-Dadar.webp?fit=720%2C1280&amp;ssl=1" alt="Sambal Hijau Bilis &amp; Telur Dadar" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Sambal</span>
@@ -583,9 +602,9 @@
             <span>🍽 6 org</span>
           </div>
           <p class="recipe-card-hover-desc">Resepi Sambal Hijau Bilis &amp; Telur Dadar daripada Khairul Aming. Bahan-bahan dan langkah penuh disediakan di bawah.</p>
-          <a href="/resepi/ka-sambal-hijau-bilis-telur-dadar.html" class="btn btn-primary">▶ Tengok Resepi</a>
+          <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </div><div class="recipe-card">
+      </a><a class="recipe-card" href="/resepi/ka-cencaru-sumbat-sambal-sayur-masak-lemak.html">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Cencaru-Sumbat-Sambal-Sayur-Masak-Lemak.webp?fit=720%2C1280&amp;ssl=1" alt="Cencaru Sumbat Sambal &amp; Sayur Masak Lemak" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Sambal</span>
@@ -601,9 +620,9 @@
             <span>🍽 6 org</span>
           </div>
           <p class="recipe-card-hover-desc">Resepi Cencaru Sumbat Sambal &amp; Sayur Masak Lemak daripada Khairul Aming. Bahan-bahan dan langkah penuh disediakan di bawah.</p>
-          <a href="/resepi/ka-cencaru-sumbat-sambal-sayur-masak-lemak.html" class="btn btn-primary">▶ Tengok Resepi</a>
+          <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </div><div class="recipe-card">
+      </a><a class="recipe-card" href="/resepi/ka-ayam-gepuk.html">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Ayam-Gepuk.webp?fit=720%2C1280&amp;ssl=1" alt="Ayam Gepuk" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Sambal</span>
@@ -619,9 +638,9 @@
             <span>🍽 6 org</span>
           </div>
           <p class="recipe-card-hover-desc">Resepi Ayam Gepuk daripada Khairul Aming. Bahan-bahan dan langkah penuh disediakan di bawah.</p>
-          <a href="/resepi/ka-ayam-gepuk.html" class="btn btn-primary">▶ Tengok Resepi</a>
+          <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </div><div class="recipe-card">
+      </a><a class="recipe-card" href="/resepi/ka-telur-mata-kicap-dengan-sambal-nyet.html">
         <div class="recipe-card-thumb">
           <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Telur-Mata-Kicap-Dengan-Sambal-Nyet.webp?fit=1080%2C1920&amp;ssl=1" alt="Telur Mata Kicap Dengan Sambal Nyet" loading="lazy" class="img-loaded">
           <span class="recipe-card-cat">Sambal</span>
@@ -637,9 +656,9 @@
             <span>🍽 6 org</span>
           </div>
           <p class="recipe-card-hover-desc">Resepi Telur Mata Kicap Dengan Sambal Nyet daripada Khairul Aming. Bahan-bahan dan langkah penuh disediakan di bawah.</p>
-          <a href="/resepi/ka-telur-mata-kicap-dengan-sambal-nyet.html" class="btn btn-primary">▶ Tengok Resepi</a>
+          <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
-      </div></div>
+      </a></div>
   </section>
 
   <!-- ══════════════════════════════════════════
@@ -803,6 +822,47 @@
       tipsEl.style.flexDirection = 'column';
       tipsEl.style.gap = '10px';
 
+      // Best for
+      document.getElementById('bestForTitle').textContent = en ? '🎯 Best For' : '🎯 Sesuai Untuk';
+      const bestForEl = document.getElementById('bestForList');
+      bestForEl.innerHTML = '';
+      getBestFor(recipe, currentLang).forEach(item => {
+        const chip = document.createElement('span');
+        chip.className = 'tag';
+        chip.textContent = '✓ ' + item;
+        bestForEl.appendChild(chip);
+      });
+
+      // Common mistakes
+      document.getElementById('mistakesTitle').textContent = en ? '⚠️ Common Mistakes' : '⚠️ Kesilapan Biasa';
+      const mistakesEl = document.getElementById('mistakesList');
+      mistakesEl.innerHTML = '';
+      mistakesEl.style.display = 'flex';
+      mistakesEl.style.flexDirection = 'column';
+      mistakesEl.style.gap = '10px';
+      getMistakes(recipe, currentLang).forEach(m => {
+        const d = document.createElement('div');
+        d.className = 'ingredient-item';
+        d.style.cursor = 'default';
+        d.innerHTML = `<div class="ingredient-bullet"></div><span style="flex:1;">${m}</span>`;
+        mistakesEl.appendChild(d);
+      });
+
+      // Ingredient substitutes — scanned from this recipe's own ingredients
+      document.getElementById('substitutesTitle').textContent = en ? '🔄 Ingredient Substitutes' : '🔄 Boleh Gantikan';
+      const subsEl = document.getElementById('substitutesList');
+      subsEl.innerHTML = '';
+      subsEl.style.display = 'flex';
+      subsEl.style.flexDirection = 'column';
+      subsEl.style.gap = '10px';
+      getSubstitutes(recipe, currentLang).forEach(s => {
+        const d = document.createElement('div');
+        d.className = 'ingredient-item';
+        d.style.cursor = 'default';
+        d.innerHTML = `<div class="ingredient-bullet"></div><span style="flex:1;">${s}</span>`;
+        subsEl.appendChild(d);
+      });
+
       // Storage & reheat
       document.getElementById('storageText').textContent = getStorage(recipe, currentLang);
       document.getElementById('reheatText').textContent = getReheat(recipe, currentLang);
@@ -811,7 +871,7 @@
       const toolsEl = document.getElementById('toolsList');
       toolsEl.innerHTML = '';
       getTools(recipe).forEach(tool => {
-        const links = (typeof getShoppingLinks === 'function') ? getShoppingLinks(tool, tool) : null;
+        const links = (typeof getToolShoppingLinks === 'function') ? getToolShoppingLinks(tool) : null;
         const chip = document.createElement('div');
         chip.style.cssText = 'display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:99px;padding:8px 8px 8px 16px;font-size:0.85rem;color:var(--text);';
         chip.innerHTML = `<span>${tool}</span>` + (links
@@ -925,22 +985,28 @@
         [chef.instagram, 'instagram', 'brand-instagram'],
         [chef.website, 'web', 'brand-web'],
       ];
-      miniLinks.forEach(([url, iconName, brandClass]) => {
-        if (!url) return;
-        socialMini.innerHTML += `<a href="${url}" target="_blank" rel="noopener" class="chip-icon-btn ${brandClass} icon-only" style="justify-content:center;padding:8px 10px;" aria-label="${iconName}">${icon(iconName)}</a>`;
-      });
+      // Full-replace (not +=) so this stays correct even when the script
+      // re-runs on an already-baked page — additive insertion would duplicate.
+      socialMini.innerHTML = miniLinks
+        .filter(([url]) => url)
+        .map(([url, iconName, brandClass]) =>
+          `<a href="${url}" target="_blank" rel="noopener" class="chip-icon-btn ${brandClass} icon-only" style="justify-content:center;padding:8px 10px;" aria-label="${iconName}">${icon(iconName)}</a>`)
+        .join('');
 
       // Support / official product mini-card
+      const supportMiniEl = document.getElementById('chefSupportMini');
       if (chef.products && chef.products.length) {
         const links = chef.products.map(p =>
           `<a href="${p.url}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee" style="justify-content:center;">${icon('shopee')} ${p.name}</a>`
         ).join('');
-        document.getElementById('chefMiniWrap').insertAdjacentHTML('afterend', `
+        supportMiniEl.innerHTML = `
           <div class="support-card">
             <h3 style="font-size:0.9rem;">🛍️ Sokong ${chef.name}</h3>
             <p style="font-size:0.8rem;">Produk rasmi ${chef.name}:</p>
             <div class="support-links">${links}</div>
-          </div>`);
+          </div>`;
+      } else {
+        supportMiniEl.innerHTML = '';
       }
     }
 
@@ -949,8 +1015,9 @@
     const relatedEl = document.getElementById('relatedRecipes');
     if (related.length) {
       related.forEach(r => {
-        const card = document.createElement('div');
+        const card = document.createElement('a');
         card.className = 'related-card';
+        card.href = recipeUrl(r.id);
         card.innerHTML = `
           <div class="related-card-thumb">
             <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
@@ -960,9 +1027,6 @@
             <div class="related-card-meta">⏱ ${r.cook_time} &nbsp;·&nbsp; 📊 ${r.difficulty}</div>
           </div>
         `;
-        card.addEventListener('click', () => {
-          window.location.href = `/recipe-detail.html?id=${r.id}`;
-        });
         relatedEl.appendChild(card);
       });
     } else {
@@ -1054,8 +1118,11 @@
     const moreCatRow = document.getElementById('moreCatRow');
     moreCat.forEach(r => {
       const chef2 = getChefById(r.chef_id);
-      const card = document.createElement('div');
+      // A real <a> so it's a single tap on mobile and crawlable — same fix
+      // as buildRecipeCard on the homepage.
+      const card = document.createElement('a');
       card.className = 'recipe-card';
+      card.href = recipeUrl(r.id);
       card.innerHTML = `
         <div class="recipe-card-thumb">
           <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
@@ -1072,12 +1139,9 @@
             <span>🍽 ${r.servings} org</span>
           </div>
           <p class="recipe-card-hover-desc">${r.description}</p>
-          <a href="${recipeUrl(r.id)}" class="btn btn-primary">▶ Tengok Resepi</a>
+          <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
       `;
-      card.addEventListener('click', () => {
-        window.location.href = recipeUrl(r.id);
-      });
       moreCatRow.appendChild(card);
     });
 

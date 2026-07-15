@@ -2,6 +2,7 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8"/>
+  <script>(function(){try{if(localStorage.getItem('rl_theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
   <link rel="alternate icon" href="/favicon.svg"/>
   <link rel="apple-touch-icon" href="/favicon.svg"/>
@@ -77,6 +78,8 @@
       </div>
       <div id="chefSocial" style="display:flex;flex-direction:column;gap:10px;min-width:160px;"></div>
     </div>
+    <div id="chefAttribution"></div>
+    <div id="chefSupportCard"></div>
   </div>
 
   <!-- ══════════════════════════════════════════
@@ -206,37 +209,40 @@
       [chef.facebook, 'facebook', 'brand-facebook', 'Facebook'],
       [chef.website, 'web', 'brand-web', 'Laman Web'],
     ];
-    socialLinks.forEach(([url, iconName, brandClass, label]) => {
-      if (!url) return;
-      socialEl.innerHTML += `
+    // Full-replace (not +=) so this stays correct even when the script
+    // re-runs on an already-baked page — additive insertion would duplicate.
+    socialEl.innerHTML = socialLinks
+      .filter(([url]) => url)
+      .map(([url, iconName, brandClass, label]) => `
         <a href="${url}" target="_blank" rel="noopener" class="chip-icon-btn ${brandClass}" style="justify-content:center;">
           ${icon(iconName)} ${label}
-        </a>`;
-    });
+        </a>`)
+      .join('');
 
     // Attribution — always credit and link back to the original creator
-    document.getElementById('chefBio').insertAdjacentHTML('afterend', `
-      <div class="attribution-bar">
+    document.getElementById('chefAttribution').innerHTML = `
+      <div class="attribution-bar" style="max-width:760px;">
         ${icon('tiktok')}
         <span>Semua video &amp; resepi di halaman ini milik <strong>${chef.name}</strong>.
         <a href="${chef.tiktok}" target="_blank" rel="noopener">${icon('link')} Lawati channel rasmi ↗</a></span>
       </div>
-    `);
+    `;
 
     // Support / official product section
+    const supportEl = document.getElementById('chefSupportCard');
     if (chef.products && chef.products.length) {
       const links = chef.products.map(p =>
         `<a href="${p.url}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee">${icon('shopee')} ${p.name}</a>`
       ).join('');
-      document.getElementById('chefBio').closest('div').insertAdjacentHTML('afterend', `
+      supportEl.innerHTML = `
         <div class="support-card" style="max-width:760px;">
           <h3>🛍️ Sokong ${chef.name}</h3>
           <p>Suka resepi ${chef.name}? Sokong terus dengan membeli produk rasmi beliau.</p>
           <div class="support-links">${links}</div>
         </div>
-      `);
+      `;
     } else if (chef.tiktok) {
-      document.getElementById('chefBio').closest('div').insertAdjacentHTML('afterend', `
+      supportEl.innerHTML = `
         <div class="support-card" style="max-width:760px;">
           <h3>🛍️ Sokong ${chef.name}</h3>
           <p>Tiada kedai produk rasmi disahkan buat masa ini. Ikuti channel beliau untuk kempen sokongan atau produk terkini.</p>
@@ -244,7 +250,7 @@
             <a href="${chef.tiktok}" target="_blank" rel="noopener" class="chip-icon-btn brand-tiktok">${icon('tiktok')} Ikuti di TikTok</a>
           </div>
         </div>
-      `);
+      `;
     }
 
     // ── Recipes ───────────────────────────────

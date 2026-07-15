@@ -103,6 +103,36 @@
     });
   }
 
+  // ── Theme toggle (dark/light) ────────────────────────────────
+  // Idempotent: guarded by #themeToggle existence check so re-running this
+  // on an already-baked page (site.js runs on every real page load) never
+  // inserts a second button.
+  function initTheme() {
+    const nav = document.querySelector('.nav-search');
+    if (!nav || document.getElementById('themeToggle')) return;
+    const btn = document.createElement('button');
+    btn.id = 'themeToggle';
+    btn.className = 'nav-search-btn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Tukar tema terang/gelap');
+    const setIcon = () => {
+      btn.textContent = document.documentElement.getAttribute('data-theme') === 'light' ? '🌙' : '☀️';
+    };
+    setIcon();
+    btn.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('rl_theme', 'dark'); } catch (err) { /* storage unavailable */ }
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        try { localStorage.setItem('rl_theme', 'light'); } catch (err) { /* storage unavailable */ }
+      }
+      setIcon();
+    });
+    nav.insertBefore(btn, nav.firstChild);
+  }
+
   // ── Images: fade in when loaded (pairs with skeleton CSS) ───
   function watchImages() {
     document.querySelectorAll('img').forEach(img => {
@@ -115,6 +145,7 @@
   function init() {
     renderFooter();
     normalizeNav();
+    initTheme();
     watchImages();
     // re-watch images added later by page scripts
     setTimeout(watchImages, 600);

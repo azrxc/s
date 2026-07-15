@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ms"><head>
   <meta charset="UTF-8">
+  <script>(function(){try{if(localStorage.getItem('rl_theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/favicon.svg">
@@ -35,7 +36,7 @@
       <li><a href="/chefs.html" class="active">Chef</a></li>
       <li><a href="/search.html">Semua Resepi</a></li>
     <li><a href="/categories.html">Kategori</a></li></ul>
-    <div class="nav-search">
+    <div class="nav-search"><button id="themeToggle" class="nav-search-btn" type="button" aria-label="Tukar tema terang/gelap">☀️</button>
       <a href="/search.html" class="nav-search-btn">🔍</a>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
@@ -73,21 +74,7 @@
       <div style="flex:1;min-width:260px;">
         <div class="section-eyebrow" style="margin-bottom:8px;">Tentang Chef</div>
         <p id="chefBio" style="color:var(--text-sub);line-height:1.75;font-size:0.95rem;">Jenama masakan popular dengan format ikonik "2 Minit, 1 Resepi" — resepi kampung dan masakan harian yang senang, pantas dan sedap. Setiap video ada senarai bahan penuh terus dalam caption.</p>
-      <div class="attribution-bar">
-        <svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M33.5 6h-6.8v27.2c0 3.4-2.7 6.1-6.1 6.1s-6.1-2.7-6.1-6.1 2.7-6.1 6.1-6.1c.6 0 1.2.1 1.8.3v-7c-.6-.1-1.2-.1-1.8-.1-7.2 0-13 5.8-13 13s5.8 13 13 13 13-5.8 13-13V18.9c2.6 1.9 5.8 3 9.2 3v-6.9c-5.1-.2-9.3-4.4-9.3-9.5V6z"></path></svg>
-        <span>Semua video &amp; resepi di halaman ini milik <strong>Che Sayang Kitchen</strong>.
-        <a href="https://www.tiktok.com/@chesayang_kitchen" target="_blank" rel="noopener"><svg viewBox="0 0 48 48" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M20 28a8 8 0 0 0 11.3 0l5-5a8 8 0 0 0-11.3-11.3l-2.8 2.7"></path><path d="M28 20a8 8 0 0 0-11.3 0l-5 5a8 8 0 0 0 11.3 11.3l2.7-2.7"></path></svg> Lawati channel rasmi ↗</a></span>
       </div>
-    
-      </div>
-        <div class="support-card" style="max-width:760px;">
-          <h3>🛍️ Sokong Che Sayang Kitchen</h3>
-          <p>Tiada kedai produk rasmi disahkan buat masa ini. Ikuti channel beliau untuk kempen sokongan atau produk terkini.</p>
-          <div class="support-links">
-            <a href="https://www.tiktok.com/@chesayang_kitchen" target="_blank" rel="noopener" class="chip-icon-btn brand-tiktok"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M33.5 6h-6.8v27.2c0 3.4-2.7 6.1-6.1 6.1s-6.1-2.7-6.1-6.1 2.7-6.1 6.1-6.1c.6 0 1.2.1 1.8.3v-7c-.6-.1-1.2-.1-1.8-.1-7.2 0-13 5.8-13 13s5.8 13 13 13 13-5.8 13-13V18.9c2.6 1.9 5.8 3 9.2 3v-6.9c-5.1-.2-9.3-4.4-9.3-9.5V6z"></path></svg> Ikuti di TikTok</a>
-          </div>
-        </div>
-      
       <div id="chefSocial" style="display:flex;flex-direction:column;gap:10px;min-width:160px;">
         <a href="https://www.tiktok.com/@chesayang_kitchen" target="_blank" rel="noopener" class="chip-icon-btn brand-tiktok" style="justify-content:center;">
           <svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M33.5 6h-6.8v27.2c0 3.4-2.7 6.1-6.1 6.1s-6.1-2.7-6.1-6.1 2.7-6.1 6.1-6.1c.6 0 1.2.1 1.8.3v-7c-.6-.1-1.2-.1-1.8-.1-7.2 0-13 5.8-13 13s5.8 13 13 13 13-5.8 13-13V18.9c2.6 1.9 5.8 3 9.2 3v-6.9c-5.1-.2-9.3-4.4-9.3-9.5V6z"></path></svg> TikTok
@@ -102,6 +89,22 @@
           <svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M42 24c0-9.9-8.1-18-18-18S6 14.1 6 24c0 8.9 6.5 16.3 15 17.7V29.2h-4.5V24H21v-4c0-4.4 2.6-6.9 6.7-6.9 1.9 0 4 .3 4 .3v4.4h-2.2c-2.2 0-2.9 1.4-2.9 2.8V24h4.9l-.8 5.2H27v12.5C35.5 40.3 42 32.9 42 24z"></path></svg> Facebook
         </a></div>
     </div>
+    <div id="chefAttribution">
+      <div class="attribution-bar" style="max-width:760px;">
+        <svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M33.5 6h-6.8v27.2c0 3.4-2.7 6.1-6.1 6.1s-6.1-2.7-6.1-6.1 2.7-6.1 6.1-6.1c.6 0 1.2.1 1.8.3v-7c-.6-.1-1.2-.1-1.8-.1-7.2 0-13 5.8-13 13s5.8 13 13 13 13-5.8 13-13V18.9c2.6 1.9 5.8 3 9.2 3v-6.9c-5.1-.2-9.3-4.4-9.3-9.5V6z"></path></svg>
+        <span>Semua video &amp; resepi di halaman ini milik <strong>Che Sayang Kitchen</strong>.
+        <a href="https://www.tiktok.com/@chesayang_kitchen" target="_blank" rel="noopener"><svg viewBox="0 0 48 48" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M20 28a8 8 0 0 0 11.3 0l5-5a8 8 0 0 0-11.3-11.3l-2.8 2.7"></path><path d="M28 20a8 8 0 0 0-11.3 0l-5 5a8 8 0 0 0 11.3 11.3l2.7-2.7"></path></svg> Lawati channel rasmi ↗</a></span>
+      </div>
+    </div>
+    <div id="chefSupportCard">
+        <div class="support-card" style="max-width:760px;">
+          <h3>🛍️ Sokong Che Sayang Kitchen</h3>
+          <p>Tiada kedai produk rasmi disahkan buat masa ini. Ikuti channel beliau untuk kempen sokongan atau produk terkini.</p>
+          <div class="support-links">
+            <a href="https://www.tiktok.com/@chesayang_kitchen" target="_blank" rel="noopener" class="chip-icon-btn brand-tiktok"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M33.5 6h-6.8v27.2c0 3.4-2.7 6.1-6.1 6.1s-6.1-2.7-6.1-6.1 2.7-6.1 6.1-6.1c.6 0 1.2.1 1.8.3v-7c-.6-.1-1.2-.1-1.8-.1-7.2 0-13 5.8-13 13s5.8 13 13 13 13-5.8 13-13V18.9c2.6 1.9 5.8 3 9.2 3v-6.9c-5.1-.2-9.3-4.4-9.3-9.5V6z"></path></svg> Ikuti di TikTok</a>
+          </div>
+        </div>
+      </div>
   </div>
 
   <!-- ══════════════════════════════════════════
@@ -145,7 +148,7 @@
             <span>🍽 4 org</span>
             <span>📊 Sederhana</span>
           </div>
-          <p class="recipe-card-hover-desc">Episod 710 — Gulai nangka muda gaya Che Sayang Kitchen dengan kuah kari ikan bersantan dan ikan kurau masin. Resepi penuh terus daripada caption TikTok beliau.</p>
+          <p class="recipe-card-hover-desc">Episod 710 — Gulai nangka muda gaya Che Sayang Kitchen dengan kuah kari ikan bersantan dan ikan kurau masin.</p>
           <a href="/resepi/cs-gulai-nangka-muda.html" class="btn btn-primary">▶ Tengok Resepi</a>
         </div>
       </div><div class="recipe-card animate-up" style="animation-delay: 0.08s;">
@@ -616,37 +619,40 @@
       [chef.facebook, 'facebook', 'brand-facebook', 'Facebook'],
       [chef.website, 'web', 'brand-web', 'Laman Web'],
     ];
-    socialLinks.forEach(([url, iconName, brandClass, label]) => {
-      if (!url) return;
-      socialEl.innerHTML += `
+    // Full-replace (not +=) so this stays correct even when the script
+    // re-runs on an already-baked page — additive insertion would duplicate.
+    socialEl.innerHTML = socialLinks
+      .filter(([url]) => url)
+      .map(([url, iconName, brandClass, label]) => `
         <a href="${url}" target="_blank" rel="noopener" class="chip-icon-btn ${brandClass}" style="justify-content:center;">
           ${icon(iconName)} ${label}
-        </a>`;
-    });
+        </a>`)
+      .join('');
 
     // Attribution — always credit and link back to the original creator
-    document.getElementById('chefBio').insertAdjacentHTML('afterend', `
-      <div class="attribution-bar">
+    document.getElementById('chefAttribution').innerHTML = `
+      <div class="attribution-bar" style="max-width:760px;">
         ${icon('tiktok')}
         <span>Semua video &amp; resepi di halaman ini milik <strong>${chef.name}</strong>.
         <a href="${chef.tiktok}" target="_blank" rel="noopener">${icon('link')} Lawati channel rasmi ↗</a></span>
       </div>
-    `);
+    `;
 
     // Support / official product section
+    const supportEl = document.getElementById('chefSupportCard');
     if (chef.products && chef.products.length) {
       const links = chef.products.map(p =>
         `<a href="${p.url}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee">${icon('shopee')} ${p.name}</a>`
       ).join('');
-      document.getElementById('chefBio').closest('div').insertAdjacentHTML('afterend', `
+      supportEl.innerHTML = `
         <div class="support-card" style="max-width:760px;">
           <h3>🛍️ Sokong ${chef.name}</h3>
           <p>Suka resepi ${chef.name}? Sokong terus dengan membeli produk rasmi beliau.</p>
           <div class="support-links">${links}</div>
         </div>
-      `);
+      `;
     } else if (chef.tiktok) {
-      document.getElementById('chefBio').closest('div').insertAdjacentHTML('afterend', `
+      supportEl.innerHTML = `
         <div class="support-card" style="max-width:760px;">
           <h3>🛍️ Sokong ${chef.name}</h3>
           <p>Tiada kedai produk rasmi disahkan buat masa ini. Ikuti channel beliau untuk kempen sokongan atau produk terkini.</p>
@@ -654,7 +660,7 @@
             <a href="${chef.tiktok}" target="_blank" rel="noopener" class="chip-icon-btn brand-tiktok">${icon('tiktok')} Ikuti di TikTok</a>
           </div>
         </div>
-      `);
+      `;
     }
 
     // ── Recipes ───────────────────────────────

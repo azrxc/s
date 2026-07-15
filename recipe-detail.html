@@ -2,6 +2,7 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8"/>
+  <script>(function(){try{if(localStorage.getItem('rl_theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
   <link rel="alternate icon" href="/favicon.svg"/>
   <link rel="apple-touch-icon" href="/favicon.svg"/>
@@ -326,6 +327,23 @@
         <div id="tipsList"></div>
       </div>
 
+      <!-- Best for / Common mistakes / Substitutes — original site
+           content written for ResipiLokal, not from the source creator. -->
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title" id="bestForTitle">🎯 Sesuai Untuk</h2>
+        <div id="bestForList" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
+      </div>
+
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title" id="mistakesTitle">⚠️ Kesilapan Biasa</h2>
+        <div id="mistakesList"></div>
+      </div>
+
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title" id="substitutesTitle">🔄 Boleh Gantikan</h2>
+        <div id="substitutesList"></div>
+      </div>
+
       <!-- Storage & Reheating -->
       <div style="margin-bottom:36px;">
         <h2 class="recipe-section-title" id="storageTitle">🧊 Penyimpanan & Panaskan Semula</h2>
@@ -386,6 +404,7 @@
         <div class="chef-mini" id="chefMiniCard"></div>
         <div style="display:flex;gap:8px;margin-top:14px;" id="chefSocialMini"></div>
       </div>
+      <div id="chefSupportMini"></div>
 
       <!-- Recipe info grid -->
       <div class="sidebar-card">
@@ -576,6 +595,47 @@
       tipsEl.style.flexDirection = 'column';
       tipsEl.style.gap = '10px';
 
+      // Best for
+      document.getElementById('bestForTitle').textContent = en ? '🎯 Best For' : '🎯 Sesuai Untuk';
+      const bestForEl = document.getElementById('bestForList');
+      bestForEl.innerHTML = '';
+      getBestFor(recipe, currentLang).forEach(item => {
+        const chip = document.createElement('span');
+        chip.className = 'tag';
+        chip.textContent = '✓ ' + item;
+        bestForEl.appendChild(chip);
+      });
+
+      // Common mistakes
+      document.getElementById('mistakesTitle').textContent = en ? '⚠️ Common Mistakes' : '⚠️ Kesilapan Biasa';
+      const mistakesEl = document.getElementById('mistakesList');
+      mistakesEl.innerHTML = '';
+      mistakesEl.style.display = 'flex';
+      mistakesEl.style.flexDirection = 'column';
+      mistakesEl.style.gap = '10px';
+      getMistakes(recipe, currentLang).forEach(m => {
+        const d = document.createElement('div');
+        d.className = 'ingredient-item';
+        d.style.cursor = 'default';
+        d.innerHTML = `<div class="ingredient-bullet"></div><span style="flex:1;">${m}</span>`;
+        mistakesEl.appendChild(d);
+      });
+
+      // Ingredient substitutes — scanned from this recipe's own ingredients
+      document.getElementById('substitutesTitle').textContent = en ? '🔄 Ingredient Substitutes' : '🔄 Boleh Gantikan';
+      const subsEl = document.getElementById('substitutesList');
+      subsEl.innerHTML = '';
+      subsEl.style.display = 'flex';
+      subsEl.style.flexDirection = 'column';
+      subsEl.style.gap = '10px';
+      getSubstitutes(recipe, currentLang).forEach(s => {
+        const d = document.createElement('div');
+        d.className = 'ingredient-item';
+        d.style.cursor = 'default';
+        d.innerHTML = `<div class="ingredient-bullet"></div><span style="flex:1;">${s}</span>`;
+        subsEl.appendChild(d);
+      });
+
       // Storage & reheat
       document.getElementById('storageText').textContent = getStorage(recipe, currentLang);
       document.getElementById('reheatText').textContent = getReheat(recipe, currentLang);
@@ -584,7 +644,7 @@
       const toolsEl = document.getElementById('toolsList');
       toolsEl.innerHTML = '';
       getTools(recipe).forEach(tool => {
-        const links = (typeof getShoppingLinks === 'function') ? getShoppingLinks(tool, tool) : null;
+        const links = (typeof getToolShoppingLinks === 'function') ? getToolShoppingLinks(tool) : null;
         const chip = document.createElement('div');
         chip.style.cssText = 'display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:99px;padding:8px 8px 8px 16px;font-size:0.85rem;color:var(--text);';
         chip.innerHTML = `<span>${tool}</span>` + (links
@@ -698,22 +758,28 @@
         [chef.instagram, 'instagram', 'brand-instagram'],
         [chef.website, 'web', 'brand-web'],
       ];
-      miniLinks.forEach(([url, iconName, brandClass]) => {
-        if (!url) return;
-        socialMini.innerHTML += `<a href="${url}" target="_blank" rel="noopener" class="chip-icon-btn ${brandClass} icon-only" style="justify-content:center;padding:8px 10px;" aria-label="${iconName}">${icon(iconName)}</a>`;
-      });
+      // Full-replace (not +=) so this stays correct even when the script
+      // re-runs on an already-baked page — additive insertion would duplicate.
+      socialMini.innerHTML = miniLinks
+        .filter(([url]) => url)
+        .map(([url, iconName, brandClass]) =>
+          `<a href="${url}" target="_blank" rel="noopener" class="chip-icon-btn ${brandClass} icon-only" style="justify-content:center;padding:8px 10px;" aria-label="${iconName}">${icon(iconName)}</a>`)
+        .join('');
 
       // Support / official product mini-card
+      const supportMiniEl = document.getElementById('chefSupportMini');
       if (chef.products && chef.products.length) {
         const links = chef.products.map(p =>
           `<a href="${p.url}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee" style="justify-content:center;">${icon('shopee')} ${p.name}</a>`
         ).join('');
-        document.getElementById('chefMiniWrap').insertAdjacentHTML('afterend', `
+        supportMiniEl.innerHTML = `
           <div class="support-card">
             <h3 style="font-size:0.9rem;">🛍️ Sokong ${chef.name}</h3>
             <p style="font-size:0.8rem;">Produk rasmi ${chef.name}:</p>
             <div class="support-links">${links}</div>
-          </div>`);
+          </div>`;
+      } else {
+        supportMiniEl.innerHTML = '';
       }
     }
 
@@ -722,8 +788,9 @@
     const relatedEl = document.getElementById('relatedRecipes');
     if (related.length) {
       related.forEach(r => {
-        const card = document.createElement('div');
+        const card = document.createElement('a');
         card.className = 'related-card';
+        card.href = recipeUrl(r.id);
         card.innerHTML = `
           <div class="related-card-thumb">
             <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
@@ -733,9 +800,6 @@
             <div class="related-card-meta">⏱ ${r.cook_time} &nbsp;·&nbsp; 📊 ${r.difficulty}</div>
           </div>
         `;
-        card.addEventListener('click', () => {
-          window.location.href = `/recipe-detail.html?id=${r.id}`;
-        });
         relatedEl.appendChild(card);
       });
     } else {
@@ -827,8 +891,11 @@
     const moreCatRow = document.getElementById('moreCatRow');
     moreCat.forEach(r => {
       const chef2 = getChefById(r.chef_id);
-      const card = document.createElement('div');
+      // A real <a> so it's a single tap on mobile and crawlable — same fix
+      // as buildRecipeCard on the homepage.
+      const card = document.createElement('a');
       card.className = 'recipe-card';
+      card.href = recipeUrl(r.id);
       card.innerHTML = `
         <div class="recipe-card-thumb">
           <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
@@ -845,12 +912,9 @@
             <span>🍽 ${r.servings} org</span>
           </div>
           <p class="recipe-card-hover-desc">${r.description}</p>
-          <a href="${recipeUrl(r.id)}" class="btn btn-primary">▶ Tengok Resepi</a>
+          <span class="btn btn-primary">▶ Tengok Resepi</span>
         </div>
       `;
-      card.addEventListener('click', () => {
-        window.location.href = recipeUrl(r.id);
-      });
       moreCatRow.appendChild(card);
     });
 

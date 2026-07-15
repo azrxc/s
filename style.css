@@ -46,6 +46,25 @@
   --pad:         0 5%;
 }
 
+/* ── LIGHT THEME OVERRIDES ─────────────────────────────────── */
+:root[data-theme="light"] {
+  --bg:          #ffffff;
+  --bg2:         #f6f6f3;
+  --bg3:         #efeee8;
+  --card:        #ffffff;
+  --card-hover:  #f7f5f0;
+  --border:      rgba(0,0,0,0.08);
+  --border-hover:rgba(0,0,0,0.16);
+
+  --text:        #1c1c1c;
+  --text-sub:    #5a5750;
+  --text-muted:  #8a8778;
+  --white:       #0d0d0d;
+
+  --shadow:      0 8px 32px rgba(0,0,0,0.10);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.08);
+}
+
 /* ── RESET & BASE ──────────────────────────────────────────── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -360,6 +379,10 @@ h1, h2, h3 { line-height: 1.2; }
   font-size: 0.75rem;
   letter-spacing: 0.5px;
   margin: 0 5%;
+  /* Hidden site-wide while pending AdSense review — empty ad placeholders
+     are a common rejection reason. Remove this line once approved and the
+     real <ins class="adsbygoogle"> units are filled in. */
+  display: none;
 }
 
 /* ── SECTION SHELL ─────────────────────────────────────────── */
