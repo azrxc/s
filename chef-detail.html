@@ -220,6 +220,12 @@
           ▶ YouTube
         </a>`;
     }
+    if (chef.website) {
+      socialEl.innerHTML += `
+        <a href="${chef.website}" target="_blank" rel="noopener" class="btn btn-ghost" style="gap:8px;font-size:0.85rem;">
+          🌐 Website
+        </a>`;
+    }
 
     // ── Recipes ───────────────────────────────
     const allRecipes = getRecipesByChef(chefId);
@@ -317,5 +323,6 @@
     });
   </script>
 
+  <script src="site.js"></script>
 </body>
 </html>

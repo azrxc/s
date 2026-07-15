@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soalan Lazim (FAQ) — ResipiLokal</title>
+  <meta name="description" content="Soalan lazim tentang ResipiLokal — resepi, video TikTok, pautan affiliate, terjemahan dan permintaan pencipta."/>
+  <link rel="canonical" href="https://s-chi-puce.vercel.app/faq.html"/>
+  <meta property="og:title" content="Soalan Lazim — ResipiLokal"/>
+  <meta property="og:description" content="Soalan lazim tentang platform ResipiLokal."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://s-chi-puce.vercel.app/faq.html"/>
+  <meta name="twitter:card" content="summary"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav class="navbar scrolled" id="navbar" aria-label="Navigasi utama">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-text">Resepi<span>Lokal</span></span>
+      <span class="nav-logo-badge">MY</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chefs.html">Chef</a></li>
+      <li><a href="search.html">Semua Resepi</a></li>
+      <li><a href="categories.html">Kategori</a></li>
+    </ul>
+    <div class="nav-search">
+      <a href="search.html" class="nav-search-btn" aria-label="Cari resepi">🔍</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main class="page-wrap">
+    <h1>Soalan Lazim (FAQ)</h1>
+    <p class="page-sub">Jawapan kepada soalan yang paling kerap ditanya.</p>
+    <div id="faqWrap"></div>
+  </main>
+
+  <footer class="footer"></footer>
+  <script>
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    const FAQS = [
+      ["Adakah ResipiLokal percuma?",
+       "Ya, 100% percuma. Laman ini ditampung oleh pautan affiliate (Shopee/TikTok Shop) dan iklan — anda tidak perlu membayar apa-apa."],
+      ["Resepi ini milik siapa?",
+       "Setiap resepi adalah hak cipta chef / pencipta kandungan asalnya, yang dinamakan dengan jelas pada setiap halaman bersama pautan ke sumber asal. ResipiLokal hanya menyusun, menterjemah dan menambah panduan tambahan."],
+      ["Kenapa sesetengah resepi tiada video?",
+       "Sesetengah video lama telah dipadamkan daripada TikTok oleh pencipta asal, jadi ia tidak lagi boleh dipaparkan. Bagi resepi tersebut kami sediakan pautan terus ke profil TikTok chef berkenaan."],
+      ["Kenapa sesetengah resepi tiada langkah memasak bertulis?",
+       "Sesetengah pencipta hanya berkongsi senarai bahan secara bertulis — cara memasak penuh ditunjukkan dalam video mereka. Kami tidak mereka-reka langkah; kami paparkan video asal (atau pautan kepadanya) sebagai panduan."],
+      ["Adakah masa memasak dan kalori itu tepat?",
+       "Ia adalah anggaran automatik berdasarkan kategori resepi dan bahan tipikal — bukan angka rasmi daripada pencipta. Gunakan sebagai panduan kasar sahaja."],
+      ["Apa fungsi butang Shopee dan TikTok Shop?",
+       "Ia membawa anda terus ke carian produk bahan tersebut. Jika anda membeli, kami mungkin terima komisen kecil tanpa kos tambahan kepada anda. Baca Penafian Affiliate kami untuk maklumat penuh."],
+      ["Boleh saya tukar bahasa resepi?",
+       "Ya! Di setiap halaman resepi ada butang 🇲🇾 BM / 🇬🇧 English di bahagian atas — tajuk, bahan, langkah, tips dan FAQ akan bertukar bahasa."],
+      ["Saya chef / pencipta kandungan. Bagaimana nak kemas kini atau alih keluar kandungan saya?",
+       "Emel kami melalui halaman Hubungi Kami dengan subjek 'Permintaan Pencipta' — kami akan bertindak dalam masa 48 jam."],
+      ["Bagaimana nak cadangkan chef atau resepi baharu?",
+       "Hantar cadangan anda melalui halaman Hubungi Kami. Kami sentiasa menambah pencipta dan resepi baharu."],
+    ];
+
+    const wrap = document.getElementById('faqWrap');
+    FAQS.forEach(([q, a]) => {
+      const det = document.createElement('details');
+      det.style.cssText = 'background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:12px;';
+      det.innerHTML = `<summary style="cursor:pointer;font-weight:700;color:var(--white);font-size:0.95rem;">${q}</summary>
+        <p style="color:var(--text-sub);font-size:0.9rem;line-height:1.8;margin:12px 0 0;">${a}</p>`;
+      wrap.appendChild(det);
+    });
+
+    // FAQPage structured data
+    const ld = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: FAQS.map(([q, a]) => ({
+        '@type': 'Question', name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    };
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(ld);
+    document.head.appendChild(s);
+  </script>
+  <script src="site.js"></script>
+</body>
+</html>

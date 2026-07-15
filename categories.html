@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kategori Resepi — ResipiLokal</title>
+  <meta name="description" content="Layari resepi Malaysia mengikut kategori — lauk, nasi, mee & pasta, kuih, kek, dessert, minuman, seafood, sarapan dan banyak lagi."/>
+  <link rel="canonical" href="https://s-chi-puce.vercel.app/categories.html"/>
+  <meta property="og:title" content="Kategori Resepi — ResipiLokal"/>
+  <meta property="og:description" content="Layari resepi Malaysia mengikut kategori."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://s-chi-puce.vercel.app/categories.html"/>
+  <meta name="twitter:card" content="summary"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav class="navbar scrolled" id="navbar" aria-label="Navigasi utama">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-text">Resepi<span>Lokal</span></span>
+      <span class="nav-logo-badge">MY</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chefs.html">Chef</a></li>
+      <li><a href="search.html">Semua Resepi</a></li>
+      <li><a href="categories.html">Kategori</a></li>
+    </ul>
+    <div class="nav-search">
+      <a href="search.html" class="nav-search-btn" aria-label="Cari resepi">🔍</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main class="page-wrap" style="max-width:1080px;">
+    <h1>Kategori Resepi</h1>
+    <p class="page-sub" id="catSub">Pilih kategori untuk melihat semua resepi berkaitan.</p>
+    <div class="cat-grid" id="catGrid"></div>
+
+    <h2 style="margin-top:48px;">Tag Popular</h2>
+    <p style="font-size:0.85rem;color:var(--text-muted);">Carian pantas mengikut bahan & tema kegemaran.</p>
+    <div id="tagRow" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;"></div>
+  </main>
+
+  <footer class="footer"></footer>
+  <script src="data.js"></script>
+  <script>
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    const CAT_EMOJI = {
+      'Lauk': '🍛', 'Nasi': '🍚', 'Kuih': '🟡', 'Kek': '🎂', 'Sup': '🥣',
+      'Sambal': '🌶️', 'Seafood': '🦐', 'Minuman': '🥤', 'Dessert': '🍮',
+      'Mee & Pasta': '🍜', 'Sarapan': '🍳', 'Western': '🍔',
+    };
+
+    // Build category cards from real recipe data (no empty categories)
+    const counts = {};
+    RECIPES.forEach(r => { counts[r.category] = (counts[r.category] || 0) + 1; });
+    const grid = document.getElementById('catGrid');
+    Object.keys(counts).sort((a, b) => counts[b] - counts[a]).forEach(cat => {
+      const a = document.createElement('a');
+      a.className = 'cat-card';
+      a.href = 'search.html?cat=' + encodeURIComponent(cat);
+      a.setAttribute('aria-label', 'Lihat ' + counts[cat] + ' resepi ' + cat);
+      a.innerHTML = `
+        <div class="cat-emoji">${CAT_EMOJI[cat] || '🍽️'}</div>
+        <div class="cat-name">${cat}</div>
+        <div class="cat-count">${counts[cat]} resepi</div>`;
+      grid.appendChild(a);
+    });
+    document.getElementById('catSub').textContent =
+      RECIPES.length + ' resepi dalam ' + Object.keys(counts).length + ' kategori — pilih satu untuk mula.';
+
+    // Popular quick-search tags
+    const TAGS = ['Ayam', 'Daging', 'Udang', 'Telur', 'Santan', 'Pedas', 'Air Fryer', 'Cheese', 'Coklat', 'Ramadan', 'Raya', 'Viral TikTok'];
+    const tagRow = document.getElementById('tagRow');
+    TAGS.forEach(t => {
+      const a = document.createElement('a');
+      a.href = 'search.html?q=' + encodeURIComponent(t);
+      a.className = 'tag';
+      a.style.cssText = 'text-decoration:none;padding:8px 16px;font-size:0.85rem;';
+      a.textContent = t;
+      tagRow.appendChild(a);
+    });
+  </script>
+  <script src="site.js"></script>
+</body>
+</html>
