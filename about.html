@@ -2,6 +2,10 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8"/>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+  <link rel="alternate icon" href="/favicon.svg"/>
+  <link rel="apple-touch-icon" href="/favicon.svg"/>
+  <meta name="theme-color" content="#f5a623"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tentang Kami — ResipiLokal</title>
   <meta name="description" content="ResipiLokal ialah platform resepi chef & pencipta kandungan masakan Malaysia — resepi dwibahasa, video asal, dan kredit penuh kepada pencipta."/>
@@ -10,23 +14,26 @@
   <meta property="og:description" content="Platform resepi chef & pencipta kandungan masakan Malaysia."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://s-chi-puce.vercel.app/about.html"/>
-  <meta name="twitter:card" content="summary"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta property="og:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg"/>
+  <meta property="og:site_name" content="ResipiLokal"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg"/>
+  <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
   <nav class="navbar scrolled" id="navbar" aria-label="Navigasi utama">
-    <a href="index.html" class="nav-logo">
+    <a href="/" class="nav-logo">
       <span class="nav-logo-text">Resepi<span>Lokal</span></span>
       <span class="nav-logo-badge">MY</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="chefs.html">Chef</a></li>
-      <li><a href="search.html">Semua Resepi</a></li>
-      <li><a href="categories.html">Kategori</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/chefs.html">Chef</a></li>
+      <li><a href="/search.html">Semua Resepi</a></li>
+      <li><a href="/categories.html">Kategori</a></li>
     </ul>
     <div class="nav-search">
-      <a href="search.html" class="nav-search-btn" aria-label="Cari resepi">🔍</a>
+      <a href="/search.html" class="nav-search-btn" aria-label="Cari resepi">🔍</a>
       <button class="nav-toggle" id="navToggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -47,18 +54,18 @@
 
     <h2>Kredit & hak cipta</h2>
     <div class="callout">
-      <p style="margin-bottom:0;">Setiap resepi di ResipiLokal dikreditkan sepenuhnya kepada chef atau pencipta asalnya, dengan pautan ke sumber asal. ResipiLokal bukan milik mana-mana chef dan tidak mendakwa hak ke atas resepi atau video. Jika anda pencipta asal dan mahu kandungan anda dikemas kini atau dialih keluar, <a href="contact.html">hubungi kami</a> — kami akan bertindak segera.</p>
+      <p style="margin-bottom:0;">Setiap resepi di ResipiLokal dikreditkan sepenuhnya kepada chef atau pencipta asalnya, dengan pautan ke sumber asal. ResipiLokal bukan milik mana-mana chef dan tidak mendakwa hak ke atas resepi atau video. Jika anda pencipta asal dan mahu kandungan anda dikemas kini atau dialih keluar, <a href="/contact.html">hubungi kami</a> — kami akan bertindak segera.</p>
     </div>
 
     <h2>Bagaimana kami menampung kos</h2>
-    <p>Sesetengah butang "Beli" di halaman resepi ialah pautan affiliate (Shopee / TikTok Shop). Jika anda membeli melalui pautan tersebut, kami mungkin menerima komisen kecil — tanpa sebarang kos tambahan kepada anda. Baca <a href="affiliate-disclosure.html">Penafian Affiliate</a> kami.</p>
+    <p>Sesetengah butang "Beli" di halaman resepi ialah pautan affiliate (Shopee / TikTok Shop). Jika anda membeli melalui pautan tersebut, kami mungkin menerima komisen kecil — tanpa sebarang kos tambahan kepada anda. Baca <a href="/affiliate-disclosure.html">Penafian Affiliate</a> kami.</p>
 
     <h2>Hubungi kami</h2>
-    <p>Ada cadangan chef atau resepi untuk ditambah? Jumpa ralat terjemahan? <a href="contact.html">Hantarkan mesej</a> — maklum balas anda membantu kami menambah baik platform ini.</p>
+    <p>Ada cadangan chef atau resepi untuk ditambah? Jumpa ralat terjemahan? <a href="/contact.html">Hantarkan mesej</a> — maklum balas anda membantu kami menambah baik platform ini.</p>
   </main>
 
   <footer class="footer"></footer>
   <script>document.getElementById('navToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('open'); });</script>
-  <script src="site.js"></script>
+  <script src="/site.js"></script>
 </body>
 </html>

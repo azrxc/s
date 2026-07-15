@@ -10,7 +10,7 @@ const CHEFS = [
     id: "khairul-aming",
     name: "Khairul Aming",
     slug: "khairul-aming",
-    image: "images/chefs/khairul-aming.jpg",
+    image: "/images/chefs/khairul-aming.jpg",
     cover: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80",
     bio: "Pencipta kandungan masakan paling terkenal Malaysia. Dikenali dengan resepi mudah, bahan simple tapi sedap gila — dan produk viral Sambal Nyet Berapi. Siri '30 Hari 30 Resipi' beliau setiap Ramadan menjadi fenomena tahunan.",
     bio_en: "Malaysia's most famous recipe content creator. Known for simple ingredients, easy steps, and incredibly delicious results — plus the viral Sambal Nyet Berapi product. His annual '30 Days 30 Recipes' Ramadan series is a national phenomenon.",
@@ -18,25 +18,38 @@ const CHEFS = [
     recipes_count: 124,
     tiktok: "https://www.tiktok.com/@khairulaming",
     youtube: "https://www.youtube.com/@KhairulAming",
+    instagram: "",
+    facebook: "",
     website: "https://khairulaming.my",
     speciality: ["Lauk", "Nasi", "Simple & Cepat"],
     verified: true,
+    // ✅ Produk rasmi — sokong pencipta asal dengan membeli produk mereka.
+    // Pautan ini diambil terus daripada laman rasmi khairulaming.my.
+    products: [
+      { name: "Sambal Nyet Berapi", url: "https://shope.ee/AKCF5tXW44" },
+      { name: "Dendeng Nyet Berapi", url: "https://shope.ee/ViJNuXbXV" },
+    ],
   },
   {
     id: "che-sayang",
     name: "Che Sayang Kitchen",
     slug: "che-sayang",
-    image: "images/chefs/che-sayang.jpg",
-    cover: "images/recipes/cs-ayam-masak-merah.jpg",
+    image: "/images/chefs/che-sayang.jpg",
+    cover: "/images/recipes/cs-ayam-masak-merah.jpg",
     bio: "Jenama masakan popular dengan format ikonik \"2 Minit, 1 Resepi\" — resepi kampung dan masakan harian yang senang, pantas dan sedap. Setiap video ada senarai bahan penuh terus dalam caption.",
     bio_en: "A hugely popular food brand known for its iconic \"2 Minutes, 1 Recipe\" format — easy, fast, delicious everyday and kampung-style dishes. Every video includes the full ingredient list right in the caption.",
     followers: "3.4M",
     recipes_count: 18,
     tiktok: "https://www.tiktok.com/@chesayang_kitchen",
     youtube: "https://www.youtube.com/channel/UCdXB_anUqmG7cI2bVVOOWXw",
+    instagram: "https://www.instagram.com/chesayangkitchen/",
+    facebook: "https://www.facebook.com/chesayangkitchen/",
     website: "",
     speciality: ["Masakan Kampung", "Ayam", "2 Minit 1 Resepi"],
     verified: true,
+    // Tiada kedai produk rasmi disahkan buat masa ini — ikuti channel beliau
+    // untuk kempen sokongan/produk terkini (contohnya penyertaan anugerah).
+    products: [],
   },
 ];
 
@@ -6932,7 +6945,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Gulai Nangka Muda dengan Ikan Kurau Masin",
     title_en: "Young Jackfruit Curry with Salted Threadfin Fish",
-    thumbnail: "images/recipes/cs-gulai-nangka-muda.jpg",
+    thumbnail: "/images/recipes/cs-gulai-nangka-muda.jpg",
     category: "Lauk",
     tags: ["Lauk", "Tradisional", "2 Minit 1 Resepi"],
     prep_time: "10 minit",
@@ -6989,7 +7002,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Tilapia Goreng Sambal Santan",
     title_en: "Fried Tilapia with Coconut Sambal",
-    thumbnail: "images/recipes/cs-tilapia-goreng-sambal-santan.jpg",
+    thumbnail: "/images/recipes/cs-tilapia-goreng-sambal-santan.jpg",
     category: "Seafood",
     tags: ["Seafood", "Ikan", "2 Minit 1 Resepi"],
     prep_time: "10 minit",
@@ -7042,7 +7055,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Ayam Bakar ala Baker Cottage",
     title_en: "Grilled Chicken, Baker Cottage Style",
-    thumbnail: "images/recipes/cs-ayam-bakar-baker-cottage.jpg",
+    thumbnail: "/images/recipes/cs-ayam-bakar-baker-cottage.jpg",
     category: "Lauk",
     tags: ["Lauk", "Ayam", "2 Minit 1 Resepi"],
     prep_time: "10 minit",
@@ -7087,7 +7100,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Pizza Frying Pan (Pizza Kampung)",
     title_en: "Frying Pan Pizza (No-Oven Pizza)",
-    thumbnail: "images/recipes/cs-pizza-frying-pan.jpg",
+    thumbnail: "/images/recipes/cs-pizza-frying-pan.jpg",
     category: "Western",
     tags: ["Western", "Tanpa Oven", "2 Minit 1 Resepi"],
     prep_time: "20 minit",
@@ -7158,7 +7171,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Sup Daging Raya Aidil Adha",
     title_en: "Beef Soup for Hari Raya Aidiladha",
-    thumbnail: "images/recipes/cs-sup-daging-raya.jpg",
+    thumbnail: "/images/recipes/cs-sup-daging-raya.jpg",
     category: "Sup",
     tags: ["Sup", "Daging", "Raya", "2 Minit 1 Resepi"],
     prep_time: "15 minit",
@@ -7221,7 +7234,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Potato Pancake (Inspirasi Culinary Class Wars)",
     title_en: "Potato Pancake (Inspired by Culinary Class Wars)",
-    thumbnail: "images/recipes/cs-potato-pancake.jpg",
+    thumbnail: "/images/recipes/cs-potato-pancake.jpg",
     category: "Sarapan",
     tags: ["Sarapan", "Snek", "2 Minit 1 Resepi"],
     prep_time: "10 minit",
@@ -7264,7 +7277,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Chicken Pot Pie",
     title_en: "Chicken Pot Pie",
-    thumbnail: "images/recipes/cs-chicken-pot-pie.jpg",
+    thumbnail: "/images/recipes/cs-chicken-pot-pie.jpg",
     category: "Western",
     tags: ["Western", "Ayam", "2 Minit 1 Resepi"],
     prep_time: "20 minit",
@@ -7313,7 +7326,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Spicy Beef Pasta",
     title_en: "Spicy Beef Pasta",
-    thumbnail: "images/recipes/cs-spicy-beef-pasta.jpg",
+    thumbnail: "/images/recipes/cs-spicy-beef-pasta.jpg",
     category: "Mee & Pasta",
     tags: ["Mee & Pasta", "Daging", "Pedas", "2 Minit 1 Resepi"],
     prep_time: "10 minit",
@@ -7364,7 +7377,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Kari Sotong",
     title_en: "Squid Curry",
-    thumbnail: "images/recipes/cs-kari-sotong.jpg",
+    thumbnail: "/images/recipes/cs-kari-sotong.jpg",
     category: "Seafood",
     tags: ["Seafood", "Kari", "Ramadan", "2 Minit 1 Resepi"],
     prep_time: "10 minit",
@@ -7421,7 +7434,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Kurma Ayam",
     title_en: "Chicken Kurma",
-    thumbnail: "images/recipes/cs-kurma-ayam.jpg",
+    thumbnail: "/images/recipes/cs-kurma-ayam.jpg",
     category: "Lauk",
     tags: ["Lauk", "Ayam", "Ramadan", "2 Minit 1 Resepi"],
     prep_time: "15 minit",
@@ -7494,7 +7507,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Ayam Goreng Serai",
     title_en: "Lemongrass Fried Chicken",
-    thumbnail: "images/recipes/cs-ayam-goreng-serai.jpg",
+    thumbnail: "/images/recipes/cs-ayam-goreng-serai.jpg",
     category: "Lauk",
     tags: ["Lauk", "Ayam", "2 Minit 1 Resepi"],
     prep_time: "15 minit",
@@ -7543,7 +7556,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Ayam Masak Halia",
     title_en: "Ginger Chicken",
-    thumbnail: "images/recipes/cs-ayam-masak-halia.jpg",
+    thumbnail: "/images/recipes/cs-ayam-masak-halia.jpg",
     category: "Lauk",
     tags: ["Lauk", "Ayam", "2 Minit 1 Resepi"],
     prep_time: "15 minit",
@@ -7608,7 +7621,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Asam Pedas Ayam",
     title_en: "Chicken Asam Pedas",
-    thumbnail: "images/recipes/cs-asam-pedas-ayam.jpg",
+    thumbnail: "/images/recipes/cs-asam-pedas-ayam.jpg",
     category: "Lauk",
     tags: ["Lauk", "Ayam", "Pedas", "2 Minit 1 Resepi"],
     prep_time: "15 minit",
@@ -7669,7 +7682,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Ayam Cili Santan",
     title_en: "Chicken in Chili Coconut Gravy",
-    thumbnail: "images/recipes/cs-ayam-cili-santan.jpg",
+    thumbnail: "/images/recipes/cs-ayam-cili-santan.jpg",
     category: "Lauk",
     tags: ["Lauk", "Ayam", "Pedas", "2 Minit 1 Resepi"],
     prep_time: "15 minit",
@@ -7724,7 +7737,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Kari Ayam (Merdeka)",
     title_en: "Chicken Curry (Merdeka Special)",
-    thumbnail: "images/recipes/cs-kari-ayam.jpg",
+    thumbnail: "/images/recipes/cs-kari-ayam.jpg",
     category: "Lauk",
     tags: ["Lauk", "Ayam", "Kari", "2 Minit 1 Resepi"],
     prep_time: "15 minit",
@@ -7791,7 +7804,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Ayam Goreng Bawang Putih",
     title_en: "Garlic Fried Chicken",
-    thumbnail: "images/recipes/cs-ayam-goreng-bawang-putih.jpg",
+    thumbnail: "/images/recipes/cs-ayam-goreng-bawang-putih.jpg",
     category: "Lauk",
     tags: ["Lauk", "Ayam", "2 Minit 1 Resepi"],
     prep_time: "15 minit",
@@ -7838,7 +7851,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Ayam Goreng Korea",
     title_en: "Korean Fried Chicken",
-    thumbnail: "images/recipes/cs-ayam-goreng-korea.jpg",
+    thumbnail: "/images/recipes/cs-ayam-goreng-korea.jpg",
     category: "Western",
     tags: ["Western", "Ayam", "Korea", "2 Minit 1 Resepi"],
     prep_time: "20 minit",
@@ -7901,7 +7914,7 @@ const RECIPES = [
     chef_id: "che-sayang",
     title: "Ayam Masak Merah",
     title_en: "Red Spiced Chicken",
-    thumbnail: "images/recipes/cs-ayam-masak-merah.jpg",
+    thumbnail: "/images/recipes/cs-ayam-masak-merah.jpg",
     category: "Lauk",
     tags: ["Lauk", "Ayam", "Raya", "2 Minit 1 Resepi"],
     prep_time: "15 minit",
@@ -7961,6 +7974,16 @@ const RECIPES = [
 
 // ── HELPER FUNCTIONS ─────────────────────────────────────────
 // These help all other pages find the data they need easily
+
+// Canonical clean URLs — every page link on the site should be built
+// through these two functions so there is one place that defines the
+// URL scheme (used for pre-rendering to /resepi/ and /chef/ pages).
+function recipeUrl(id) {
+  return '/resepi/' + id + '.html';
+}
+function chefUrl(id) {
+  return '/chef/' + id + '.html';
+}
 
 function getChefById(id) {
   return CHEFS.find(c => c.id === id);

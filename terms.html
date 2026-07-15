@@ -2,6 +2,10 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8"/>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+  <link rel="alternate icon" href="/favicon.svg"/>
+  <link rel="apple-touch-icon" href="/favicon.svg"/>
+  <meta name="theme-color" content="#f5a623"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terma Penggunaan — ResipiLokal</title>
   <meta name="description" content="Terma penggunaan laman ResipiLokal — hak cipta kandungan, penafian ketepatan, dan tanggungjawab pengguna."/>
@@ -10,23 +14,26 @@
   <meta property="og:description" content="Terma penggunaan laman ResipiLokal."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://s-chi-puce.vercel.app/terms.html"/>
-  <meta name="twitter:card" content="summary"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta property="og:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg"/>
+  <meta property="og:site_name" content="ResipiLokal"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg"/>
+  <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
   <nav class="navbar scrolled" id="navbar" aria-label="Navigasi utama">
-    <a href="index.html" class="nav-logo">
+    <a href="/" class="nav-logo">
       <span class="nav-logo-text">Resepi<span>Lokal</span></span>
       <span class="nav-logo-badge">MY</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="chefs.html">Chef</a></li>
-      <li><a href="search.html">Semua Resepi</a></li>
-      <li><a href="categories.html">Kategori</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/chefs.html">Chef</a></li>
+      <li><a href="/search.html">Semua Resepi</a></li>
+      <li><a href="/categories.html">Kategori</a></li>
     </ul>
     <div class="nav-search">
-      <a href="search.html" class="nav-search-btn" aria-label="Cari resepi">🔍</a>
+      <a href="/search.html" class="nav-search-btn" aria-label="Cari resepi">🔍</a>
       <button class="nav-toggle" id="navToggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -43,7 +50,7 @@
       <li>Resepi, video dan imej adalah hak cipta <strong>pencipta asal masing-masing</strong> (chef / pencipta kandungan yang dinamakan pada setiap halaman).</li>
       <li>Video dipaparkan melalui embed rasmi TikTok dan kekal dihoskan di platform asal — kami tidak memuat naik semula kandungan sesiapa.</li>
       <li>Susunan, terjemahan dan nota tambahan di laman ini disediakan oleh ResipiLokal untuk rujukan komuniti.</li>
-      <li>Pencipta asal boleh meminta kandungan mereka dialih keluar pada bila-bila masa melalui halaman <a href="contact.html">Hubungi Kami</a>.</li>
+      <li>Pencipta asal boleh meminta kandungan mereka dialih keluar pada bila-bila masa melalui halaman <a href="/contact.html">Hubungi Kami</a>.</li>
     </ul>
 
     <h2>3. Penafian ketepatan (Disclaimer)</h2>
@@ -55,7 +62,7 @@
     <p>Panduan penyimpanan dan pemanasan semula adalah nasihat umum. Sentiasa gunakan pertimbangan sendiri — pastikan makanan dimasak sehingga suhu selamat dan buang makanan yang meragukan.</p>
 
     <h2>5. Pautan luar & affiliate</h2>
-    <p>Laman ini mengandungi pautan ke laman pihak ketiga (TikTok, Shopee, laman pencipta). Kami tidak bertanggungjawab ke atas kandungan, harga atau polisi laman tersebut. Sesetengah pautan ialah pautan affiliate — lihat <a href="affiliate-disclosure.html">Penafian Affiliate</a>.</p>
+    <p>Laman ini mengandungi pautan ke laman pihak ketiga (TikTok, Shopee, laman pencipta). Kami tidak bertanggungjawab ke atas kandungan, harga atau polisi laman tersebut. Sesetengah pautan ialah pautan affiliate — lihat <a href="/affiliate-disclosure.html">Penafian Affiliate</a>.</p>
 
     <h2>6. Had tanggungan</h2>
     <p>ResipiLokal disediakan "seadanya" tanpa sebarang jaminan. Kami tidak bertanggungjawab ke atas sebarang kerugian akibat penggunaan maklumat di laman ini.</p>
@@ -66,6 +73,6 @@
 
   <footer class="footer"></footer>
   <script>document.getElementById('navToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('open'); });</script>
-  <script src="site.js"></script>
+  <script src="/site.js"></script>
 </body>
 </html>

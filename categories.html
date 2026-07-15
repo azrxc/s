@@ -1,48 +1,126 @@
 <!DOCTYPE html>
-<html lang="ms">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<html lang="ms"><head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#f5a623">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kategori Resepi — ResipiLokal</title>
-  <meta name="description" content="Layari resepi Malaysia mengikut kategori — lauk, nasi, mee & pasta, kuih, kek, dessert, minuman, seafood, sarapan dan banyak lagi."/>
-  <link rel="canonical" href="https://s-chi-puce.vercel.app/categories.html"/>
-  <meta property="og:title" content="Kategori Resepi — ResipiLokal"/>
-  <meta property="og:description" content="Layari resepi Malaysia mengikut kategori."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://s-chi-puce.vercel.app/categories.html"/>
-  <meta name="twitter:card" content="summary"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="description" content="Layari resepi Malaysia mengikut kategori — lauk, nasi, mee &amp; pasta, kuih, kek, dessert, minuman, seafood, sarapan dan banyak lagi.">
+  <link rel="canonical" href="https://s-chi-puce.vercel.app/categories.html">
+  <meta property="og:title" content="Kategori Resepi — ResipiLokal">
+  <meta property="og:description" content="Layari resepi Malaysia mengikut kategori.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://s-chi-puce.vercel.app/categories.html">
+  <meta property="og:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg">
+  <meta property="og:site_name" content="ResipiLokal">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <nav class="navbar scrolled" id="navbar" aria-label="Navigasi utama">
-    <a href="index.html" class="nav-logo">
+    <a href="/" class="nav-logo">
       <span class="nav-logo-text">Resepi<span>Lokal</span></span>
       <span class="nav-logo-badge">MY</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="chefs.html">Chef</a></li>
-      <li><a href="search.html">Semua Resepi</a></li>
-      <li><a href="categories.html">Kategori</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/chefs.html">Chef</a></li>
+      <li><a href="/search.html">Semua Resepi</a></li>
+      <li><a href="/categories.html" style="color: var(--accent);">Kategori</a></li>
     </ul>
     <div class="nav-search">
-      <a href="search.html" class="nav-search-btn" aria-label="Cari resepi">🔍</a>
+      <a href="/search.html" class="nav-search-btn" aria-label="Cari resepi">🔍</a>
       <button class="nav-toggle" id="navToggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
   <main class="page-wrap" style="max-width:1080px;">
     <h1>Kategori Resepi</h1>
-    <p class="page-sub" id="catSub">Pilih kategori untuk melihat semua resepi berkaitan.</p>
-    <div class="cat-grid" id="catGrid"></div>
+    <p class="page-sub" id="catSub">142 resepi dalam 12 kategori — pilih satu untuk mula.</p>
+    <div class="cat-grid" id="catGrid"><a class="cat-card" href="/search.html?cat=Lauk" aria-label="Lihat 49 resepi Lauk">
+        <div class="cat-emoji">🍛</div>
+        <div class="cat-name">Lauk</div>
+        <div class="cat-count">49 resepi</div></a><a class="cat-card" href="/search.html?cat=Dessert" aria-label="Lihat 21 resepi Dessert">
+        <div class="cat-emoji">🍮</div>
+        <div class="cat-name">Dessert</div>
+        <div class="cat-count">21 resepi</div></a><a class="cat-card" href="/search.html?cat=Nasi" aria-label="Lihat 14 resepi Nasi">
+        <div class="cat-emoji">🍚</div>
+        <div class="cat-name">Nasi</div>
+        <div class="cat-count">14 resepi</div></a><a class="cat-card" href="/search.html?cat=Mee%20%26%20Pasta" aria-label="Lihat 10 resepi Mee &amp; Pasta">
+        <div class="cat-emoji">🍜</div>
+        <div class="cat-name">Mee &amp; Pasta</div>
+        <div class="cat-count">10 resepi</div></a><a class="cat-card" href="/search.html?cat=Minuman" aria-label="Lihat 9 resepi Minuman">
+        <div class="cat-emoji">🥤</div>
+        <div class="cat-name">Minuman</div>
+        <div class="cat-count">9 resepi</div></a><a class="cat-card" href="/search.html?cat=Seafood" aria-label="Lihat 9 resepi Seafood">
+        <div class="cat-emoji">🦐</div>
+        <div class="cat-name">Seafood</div>
+        <div class="cat-count">9 resepi</div></a><a class="cat-card" href="/search.html?cat=Kek" aria-label="Lihat 9 resepi Kek">
+        <div class="cat-emoji">🎂</div>
+        <div class="cat-name">Kek</div>
+        <div class="cat-count">9 resepi</div></a><a class="cat-card" href="/search.html?cat=Kuih" aria-label="Lihat 6 resepi Kuih">
+        <div class="cat-emoji">🟡</div>
+        <div class="cat-name">Kuih</div>
+        <div class="cat-count">6 resepi</div></a><a class="cat-card" href="/search.html?cat=Sambal" aria-label="Lihat 5 resepi Sambal">
+        <div class="cat-emoji">🌶️</div>
+        <div class="cat-name">Sambal</div>
+        <div class="cat-count">5 resepi</div></a><a class="cat-card" href="/search.html?cat=Western" aria-label="Lihat 5 resepi Western">
+        <div class="cat-emoji">🍔</div>
+        <div class="cat-name">Western</div>
+        <div class="cat-count">5 resepi</div></a><a class="cat-card" href="/search.html?cat=Sup" aria-label="Lihat 4 resepi Sup">
+        <div class="cat-emoji">🥣</div>
+        <div class="cat-name">Sup</div>
+        <div class="cat-count">4 resepi</div></a><a class="cat-card" href="/search.html?cat=Sarapan" aria-label="Lihat 1 resepi Sarapan">
+        <div class="cat-emoji">🍳</div>
+        <div class="cat-name">Sarapan</div>
+        <div class="cat-count">1 resepi</div></a></div>
 
     <h2 style="margin-top:48px;">Tag Popular</h2>
-    <p style="font-size:0.85rem;color:var(--text-muted);">Carian pantas mengikut bahan & tema kegemaran.</p>
-    <div id="tagRow" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;"></div>
+    <p style="font-size:0.85rem;color:var(--text-muted);">Carian pantas mengikut bahan &amp; tema kegemaran.</p>
+    <div id="tagRow" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;"><a href="/search.html?q=Ayam" class="tag" style="text-decoration: none; padding: 8px 16px; font-size: 0.85rem;">Ayam</a><a href="/search.html?q=Daging" class="tag" style="text-decoration: none; padding: 8px 16px; font-size: 0.85rem;">Daging</a><a href="/search.html?q=Udang" class="tag" style="text-decoration: none; padding: 8px 16px; font-size: 0.85rem;">Udang</a><a href="/search.html?q=Telur" class="tag" style="text-decoration: none; padding: 8px 16px; font-size: 0.85rem;">Telur</a><a href="/search.html?q=Santan" class="tag" style="text-decoration: none; padding: 8px 16px; font-size: 0.85rem;">Santan</a><a href="/search.html?q=Pedas" class="tag" style="text-decoration: none; padding: 8px 16px; font-size: 0.85rem;">Pedas</a><a href="/search.html?q=Air%20Fryer" class="tag" style="text-decoration: none; padding: 8px 16px; font-size: 0.85rem;">Air Fryer</a><a href="/search.html?q=Cheese" class="tag" style="text-decoration: none; padding: 8px 16px; font-size: 0.85rem;">Cheese</a><a href="/search.html?q=Coklat" class="tag" style="text-decoration: none; padding: 8px 16px; font-size: 0.85rem;">Coklat</a><a href="/search.html?q=Ramadan" class="tag" style="text-decoration: none; padding: 8px 16px; font-size: 0.85rem;">Ramadan</a><a href="/search.html?q=Raya" class="tag" style="text-decoration: none; padding: 8px 16px; font-size: 0.85rem;">Raya</a><a href="/search.html?q=Viral%20TikTok" class="tag" style="text-decoration: none; padding: 8px 16px; font-size: 0.85rem;">Viral TikTok</a></div>
   </main>
 
-  <footer class="footer"></footer>
-  <script src="data.js"></script>
+  <footer class="footer">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Resepi<span>Lokal</span></div>
+          <p class="footer-desc">Platform resepi chef &amp; influencer masakan Malaysia. Tonton video asal, baca resepi dwibahasa, dan masak dengan mudah. Kredit penuh kepada semua pencipta asal.</p>
+          <div class="footer-col-title" style="margin-top:18px;">📬 Newsletter</div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0;">Resepi baharu terus ke emel anda.</p>
+          <form class="newsletter-form" id="newsletterForm" aria-label="Langgan newsletter">
+            <input type="email" id="newsletterEmail" placeholder="Emel anda" required="" aria-label="Alamat emel">
+            <button type="submit">Langgan</button>
+          </form>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigasi</div>
+          <ul class="footer-links-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/chefs.html">Semua Chef</a></li>
+            <li><a href="/search.html">Cari Resepi</a></li>
+            <li><a href="/categories.html">Kategori</a></li>
+            <li><a href="/faq.html">Soalan Lazim</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Maklumat</div>
+          <ul class="footer-links-list">
+            <li><a href="/about.html">Tentang Kami</a></li>
+            <li><a href="/contact.html">Hubungi Kami</a></li>
+            <li><a href="/privacy.html">Dasar Privasi</a></li>
+            <li><a href="/terms.html">Terma Penggunaan</a></li>
+            <li><a href="/affiliate-disclosure.html">Penafian Affiliate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 ResipiLokal.com — Dibuat dengan ❤️ untuk rakyat Malaysia</p>
+        <p style="font-size:0.78rem;color:var(--text-muted);">ResipiLokal bukan milik mana-mana chef. Semua resepi &amp; video adalah hak cipta pencipta asal masing-masing. Butang beli mengandungi link affiliate — lihat <a href="/affiliate-disclosure.html" style="color:var(--text-muted);text-decoration:underline;">penafian affiliate</a>.</p>
+      </div></footer>
+  <script src="/data.js"></script>
   <script>
     document.getElementById('navToggle').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('open');
@@ -58,10 +136,11 @@
     const counts = {};
     RECIPES.forEach(r => { counts[r.category] = (counts[r.category] || 0) + 1; });
     const grid = document.getElementById('catGrid');
+    grid.innerHTML = '';
     Object.keys(counts).sort((a, b) => counts[b] - counts[a]).forEach(cat => {
       const a = document.createElement('a');
       a.className = 'cat-card';
-      a.href = 'search.html?cat=' + encodeURIComponent(cat);
+      a.href = '/search.html?cat=' + encodeURIComponent(cat);
       a.setAttribute('aria-label', 'Lihat ' + counts[cat] + ' resepi ' + cat);
       a.innerHTML = `
         <div class="cat-emoji">${CAT_EMOJI[cat] || '🍽️'}</div>
@@ -75,15 +154,17 @@
     // Popular quick-search tags
     const TAGS = ['Ayam', 'Daging', 'Udang', 'Telur', 'Santan', 'Pedas', 'Air Fryer', 'Cheese', 'Coklat', 'Ramadan', 'Raya', 'Viral TikTok'];
     const tagRow = document.getElementById('tagRow');
+    tagRow.innerHTML = '';
     TAGS.forEach(t => {
       const a = document.createElement('a');
-      a.href = 'search.html?q=' + encodeURIComponent(t);
+      a.href = '/search.html?q=' + encodeURIComponent(t);
       a.className = 'tag';
       a.style.cssText = 'text-decoration:none;padding:8px 16px;font-size:0.85rem;';
       a.textContent = t;
       tagRow.appendChild(a);
     });
   </script>
-  <script src="site.js"></script>
-</body>
-</html>
+  <script src="/site.js"></script>
+
+
+</body></html>

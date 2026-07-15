@@ -2,10 +2,22 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8"/>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+  <link rel="alternate icon" href="/favicon.svg"/>
+  <link rel="apple-touch-icon" href="/favicon.svg"/>
+  <meta name="theme-color" content="#f5a623"/>
+  <link rel="canonical" href="https://s-chi-puce.vercel.app/recipe-detail.html"/>
+  <meta property="og:title" content="Resepi — ResipiLokal"/>
+  <meta property="og:description" content="Resepi masakan Malaysia terbaik di ResipiLokal."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg"/>
+  <meta property="og:site_name" content="ResipiLokal"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Resepi — ResipiLokal</title>
   <meta name="description" content="Resepi masakan Malaysia terbaik di ResipiLokal."/>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="/style.css"/>
   <!-- ✅ ADSENSE -->
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 
@@ -188,17 +200,17 @@
        NAVBAR
   ══════════════════════════════════════════ -->
   <nav class="navbar scrolled" id="navbar">
-    <a href="index.html" class="nav-logo">
+    <a href="/" class="nav-logo">
       <span class="nav-logo-text">Resepi<span>Lokal</span></span>
       <span class="nav-logo-badge">MY</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="chefs.html">Chef</a></li>
-      <li><a href="search.html">Semua Resepi</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/chefs.html">Chef</a></li>
+      <li><a href="/search.html">Semua Resepi</a></li>
     </ul>
     <div class="nav-search">
-      <a href="search.html" class="nav-search-btn">🔍</a>
+      <a href="/search.html" class="nav-search-btn">🔍</a>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -212,9 +224,9 @@
     <div class="recipe-hero-content animate-up">
       <!-- Breadcrumb -->
       <div style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin-bottom:12px;">
-        <a href="index.html" style="color:inherit;">Home</a>
+        <a href="/" style="color:inherit;">Home</a>
         <span style="margin:0 6px;">›</span>
-        <a href="chefs.html" style="color:inherit;">Chef</a>
+        <a href="/chefs.html" style="color:inherit;">Chef</a>
         <span style="margin:0 6px;">›</span>
         <a href="#" id="breadChef" style="color:var(--accent);">—</a>
         <span style="margin:0 6px;">›</span>
@@ -257,7 +269,7 @@
       <!-- TikTok Video -->
       <div class="recipe-video-wrap">
         <div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
-          <span style="font-size:1.1rem;">🎵</span>
+          <span id="videoHeaderIcon" style="display:inline-flex;color:var(--accent);"></span>
           <span style="font-weight:700;color:var(--white);font-size:0.95rem;">Video Resepi</span>
           <span style="font-size:0.78rem;color:var(--text-muted);margin-left:auto;">via TikTok</span>
         </div>
@@ -272,6 +284,9 @@
           </div>
         </div>
       </div>
+
+      <!-- Video attribution — always credit + link back to the original creator -->
+      <div id="videoAttribution"></div>
 
       <!-- Description -->
       <div style="margin-bottom:32px;">
@@ -354,9 +369,9 @@
         <h3 style="font-size:1rem;font-weight:700;color:var(--white);margin-bottom:6px;">📤 Kongsi Resepi Ini</h3>
         <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:0;">Kongsi dengan kawan-kawan yang suka masak!</p>
         <div class="share-row">
-          <button class="share-btn" onclick="shareWhatsApp()">📱 WhatsApp</button>
-          <button class="share-btn" onclick="shareTelegram()">✈️ Telegram</button>
-          <button class="share-btn" onclick="copyLink()">🔗 Salin Link</button>
+          <button class="share-btn" onclick="shareWhatsApp()"><svg viewBox="0 0 48 48" width="16" height="16" fill="currentColor" style="vertical-align:-3px;margin-right:6px;"><path d="M24 4C13 4 4 13 4 24c0 3.7 1 7.2 2.8 10.2L4 44l10-2.7c2.9 1.6 6.2 2.5 9.7 2.5h.3c11 0 20-9 20-20S35 4 24 4zm11.7 28.4c-.5 1.4-2.7 2.6-3.7 2.7-1 .1-2.1.5-6.9-1.5-5.9-2.4-9.6-8.4-9.9-8.8-.3-.4-2.4-3.2-2.4-6s1.5-4.3 2-4.9c.5-.6 1.1-.7 1.5-.7h1.1c.4 0 .9 0 1.3 1 .5 1.2 1.7 4 1.8 4.3.1.3.2.7 0 1.1-.2.4-.3.6-.6 1s-.6.9-.9 1.2c-.3.3-.6.7-.3 1.3.3.6 1.5 2.5 3.2 4 2.2 2 4 2.6 4.6 2.9.6.3 1 .2 1.3-.1.4-.4 1.6-1.9 2-2.6.4-.6.9-.5 1.5-.3.6.2 3.9 1.8 4.5 2.2.6.3 1.1.5 1.2.7.2.4.2 1.3-.3 2.7z"/></svg>WhatsApp</button>
+          <button class="share-btn" onclick="shareTelegram()"><svg viewBox="0 0 48 48" width="16" height="16" fill="currentColor" style="vertical-align:-3px;margin-right:6px;"><path d="M24 4C13 4 4 13 4 24s9 20 20 20 20-9 20-20S35 4 24 4zm9.7 13.7-3.3 15.6c-.2 1.1-.9 1.4-1.9.9l-5.2-3.8-2.5 2.4c-.3.3-.5.5-1 .5l.4-5.3 9.6-8.7c.4-.4-.1-.6-.6-.2L17 26l-5.2-1.6c-1.1-.3-1.1-1.1.2-1.7l20.4-7.9c.9-.4 1.8.2 1.3 2z"/></svg>Telegram</button>
+          <button class="share-btn" onclick="copyLink()"><svg viewBox="0 0 48 48" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="vertical-align:-3px;margin-right:6px;"><path d="M20 28a8 8 0 0 0 11.3 0l5-5a8 8 0 0 0-11.3-11.3l-2.8 2.7"/><path d="M28 20a8 8 0 0 0-11.3 0l-5 5a8 8 0 0 0 11.3 11.3l2.7-2.7"/></svg>Salin Link</button>
         </div>
       </div>
 
@@ -431,7 +446,7 @@
         <div class="section-eyebrow">🍛 Kategori Sama</div>
         <h2 class="section-title" id="moreCatTitle">Resepi Lain</h2>
       </div>
-      <a href="search.html" class="section-link">Lihat Semua →</a>
+      <a href="/search.html" class="section-link">Lihat Semua →</a>
     </div>
     <div class="scroll-row" id="moreCatRow"></div>
   </section>
@@ -439,34 +454,7 @@
   <!-- ══════════════════════════════════════════
        FOOTER
   ══════════════════════════════════════════ -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand-name">Resepi<span>Lokal</span></div>
-        <p class="footer-desc">Platform resepi chef & influencer masakan Malaysia. Tonton video, baca resepi, masak dengan mudah.</p>
-      </div>
-      <div>
-        <div class="footer-col-title">Navigasi</div>
-        <ul class="footer-links-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="chefs.html">Semua Chef</a></li>
-          <li><a href="search.html">Cari Resepi</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Lain-lain</div>
-        <ul class="footer-links-list">
-          <li><a href="#">Tentang Kami</a></li>
-          <li><a href="#">Dasar Privasi</a></li>
-          <li><a href="#">Hubungi Kami</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 ResipiLokal.com — Dibuat dengan ❤️ untuk rakyat Malaysia</p>
-      <p style="font-size:0.78rem;color:var(--text-muted);">ResipiLokal bukan milik mana-mana chef. Hak cipta video milik pemilik asal.</p>
-    </div>
-  </footer>
+  <footer class="footer"></footer>
 
   <!-- Toast -->
   <div class="toast" id="toast"></div>
@@ -474,21 +462,27 @@
   <!-- ══════════════════════════════════════════
        SCRIPTS
   ══════════════════════════════════════════ -->
-  <script src="data.js"></script>
-  <script src="enrich.js"></script>
+  <script src="/data.js"></script>
+  <script src="/icons.js"></script>
+  <script src="/enrich.js"></script>
   <script>
     // Mobile nav
     document.getElementById('navToggle').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('open');
     });
 
-    // Get recipe ID from URL
+    // Get recipe ID from URL — supports both the clean static URL
+    // (/resepi/<id>.html) and the legacy query-string URL (?id=<id>)
     const params = new URLSearchParams(window.location.search);
-    const recipeId = params.get('id');
-    if (!recipeId) window.location.href = 'index.html';
+    let recipeId = params.get('id');
+    if (!recipeId) {
+      const pathMatch = window.location.pathname.match(/\/resepi\/([^\/]+)\.html$/);
+      if (pathMatch) recipeId = pathMatch[1];
+    }
+    if (!recipeId) window.location.href = '/';
 
     const recipe = getRecipeById(recipeId);
-    if (!recipe) window.location.href = 'index.html';
+    if (!recipe) window.location.href = '/';
 
     const chef = getChefById(recipe.chef_id);
 
@@ -524,7 +518,7 @@
     if (chef) {
       const breadChef = document.getElementById('breadChef');
       breadChef.textContent = chef.name;
-      breadChef.href = `chef-detail.html?id=${chef.id}`;
+      breadChef.href = chefUrl(chef.id);
     }
 
     // Tags
@@ -594,8 +588,8 @@
         const chip = document.createElement('div');
         chip.style.cssText = 'display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:99px;padding:8px 8px 8px 16px;font-size:0.85rem;color:var(--text);';
         chip.innerHTML = `<span>${tool}</span>` + (links
-          ? `<a class="ing-buy ing-shopee" href="${links.shopee}" target="_blank" rel="sponsored noopener" aria-label="Beli ${tool} di Shopee">🛒</a>
-             <a class="ing-buy ing-ttshop" href="${links.tiktok}" target="_blank" rel="sponsored noopener" aria-label="Beli ${tool} di TikTok Shop">🛍️</a>`
+          ? `<a class="ing-buy ing-shopee" href="${links.shopee}" target="_blank" rel="sponsored noopener" aria-label="Beli ${tool} di Shopee">${icon('shopee')}</a>
+             <a class="ing-buy ing-ttshop" href="${links.tiktok}" target="_blank" rel="sponsored noopener" aria-label="Beli ${tool} di TikTok Shop">${icon('bag')}</a>`
           : '');
         toolsEl.appendChild(chip);
       });
@@ -622,6 +616,18 @@
           <p style="color:var(--text-sub);font-size:0.88rem;line-height:1.7;margin:10px 0 0;">${item.a}</p>`;
         faqEl.appendChild(det);
       });
+    }
+
+    // ── Video header icon + attribution bar ───
+    document.getElementById('videoHeaderIcon').innerHTML = icon('tiktok');
+    if (chef) {
+      const videoLink = recipe.tiktok_url || chef.tiktok;
+      document.getElementById('videoAttribution').innerHTML = `
+        <div class="attribution-bar">
+          ${icon('tiktok')}
+          <span>Video &amp; resepi asal oleh <strong>${chef.name}</strong>.
+          <a href="${videoLink}" target="_blank" rel="noopener">${icon('link')} Tonton di TikTok ↗</a></span>
+        </div>`;
     }
 
     // ── TikTok embed ──────────────────────────
@@ -679,20 +685,35 @@
         </div>
       `;
       chefMini.addEventListener('click', () => {
-        window.location.href = `chef-detail.html?id=${chef.id}`;
+        window.location.href = chefUrl(chef.id);
       });
 
-      document.getElementById('allChefLink').href = `chef-detail.html?id=${chef.id}`;
+      document.getElementById('allChefLink').href = chefUrl(chef.id);
 
       const socialMini = document.getElementById('chefSocialMini');
-      if (chef.tiktok) {
-        socialMini.innerHTML += `<a href="${chef.tiktok}" target="_blank" rel="noopener" class="btn btn-outline" style="flex:1;justify-content:center;padding:8px;font-size:0.78rem;">🎵 TikTok</a>`;
-      }
-      if (chef.youtube) {
-        socialMini.innerHTML += `<a href="${chef.youtube}" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;justify-content:center;padding:8px;font-size:0.78rem;">▶ YouTube</a>`;
-      }
-      if (chef.website) {
-        socialMini.innerHTML += `<a href="${chef.website}" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;justify-content:center;padding:8px;font-size:0.78rem;">🌐 Website</a>`;
+      socialMini.style.flexWrap = 'wrap';
+      const miniLinks = [
+        [chef.tiktok, 'tiktok', 'brand-tiktok'],
+        [chef.youtube, 'youtube', 'brand-youtube'],
+        [chef.instagram, 'instagram', 'brand-instagram'],
+        [chef.website, 'web', 'brand-web'],
+      ];
+      miniLinks.forEach(([url, iconName, brandClass]) => {
+        if (!url) return;
+        socialMini.innerHTML += `<a href="${url}" target="_blank" rel="noopener" class="chip-icon-btn ${brandClass} icon-only" style="justify-content:center;padding:8px 10px;" aria-label="${iconName}">${icon(iconName)}</a>`;
+      });
+
+      // Support / official product mini-card
+      if (chef.products && chef.products.length) {
+        const links = chef.products.map(p =>
+          `<a href="${p.url}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee" style="justify-content:center;">${icon('shopee')} ${p.name}</a>`
+        ).join('');
+        document.getElementById('chefMiniWrap').insertAdjacentHTML('afterend', `
+          <div class="support-card">
+            <h3 style="font-size:0.9rem;">🛍️ Sokong ${chef.name}</h3>
+            <p style="font-size:0.8rem;">Produk rasmi ${chef.name}:</p>
+            <div class="support-links">${links}</div>
+          </div>`);
       }
     }
 
@@ -713,7 +734,7 @@
           </div>
         `;
         card.addEventListener('click', () => {
-          window.location.href = `recipe-detail.html?id=${r.id}`;
+          window.location.href = `/recipe-detail.html?id=${r.id}`;
         });
         relatedEl.appendChild(card);
       });
@@ -743,8 +764,8 @@
         const links = (typeof getShoppingLinks === 'function') ? getShoppingLinks(item, bmText) : null;
         const buyBtns = links
           ? `<span class="ing-actions">
-               <a class="ing-buy ing-shopee" href="${links.shopee}" target="_blank" rel="sponsored noopener" aria-label="Beli ${links.label} di Shopee">🛒 Shopee</a>
-               <a class="ing-buy ing-ttshop" href="${links.tiktok}" target="_blank" rel="sponsored noopener" aria-label="Beli ${links.label} di TikTok Shop">🛍️ TikTok</a>
+               <a class="ing-buy ing-shopee" href="${links.shopee}" target="_blank" rel="sponsored noopener" aria-label="Beli ${links.label} di Shopee">${icon('shopee')} Shopee</a>
+               <a class="ing-buy ing-ttshop" href="${links.tiktok}" target="_blank" rel="sponsored noopener" aria-label="Beli ${links.label} di TikTok Shop">${icon('bag')} TikTok</a>
              </span>`
           : '';
         div.innerHTML = `<div class="ingredient-bullet"></div><span class="ing-text">${item}</span>${buyBtns}`;
@@ -824,11 +845,11 @@
             <span>🍽 ${r.servings} org</span>
           </div>
           <p class="recipe-card-hover-desc">${r.description}</p>
-          <a href="recipe-detail.html?id=${r.id}" class="btn btn-primary">▶ Tengok Resepi</a>
+          <a href="${recipeUrl(r.id)}" class="btn btn-primary">▶ Tengok Resepi</a>
         </div>
       `;
       card.addEventListener('click', () => {
-        window.location.href = `recipe-detail.html?id=${r.id}`;
+        window.location.href = recipeUrl(r.id);
       });
       moreCatRow.appendChild(card);
     });
@@ -864,7 +885,21 @@
     // ── SEO: canonical + JSON-LD structured data ──
     (function () {
       const SITE_BASE = 'https://s-chi-puce.vercel.app';
-      const canonUrl = SITE_BASE + '/recipe-detail.html?id=' + encodeURIComponent(recipe.id);
+      const canonUrl = SITE_BASE + recipeUrl(recipe.id);
+      // og:image / JSON-LD image must be fully-qualified URLs — thumbnails
+      // are either already absolute (khairulaming.my) or root-relative
+      // (/images/recipes/...) depending on source.
+      const absImg = recipe.thumbnail.indexOf('http') === 0 ? recipe.thumbnail : SITE_BASE + recipe.thumbnail;
+
+      // Idempotent: remove any static-fallback or previously-injected SEO
+      // tags (from the generic <head>, or from an earlier snapshot of this
+      // very script) before writing the recipe-specific ones. This runs
+      // both on a live page load AND when this page was pre-rendered, so
+      // it must never produce duplicates either way.
+      document.querySelectorAll(
+        'link[rel="canonical"], meta[property^="og:"], meta[name="twitter:image"], meta[name="twitter:card"], script[type="application/ld+json"]'
+      ).forEach(el => el.remove());
+
       const canon = document.createElement('link');
       canon.rel = 'canonical';
       canon.href = canonUrl;
@@ -872,13 +907,15 @@
 
       let metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute('content', recipe.description);
+      document.title = recipe.title + ' — ResipiLokal';
 
       const og = [
         ['og:title', recipe.title + ' — ResipiLokal'],
         ['og:description', recipe.description],
-        ['og:image', recipe.thumbnail],
+        ['og:image', absImg],
         ['og:url', canonUrl],
         ['og:type', 'article'],
+        ['og:site_name', 'ResipiLokal'],
       ];
       og.forEach(([p, c]) => {
         const m = document.createElement('meta');
@@ -886,6 +923,14 @@
         m.setAttribute('content', c);
         document.head.appendChild(m);
       });
+      const twCard = document.createElement('meta');
+      twCard.setAttribute('name', 'twitter:card');
+      twCard.setAttribute('content', 'summary_large_image');
+      document.head.appendChild(twCard);
+      const twImg = document.createElement('meta');
+      twImg.setAttribute('name', 'twitter:image');
+      twImg.setAttribute('content', absImg);
+      document.head.appendChild(twImg);
 
       const pInt = parseInt(recipe.prep_time, 10) || 0;
       const cInt = parseInt(recipe.cook_time, 10) || 0;
@@ -895,7 +940,7 @@
         '@type': 'Recipe',
         name: recipe.title,
         alternateName: recipe.title_en,
-        image: [recipe.thumbnail],
+        image: [absImg],
         description: recipe.description,
         author: chef ? { '@type': 'Person', name: chef.name, url: chef.tiktok || undefined } : undefined,
         recipeCuisine: 'Malaysian',
@@ -915,16 +960,17 @@
           name: recipe.title,
           description: recipe.description,
           embedUrl: recipe.tiktok_embed,
-          thumbnailUrl: recipe.thumbnail,
+          contentUrl: recipe.tiktok_url || recipe.tiktok_embed,
+          thumbnailUrl: absImg,
         };
       }
       const crumbLD = {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_BASE + '/index.html' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_BASE + '/' },
           { '@type': 'ListItem', position: 2, name: 'Chef', item: SITE_BASE + '/chefs.html' },
-          chef ? { '@type': 'ListItem', position: 3, name: chef.name, item: SITE_BASE + '/chef-detail.html?id=' + chef.id } : null,
+          chef ? { '@type': 'ListItem', position: 3, name: chef.name, item: SITE_BASE + chefUrl(chef.id) } : null,
           { '@type': 'ListItem', position: chef ? 4 : 3, name: recipe.title, item: canonUrl },
         ].filter(Boolean),
       };
@@ -942,6 +988,6 @@
     renderExtras();
   </script>
 
-  <script src="site.js"></script>
+  <script src="/site.js"></script>
 </body>
 </html>

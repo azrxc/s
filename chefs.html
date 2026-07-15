@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="ms">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<html lang="ms"><head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#f5a623">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Semua Chef — ResipiLokal</title>
-  <meta name="description" content="Terokai resepi dari chef & influencer masakan Malaysia terbaik. Khairul Aming, Azie Kitchen, Che Sayang dan ramai lagi!"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="description" content="Terokai resepi video dari chef &amp; influencer masakan Malaysia terbaik — Khairul Aming, Che Sayang Kitchen dan ramai lagi!">
+  <link rel="canonical" href="https://s-chi-puce.vercel.app/chefs.html">
+  <meta property="og:title" content="Semua Chef — ResipiLokal">
+  <meta property="og:description" content="Terokai resepi video dari chef &amp; influencer masakan Malaysia terbaik.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://s-chi-puce.vercel.app/chefs.html">
+  <meta property="og:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg">
+  <meta property="og:site_name" content="ResipiLokal">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg">
+  <link rel="stylesheet" href="/style.css">
   <!-- ✅ ADSENSE -->
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
@@ -15,17 +27,17 @@
        NAVBAR
   ══════════════════════════════════════════ -->
   <nav class="navbar scrolled" id="navbar">
-    <a href="index.html" class="nav-logo">
+    <a href="/" class="nav-logo">
       <span class="nav-logo-text">Resepi<span>Lokal</span></span>
       <span class="nav-logo-badge">MY</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="chefs.html" class="active">Chef</a></li>
-      <li><a href="search.html">Semua Resepi</a></li>
-    </ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/chefs.html" class="active" style="color: var(--accent);">Chef</a></li>
+      <li><a href="/search.html">Semua Resepi</a></li>
+    <li><a href="/categories.html">Kategori</a></li></ul>
     <div class="nav-search">
-      <a href="search.html" class="nav-search-btn" title="Cari resepi">🔍</a>
+      <a href="/search.html" class="nav-search-btn" title="Cari resepi">🔍</a>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -44,7 +56,7 @@
       color: var(--white);
       margin: 10px 0 14px;
       line-height: 1.1;
-    ">Chef & Influencer<br><span style="color:var(--accent);">Masakan Malaysia</span></h1>
+    ">Chef &amp; Influencer<br><span style="color:var(--accent);">Masakan Malaysia</span></h1>
     <p class="animate-up delay-1" style="color:var(--text-sub); max-width:520px; line-height:1.7; font-size:0.95rem;">
       Terokai koleksi resepi dari chef dan influencer masakan Malaysia yang paling popular. Klik pada chef untuk tengok semua resepi mereka.
     </p>
@@ -67,11 +79,11 @@
     flex-wrap:wrap;
   " id="statsBar">
     <div>
-      <div style="font-size:1.6rem;font-weight:800;color:var(--white);font-family:'Playfair Display',serif;" id="statChefs">—</div>
+      <div style="font-size:1.6rem;font-weight:800;color:var(--white);font-family:'Playfair Display',serif;" id="statChefs">2</div>
       <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">Chef Berdaftar</div>
     </div>
     <div>
-      <div style="font-size:1.6rem;font-weight:800;color:var(--white);font-family:'Playfair Display',serif;" id="statRecipes">—</div>
+      <div style="font-size:1.6rem;font-weight:800;color:var(--white);font-family:'Playfair Display',serif;" id="statRecipes">142</div>
       <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">Jumlah Resepi</div>
     </div>
     <div>
@@ -83,7 +95,55 @@
   <!-- ══════════════════════════════════════════
        CHEFS GRID
   ══════════════════════════════════════════ -->
-  <div class="chefs-grid" id="chefsGrid"></div>
+  <div class="chefs-grid" id="chefsGrid"><div class="chef-big-card animate-up" style="animation-delay: 0s;">
+        <div class="chef-big-card-cover" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&amp;q=80')"></div>
+        <div class="chef-big-card-body">
+          <div class="chef-big-card-avatar">
+            <img src="/images/chefs/khairul-aming.jpg" alt="Khairul Aming" onerror="this.src='https://ui-avatars.com/api/?name=Khairul%20Aming&amp;background=f5a623&amp;color=000&amp;size=120'" class="img-loaded">
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+            <div class="chef-big-card-name">Khairul Aming</div>
+            <span style="background:var(--accent);color:#000;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;">✓ VERIFIED</span>
+          </div>
+          <div class="chef-big-card-followers">👥 10M+ pengikut &nbsp;·&nbsp; 🍳 124 resepi</div>
+          <div class="chef-big-card-tags">
+            <span class="tag">Lauk</span><span class="tag">Nasi</span><span class="tag">Simple &amp; Cepat</span>
+          </div>
+          <p style="font-size:0.85rem;color:var(--text-sub);line-height:1.6;margin-bottom:18px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+            Pencipta kandungan masakan paling terkenal Malaysia. Dikenali dengan resepi mudah, bahan simple tapi sedap gila — dan produk viral Sambal Nyet Berapi. Siri '30 Hari 30 Resipi' beliau setiap Ramadan menjadi fenomena tahunan.
+          </p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="/chef/khairul-aming.html" class="btn btn-primary" style="flex:1;justify-content:center;padding:10px;">
+              🍳 Lihat Resepi
+            </a>
+            <a href="https://www.tiktok.com/@khairulaming" target="_blank" rel="noopener" class="btn btn-outline" style="padding:10px 16px;" onclick="event.stopPropagation()">TikTok ↗</a>
+          </div>
+        </div>
+      </div><div class="chef-big-card animate-up" style="animation-delay: 0.1s;">
+        <div class="chef-big-card-cover" style="background-image:url('/images/recipes/cs-ayam-masak-merah.jpg')"></div>
+        <div class="chef-big-card-body">
+          <div class="chef-big-card-avatar">
+            <img src="/images/chefs/che-sayang.jpg" alt="Che Sayang Kitchen" onerror="this.src='https://ui-avatars.com/api/?name=Che%20Sayang%20Kitchen&amp;background=f5a623&amp;color=000&amp;size=120'" class="img-loaded">
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+            <div class="chef-big-card-name">Che Sayang Kitchen</div>
+            <span style="background:var(--accent);color:#000;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;">✓ VERIFIED</span>
+          </div>
+          <div class="chef-big-card-followers">👥 3.4M pengikut &nbsp;·&nbsp; 🍳 18 resepi</div>
+          <div class="chef-big-card-tags">
+            <span class="tag">Masakan Kampung</span><span class="tag">Ayam</span><span class="tag">2 Minit 1 Resepi</span>
+          </div>
+          <p style="font-size:0.85rem;color:var(--text-sub);line-height:1.6;margin-bottom:18px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+            Jenama masakan popular dengan format ikonik "2 Minit, 1 Resepi" — resepi kampung dan masakan harian yang senang, pantas dan sedap. Setiap video ada senarai bahan penuh terus dalam caption.
+          </p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="/chef/che-sayang.html" class="btn btn-primary" style="flex:1;justify-content:center;padding:10px;">
+              🍳 Lihat Resepi
+            </a>
+            <a href="https://www.tiktok.com/@chesayang_kitchen" target="_blank" rel="noopener" class="btn btn-outline" style="padding:10px 16px;" onclick="event.stopPropagation()">TikTok ↗</a>
+          </div>
+        </div>
+      </div></div>
 
   <!-- ══════════════════════════════════════════
        AD BOTTOM
@@ -97,38 +157,47 @@
        FOOTER
   ══════════════════════════════════════════ -->
   <footer class="footer">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand-name">Resepi<span>Lokal</span></div>
-        <p class="footer-desc">Platform resepi chef & influencer masakan Malaysia. Tonton video, baca resepi, masak dengan mudah.</p>
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Resepi<span>Lokal</span></div>
+          <p class="footer-desc">Platform resepi chef &amp; influencer masakan Malaysia. Tonton video asal, baca resepi dwibahasa, dan masak dengan mudah. Kredit penuh kepada semua pencipta asal.</p>
+          <div class="footer-col-title" style="margin-top:18px;">📬 Newsletter</div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0;">Resepi baharu terus ke emel anda.</p>
+          <form class="newsletter-form" id="newsletterForm" aria-label="Langgan newsletter">
+            <input type="email" id="newsletterEmail" placeholder="Emel anda" required="" aria-label="Alamat emel">
+            <button type="submit">Langgan</button>
+          </form>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigasi</div>
+          <ul class="footer-links-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/chefs.html">Semua Chef</a></li>
+            <li><a href="/search.html">Cari Resepi</a></li>
+            <li><a href="/categories.html">Kategori</a></li>
+            <li><a href="/faq.html">Soalan Lazim</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Maklumat</div>
+          <ul class="footer-links-list">
+            <li><a href="/about.html">Tentang Kami</a></li>
+            <li><a href="/contact.html">Hubungi Kami</a></li>
+            <li><a href="/privacy.html">Dasar Privasi</a></li>
+            <li><a href="/terms.html">Terma Penggunaan</a></li>
+            <li><a href="/affiliate-disclosure.html">Penafian Affiliate</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <div class="footer-col-title">Navigasi</div>
-        <ul class="footer-links-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="chefs.html">Semua Chef</a></li>
-          <li><a href="search.html">Cari Resepi</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Lain-lain</div>
-        <ul class="footer-links-list">
-          <li><a href="#">Tentang Kami</a></li>
-          <li><a href="#">Dasar Privasi</a></li>
-          <li><a href="#">Hubungi Kami</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 ResipiLokal.com — Dibuat dengan ❤️ untuk rakyat Malaysia</p>
-      <p style="font-size:0.78rem;color:var(--text-muted);">ResipiLokal bukan milik mana-mana chef. Hak cipta video milik pemilik asal.</p>
-    </div>
-  </footer>
+      <div class="footer-bottom">
+        <p>© 2026 ResipiLokal.com — Dibuat dengan ❤️ untuk rakyat Malaysia</p>
+        <p style="font-size:0.78rem;color:var(--text-muted);">ResipiLokal bukan milik mana-mana chef. Semua resepi &amp; video adalah hak cipta pencipta asal masing-masing. Butang beli mengandungi link affiliate — lihat <a href="/affiliate-disclosure.html" style="color:var(--text-muted);text-decoration:underline;">penafian affiliate</a>.</p>
+      </div></footer>
 
   <!-- ══════════════════════════════════════════
        SCRIPTS
   ══════════════════════════════════════════ -->
-  <script src="data.js"></script>
+  <script src="/data.js"></script>
   <script>
     // Mobile nav
     document.getElementById('navToggle').addEventListener('click', () => {
@@ -163,7 +232,7 @@
             ${chef.bio}
           </p>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <a href="chef-detail.html?id=${chef.id}" class="btn btn-primary" style="flex:1;justify-content:center;padding:10px;">
+            <a href="${chefUrl(chef.id)}" class="btn btn-primary" style="flex:1;justify-content:center;padding:10px;">
               🍳 Lihat Resepi
             </a>
             ${chef.tiktok ? `<a href="${chef.tiktok}" target="_blank" rel="noopener" class="btn btn-outline" style="padding:10px 16px;" onclick="event.stopPropagation()">TikTok ↗</a>` : ''}
@@ -171,13 +240,14 @@
         </div>
       `;
       card.addEventListener('click', () => {
-        window.location.href = `chef-detail.html?id=${chef.id}`;
+        window.location.href = chefUrl(chef.id);
       });
       return card;
     }
 
     // Render all chefs
     const grid = document.getElementById('chefsGrid');
+    grid.innerHTML = '';
     CHEFS.forEach((chef, i) => {
       const card = buildChefBigCard(chef);
       card.style.animationDelay = `${i * 0.1}s`;
@@ -185,6 +255,6 @@
     });
   </script>
 
-  <script src="site.js"></script>
-</body>
-</html>
+  <script src="/site.js"></script>
+
+</body></html>

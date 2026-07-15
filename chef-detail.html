@@ -2,10 +2,22 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8"/>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+  <link rel="alternate icon" href="/favicon.svg"/>
+  <link rel="apple-touch-icon" href="/favicon.svg"/>
+  <meta name="theme-color" content="#f5a623"/>
+  <link rel="canonical" href="https://s-chi-puce.vercel.app/chef-detail.html"/>
+  <meta property="og:title" content="Chef — ResipiLokal"/>
+  <meta property="og:description" content="Profil chef & resepi di ResipiLokal."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg"/>
+  <meta property="og:site_name" content="ResipiLokal"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chef — ResipiLokal</title>
   <meta name="description" content="Resepi dari chef Malaysia terbaik di ResipiLokal."/>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="/style.css"/>
   <!-- ✅ ADSENSE -->
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
@@ -15,17 +27,17 @@
        NAVBAR
   ══════════════════════════════════════════ -->
   <nav class="navbar scrolled" id="navbar">
-    <a href="index.html" class="nav-logo">
+    <a href="/" class="nav-logo">
       <span class="nav-logo-text">Resepi<span>Lokal</span></span>
       <span class="nav-logo-badge">MY</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="chefs.html" class="active">Chef</a></li>
-      <li><a href="search.html">Semua Resepi</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/chefs.html" class="active">Chef</a></li>
+      <li><a href="/search.html">Semua Resepi</a></li>
     </ul>
     <div class="nav-search">
-      <a href="search.html" class="nav-search-btn">🔍</a>
+      <a href="/search.html" class="nav-search-btn">🔍</a>
       <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -111,7 +123,7 @@
         <div class="section-eyebrow">👨‍🍳 Terokai Lagi</div>
         <h2 class="section-title">Chef Lain</h2>
       </div>
-      <a href="chefs.html" class="section-link">Semua Chef →</a>
+      <a href="/chefs.html" class="section-link">Semua Chef →</a>
     </div>
     <div class="scroll-row" id="otherChefsRow"></div>
   </section>
@@ -127,54 +139,33 @@
   <!-- ══════════════════════════════════════════
        FOOTER
   ══════════════════════════════════════════ -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand-name">Resepi<span>Lokal</span></div>
-        <p class="footer-desc">Platform resepi chef & influencer masakan Malaysia. Tonton video, baca resepi, masak dengan mudah.</p>
-      </div>
-      <div>
-        <div class="footer-col-title">Navigasi</div>
-        <ul class="footer-links-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="chefs.html">Semua Chef</a></li>
-          <li><a href="search.html">Cari Resepi</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Lain-lain</div>
-        <ul class="footer-links-list">
-          <li><a href="#">Tentang Kami</a></li>
-          <li><a href="#">Dasar Privasi</a></li>
-          <li><a href="#">Hubungi Kami</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 ResipiLokal.com — Dibuat dengan ❤️ untuk rakyat Malaysia</p>
-      <p style="font-size:0.78rem;color:var(--text-muted);">ResipiLokal bukan milik mana-mana chef. Hak cipta video milik pemilik asal.</p>
-    </div>
-  </footer>
+  <footer class="footer"></footer>
 
   <!-- ══════════════════════════════════════════
        SCRIPTS
   ══════════════════════════════════════════ -->
-  <script src="data.js"></script>
+  <script src="/data.js"></script>
+  <script src="/icons.js"></script>
   <script>
     // Mobile nav
     document.getElementById('navToggle').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('open');
     });
 
-    // Get chef ID from URL
+    // Get chef ID from URL — supports both the clean static URL
+    // (/chef/<id>.html) and the legacy query-string URL (?id=<id>)
     const params = new URLSearchParams(window.location.search);
-    const chefId = params.get('id');
+    let chefId = params.get('id');
+    if (!chefId) {
+      const pathMatch = window.location.pathname.match(/\/chef\/([^\/]+)\.html$/);
+      if (pathMatch) chefId = pathMatch[1];
+    }
 
     // Redirect if no ID
-    if (!chefId) window.location.href = 'chefs.html';
+    if (!chefId) window.location.href = '/chefs.html';
 
     const chef = getChefById(chefId);
-    if (!chef) window.location.href = 'chefs.html';
+    if (!chef) window.location.href = '/chefs.html';
 
     // ── Populate chef info ────────────────────
     document.title = `${chef.name} — ResipiLokal`;
@@ -206,25 +197,54 @@
     // Bio
     document.getElementById('chefBio').textContent = chef.bio;
 
-    // Social links
+    // Social links — real platform icons so people recognize them instantly
     const socialEl = document.getElementById('chefSocial');
-    if (chef.tiktok) {
+    const socialLinks = [
+      [chef.tiktok, 'tiktok', 'brand-tiktok', 'TikTok'],
+      [chef.youtube, 'youtube', 'brand-youtube', 'YouTube'],
+      [chef.instagram, 'instagram', 'brand-instagram', 'Instagram'],
+      [chef.facebook, 'facebook', 'brand-facebook', 'Facebook'],
+      [chef.website, 'web', 'brand-web', 'Laman Web'],
+    ];
+    socialLinks.forEach(([url, iconName, brandClass, label]) => {
+      if (!url) return;
       socialEl.innerHTML += `
-        <a href="${chef.tiktok}" target="_blank" rel="noopener" class="btn btn-outline" style="gap:8px;font-size:0.85rem;">
-          🎵 TikTok
+        <a href="${url}" target="_blank" rel="noopener" class="chip-icon-btn ${brandClass}" style="justify-content:center;">
+          ${icon(iconName)} ${label}
         </a>`;
-    }
-    if (chef.youtube) {
-      socialEl.innerHTML += `
-        <a href="${chef.youtube}" target="_blank" rel="noopener" class="btn btn-ghost" style="gap:8px;font-size:0.85rem;">
-          ▶ YouTube
-        </a>`;
-    }
-    if (chef.website) {
-      socialEl.innerHTML += `
-        <a href="${chef.website}" target="_blank" rel="noopener" class="btn btn-ghost" style="gap:8px;font-size:0.85rem;">
-          🌐 Website
-        </a>`;
+    });
+
+    // Attribution — always credit and link back to the original creator
+    document.getElementById('chefBio').insertAdjacentHTML('afterend', `
+      <div class="attribution-bar">
+        ${icon('tiktok')}
+        <span>Semua video &amp; resepi di halaman ini milik <strong>${chef.name}</strong>.
+        <a href="${chef.tiktok}" target="_blank" rel="noopener">${icon('link')} Lawati channel rasmi ↗</a></span>
+      </div>
+    `);
+
+    // Support / official product section
+    if (chef.products && chef.products.length) {
+      const links = chef.products.map(p =>
+        `<a href="${p.url}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee">${icon('shopee')} ${p.name}</a>`
+      ).join('');
+      document.getElementById('chefBio').closest('div').insertAdjacentHTML('afterend', `
+        <div class="support-card" style="max-width:760px;">
+          <h3>🛍️ Sokong ${chef.name}</h3>
+          <p>Suka resepi ${chef.name}? Sokong terus dengan membeli produk rasmi beliau.</p>
+          <div class="support-links">${links}</div>
+        </div>
+      `);
+    } else if (chef.tiktok) {
+      document.getElementById('chefBio').closest('div').insertAdjacentHTML('afterend', `
+        <div class="support-card" style="max-width:760px;">
+          <h3>🛍️ Sokong ${chef.name}</h3>
+          <p>Tiada kedai produk rasmi disahkan buat masa ini. Ikuti channel beliau untuk kempen sokongan atau produk terkini.</p>
+          <div class="support-links">
+            <a href="${chef.tiktok}" target="_blank" rel="noopener" class="chip-icon-btn brand-tiktok">${icon('tiktok')} Ikuti di TikTok</a>
+          </div>
+        </div>
+      `);
     }
 
     // ── Recipes ───────────────────────────────
@@ -264,11 +284,11 @@
             <span>📊 ${recipe.difficulty}</span>
           </div>
           <p class="recipe-card-hover-desc">${recipe.description}</p>
-          <a href="recipe-detail.html?id=${recipe.id}" class="btn btn-primary">▶ Tengok Resepi</a>
+          <a href="${recipeUrl(recipe.id)}" class="btn btn-primary">▶ Tengok Resepi</a>
         </div>
       `;
       card.addEventListener('click', () => {
-        window.location.href = `recipe-detail.html?id=${recipe.id}`;
+        window.location.href = recipeUrl(recipe.id);
       });
       return card;
     }
@@ -317,12 +337,91 @@
         <div class="chef-card-count">${c.followers} pengikut</div>
       `;
       card.addEventListener('click', () => {
-        window.location.href = `chef-detail.html?id=${c.id}`;
+        window.location.href = chefUrl(c.id);
       });
       otherRow.appendChild(card);
     });
+
+    // ── SEO: canonical + OG/Twitter + JSON-LD (idempotent) ──
+    (function () {
+      const SITE_BASE = 'https://s-chi-puce.vercel.app';
+      const canonUrl = SITE_BASE + chefUrl(chef.id);
+      const absImg = chef.image.indexOf('http') === 0 ? chef.image : SITE_BASE + chef.image;
+
+      document.querySelectorAll(
+        'link[rel="canonical"], meta[property^="og:"], meta[name="twitter:image"], meta[name="twitter:card"], script[type="application/ld+json"]'
+      ).forEach(el => el.remove());
+
+      const canon = document.createElement('link');
+      canon.rel = 'canonical';
+      canon.href = canonUrl;
+      document.head.appendChild(canon);
+
+      const desc = `${chef.name} — ${allRecipes.length} resepi video asli di ResipiLokal. ${chef.bio}`.slice(0, 200);
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', desc);
+      document.title = `${chef.name} — ResipiLokal`;
+
+      const og = [
+        ['og:title', chef.name + ' — ResipiLokal'],
+        ['og:description', desc],
+        ['og:image', absImg],
+        ['og:url', canonUrl],
+        ['og:type', 'profile'],
+        ['og:site_name', 'ResipiLokal'],
+      ];
+      og.forEach(([p, c]) => {
+        const m = document.createElement('meta');
+        m.setAttribute('property', p);
+        m.setAttribute('content', c);
+        document.head.appendChild(m);
+      });
+      const twCard = document.createElement('meta');
+      twCard.setAttribute('name', 'twitter:card');
+      twCard.setAttribute('content', 'summary_large_image');
+      document.head.appendChild(twCard);
+      const twImg = document.createElement('meta');
+      twImg.setAttribute('name', 'twitter:image');
+      twImg.setAttribute('content', absImg);
+      document.head.appendChild(twImg);
+
+      const personLD = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: chef.name,
+        image: absImg,
+        description: chef.bio,
+        url: canonUrl,
+        sameAs: [chef.tiktok, chef.youtube, chef.instagram, chef.facebook].filter(Boolean),
+      };
+      const crumbLD = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_BASE + '/' },
+          { '@type': 'ListItem', position: 2, name: 'Chef', item: SITE_BASE + '/chefs.html' },
+          { '@type': 'ListItem', position: 3, name: chef.name, item: canonUrl },
+        ],
+      };
+      const listLD = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        itemListElement: allRecipes.slice(0, 20).map((r, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          url: SITE_BASE + recipeUrl(r.id),
+          name: r.title,
+        })),
+      };
+      [personLD, crumbLD, listLD].forEach(obj => {
+        const s = document.createElement('script');
+        s.type = 'application/ld+json';
+        s.textContent = JSON.stringify(obj);
+        document.head.appendChild(s);
+      });
+    })();
   </script>
 
-  <script src="site.js"></script>
+  <script src="/site.js"></script>
 </body>
 </html>

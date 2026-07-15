@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="ms"><head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#f5a623">
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayam Goreng Bawang Putih — ResipiLokal</title>
+  <meta name="description" content="Episod 418 — Ayam goreng bawang putih rangup dengan perapan tepung ubi kayu, gaya Che Sayang Kitchen.">
+  <link rel="stylesheet" href="/style.css">
+  <!-- ✅ ADSENSE -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+  <style>
+    /* Lang toggle */
+    .lang-toggle {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      width: fit-content;
+      margin-bottom: 24px;
+    }
+    .lang-btn {
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* Ingredient checkbox */
+    .ingredient-item input[type="checkbox"] { display: none; }
+    .ingredient-item.checked {
+      opacity: 0.45;
+      text-decoration: line-through;
+    }
+    .ingredient-item { cursor: pointer; user-select: none; }
+
+    /* Affiliate buy buttons */
+    .ingredient-item { flex-wrap: wrap; }
+    .ing-text { flex: 1; min-width: 140px; }
+    .ing-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .ing-buy {
+      padding: 4px 11px;
+      border-radius: 99px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      color: var(--text-sub);
+    }
+    .ing-buy.ing-shopee:hover {
+      border-color: #ee4d2d;
+      color: #fff;
+      background: #ee4d2d;
+    }
+    .ing-buy.ing-ttshop:hover {
+      border-color: var(--accent);
+      color: #000;
+      background: var(--accent);
+    }
+    .ingredient-group {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 10px 0 2px;
+    }
+
+    /* Step done state */
+    .step-item.done .step-num {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+    .step-item.done .step-text {
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    /* Share buttons */
+    .share-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .share-btn {
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg3);
+      color: var(--text);
+      transition: var(--transition);
+      font-family: inherit;
+    }
+    .share-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    /* Related recipes small cards */
+    .related-card {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+      margin-bottom: 10px;
+    }
+    .related-card:hover {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+    .related-card-thumb {
+      width: 64px; height: 64px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .related-card-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .related-card-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+    .related-card-meta {
+      font-size: 0.75rem;
+      color: var(--text-sub);
+    }
+
+    /* Progress bar */
+    .progress-bar-wrap {
+      background: var(--bg3);
+      border-radius: 99px;
+      height: 4px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 99px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    /* Sticky sidebar on desktop */
+    @media (min-width: 1025px) {
+      .sidebar-sticky {
+        position: sticky;
+        top: calc(var(--nav-h) + 24px);
+      }
+    }
+  </style>
+<link rel="canonical" href="https://s-chi-puce.vercel.app/resepi/cs-ayam-goreng-bawang-putih.html"><meta property="og:title" content="Ayam Goreng Bawang Putih — ResipiLokal"><meta property="og:description" content="Episod 418 — Ayam goreng bawang putih rangup dengan perapan tepung ubi kayu, gaya Che Sayang Kitchen."><meta property="og:image" content="https://s-chi-puce.vercel.app/images/recipes/cs-ayam-goreng-bawang-putih.jpg"><meta property="og:url" content="https://s-chi-puce.vercel.app/resepi/cs-ayam-goreng-bawang-putih.html"><meta property="og:type" content="article"><meta property="og:site_name" content="ResipiLokal"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://s-chi-puce.vercel.app/images/recipes/cs-ayam-goreng-bawang-putih.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"Ayam Goreng Bawang Putih","alternateName":"Garlic Fried Chicken","image":["https://s-chi-puce.vercel.app/images/recipes/cs-ayam-goreng-bawang-putih.jpg"],"description":"Episod 418 — Ayam goreng bawang putih rangup dengan perapan tepung ubi kayu, gaya Che Sayang Kitchen.","author":{"@type":"Person","name":"Che Sayang Kitchen","url":"https://www.tiktok.com/@chesayang_kitchen"},"recipeCuisine":"Malaysian","recipeCategory":"Lauk","keywords":"Lauk, Ayam, 2 Minit 1 Resepi","recipeYield":"4","prepTime":"PT15M","cookTime":"PT15M","totalTime":"PT30M","nutrition":{"@type":"NutritionInformation","calories":"350 kcal"},"recipeIngredient":["Ayam, dibersihkan","1 biji bawang besar","6 ulas bawang putih","1 inci halia","1 sudu biji ketumbar","2 sudu sos tiram","6 sudu tepung ubi kayu (tambah jika perapan cair)"],"recipeInstructions":[{"@type":"HowToStep","position":1,"text":"Tonton video penuh di TikTok Che Sayang Kitchen (@chesayang_kitchen) — kaedah lengkap ditunjukkan langkah demi langkah."},{"@type":"HowToStep","position":2,"text":"Sediakan semua bahan mengikut senarai sebelum mula memasak."}],"video":{"@type":"VideoObject","name":"Ayam Goreng Bawang Putih","description":"Episod 418 — Ayam goreng bawang putih rangup dengan perapan tepung ubi kayu, gaya Che Sayang Kitchen.","embedUrl":"https://www.tiktok.com/embed/v2/7367914635976035591","contentUrl":"https://www.tiktok.com/@chesayang_kitchen/video/7367914635976035591","thumbnailUrl":"https://s-chi-puce.vercel.app/images/recipes/cs-ayam-goreng-bawang-putih.jpg"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://s-chi-puce.vercel.app/"},{"@type":"ListItem","position":2,"name":"Chef","item":"https://s-chi-puce.vercel.app/chefs.html"},{"@type":"ListItem","position":3,"name":"Che Sayang Kitchen","item":"https://s-chi-puce.vercel.app/chef/che-sayang.html"},{"@type":"ListItem","position":4,"name":"Ayam Goreng Bawang Putih","item":"https://s-chi-puce.vercel.app/resepi/cs-ayam-goreng-bawang-putih.html"}]}</script></head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav class="navbar scrolled" id="navbar">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-text">Resepi<span>Lokal</span></span>
+      <span class="nav-logo-badge">MY</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/chefs.html">Chef</a></li>
+      <li><a href="/search.html">Semua Resepi</a></li>
+    <li><a href="/categories.html">Kategori</a></li></ul>
+    <div class="nav-search">
+      <a href="/search.html" class="nav-search-btn">🔍</a>
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       RECIPE HERO
+  ══════════════════════════════════════════ -->
+  <div class="recipe-hero">
+    <div class="recipe-hero-bg" id="recipeHeroBg" style="background-image: url(&quot;/images/recipes/cs-ayam-goreng-bawang-putih.jpg&quot;);"></div>
+    <div class="recipe-hero-overlay"></div>
+    <div class="recipe-hero-content animate-up">
+      <!-- Breadcrumb -->
+      <div style="font-size:0.8rem;color:rgba(255,255,255,0.5);margin-bottom:12px;">
+        <a href="/" style="color:inherit;">Home</a>
+        <span style="margin:0 6px;">›</span>
+        <a href="/chefs.html" style="color:inherit;">Chef</a>
+        <span style="margin:0 6px;">›</span>
+        <a href="/chef/che-sayang.html" id="breadChef" style="color:var(--accent);">Che Sayang Kitchen</a>
+        <span style="margin:0 6px;">›</span>
+        <span id="breadTitle" style="color:rgba(255,255,255,0.7);">Ayam Goreng Bawang Putih</span>
+      </div>
+
+      <span class="hero-badge" id="recipeCatBadge">Lauk</span>
+      <h1 class="hero-title font-display" id="recipeTitle">Ayam Goreng Bawang Putih</h1>
+      <div class="hero-meta" style="margin-top:10px;">
+        <span class="hero-meta-item">⏳ Prep: <strong id="recipePrep">15 minit</strong></span>
+        <span class="hero-meta-item">🔥 Masak: <strong id="recipeCook">15 minit</strong></span>
+        <span class="hero-meta-item">⏱ Jumlah: <strong id="recipeTotal">30 minit</strong></span>
+        <span class="hero-meta-item">🍽 <strong id="recipeServing">4</strong> orang</span>
+        <span class="hero-meta-item">📊 <strong id="recipeDiff">Mudah</strong></span>
+        <span class="hero-meta-item">🔥 <strong id="recipeKcal">±350</strong> kcal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════ -->
+  <div class="recipe-main" id="recipeMain">
+
+    <!-- ── LEFT: Video + Steps ── -->
+    <div>
+
+      <!-- AD TOP -->
+      <div class="ad-banner" style="margin-bottom:28px;">
+        <!-- ✅ ADSENSE AD SLOT -->
+        <p>[ Iklan / Advertisement ]</p>
+      </div>
+
+      <!-- Language toggle -->
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnBM" onclick="setLang('bm')">🇲🇾 BM</button>
+        <button class="lang-btn" id="btnEN" onclick="setLang('en')">🇬🇧 English</button>
+      </div>
+
+      <!-- TikTok Video -->
+      <div class="recipe-video-wrap">
+        <div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;">
+          <span id="videoHeaderIcon" style="display:inline-flex;color:var(--accent);"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M33.5 6h-6.8v27.2c0 3.4-2.7 6.1-6.1 6.1s-6.1-2.7-6.1-6.1 2.7-6.1 6.1-6.1c.6 0 1.2.1 1.8.3v-7c-.6-.1-1.2-.1-1.8-.1-7.2 0-13 5.8-13 13s5.8 13 13 13 13-5.8 13-13V18.9c2.6 1.9 5.8 3 9.2 3v-6.9c-5.1-.2-9.3-4.4-9.3-9.5V6z"></path></svg></span>
+          <span style="font-weight:700;color:var(--white);font-size:0.95rem;">Video Resepi</span>
+          <span style="font-size:0.78rem;color:var(--text-muted);margin-left:auto;">via TikTok</span>
+        </div>
+        <div class="tiktok-embed-wrap" id="tiktokWrap">
+        <iframe src="https://www.tiktok.com/embed/v2/7367914635976035591" allowfullscreen="" allow="encrypted-media;" style="max-width:380px;width:100%;height:740px;border:none;">
+        </iframe></div>
+      </div>
+
+      <!-- Video attribution — always credit + link back to the original creator -->
+      <div id="videoAttribution">
+        <div class="attribution-bar">
+          <svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M33.5 6h-6.8v27.2c0 3.4-2.7 6.1-6.1 6.1s-6.1-2.7-6.1-6.1 2.7-6.1 6.1-6.1c.6 0 1.2.1 1.8.3v-7c-.6-.1-1.2-.1-1.8-.1-7.2 0-13 5.8-13 13s5.8 13 13 13 13-5.8 13-13V18.9c2.6 1.9 5.8 3 9.2 3v-6.9c-5.1-.2-9.3-4.4-9.3-9.5V6z"></path></svg>
+          <span>Video &amp; resepi asal oleh <strong>Che Sayang Kitchen</strong>.
+          <a href="https://www.tiktok.com/@chesayang_kitchen/video/7367914635976035591" target="_blank" rel="noopener"><svg viewBox="0 0 48 48" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M20 28a8 8 0 0 0 11.3 0l5-5a8 8 0 0 0-11.3-11.3l-2.8 2.7"></path><path d="M28 20a8 8 0 0 0-11.3 0l-5 5a8 8 0 0 0 11.3 11.3l2.7-2.7"></path></svg> Tonton di TikTok ↗</a></span>
+        </div></div>
+
+      <!-- Description -->
+      <div style="margin-bottom:32px;">
+        <h2 class="recipe-section-title">Tentang Resepi</h2>
+        <p id="recipeDesc" style="color:var(--text-sub);line-height:1.8;font-size:0.95rem;">Episod 418 — Ayam goreng bawang putih rangup dengan perapan tepung ubi kayu, gaya Che Sayang Kitchen.</p>
+
+        <!-- Tags -->
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;" id="recipeTags"><span class="tag">Lauk</span><span class="tag">Ayam</span><span class="tag">2 Minit 1 Resepi</span></div>
+      </div>
+
+      <!-- Ingredients -->
+      <div style="margin-bottom:36px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);">
+          <h2 class="recipe-section-title" style="margin:0;border:none;padding:0;">🥘 Bahan-bahan</h2>
+          <button onclick="clearIngredients()" style="font-size:0.78rem;color:var(--text-muted);background:none;border:none;cursor:pointer;font-family:inherit;">Reset ↺</button>
+        </div>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:14px;">💡 Tip: Klik pada bahan untuk tandakan sudah ada</p>
+        <div class="ingredients-list" id="ingredientsList"><div class="ingredient-item"><div class="ingredient-bullet"></div><span class="ing-text">Ayam, dibersihkan</span><span class="ing-actions">
+               <a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=ayam" target="_blank" rel="sponsored noopener" aria-label="Beli ayam di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg> Shopee</a>
+               <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=ayam" target="_blank" rel="sponsored noopener" aria-label="Beli ayam di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg> TikTok</a>
+             </span></div><div class="ingredient-item"><div class="ingredient-bullet"></div><span class="ing-text">1 biji bawang besar</span><span class="ing-actions">
+               <a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=bawang%20besar" target="_blank" rel="sponsored noopener" aria-label="Beli bawang besar di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg> Shopee</a>
+               <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=bawang%20besar" target="_blank" rel="sponsored noopener" aria-label="Beli bawang besar di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg> TikTok</a>
+             </span></div><div class="ingredient-item"><div class="ingredient-bullet"></div><span class="ing-text">6 ulas bawang putih</span><span class="ing-actions">
+               <a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=bawang%20putih" target="_blank" rel="sponsored noopener" aria-label="Beli bawang putih di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg> Shopee</a>
+               <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=bawang%20putih" target="_blank" rel="sponsored noopener" aria-label="Beli bawang putih di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg> TikTok</a>
+             </span></div><div class="ingredient-item"><div class="ingredient-bullet"></div><span class="ing-text">1 inci halia</span><span class="ing-actions">
+               <a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=halia" target="_blank" rel="sponsored noopener" aria-label="Beli halia di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg> Shopee</a>
+               <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=halia" target="_blank" rel="sponsored noopener" aria-label="Beli halia di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg> TikTok</a>
+             </span></div><div class="ingredient-item"><div class="ingredient-bullet"></div><span class="ing-text">1 sudu biji ketumbar</span><span class="ing-actions">
+               <a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=ketumbar" target="_blank" rel="sponsored noopener" aria-label="Beli ketumbar di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg> Shopee</a>
+               <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=ketumbar" target="_blank" rel="sponsored noopener" aria-label="Beli ketumbar di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg> TikTok</a>
+             </span></div><div class="ingredient-item"><div class="ingredient-bullet"></div><span class="ing-text">2 sudu sos tiram</span><span class="ing-actions">
+               <a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=sos%20tiram" target="_blank" rel="sponsored noopener" aria-label="Beli sos tiram di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg> Shopee</a>
+               <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=sos%20tiram" target="_blank" rel="sponsored noopener" aria-label="Beli sos tiram di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg> TikTok</a>
+             </span></div><div class="ingredient-item"><div class="ingredient-bullet"></div><span class="ing-text">6 sudu tepung ubi kayu (tambah jika perapan cair)</span><span class="ing-actions">
+               <a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=tepung%20ubi%20kayu" target="_blank" rel="sponsored noopener" aria-label="Beli tepung ubi kayu di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg> Shopee</a>
+               <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=tepung%20ubi%20kayu" target="_blank" rel="sponsored noopener" aria-label="Beli tepung ubi kayu di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg> TikTok</a>
+             </span></div></div>
+      </div>
+
+      <!-- Steps with progress -->
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title">📋 Cara Memasak</h2>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+        </div>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:16px;">
+          💡 Tip: Klik pada langkah untuk tandakan selesai &nbsp;·&nbsp;
+          <span id="stepsProgress" style="color:var(--accent);">0 / 2 selesai</span>
+        </p>
+        <div class="steps-list" id="stepsList"><div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-text">Tonton video penuh di TikTok Che Sayang Kitchen (@chesayang_kitchen) — kaedah lengkap ditunjukkan langkah demi langkah.</div>
+        </div><div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-text">Sediakan semua bahan mengikut senarai sebelum mula memasak.</div>
+        </div></div>
+      </div>
+
+      <!-- Tips -->
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title" id="tipsTitle">💡 Tips &amp; Nota</h2>
+        <div id="tipsList" style="display: flex; flex-direction: column; gap: 10px;"><div class="ingredient-item" style="cursor: default;"><div class="ingredient-bullet"></div><span style="flex:1;">Perap lebih lama (30 minit hingga semalaman) untuk rasa yang lebih meresap.</span></div><div class="ingredient-item" style="cursor: default;"><div class="ingredient-bullet"></div><span style="flex:1;">Gunakan api sederhana supaya rempah tidak hangit dan rasa lebih sekata.</span></div><div class="ingredient-item" style="cursor: default;"><div class="ingredient-bullet"></div><span style="flex:1;">Rasa dan betulkan perasa (garam, gula) di akhir masakan, bukan di awal.</span></div></div>
+      </div>
+
+      <!-- Storage & Reheating -->
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title" id="storageTitle">🧊 Penyimpanan &amp; Panaskan Semula</h2>
+        <div class="info-card" style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;">
+          <div style="font-weight:700;color:var(--white);font-size:0.9rem;margin-bottom:6px;" id="storageLabel">🧊 Penyimpanan</div>
+          <p id="storageText" style="color:var(--text-sub);font-size:0.9rem;line-height:1.7;margin:0;">Simpan dalam bekas kedap udara di dalam peti sejuk sehingga 3 hari, atau bekukan sehingga 2 bulan.</p>
+        </div>
+        <div class="info-card" style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;">
+          <div style="font-weight:700;color:var(--white);font-size:0.9rem;margin-bottom:6px;" id="reheatLabel">🔥 Panaskan Semula</div>
+          <p id="reheatText" style="color:var(--text-sub);font-size:0.9rem;line-height:1.7;margin:0;">Panaskan semula di atas dapur dengan api perlahan atau microwave 1-2 minit. Tambah sedikit air jika kuah terlalu pekat.</p>
+        </div>
+      </div>
+
+      <!-- Kitchen tools -->
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title" id="toolsTitle">🔧 Peralatan Dapur</h2>
+        <div id="toolsList" style="display:flex;flex-wrap:wrap;gap:10px;"><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Kuali / Wok</span><a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=kuali%20wok" target="_blank" rel="sponsored noopener" aria-label="Beli Kuali / Wok di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg></a>
+             <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=kuali%20wok" target="_blank" rel="sponsored noopener" aria-label="Beli Kuali / Wok di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg></a></div><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Blender</span><a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=blender" target="_blank" rel="sponsored noopener" aria-label="Beli Blender di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg></a>
+             <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=blender" target="_blank" rel="sponsored noopener" aria-label="Beli Blender di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg></a></div><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Papan pemotong</span><a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=pemotong" target="_blank" rel="sponsored noopener" aria-label="Beli Papan pemotong di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg></a>
+             <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=pemotong" target="_blank" rel="sponsored noopener" aria-label="Beli Papan pemotong di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg></a></div><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Pisau dapur</span><a class="ing-buy ing-shopee" href="https://shopee.com.my/search?keyword=pisau%20dapur" target="_blank" rel="sponsored noopener" aria-label="Beli Pisau dapur di Shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg></a>
+             <a class="ing-buy ing-ttshop" href="https://shop.tiktok.com/search?q=pisau%20dapur" target="_blank" rel="sponsored noopener" aria-label="Beli Pisau dapur di TikTok Shop"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"></path></svg></a></div><div style="display: flex; align-items: center; gap: 8px; background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 8px 8px 8px 16px; font-size: 0.85rem; color: var(--text);"><span>Senduk</span></div></div>
+      </div>
+
+      <!-- Nutrition -->
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title" id="nutritionTitle">🍎 Nutrisi (Anggaran / Per Hidangan)</h2>
+        <div class="info-grid" id="nutritionGrid" style="grid-template-columns:repeat(4,1fr);">
+          <div class="info-item"><div class="info-item-label">Kalori</div><div class="info-item-val">±350 kcal</div></div>
+          <div class="info-item"><div class="info-item-label">Protein</div><div class="info-item-val">±26 g</div></div>
+          <div class="info-item"><div class="info-item-label">Karbohidrat</div><div class="info-item-val">±22 g</div></div>
+          <div class="info-item"><div class="info-item-label">Lemak</div><div class="info-item-val">±18 g</div></div></div>
+        <p id="nutritionNote" style="font-size:0.75rem;color:var(--text-muted);margin-top:10px;">* Nilai anggaran berdasarkan bahan tipikal. Nilai sebenar berbeza mengikut jenama &amp; sukatan.</p>
+      </div>
+
+      <!-- FAQ -->
+      <div style="margin-bottom:36px;">
+        <h2 class="recipe-section-title" id="faqTitle">❓ Soalan Lazim</h2>
+        <div id="faqList"><details style="background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 10px;"><summary style="cursor:pointer;font-weight:700;color:var(--white);font-size:0.92rem;">Berapa lama masa untuk resepi ini?</summary>
+          <p style="color:var(--text-sub);font-size:0.88rem;line-height:1.7;margin:10px 0 0;">Lebih kurang 15 minit penyediaan dan 15 minit memasak — jumlah anggaran 30 minit.</p></details><details style="background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 10px;"><summary style="cursor:pointer;font-weight:700;color:var(--white);font-size:0.92rem;">Untuk berapa orang resepi ini?</summary>
+          <p style="color:var(--text-sub);font-size:0.88rem;line-height:1.7;margin:10px 0 0;">Resepi ini untuk anggaran 4 orang. Gandakan bahan untuk hidangan lebih ramai.</p></details><details style="background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 10px;"><summary style="cursor:pointer;font-weight:700;color:var(--white);font-size:0.92rem;">Susah tak resepi ini?</summary>
+          <p style="color:var(--text-sub);font-size:0.88rem;line-height:1.7;margin:10px 0 0;">Tahap kesukaran: Mudah. Sangat sesuai untuk yang baru belajar memasak!</p></details><details style="background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 10px;"><summary style="cursor:pointer;font-weight:700;color:var(--white);font-size:0.92rem;">Berapa kalori untuk satu hidangan?</summary>
+          <p style="color:var(--text-sub);font-size:0.88rem;line-height:1.7;margin:10px 0 0;">Anggaran 350 kcal satu hidangan (berdasarkan bahan tipikal — nilai sebenar berbeza ikut jenama dan sukatan).</p></details><details style="background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 10px;"><summary style="cursor:pointer;font-weight:700;color:var(--white);font-size:0.92rem;">Di mana boleh tonton video asal?</summary>
+          <p style="color:var(--text-sub);font-size:0.88rem;line-height:1.7;margin:10px 0 0;">Video asal dipaparkan di halaman ini (atau dipautkan ke TikTok rasmi chef). Kredit penuh kepada pencipta asal.</p></details></div>
+      </div>
+
+      <!-- AD BOTTOM LEFT -->
+      <div class="ad-banner" style="margin-bottom:32px;">
+        <!-- ✅ ADSENSE AD SLOT -->
+        <p>[ Iklan / Advertisement ]</p>
+      </div>
+
+      <!-- Share -->
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;margin-bottom:32px;">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--white);margin-bottom:6px;">📤 Kongsi Resepi Ini</h3>
+        <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:0;">Kongsi dengan kawan-kawan yang suka masak!</p>
+        <div class="share-row">
+          <button class="share-btn" onclick="shareWhatsApp()"><svg viewBox="0 0 48 48" width="16" height="16" fill="currentColor" style="vertical-align:-3px;margin-right:6px;"><path d="M24 4C13 4 4 13 4 24c0 3.7 1 7.2 2.8 10.2L4 44l10-2.7c2.9 1.6 6.2 2.5 9.7 2.5h.3c11 0 20-9 20-20S35 4 24 4zm11.7 28.4c-.5 1.4-2.7 2.6-3.7 2.7-1 .1-2.1.5-6.9-1.5-5.9-2.4-9.6-8.4-9.9-8.8-.3-.4-2.4-3.2-2.4-6s1.5-4.3 2-4.9c.5-.6 1.1-.7 1.5-.7h1.1c.4 0 .9 0 1.3 1 .5 1.2 1.7 4 1.8 4.3.1.3.2.7 0 1.1-.2.4-.3.6-.6 1s-.6.9-.9 1.2c-.3.3-.6.7-.3 1.3.3.6 1.5 2.5 3.2 4 2.2 2 4 2.6 4.6 2.9.6.3 1 .2 1.3-.1.4-.4 1.6-1.9 2-2.6.4-.6.9-.5 1.5-.3.6.2 3.9 1.8 4.5 2.2.6.3 1.1.5 1.2.7.2.4.2 1.3-.3 2.7z"></path></svg>WhatsApp</button>
+          <button class="share-btn" onclick="shareTelegram()"><svg viewBox="0 0 48 48" width="16" height="16" fill="currentColor" style="vertical-align:-3px;margin-right:6px;"><path d="M24 4C13 4 4 13 4 24s9 20 20 20 20-9 20-20S35 4 24 4zm9.7 13.7-3.3 15.6c-.2 1.1-.9 1.4-1.9.9l-5.2-3.8-2.5 2.4c-.3.3-.5.5-1 .5l.4-5.3 9.6-8.7c.4-.4-.1-.6-.6-.2L17 26l-5.2-1.6c-1.1-.3-1.1-1.1.2-1.7l20.4-7.9c.9-.4 1.8.2 1.3 2z"></path></svg>Telegram</button>
+          <button class="share-btn" onclick="copyLink()"><svg viewBox="0 0 48 48" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="vertical-align:-3px;margin-right:6px;"><path d="M20 28a8 8 0 0 0 11.3 0l5-5a8 8 0 0 0-11.3-11.3l-2.8 2.7"></path><path d="M28 20a8 8 0 0 0-11.3 0l-5 5a8 8 0 0 0 11.3 11.3l2.7-2.7"></path></svg>Salin Link</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── RIGHT: Sidebar ── -->
+    <div class="sidebar-sticky">
+
+      <!-- Chef mini card -->
+      <div class="sidebar-card" id="chefMiniWrap">
+        <div class="sidebar-card-title">👨‍🍳 Chef</div>
+        <div class="chef-mini" id="chefMiniCard">
+        <div class="chef-mini-avatar">
+          <img src="/images/chefs/che-sayang.jpg" alt="Che Sayang Kitchen" onerror="this.src='https://ui-avatars.com/api/?name=Che%20Sayang%20Kitchen&amp;background=f5a623&amp;color=000&amp;size=52'" class="img-loaded">
+        </div>
+        <div>
+          <div class="chef-mini-name">Che Sayang Kitchen</div>
+          <div class="chef-mini-sub">👥 3.4M pengikut</div>
+          <div class="chef-mini-sub" style="margin-top:2px;">🍳 18 resepi</div>
+        </div>
+      </div>
+        <div style="display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;" id="chefSocialMini"><a href="https://www.tiktok.com/@chesayang_kitchen" target="_blank" rel="noopener" class="chip-icon-btn brand-tiktok icon-only" style="justify-content:center;padding:8px 10px;" aria-label="tiktok"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M33.5 6h-6.8v27.2c0 3.4-2.7 6.1-6.1 6.1s-6.1-2.7-6.1-6.1 2.7-6.1 6.1-6.1c.6 0 1.2.1 1.8.3v-7c-.6-.1-1.2-.1-1.8-.1-7.2 0-13 5.8-13 13s5.8 13 13 13 13-5.8 13-13V18.9c2.6 1.9 5.8 3 9.2 3v-6.9c-5.1-.2-9.3-4.4-9.3-9.5V6z"></path></svg></a><a href="https://www.youtube.com/channel/UCdXB_anUqmG7cI2bVVOOWXw" target="_blank" rel="noopener" class="chip-icon-btn brand-youtube icon-only" style="justify-content:center;padding:8px 10px;" aria-label="youtube"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M43.5 14.5c-.5-2-2.1-3.5-4.1-4C35.9 9.5 24 9.5 24 9.5s-11.9 0-15.4 1c-2 .5-3.6 2.1-4.1 4C3.5 18 3.5 24 3.5 24s0 6 1 9.5c.5 2 2.1 3.5 4.1 4 3.5 1 15.4 1 15.4 1s11.9 0 15.4-1c2-.5 3.6-2.1 4.1-4 1-3.5 1-9.5 1-9.5s0-6-1-9.5zM19.5 30V18l10.5 6-10.5 6z"></path></svg></a><a href="https://www.instagram.com/chesayangkitchen/" target="_blank" rel="noopener" class="chip-icon-btn brand-instagram icon-only" style="justify-content:center;padding:8px 10px;" aria-label="instagram"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M24 6c-4.9 0-5.5 0-7.4.1-1.9.1-3.2.4-4.4.9-1.2.5-2.2 1.1-3.2 2.1s-1.6 2-2.1 3.2c-.5 1.2-.8 2.5-.9 4.4C6 18.5 6 19.1 6 24s0 5.5.1 7.4c.1 1.9.4 3.2.9 4.4.5 1.2 1.1 2.2 2.1 3.2s2 1.6 3.2 2.1c1.2.5 2.5.8 4.4.9 1.9.1 2.5.1 7.4.1s5.5 0 7.4-.1c1.9-.1 3.2-.4 4.4-.9 1.2-.5 2.2-1.1 3.2-2.1s1.6-2 2.1-3.2c.5-1.2.8-2.5.9-4.4.1-1.9.1-2.5.1-7.4s0-5.5-.1-7.4c-.1-1.9-.4-3.2-.9-4.4-.5-1.2-1.1-2.2-2.1-3.2s-2-1.6-3.2-2.1c-1.2-.5-2.5-.8-4.4-.9C29.5 6 28.9 6 24 6zm0 3.6c4.8 0 5.4 0 7.3.1 1.8.1 2.7.4 3.4.6.8.3 1.4.7 2 1.3.6.6 1 1.2 1.3 2 .3.7.5 1.6.6 3.4.1 1.9.1 2.5.1 7.3s0 5.4-.1 7.3c-.1 1.8-.4 2.7-.6 3.4-.3.8-.7 1.4-1.3 2-.6.6-1.2 1-2 1.3-.7.3-1.6.5-3.4.6-1.9.1-2.5.1-7.3.1s-5.4 0-7.3-.1c-1.8-.1-2.7-.4-3.4-.6-.8-.3-1.4-.7-2-1.3-.6-.6-1-1.2-1.3-2-.3-.7-.5-1.6-.6-3.4-.1-1.9-.1-2.5-.1-7.3s0-5.4.1-7.3c.1-1.8.4-2.7.6-3.4.3-.8.7-1.4 1.3-2 .6-.6 1.2-1 2-1.3.7-.2 1.6-.5 3.4-.6 1.9-.1 2.5-.1 7.3-.1zM24 15a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 14.8a5.8 5.8 0 1 1 0-11.6 5.8 5.8 0 0 1 0 11.6zm9.4-15.2a2.1 2.1 0 1 1-4.2 0 2.1 2.1 0 0 1 4.2 0z"></path></svg></a></div>
+      </div>
+
+      <!-- Recipe info grid -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">📊 Info Resepi</div>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-item-label">Prep</div>
+            <div class="info-item-val" id="sidePrep">15 minit</div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-label">Masak</div>
+            <div class="info-item-val" id="sideCook">15 minit</div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-label">Hidangan</div>
+            <div class="info-item-val" id="sideServing">4 org</div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-label">Tahap</div>
+            <div class="info-item-val" id="sideDiff">Mudah</div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-label">Jumlah Masa</div>
+            <div class="info-item-val" id="sideTotal">30 minit</div>
+          </div>
+          <div class="info-item">
+            <div class="info-item-label">Kalori*</div>
+            <div class="info-item-val" id="sideKcal">±350 kcal</div>
+          </div>
+        </div>
+        <p style="font-size:0.72rem;color:var(--text-muted);margin-top:10px;margin-bottom:0;">* Masa &amp; kalori adalah anggaran / estimates.</p>
+      </div>
+
+      <!-- AD sidebar -->
+      <div class="ad-banner" style="margin:0 0 20px;">
+        <!-- ✅ ADSENSE AD SLOT -->
+        <p>[ Iklan ]</p>
+      </div>
+
+      <!-- Related recipes -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">🍳 Resepi Lain Chef Ini</div>
+        <div id="relatedRecipes"><div class="related-card">
+          <div class="related-card-thumb">
+            <img src="/images/recipes/cs-gulai-nangka-muda.jpg" alt="Gulai Nangka Muda dengan Ikan Kurau Masin" loading="lazy" class="img-loaded">
+          </div>
+          <div>
+            <div class="related-card-title">Gulai Nangka Muda dengan Ikan Kurau Masin</div>
+            <div class="related-card-meta">⏱ 25 minit &nbsp;·&nbsp; 📊 Sederhana</div>
+          </div>
+        </div><div class="related-card">
+          <div class="related-card-thumb">
+            <img src="/images/recipes/cs-tilapia-goreng-sambal-santan.jpg" alt="Tilapia Goreng Sambal Santan" loading="lazy" class="img-loaded">
+          </div>
+          <div>
+            <div class="related-card-title">Tilapia Goreng Sambal Santan</div>
+            <div class="related-card-meta">⏱ 20 minit &nbsp;·&nbsp; 📊 Mudah</div>
+          </div>
+        </div><div class="related-card">
+          <div class="related-card-thumb">
+            <img src="/images/recipes/cs-ayam-bakar-baker-cottage.jpg" alt="Ayam Bakar ala Baker Cottage" loading="lazy" class="img-loaded">
+          </div>
+          <div>
+            <div class="related-card-title">Ayam Bakar ala Baker Cottage</div>
+            <div class="related-card-meta">⏱ 25 minit &nbsp;·&nbsp; 📊 Mudah</div>
+          </div>
+        </div><div class="related-card">
+          <div class="related-card-thumb">
+            <img src="/images/recipes/cs-pizza-frying-pan.jpg" alt="Pizza Frying Pan (Pizza Kampung)" loading="lazy" class="img-loaded">
+          </div>
+          <div>
+            <div class="related-card-title">Pizza Frying Pan (Pizza Kampung)</div>
+            <div class="related-card-meta">⏱ 15 minit &nbsp;·&nbsp; 📊 Sederhana</div>
+          </div>
+        </div></div>
+        <a id="allChefLink" href="/chef/che-sayang.html" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:8px;font-size:0.85rem;">
+          Lihat Semua →
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       MORE FROM THIS CATEGORY
+  ══════════════════════════════════════════ -->
+  <section style="padding:40px 0;background:var(--bg2);">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">🍛 Kategori Sama</div>
+        <h2 class="section-title" id="moreCatTitle">Resepi Lauk Lain</h2>
+      </div>
+      <a href="/search.html" class="section-link">Lihat Semua →</a>
+    </div>
+    <div class="scroll-row" id="moreCatRow"><div class="recipe-card">
+        <div class="recipe-card-thumb">
+          <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Rendang-2-Kilo-Daging.webp?fit=1080%2C1920&amp;ssl=1" alt="Rendang 2 Kilo Daging" loading="lazy" class="img-loaded">
+          <span class="recipe-card-cat">Lauk</span>
+          <div class="recipe-card-bottom">
+            <div class="recipe-card-title">Rendang 2 Kilo Daging</div>
+            <div class="recipe-card-chef">by Khairul Aming</div>
+          </div>
+        </div>
+        <div class="recipe-card-hover">
+          <div class="recipe-card-hover-title">Rendang 2 Kilo Daging</div>
+          <div class="recipe-card-hover-meta">
+            <span>⏱ 120 minit</span>
+            <span>🍽 4 org</span>
+          </div>
+          <p class="recipe-card-hover-desc">Resepi Rendang 2 Kilo Daging daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
+          <a href="/resepi/ka-rendang-2-kilo-daging.html" class="btn btn-primary">▶ Tengok Resepi</a>
+        </div>
+      </div><div class="recipe-card">
+        <div class="recipe-card-thumb">
+          <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Ayam-Masak-Ros-Kacang-Buncis-Goreng-Telur.webp?fit=1080%2C1920&amp;ssl=1" alt="Ayam Masak Ros &amp; Kacang Buncis Goreng Telur" loading="lazy" class="img-loaded">
+          <span class="recipe-card-cat">Lauk</span>
+          <div class="recipe-card-bottom">
+            <div class="recipe-card-title">Ayam Masak Ros &amp; Kacang Buncis Goreng Telur</div>
+            <div class="recipe-card-chef">by Khairul Aming</div>
+          </div>
+        </div>
+        <div class="recipe-card-hover">
+          <div class="recipe-card-hover-title">Ayam Masak Ros &amp; Kacang Buncis Goreng Telur</div>
+          <div class="recipe-card-hover-meta">
+            <span>⏱ 30 minit</span>
+            <span>🍽 4 org</span>
+          </div>
+          <p class="recipe-card-hover-desc">Resepi Ayam Masak Ros &amp; Kacang Buncis Goreng Telur daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
+          <a href="/resepi/ka-ayam-masak-ros-kacang-buncis-goreng-telur.html" class="btn btn-primary">▶ Tengok Resepi</a>
+        </div>
+      </div><div class="recipe-card">
+        <div class="recipe-card-thumb">
+          <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Telur-Dadar-Pad-Kra-Pao.webp?fit=720%2C1280&amp;ssl=1" alt="Telur Dadar Pad Kra Pao" loading="lazy" class="img-loaded">
+          <span class="recipe-card-cat">Lauk</span>
+          <div class="recipe-card-bottom">
+            <div class="recipe-card-title">Telur Dadar Pad Kra Pao</div>
+            <div class="recipe-card-chef">by Khairul Aming</div>
+          </div>
+        </div>
+        <div class="recipe-card-hover">
+          <div class="recipe-card-hover-title">Telur Dadar Pad Kra Pao</div>
+          <div class="recipe-card-hover-meta">
+            <span>⏱ 30 minit</span>
+            <span>🍽 4 org</span>
+          </div>
+          <p class="recipe-card-hover-desc">Resepi Telur Dadar Pad Kra Pao daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
+          <a href="/resepi/ka-telur-dadar-pad-kra-pao.html" class="btn btn-primary">▶ Tengok Resepi</a>
+        </div>
+      </div><div class="recipe-card">
+        <div class="recipe-card-thumb">
+          <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Ayam-Goreng-Bawang-Putih-Telur-Itik-Masak-Lemak-Cili-Api.webp?fit=720%2C1280&amp;ssl=1" alt="Ayam Goreng Bawang Putih &amp; Telur Itik Masak Lemak Cili Api" loading="lazy" class="img-loaded">
+          <span class="recipe-card-cat">Lauk</span>
+          <div class="recipe-card-bottom">
+            <div class="recipe-card-title">Ayam Goreng Bawang Putih &amp; Telur Itik Masak Lemak Cili Api</div>
+            <div class="recipe-card-chef">by Khairul Aming</div>
+          </div>
+        </div>
+        <div class="recipe-card-hover">
+          <div class="recipe-card-hover-title">Ayam Goreng Bawang Putih &amp; Telur Itik Masak Lemak Cili Api</div>
+          <div class="recipe-card-hover-meta">
+            <span>⏱ 45 minit</span>
+            <span>🍽 4 org</span>
+          </div>
+          <p class="recipe-card-hover-desc">Resepi Ayam Goreng Bawang Putih &amp; Telur Itik Masak Lemak Cili Api daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
+          <a href="/resepi/ka-ayam-goreng-bawang-putih-telur-itik-masak-lemak-cili-api.html" class="btn btn-primary">▶ Tengok Resepi</a>
+        </div>
+      </div><div class="recipe-card">
+        <div class="recipe-card-thumb">
+          <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Cheezy-Korean-Chicken.webp?fit=720%2C1280&amp;ssl=1" alt="Cheezy Korean Chicken" loading="lazy" class="img-loaded">
+          <span class="recipe-card-cat">Lauk</span>
+          <div class="recipe-card-bottom">
+            <div class="recipe-card-title">Cheezy Korean Chicken</div>
+            <div class="recipe-card-chef">by Khairul Aming</div>
+          </div>
+        </div>
+        <div class="recipe-card-hover">
+          <div class="recipe-card-hover-title">Cheezy Korean Chicken</div>
+          <div class="recipe-card-hover-meta">
+            <span>⏱ 30 minit</span>
+            <span>🍽 4 org</span>
+          </div>
+          <p class="recipe-card-hover-desc">Resepi Cheezy Korean Chicken daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
+          <a href="/resepi/ka-cheezy-korean-chicken.html" class="btn btn-primary">▶ Tengok Resepi</a>
+        </div>
+      </div><div class="recipe-card">
+        <div class="recipe-card-thumb">
+          <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Rendang-1-Ekor-Ayam.webp?fit=720%2C1280&amp;ssl=1" alt="Rendang 1 Ekor Ayam" loading="lazy" class="img-loaded">
+          <span class="recipe-card-cat">Lauk</span>
+          <div class="recipe-card-bottom">
+            <div class="recipe-card-title">Rendang 1 Ekor Ayam</div>
+            <div class="recipe-card-chef">by Khairul Aming</div>
+          </div>
+        </div>
+        <div class="recipe-card-hover">
+          <div class="recipe-card-hover-title">Rendang 1 Ekor Ayam</div>
+          <div class="recipe-card-hover-meta">
+            <span>⏱ 120 minit</span>
+            <span>🍽 4 org</span>
+          </div>
+          <p class="recipe-card-hover-desc">Resepi Rendang 1 Ekor Ayam daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
+          <a href="/resepi/ka-rendang-1-ekor-ayam.html" class="btn btn-primary">▶ Tengok Resepi</a>
+        </div>
+      </div><div class="recipe-card">
+        <div class="recipe-card-thumb">
+          <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Daging-Dendeng.webp?fit=720%2C1280&amp;ssl=1" alt="Daging Dendeng" loading="lazy" class="img-loaded">
+          <span class="recipe-card-cat">Lauk</span>
+          <div class="recipe-card-bottom">
+            <div class="recipe-card-title">Daging Dendeng</div>
+            <div class="recipe-card-chef">by Khairul Aming</div>
+          </div>
+        </div>
+        <div class="recipe-card-hover">
+          <div class="recipe-card-hover-title">Daging Dendeng</div>
+          <div class="recipe-card-hover-meta">
+            <span>⏱ 30 minit</span>
+            <span>🍽 4 org</span>
+          </div>
+          <p class="recipe-card-hover-desc">Resepi Daging Dendeng daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.</p>
+          <a href="/resepi/ka-daging-dendeng.html" class="btn btn-primary">▶ Tengok Resepi</a>
+        </div>
+      </div><div class="recipe-card">
+        <div class="recipe-card-thumb">
+          <img src="https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Salted-Egg-Chicken.webp?fit=720%2C1280&amp;ssl=1" alt="Salted Egg Chicken" loading="lazy" class="img-loaded">
+          <span class="recipe-card-cat">Lauk</span>
+          <div class="recipe-card-bottom">
+            <div class="recipe-card-title">Salted Egg Chicken</div>
+            <div class="recipe-card-chef">by Khairul Aming</div>
+          </div>
+        </div>
+        <div class="recipe-card-hover">
+          <div class="recipe-card-hover-title">Salted Egg Chicken</div>
+          <div class="recipe-card-hover-meta">
+            <span>⏱ 30 minit</span>
+            <span>🍽 4 org</span>
+          </div>
+          <p class="recipe-card-hover-desc">Resepi Salted Egg Chicken daripada Khairul Aming. Bahan-bahan dan langkah penuh disediakan di bawah.</p>
+          <a href="/resepi/ka-salted-egg-chicken.html" class="btn btn-primary">▶ Tengok Resepi</a>
+        </div>
+      </div></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Resepi<span>Lokal</span></div>
+          <p class="footer-desc">Platform resepi chef &amp; influencer masakan Malaysia. Tonton video asal, baca resepi dwibahasa, dan masak dengan mudah. Kredit penuh kepada semua pencipta asal.</p>
+          <div class="footer-col-title" style="margin-top:18px;">📬 Newsletter</div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0;">Resepi baharu terus ke emel anda.</p>
+          <form class="newsletter-form" id="newsletterForm" aria-label="Langgan newsletter">
+            <input type="email" id="newsletterEmail" placeholder="Emel anda" required="" aria-label="Alamat emel">
+            <button type="submit">Langgan</button>
+          </form>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigasi</div>
+          <ul class="footer-links-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/chefs.html">Semua Chef</a></li>
+            <li><a href="/search.html">Cari Resepi</a></li>
+            <li><a href="/categories.html">Kategori</a></li>
+            <li><a href="/faq.html">Soalan Lazim</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Maklumat</div>
+          <ul class="footer-links-list">
+            <li><a href="/about.html">Tentang Kami</a></li>
+            <li><a href="/contact.html">Hubungi Kami</a></li>
+            <li><a href="/privacy.html">Dasar Privasi</a></li>
+            <li><a href="/terms.html">Terma Penggunaan</a></li>
+            <li><a href="/affiliate-disclosure.html">Penafian Affiliate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 ResipiLokal.com — Dibuat dengan ❤️ untuk rakyat Malaysia</p>
+        <p style="font-size:0.78rem;color:var(--text-muted);">ResipiLokal bukan milik mana-mana chef. Semua resepi &amp; video adalah hak cipta pencipta asal masing-masing. Butang beli mengandungi link affiliate — lihat <a href="/affiliate-disclosure.html" style="color:var(--text-muted);text-decoration:underline;">penafian affiliate</a>.</p>
+      </div></footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════ -->
+  <script src="/data.js"></script>
+  <script src="/icons.js"></script>
+  <script src="/enrich.js"></script>
+  <script>
+    // Mobile nav
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Get recipe ID from URL — supports both the clean static URL
+    // (/resepi/<id>.html) and the legacy query-string URL (?id=<id>)
+    const params = new URLSearchParams(window.location.search);
+    let recipeId = params.get('id');
+    if (!recipeId) {
+      const pathMatch = window.location.pathname.match(/\/resepi\/([^\/]+)\.html$/);
+      if (pathMatch) recipeId = pathMatch[1];
+    }
+    if (!recipeId) window.location.href = '/';
+
+    const recipe = getRecipeById(recipeId);
+    if (!recipe) window.location.href = '/';
+
+    const chef = getChefById(recipe.chef_id);
+
+    // ── Language state ────────────────────────
+    let currentLang = 'bm';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.getElementById('btnBM').classList.toggle('active', lang === 'bm');
+      document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+      renderIngredients();
+      renderSteps();
+      if (typeof renderExtras === 'function') renderExtras();
+      document.getElementById('recipeDesc').textContent =
+        lang === 'bm' ? recipe.description : recipe.description_en;
+      document.getElementById('recipeTitle').textContent =
+        lang === 'bm' ? recipe.title : recipe.title_en;
+    }
+
+    // ── Populate hero ─────────────────────────
+    document.title = `${recipe.title} — ResipiLokal`;
+    document.getElementById('recipeHeroBg').style.backgroundImage = `url('${recipe.thumbnail}')`;
+    document.getElementById('recipeTitle').textContent = recipe.title;
+    document.getElementById('recipeCatBadge').textContent = recipe.category;
+    document.getElementById('recipePrep').textContent = recipe.prep_time;
+    document.getElementById('recipeCook').textContent = recipe.cook_time;
+    document.getElementById('recipeServing').textContent = recipe.servings;
+    document.getElementById('recipeDiff').textContent = recipe.difficulty;
+    document.getElementById('recipeDesc').textContent = recipe.description;
+
+    // Breadcrumb
+    document.getElementById('breadTitle').textContent = recipe.title;
+    if (chef) {
+      const breadChef = document.getElementById('breadChef');
+      breadChef.textContent = chef.name;
+      breadChef.href = chefUrl(chef.id);
+    }
+
+    // Tags
+    const tagsEl = document.getElementById('recipeTags');
+    recipe.tags.forEach(t => {
+      const span = document.createElement('span');
+      span.className = 'tag';
+      span.textContent = t;
+      tagsEl.appendChild(span);
+    });
+
+    // Sidebar info
+    document.getElementById('sidePrep').textContent = recipe.prep_time;
+    document.getElementById('sideCook').textContent = recipe.cook_time;
+    document.getElementById('sideServing').textContent = recipe.servings + ' org';
+    document.getElementById('sideDiff').textContent = recipe.difficulty;
+
+    // Enriched meta (total time + calories)
+    const totalTime = (typeof getTotalTime === 'function') ? getTotalTime(recipe) : '';
+    const nutrition = (typeof getNutrition === 'function') ? getNutrition(recipe) : null;
+    document.getElementById('recipeTotal').textContent = totalTime || '—';
+    document.getElementById('sideTotal').textContent = totalTime || '—';
+    if (nutrition) {
+      document.getElementById('recipeKcal').textContent = '±' + nutrition.kcal;
+      document.getElementById('sideKcal').textContent = '±' + nutrition.kcal + ' kcal';
+    }
+
+    // ── Enriched sections (tips / storage / tools / nutrition / FAQ) ──
+    function renderExtras() {
+      const en = currentLang === 'en';
+
+      // Section titles
+      document.getElementById('tipsTitle').textContent = en ? '💡 Tips & Notes' : '💡 Tips & Nota';
+      document.getElementById('storageTitle').textContent = en ? '🧊 Storage & Reheating' : '🧊 Penyimpanan & Panaskan Semula';
+      document.getElementById('storageLabel').textContent = en ? '🧊 Storage' : '🧊 Penyimpanan';
+      document.getElementById('reheatLabel').textContent = en ? '🔥 Reheating' : '🔥 Panaskan Semula';
+      document.getElementById('toolsTitle').textContent = en ? '🔧 Kitchen Tools' : '🔧 Peralatan Dapur';
+      document.getElementById('nutritionTitle').textContent = en ? '🍎 Nutrition (Estimate / Per Serving)' : '🍎 Nutrisi (Anggaran / Per Hidangan)';
+      document.getElementById('nutritionNote').textContent = en
+        ? '* Estimated values based on typical ingredients. Actual values vary with brands & portions.'
+        : '* Nilai anggaran berdasarkan bahan tipikal. Nilai sebenar berbeza mengikut jenama & sukatan.';
+      document.getElementById('faqTitle').textContent = en ? '❓ Frequently Asked Questions' : '❓ Soalan Lazim';
+
+      // Tips
+      const tipsEl = document.getElementById('tipsList');
+      tipsEl.innerHTML = '';
+      getTips(recipe, currentLang).forEach(tip => {
+        const d = document.createElement('div');
+        d.className = 'ingredient-item';
+        d.style.cursor = 'default';
+        d.innerHTML = `<div class="ingredient-bullet"></div><span style="flex:1;">${tip}</span>`;
+        tipsEl.appendChild(d);
+      });
+      tipsEl.style.display = 'flex';
+      tipsEl.style.flexDirection = 'column';
+      tipsEl.style.gap = '10px';
+
+      // Storage & reheat
+      document.getElementById('storageText').textContent = getStorage(recipe, currentLang);
+      document.getElementById('reheatText').textContent = getReheat(recipe, currentLang);
+
+      // Tools (with shop links)
+      const toolsEl = document.getElementById('toolsList');
+      toolsEl.innerHTML = '';
+      getTools(recipe).forEach(tool => {
+        const links = (typeof getShoppingLinks === 'function') ? getShoppingLinks(tool, tool) : null;
+        const chip = document.createElement('div');
+        chip.style.cssText = 'display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:99px;padding:8px 8px 8px 16px;font-size:0.85rem;color:var(--text);';
+        chip.innerHTML = `<span>${tool}</span>` + (links
+          ? `<a class="ing-buy ing-shopee" href="${links.shopee}" target="_blank" rel="sponsored noopener" aria-label="Beli ${tool} di Shopee">${icon('shopee')}</a>
+             <a class="ing-buy ing-ttshop" href="${links.tiktok}" target="_blank" rel="sponsored noopener" aria-label="Beli ${tool} di TikTok Shop">${icon('bag')}</a>`
+          : '');
+        toolsEl.appendChild(chip);
+      });
+
+      // Nutrition grid
+      if (nutrition) {
+        const labels = en
+          ? { kcal: 'Calories', protein: 'Protein', carbs: 'Carbs', fat: 'Fat' }
+          : { kcal: 'Kalori', protein: 'Protein', carbs: 'Karbohidrat', fat: 'Lemak' };
+        document.getElementById('nutritionGrid').innerHTML = `
+          <div class="info-item"><div class="info-item-label">${labels.kcal}</div><div class="info-item-val">±${nutrition.kcal} kcal</div></div>
+          <div class="info-item"><div class="info-item-label">${labels.protein}</div><div class="info-item-val">±${nutrition.protein} g</div></div>
+          <div class="info-item"><div class="info-item-label">${labels.carbs}</div><div class="info-item-val">±${nutrition.carbs} g</div></div>
+          <div class="info-item"><div class="info-item-label">${labels.fat}</div><div class="info-item-val">±${nutrition.fat} g</div></div>`;
+      }
+
+      // FAQ accordion
+      const faqEl = document.getElementById('faqList');
+      faqEl.innerHTML = '';
+      getFAQ(recipe, currentLang).forEach(item => {
+        const det = document.createElement('details');
+        det.style.cssText = 'background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:10px;';
+        det.innerHTML = `<summary style="cursor:pointer;font-weight:700;color:var(--white);font-size:0.92rem;">${item.q}</summary>
+          <p style="color:var(--text-sub);font-size:0.88rem;line-height:1.7;margin:10px 0 0;">${item.a}</p>`;
+        faqEl.appendChild(det);
+      });
+    }
+
+    // ── Video header icon + attribution bar ───
+    document.getElementById('videoHeaderIcon').innerHTML = icon('tiktok');
+    if (chef) {
+      const videoLink = recipe.tiktok_url || chef.tiktok;
+      document.getElementById('videoAttribution').innerHTML = `
+        <div class="attribution-bar">
+          ${icon('tiktok')}
+          <span>Video &amp; resepi asal oleh <strong>${chef.name}</strong>.
+          <a href="${videoLink}" target="_blank" rel="noopener">${icon('link')} Tonton di TikTok ↗</a></span>
+        </div>`;
+    }
+
+    // ── TikTok embed ──────────────────────────
+    const tiktokWrap = document.getElementById('tiktokWrap');
+    // Check if a real embed URL is set (not the placeholder)
+    const isPlaceholder = recipe.tiktok_embed.includes('7100000000000000000') ||
+                          recipe.tiktok_embed.includes('7200000000000000000') ||
+                          recipe.tiktok_embed.includes('7300000000000000000') ||
+                          recipe.tiktok_embed.includes('7400000000000000000') ||
+                          recipe.tiktok_embed.includes('7500000000000000000') ||
+                          recipe.tiktok_embed.includes('7600000000000000000') ||
+                          recipe.tiktok_embed.includes('7700000000000000000') ||
+                          recipe.tiktok_embed.includes('7800000000000000000') ||
+                          recipe.tiktok_embed.includes('7900000000000000000');
+
+    if (!isPlaceholder && recipe.tiktok_embed) {
+      tiktokWrap.innerHTML = `
+        <iframe
+          src="${recipe.tiktok_embed}"
+          allowfullscreen
+          allow="encrypted-media;"
+          style="max-width:380px;width:100%;height:740px;border:none;">
+        </iframe>`;
+    } else if (chef && (chef.tiktok || chef.website || chef.youtube)) {
+      const srcLink = recipe.source || chef.tiktok || chef.website || chef.youtube;
+      const btnLabel = chef.tiktok
+        ? `🎵 Tonton di TikTok ${chef.name}`
+        : `🌐 Lihat resepi asal di laman ${chef.name}`;
+      const btnHref = recipe.source && !chef.tiktok ? recipe.source : (chef.tiktok || chef.website || chef.youtube);
+      tiktokWrap.innerHTML = `
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:400px;gap:16px;color:var(--text-muted);">
+          <div style="font-size:2.5rem;">🎵</div>
+          <p style="font-size:0.9rem;text-align:center;max-width:280px;line-height:1.6;">
+            Video untuk resepi ini tiada di TikTok — kandungan asal tetap boleh dilawati di bawah.
+          </p>
+          <a href="${btnHref}" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:0.85rem;">
+            ${btnLabel}
+          </a>
+        </div>`;
+    }
+    // else shows the placeholder message already in HTML
+
+    // ── Chef mini card ────────────────────────
+    if (chef) {
+      const chefMini = document.getElementById('chefMiniCard');
+      chefMini.innerHTML = `
+        <div class="chef-mini-avatar">
+          <img src="${chef.image}" alt="${chef.name}"
+            onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(chef.name)}&background=f5a623&color=000&size=52'"/>
+        </div>
+        <div>
+          <div class="chef-mini-name">${chef.name}</div>
+          <div class="chef-mini-sub">👥 ${chef.followers} pengikut</div>
+          <div class="chef-mini-sub" style="margin-top:2px;">🍳 ${getRecipesByChef(chef.id).length} resepi</div>
+        </div>
+      `;
+      chefMini.addEventListener('click', () => {
+        window.location.href = chefUrl(chef.id);
+      });
+
+      document.getElementById('allChefLink').href = chefUrl(chef.id);
+
+      const socialMini = document.getElementById('chefSocialMini');
+      socialMini.style.flexWrap = 'wrap';
+      const miniLinks = [
+        [chef.tiktok, 'tiktok', 'brand-tiktok'],
+        [chef.youtube, 'youtube', 'brand-youtube'],
+        [chef.instagram, 'instagram', 'brand-instagram'],
+        [chef.website, 'web', 'brand-web'],
+      ];
+      miniLinks.forEach(([url, iconName, brandClass]) => {
+        if (!url) return;
+        socialMini.innerHTML += `<a href="${url}" target="_blank" rel="noopener" class="chip-icon-btn ${brandClass} icon-only" style="justify-content:center;padding:8px 10px;" aria-label="${iconName}">${icon(iconName)}</a>`;
+      });
+
+      // Support / official product mini-card
+      if (chef.products && chef.products.length) {
+        const links = chef.products.map(p =>
+          `<a href="${p.url}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee" style="justify-content:center;">${icon('shopee')} ${p.name}</a>`
+        ).join('');
+        document.getElementById('chefMiniWrap').insertAdjacentHTML('afterend', `
+          <div class="support-card">
+            <h3 style="font-size:0.9rem;">🛍️ Sokong ${chef.name}</h3>
+            <p style="font-size:0.8rem;">Produk rasmi ${chef.name}:</p>
+            <div class="support-links">${links}</div>
+          </div>`);
+      }
+    }
+
+    // ── Related recipes (same chef, not this one) ──
+    const related = getRecipesByChef(recipe.chef_id).filter(r => r.id !== recipe.id).slice(0, 4);
+    const relatedEl = document.getElementById('relatedRecipes');
+    if (related.length) {
+      related.forEach(r => {
+        const card = document.createElement('div');
+        card.className = 'related-card';
+        card.innerHTML = `
+          <div class="related-card-thumb">
+            <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
+          </div>
+          <div>
+            <div class="related-card-title">${r.title}</div>
+            <div class="related-card-meta">⏱ ${r.cook_time} &nbsp;·&nbsp; 📊 ${r.difficulty}</div>
+          </div>
+        `;
+        card.addEventListener('click', () => {
+          window.location.href = `/recipe-detail.html?id=${r.id}`;
+        });
+        relatedEl.appendChild(card);
+      });
+    } else {
+      relatedEl.innerHTML = '<p style="font-size:0.85rem;color:var(--text-muted);text-align:center;padding:12px 0;">Tiada resepi lain lagi.</p>';
+    }
+
+    // ── Ingredients with checkbox ─────────────
+    let checkedIngredients = new Set();
+
+    function renderIngredients() {
+      const list = currentLang === 'bm' ? recipe.ingredients : recipe.ingredients_en;
+      const el = document.getElementById('ingredientsList');
+      el.innerHTML = '';
+      list.forEach((item, i) => {
+        // Group label rows (e.g. "Bahan Kuah:") — heading style, no checkbox/buttons
+        if (/:\s*$/.test(item)) {
+          const lbl = document.createElement('div');
+          lbl.className = 'ingredient-group';
+          lbl.textContent = item.replace(/:\s*$/, '');
+          el.appendChild(lbl);
+          return;
+        }
+        const div = document.createElement('div');
+        div.className = 'ingredient-item' + (checkedIngredients.has(i) ? ' checked' : '');
+        const bmText = (recipe.ingredients && recipe.ingredients[i]) ? recipe.ingredients[i] : '';
+        const links = (typeof getShoppingLinks === 'function') ? getShoppingLinks(item, bmText) : null;
+        const buyBtns = links
+          ? `<span class="ing-actions">
+               <a class="ing-buy ing-shopee" href="${links.shopee}" target="_blank" rel="sponsored noopener" aria-label="Beli ${links.label} di Shopee">${icon('shopee')} Shopee</a>
+               <a class="ing-buy ing-ttshop" href="${links.tiktok}" target="_blank" rel="sponsored noopener" aria-label="Beli ${links.label} di TikTok Shop">${icon('bag')} TikTok</a>
+             </span>`
+          : '';
+        div.innerHTML = `<div class="ingredient-bullet"></div><span class="ing-text">${item}</span>${buyBtns}`;
+        div.addEventListener('click', (e) => {
+          if (e.target.closest && e.target.closest('.ing-buy')) return; // don't toggle when buying
+          if (checkedIngredients.has(i)) checkedIngredients.delete(i);
+          else checkedIngredients.add(i);
+          renderIngredients();
+        });
+        el.appendChild(div);
+      });
+    }
+
+    function clearIngredients() {
+      checkedIngredients.clear();
+      renderIngredients();
+    }
+
+    // ── Steps with progress ───────────────────
+    let doneSteps = new Set();
+
+    function updateProgress() {
+      const total = recipe.steps.length;
+      const done = doneSteps.size;
+      const pct = total ? (done / total) * 100 : 0;
+      document.getElementById('progressBar').style.width = pct + '%';
+      document.getElementById('stepsProgress').textContent = `${done} / ${total} selesai`;
+    }
+
+    function renderSteps() {
+      const list = currentLang === 'bm' ? recipe.steps : (recipe.steps_en || recipe.steps);
+      const el = document.getElementById('stepsList');
+      el.innerHTML = '';
+      list.forEach((step, i) => {
+        const div = document.createElement('div');
+        div.className = 'step-item' + (doneSteps.has(i) ? ' done' : '');
+        div.innerHTML = `
+          <div class="step-num">${i + 1}</div>
+          <div class="step-text">${step}</div>
+        `;
+        div.addEventListener('click', () => {
+          if (doneSteps.has(i)) doneSteps.delete(i);
+          else doneSteps.add(i);
+          renderSteps();
+          updateProgress();
+        });
+        el.appendChild(div);
+      });
+      updateProgress();
+    }
+
+    // ── More from same category ───────────────
+    const moreCat = getRecipesByCategory(recipe.category)
+      .filter(r => r.id !== recipe.id)
+      .slice(0, 8);
+
+    document.getElementById('moreCatTitle').textContent = `Resepi ${recipe.category} Lain`;
+
+    const moreCatRow = document.getElementById('moreCatRow');
+    moreCat.forEach(r => {
+      const chef2 = getChefById(r.chef_id);
+      const card = document.createElement('div');
+      card.className = 'recipe-card';
+      card.innerHTML = `
+        <div class="recipe-card-thumb">
+          <img src="${r.thumbnail}" alt="${r.title}" loading="lazy"/>
+          <span class="recipe-card-cat">${r.category}</span>
+          <div class="recipe-card-bottom">
+            <div class="recipe-card-title">${r.title}</div>
+            <div class="recipe-card-chef">by ${chef2 ? chef2.name : ''}</div>
+          </div>
+        </div>
+        <div class="recipe-card-hover">
+          <div class="recipe-card-hover-title">${r.title}</div>
+          <div class="recipe-card-hover-meta">
+            <span>⏱ ${r.cook_time}</span>
+            <span>🍽 ${r.servings} org</span>
+          </div>
+          <p class="recipe-card-hover-desc">${r.description}</p>
+          <a href="${recipeUrl(r.id)}" class="btn btn-primary">▶ Tengok Resepi</a>
+        </div>
+      `;
+      card.addEventListener('click', () => {
+        window.location.href = recipeUrl(r.id);
+      });
+      moreCatRow.appendChild(card);
+    });
+
+    if (!moreCat.length) {
+      moreCatRow.innerHTML = '<p style="color:var(--text-muted);padding:0 5%;">Tiada resepi lain dalam kategori ini buat masa ini.</p>';
+    }
+
+    // ── Share functions ───────────────────────
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function shareWhatsApp() {
+      const text = `Cuba resepi ${recipe.title} dari ${chef ? chef.name : 'ResipiLokal'}! 🍳\n${window.location.href}`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function shareTelegram() {
+      const text = `Cuba resepi ${recipe.title} dari ${chef ? chef.name : 'ResipiLokal'}! 🍳`;
+      window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(text)}`, '_blank');
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showToast('✅ Link disalin!');
+      });
+    }
+
+    // ── SEO: canonical + JSON-LD structured data ──
+    (function () {
+      const SITE_BASE = 'https://s-chi-puce.vercel.app';
+      const canonUrl = SITE_BASE + recipeUrl(recipe.id);
+      // og:image / JSON-LD image must be fully-qualified URLs — thumbnails
+      // are either already absolute (khairulaming.my) or root-relative
+      // (/images/recipes/...) depending on source.
+      const absImg = recipe.thumbnail.indexOf('http') === 0 ? recipe.thumbnail : SITE_BASE + recipe.thumbnail;
+
+      // Idempotent: remove any static-fallback or previously-injected SEO
+      // tags (from the generic <head>, or from an earlier snapshot of this
+      // very script) before writing the recipe-specific ones. This runs
+      // both on a live page load AND when this page was pre-rendered, so
+      // it must never produce duplicates either way.
+      document.querySelectorAll(
+        'link[rel="canonical"], meta[property^="og:"], meta[name="twitter:image"], meta[name="twitter:card"], script[type="application/ld+json"]'
+      ).forEach(el => el.remove());
+
+      const canon = document.createElement('link');
+      canon.rel = 'canonical';
+      canon.href = canonUrl;
+      document.head.appendChild(canon);
+
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', recipe.description);
+      document.title = recipe.title + ' — ResipiLokal';
+
+      const og = [
+        ['og:title', recipe.title + ' — ResipiLokal'],
+        ['og:description', recipe.description],
+        ['og:image', absImg],
+        ['og:url', canonUrl],
+        ['og:type', 'article'],
+        ['og:site_name', 'ResipiLokal'],
+      ];
+      og.forEach(([p, c]) => {
+        const m = document.createElement('meta');
+        m.setAttribute('property', p);
+        m.setAttribute('content', c);
+        document.head.appendChild(m);
+      });
+      const twCard = document.createElement('meta');
+      twCard.setAttribute('name', 'twitter:card');
+      twCard.setAttribute('content', 'summary_large_image');
+      document.head.appendChild(twCard);
+      const twImg = document.createElement('meta');
+      twImg.setAttribute('name', 'twitter:image');
+      twImg.setAttribute('content', absImg);
+      document.head.appendChild(twImg);
+
+      const pInt = parseInt(recipe.prep_time, 10) || 0;
+      const cInt = parseInt(recipe.cook_time, 10) || 0;
+      const nut = (typeof getNutrition === 'function') ? getNutrition(recipe) : null;
+      const recipeLD = {
+        '@context': 'https://schema.org',
+        '@type': 'Recipe',
+        name: recipe.title,
+        alternateName: recipe.title_en,
+        image: [absImg],
+        description: recipe.description,
+        author: chef ? { '@type': 'Person', name: chef.name, url: chef.tiktok || undefined } : undefined,
+        recipeCuisine: 'Malaysian',
+        recipeCategory: recipe.category,
+        keywords: recipe.tags.join(', '),
+        recipeYield: String(recipe.servings),
+        prepTime: pInt ? 'PT' + pInt + 'M' : undefined,
+        cookTime: cInt ? 'PT' + cInt + 'M' : undefined,
+        totalTime: (pInt + cInt) ? 'PT' + (pInt + cInt) + 'M' : undefined,
+        nutrition: nut ? { '@type': 'NutritionInformation', calories: nut.kcal + ' kcal' } : undefined,
+        recipeIngredient: recipe.ingredients.filter(x => !/:\s*$/.test(x)),
+        recipeInstructions: recipe.steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, text: s })),
+      };
+      if (recipe.tiktok_embed) {
+        recipeLD.video = {
+          '@type': 'VideoObject',
+          name: recipe.title,
+          description: recipe.description,
+          embedUrl: recipe.tiktok_embed,
+          contentUrl: recipe.tiktok_url || recipe.tiktok_embed,
+          thumbnailUrl: absImg,
+        };
+      }
+      const crumbLD = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_BASE + '/' },
+          { '@type': 'ListItem', position: 2, name: 'Chef', item: SITE_BASE + '/chefs.html' },
+          chef ? { '@type': 'ListItem', position: 3, name: chef.name, item: SITE_BASE + chefUrl(chef.id) } : null,
+          { '@type': 'ListItem', position: chef ? 4 : 3, name: recipe.title, item: canonUrl },
+        ].filter(Boolean),
+      };
+      [recipeLD, crumbLD].forEach(obj => {
+        const s = document.createElement('script');
+        s.type = 'application/ld+json';
+        s.textContent = JSON.stringify(obj);
+        document.head.appendChild(s);
+      });
+    })();
+
+    // ── INIT ──────────────────────────────────
+    renderIngredients();
+    renderSteps();
+    renderExtras();
+  </script>
+
+  <script src="/site.js"></script>
+
+</body></html>

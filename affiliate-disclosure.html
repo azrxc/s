@@ -2,6 +2,10 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8"/>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+  <link rel="alternate icon" href="/favicon.svg"/>
+  <link rel="apple-touch-icon" href="/favicon.svg"/>
+  <meta name="theme-color" content="#f5a623"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Penafian Affiliate — ResipiLokal</title>
   <meta name="description" content="Penafian affiliate ResipiLokal — butang beli Shopee & TikTok Shop mungkin menjana komisen kecil tanpa kos tambahan kepada anda."/>
@@ -10,23 +14,26 @@
   <meta property="og:description" content="Bagaimana pautan affiliate berfungsi di ResipiLokal."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://s-chi-puce.vercel.app/affiliate-disclosure.html"/>
-  <meta name="twitter:card" content="summary"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta property="og:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg"/>
+  <meta property="og:site_name" content="ResipiLokal"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://s-chi-puce.vercel.app/images/og-default.jpg"/>
+  <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
   <nav class="navbar scrolled" id="navbar" aria-label="Navigasi utama">
-    <a href="index.html" class="nav-logo">
+    <a href="/" class="nav-logo">
       <span class="nav-logo-text">Resepi<span>Lokal</span></span>
       <span class="nav-logo-badge">MY</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="chefs.html">Chef</a></li>
-      <li><a href="search.html">Semua Resepi</a></li>
-      <li><a href="categories.html">Kategori</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/chefs.html">Chef</a></li>
+      <li><a href="/search.html">Semua Resepi</a></li>
+      <li><a href="/categories.html">Kategori</a></li>
     </ul>
     <div class="nav-search">
-      <a href="search.html" class="nav-search-btn" aria-label="Cari resepi">🔍</a>
+      <a href="/search.html" class="nav-search-btn" aria-label="Cari resepi">🔍</a>
       <button class="nav-toggle" id="navToggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -54,11 +61,11 @@
     </ul>
 
     <h2>Soalan?</h2>
-    <p>Jika ada sebarang kemusykilan tentang pautan affiliate kami, sila <a href="contact.html">hubungi kami</a>.</p>
+    <p>Jika ada sebarang kemusykilan tentang pautan affiliate kami, sila <a href="/contact.html">hubungi kami</a>.</p>
   </main>
 
   <footer class="footer"></footer>
   <script>document.getElementById('navToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('open'); });</script>
-  <script src="site.js"></script>
+  <script src="/site.js"></script>
 </body>
 </html>
