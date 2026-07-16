@@ -1569,6 +1569,27 @@ img.img-loaded { animation: img-fade 0.4s ease; background: none; }
 .support-card p { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 14px; }
 .support-links { display: flex; gap: 10px; flex-wrap: wrap; }
 
+.restaurant-card .restaurant-tagline { font-style: italic; margin-bottom: 10px; }
+.restaurant-card h4 { font-size: 0.85rem; font-weight: 800; color: var(--white); margin: 16px 0 8px; }
+.restaurant-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+  padding: 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.restaurant-facts div { display: flex; flex-direction: column; gap: 3px; }
+.restaurant-facts strong { font-size: 0.75rem; color: var(--white); }
+.restaurant-facts span { font-size: 0.82rem; color: var(--text-sub); }
+.restaurant-menu, .restaurant-tips { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.restaurant-menu li { display: flex; justify-content: space-between; gap: 12px; font-size: 0.85rem; color: var(--text-sub); border-bottom: 1px dashed var(--border); padding-bottom: 6px; }
+.restaurant-menu li span:first-child { color: var(--white); }
+.restaurant-tips li { font-size: 0.82rem; color: var(--text-sub); line-height: 1.6; padding-left: 18px; position: relative; }
+.restaurant-tips li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+
 /* Accessibility: visible keyboard focus */
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   outline: 2px solid var(--accent);

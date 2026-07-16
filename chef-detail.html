@@ -81,6 +81,7 @@
     </div>
     <div id="chefAttribution"></div>
     <div id="chefSupportCard"></div>
+    <div id="chefRestaurantCard"></div>
   </div>
 
   <!-- ══════════════════════════════════════════
@@ -234,9 +235,10 @@
     // Support / official product section
     const supportEl = document.getElementById('chefSupportCard');
     if (chef.products && chef.products.length) {
-      const links = chef.products.map(p =>
-        `<a href="${p.url}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee">${icon('shopee')} ${p.name}</a>`
-      ).join('');
+      const links = chef.products.map(p => [
+        p.shopee ? `<a href="${p.shopee}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee">${icon('shopee')} ${p.name}</a>` : '',
+        p.tiktok ? `<a href="${p.tiktok}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-tiktok">${icon('tiktok')} ${p.name}</a>` : '',
+      ].join('')).join('');
       supportEl.innerHTML = `
         <div class="support-card" style="max-width:760px;">
           <h3>🛍️ Sokong ${chef.name}</h3>
@@ -251,6 +253,33 @@
           <p>Tiada kedai produk rasmi disahkan buat masa ini. Ikuti channel beliau untuk kempen sokongan atau produk terkini.</p>
           <div class="support-links">
             <a href="${chef.tiktok}" target="_blank" rel="noopener" class="chip-icon-btn brand-tiktok">${icon('tiktok')} Ikuti di TikTok</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Restoran rasmi (jika chef ada perniagaan F&B fizikal)
+    const restaurantEl = document.getElementById('chefRestaurantCard');
+    if (chef.restaurant) {
+      const r = chef.restaurant;
+      const menu = (r.menu_highlights || [])
+        .map(m => `<li><span>${m.name}</span><span>${m.price}</span></li>`).join('');
+      const tips = (r.booking_tips || []).map(t => `<li>${t}</li>`).join('');
+      restaurantEl.innerHTML = `
+        <div class="support-card restaurant-card" style="max-width:760px;">
+          <h3>🍽️ ${r.name} — Restoran Rasmi ${chef.name}</h3>
+          <p class="restaurant-tagline">"${r.tagline}"</p>
+          <p>${r.story}</p>
+          <div class="restaurant-facts">
+            <div><strong>📍 Lokasi</strong><span>${r.address}</span></div>
+            <div><strong>🕚 Waktu Operasi</strong><span>${r.hours}</span></div>
+            <div><strong>🍴 Jenis Masakan</strong><span>${r.cuisine}</span></div>
+          </div>
+          ${menu ? `<h4>Menu Popular</h4><ul class="restaurant-menu">${menu}</ul>` : ''}
+          ${tips ? `<h4>Cara Tempah Slot</h4><ul class="restaurant-tips">${tips}</ul>` : ''}
+          <div class="support-links" style="margin-top:14px;">
+            ${r.booking_url ? `<a href="${r.booking_url}" target="_blank" rel="noopener" class="btn btn-primary">📅 Tempah Meja</a>` : ''}
+            ${r.website ? `<a href="${r.website}" target="_blank" rel="noopener" class="chip-icon-btn brand-web">${icon('web')} Laman Web Rasmi</a>` : ''}
           </div>
         </div>
       `;

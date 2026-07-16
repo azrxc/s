@@ -98,6 +98,38 @@
           <div class="support-links"><a href="https://shope.ee/AKCF5tXW44" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg> Sambal Nyet Berapi</a><a href="https://shope.ee/ViJNuXbXV" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3zm-2 6a6 6 0 0 0 12 0h-3a3 3 0 0 1-6 0h-3z"></path></svg> Dendeng Nyet Berapi</a></div>
         </div>
       </div>
+    <div id="chefRestaurantCard">
+        <div class="support-card restaurant-card" style="max-width:760px;">
+          <h3>🍽️ Rembayung — Restoran Rasmi Khairul Aming</h3>
+          <p class="restaurant-tagline">"Masakan Kampung, Citarasa Semua"</p>
+          <p>Selepas hampir sedekad membina nama sebagai pencipta kandungan masakan paling terkenal di Malaysia, Khairul Aming melangkah ke perniagaan fizikal buat julung kalinya — melabur kira-kira RM4 juta untuk membuka Rembayung pada Januari 2026. Restoran masakan kampung Melayu moden ini terletak di Kampung Baru, seluas 8,000 kaki persegi, mampu memuatkan sehingga 250 tetamu dan menggajikan lebih 50 kakitangan tempatan. Pembukaannya mencetuskan gempak luar biasa di media sosial (lebih 5.56 juta interaksi di TikTok) dan dilihat ramai bukan sekadar pembukaan restoran biasa, tetapi simbol kejayaan usahawan muda Melayu — slot tempahan penuh dalam masa yang singkat selepas ia dibuka.</p>
+          <div class="restaurant-facts">
+            <div><strong>📍 Lokasi</strong><span>Lot 2791, Jalan Daud, Off Jalan Raja Muda Abdul Aziz, Kampung Baru, 50300 Kuala Lumpur</span></div>
+            <div><strong>🕚 Waktu Operasi</strong><span>11 pagi – 11 malam (Isnin–Khamis &amp; Sabtu–Ahad) · Tutup setiap Jumaat</span></div>
+            <div><strong>🍴 Jenis Masakan</strong><span>Masakan Melayu moden</span></div>
+          </div>
+          <h4>Menu Popular</h4>
+          <ul class="restaurant-menu">
+            <li><span>Cucur Udang</span><span>RM16.90</span></li>
+            <li><span>Ayam Salai Masak Lemak Cili Api</span><span>RM29.90</span></li>
+            <li><span>Daging Salai Masak Lemak Cili Api</span><span>RM35.90</span></li>
+            <li><span>Ikan Siakap Sambal Berlado</span><span>RM68.90</span></li>
+          </ul>
+          <h4>Cara Tempah Slot</h4>
+          <ul class="restaurant-tips">
+            <li>Tempahan online sahaja — tiada walk-in. Buat tempahan terus di reservation.umai.io/en/widget/rembayung.</li>
+            <li>Slot baharu dibuka 9 malam setiap hari (kecuali malam Jumaat, kerana tutup) — slot 2 minggu akan datang &amp; slot 2 hari akan datang dibuka serentak.</li>
+            <li>Deposit RM10/seorang diperlukan semasa tempahan — dipotong terus daripada bil, tiada refund jika batal.</li>
+            <li>Bawa e-mel pengesahan tempahan semasa tiba; tempoh grace hanya 15 minit.</li>
+            <li>Tempoh makan dihadkan lebih kurang 1 jam 45 minit setiap sesi; bayaran cashless sahaja (kad/QR).</li>
+            <li>Had 1 tempahan sehari seorang untuk elak penimbunan slot.</li>
+          </ul>
+          <div class="support-links" style="margin-top:14px;">
+            <a href="https://reservation.umai.io/en/widget/rembayung" target="_blank" rel="noopener" class="btn btn-primary">📅 Tempah Meja</a>
+            <a href="https://rembayung.com/" target="_blank" rel="noopener" class="chip-icon-btn brand-web"><svg viewBox="0 0 48 48" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><circle cx="24" cy="24" r="18"></circle><path d="M6 24h36M24 6c4.5 5 7 11.3 7 18s-2.5 13-7 18c-4.5-5-7-11.3-7-18s2.5-13 7-18z"></path></svg> Laman Web Rasmi</a>
+          </div>
+        </div>
+      </div>
   </div>
 
   <!-- ══════════════════════════════════════════
@@ -2668,6 +2700,33 @@
           <p>Tiada kedai produk rasmi disahkan buat masa ini. Ikuti channel beliau untuk kempen sokongan atau produk terkini.</p>
           <div class="support-links">
             <a href="${chef.tiktok}" target="_blank" rel="noopener" class="chip-icon-btn brand-tiktok">${icon('tiktok')} Ikuti di TikTok</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Restoran rasmi (jika chef ada perniagaan F&B fizikal)
+    const restaurantEl = document.getElementById('chefRestaurantCard');
+    if (restaurantEl && chef.restaurant) {
+      const r = chef.restaurant;
+      const menu = (r.menu_highlights || [])
+        .map(m => `<li><span>${m.name}</span><span>${m.price}</span></li>`).join('');
+      const tips = (r.booking_tips || []).map(t => `<li>${t}</li>`).join('');
+      restaurantEl.innerHTML = `
+        <div class="support-card restaurant-card" style="max-width:760px;">
+          <h3>🍽️ ${r.name} — Restoran Rasmi ${chef.name}</h3>
+          <p class="restaurant-tagline">"${r.tagline}"</p>
+          <p>${r.story}</p>
+          <div class="restaurant-facts">
+            <div><strong>📍 Lokasi</strong><span>${r.address}</span></div>
+            <div><strong>🕚 Waktu Operasi</strong><span>${r.hours}</span></div>
+            <div><strong>🍴 Jenis Masakan</strong><span>${r.cuisine}</span></div>
+          </div>
+          ${menu ? `<h4>Menu Popular</h4><ul class="restaurant-menu">${menu}</ul>` : ''}
+          ${tips ? `<h4>Cara Tempah Slot</h4><ul class="restaurant-tips">${tips}</ul>` : ''}
+          <div class="support-links" style="margin-top:14px;">
+            ${r.booking_url ? `<a href="${r.booking_url}" target="_blank" rel="noopener" class="btn btn-primary">📅 Tempah Meja</a>` : ''}
+            ${r.website ? `<a href="${r.website}" target="_blank" rel="noopener" class="chip-icon-btn brand-web">${icon('web')} Laman Web Rasmi</a>` : ''}
           </div>
         </div>
       `;

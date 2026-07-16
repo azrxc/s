@@ -25,10 +25,39 @@ const CHEFS = [
     verified: true,
     // ✅ Produk rasmi — sokong pencipta asal dengan membeli produk mereka.
     // Pautan ini diambil terus daripada laman rasmi khairulaming.my.
+    // NOTE: keep `url` in sync with `shopee` — 100+ already-baked static
+    // pages (resepi/*.html, chef/*.html) embed an older script that still
+    // reads `p.url`, and won't get a fresh prerender bake just for this.
     products: [
-      { name: "Sambal Nyet Berapi", url: "https://shope.ee/AKCF5tXW44" },
-      { name: "Dendeng Nyet Berapi", url: "https://shope.ee/ViJNuXbXV" },
+      { name: "Sambal Nyet Berapi", url: "https://shope.ee/AKCF5tXW44", shopee: "https://shope.ee/AKCF5tXW44", tiktok: "" },
+      { name: "Dendeng Nyet Berapi", url: "https://shope.ee/ViJNuXbXV", shopee: "https://shope.ee/ViJNuXbXV", tiktok: "" },
     ],
+    // ✅ Restoran rasmi — perniagaan F&B fizikal pertama Khairul Aming (dibuka Januari 2026).
+    // Fakta & pautan tempahan disahkan daripada rembayung.com dan liputan media (Malay Mail, The Rakyat Post).
+    restaurant: {
+      name: "Rembayung",
+      tagline: "Masakan Kampung, Citarasa Semua",
+      cuisine: "Masakan Melayu moden",
+      address: "Lot 2791, Jalan Daud, Off Jalan Raja Muda Abdul Aziz, Kampung Baru, 50300 Kuala Lumpur",
+      hours: "11 pagi – 11 malam (Isnin–Khamis & Sabtu–Ahad) · Tutup setiap Jumaat",
+      website: "https://rembayung.com/",
+      booking_url: "https://reservation.umai.io/en/widget/rembayung",
+      story: "Selepas hampir sedekad membina nama sebagai pencipta kandungan masakan paling terkenal di Malaysia, Khairul Aming melangkah ke perniagaan fizikal buat julung kalinya — melabur kira-kira RM4 juta untuk membuka Rembayung pada Januari 2026. Restoran masakan kampung Melayu moden ini terletak di Kampung Baru, seluas 8,000 kaki persegi, mampu memuatkan sehingga 250 tetamu dan menggajikan lebih 50 kakitangan tempatan. Pembukaannya mencetuskan gempak luar biasa di media sosial (lebih 5.56 juta interaksi di TikTok) dan dilihat ramai bukan sekadar pembukaan restoran biasa, tetapi simbol kejayaan usahawan muda Melayu — slot tempahan penuh dalam masa yang singkat selepas ia dibuka.",
+      menu_highlights: [
+        { name: "Cucur Udang", price: "RM16.90" },
+        { name: "Ayam Salai Masak Lemak Cili Api", price: "RM29.90" },
+        { name: "Daging Salai Masak Lemak Cili Api", price: "RM35.90" },
+        { name: "Ikan Siakap Sambal Berlado", price: "RM68.90" },
+      ],
+      booking_tips: [
+        "Tempahan online sahaja — tiada walk-in. Buat tempahan terus di reservation.umai.io/en/widget/rembayung.",
+        "Slot baharu dibuka 9 malam setiap hari (kecuali malam Jumaat, kerana tutup) — slot 2 minggu akan datang & slot 2 hari akan datang dibuka serentak.",
+        "Deposit RM10/seorang diperlukan semasa tempahan — dipotong terus daripada bil, tiada refund jika batal.",
+        "Bawa e-mel pengesahan tempahan semasa tiba; tempoh grace hanya 15 minit.",
+        "Tempoh makan dihadkan lebih kurang 1 jam 45 minit setiap sesi; bayaran cashless sahaja (kad/QR).",
+        "Had 1 tempahan sehari seorang untuk elak penimbunan slot.",
+      ],
+    },
   },
   {
     id: "che-sayang",
@@ -8048,7 +8077,11 @@ const CATEGORIES = [
 //      shopee: "https://shopee.com.my/search?keyword={q}&af_id=ANDA123",
 //      atau guna short-link generator anda sendiri.
 const AFFILIATE_CONFIG = {
-  shopee: "https://shopee.com.my/search?keyword={q}",
+  // ⚠️ Eksperimen: params affiliate (an_12313750134) disalin daripada link
+  // rasmi yang dijana portal affiliate — sahkan klik direkod dalam
+  // Shopee Affiliate > Report > Click Report (ambil 1-2 hari), jika tidak
+  // kekalkan link shope.ee yang dijana portal sahaja.
+  shopee: "https://shopee.com.my/search?keyword={q}&utm_source=an_12313750134&utm_medium=affiliates&mmp_pid=an_12313750134",
   tiktokshop: "https://shop.tiktok.com/search?q={q}",
 };
 
@@ -8058,10 +8091,91 @@ const AFFILIATE_CONFIG = {
 //    Kunci = perkataan bahan (huruf kecil, Bahasa Malaysia).
 // Contoh / Example:
 //    "sambal nyet": { shopee: "https://s.shopee.com.my/ABC123", tiktok: "https://vt.tiktok.com/ZSxxxxx/" },
+// Kunci dipadan sebagai substring (huruf kecil) terhadap teks bahan/alat;
+// kunci TERPANJANG yang padan akan menang. Jika hanya tiktok diisi, butang
+// Shopee jatuh balik ke carian generik (dan sebaliknya).
 const AFFILIATE_LINKS = {
-  // "sambal nyet": { shopee: "", tiktok: "" },
-  // "kicap manis": { shopee: "", tiktok: "" },
-  // "santan":      { shopee: "", tiktok: "" },
+  // ── Bahan (Tier 1) ──
+  "garam":            { shopee: "https://s.shopee.com.my/6AjSo7OFzF", tiktok: "https://vt.tiktok.com/ZS9Mw8njeJAn6-H5npw/" },
+  "bawang putih":     { shopee: "https://s.shopee.com.my/3qLY3J9JTh", tiktok: "https://vt.tiktok.com/ZS9MwNCBs9dtP-t86WP/" },
+  "bwg putih":        { shopee: "https://s.shopee.com.my/3qLY3J9JTh", tiktok: "https://vt.tiktok.com/ZS9MwNCBs9dtP-t86WP/" },
+  "ayam":             { shopee: "https://s.shopee.com.my/4fuf2wQXa1", tiktok: "https://vt.tiktok.com/ZS9MwYuve99bp-zAZZm/" },
+  "bawang merah":     { shopee: "https://s.shopee.com.my/903eERfvXB", tiktok: "https://vt.tiktok.com/ZS9MwY79NnFx3-LlbYT/" },
+  "bwg merah":        { shopee: "https://s.shopee.com.my/903eERfvXB", tiktok: "https://vt.tiktok.com/ZS9MwY79NnFx3-LlbYT/" },
+  "telur":            { shopee: "https://s.shopee.com.my/3qLY55MlLo", tiktok: "https://vt.tiktok.com/ZS9Mw2QBW5fK1-wh2us/" },
+  "halia":            { shopee: "https://s.shopee.com.my/6ffjSO4fig", tiktok: "https://vt.tiktok.com/ZS9Mwj1sYf8ex-Ttgc2/" },
+  "cili padi":        { shopee: "https://s.shopee.com.my/4VbF307jGK", tiktok: "https://vt.tiktok.com/ZS9MwjVAvTyf2-BtTUN/" },
+  "cili":             { shopee: "https://s.shopee.com.my/4LHoqh8MbJ", tiktok: "https://vt.tiktok.com/ZS9MwjwM9UCDm-XJXEA/" },
+  "serai":            { shopee: "https://s.shopee.com.my/4AyOeO8zwI", tiktok: "https://vt.tiktok.com/ZS9MwaBHMgqys-jCM0v/" },
+  "sos tiram":        { shopee: "https://s.shopee.com.my/40eyS59dHH", tiktok: "https://vt.tiktok.com/ZS9Mwab32hP3f-ozXOt/" },
+  "kicap manis":      { shopee: "https://s.shopee.com.my/5AqvqE5BuW", tiktok: "https://vt.tiktok.com/ZS9MwP3ThbVnR-xdD5J/" },
+  "susu cair":        { shopee: "https://s.shopee.com.my/4VbF33smCg", tiktok: "https://vt.tiktok.com/ZS9Mw5dTdqcKL-m7fMR/" },
+  "susu segar":       { shopee: "https://s.shopee.com.my/4VbF33smCg", tiktok: "https://vt.tiktok.com/ZS9Mw5dTdqcKL-m7fMR/" },
+  "tepung gandum":    { shopee: "https://s.shopee.com.my/4LHoqktPXf", tiktok: "https://vt.tiktok.com/ZS9Mw5M8m1jMK-vZfdL/" },
+  "mentega":          { shopee: "https://s.shopee.com.my/4qE5RfrVWm", tiktok: "https://vt.tiktok.com/ZS9Mw56EvW3WK-yykkr/" },
+  "santan":           { shopee: "https://s.shopee.com.my/4fufFMs8rl", tiktok: "https://vt.tiktok.com/ZS9Mw5Bkaj9Jc-zlSyd/" },
+  "sos tomato":       { shopee: "https://s.shopee.com.my/5AqvqHqEqs", tiktok: "https://vt.tiktok.com/ZS9Mw53N8Gr8t-lHhEA/" },
+  "tomato":           { shopee: "https://s.shopee.com.my/7Ac0E0Keqe", tiktok: "" },
+  "tepung jagung":    { shopee: "https://s.shopee.com.my/70Ia1hLIBd", tiktok: "https://vt.tiktok.com/ZS9Mwa2mnPbkE-822Ht/" },
+  "bawang besar":     { shopee: "https://s.shopee.com.my/6pz9pOLvWc", tiktok: "https://vt.tiktok.com/ZS9Mw5oc6FF8c-jR6w9/" },
+  "bawang holland":   { shopee: "https://s.shopee.com.my/6pz9pOLvWc", tiktok: "https://vt.tiktok.com/ZS9Mw5oc6FF8c-jR6w9/" },
+  // Nota: produk ini asam keping/gelugor, bukan asam jawa — ganti jika perlu.
+  "asam jawa":        { shopee: "https://s.shopee.com.my/6ffjd5MYrb", tiktok: "https://vt.tiktok.com/ZS9Mwfq1pvEdA-MZxFY/" },
+  "air asam":         { shopee: "https://s.shopee.com.my/6ffjd5MYrb", tiktok: "https://vt.tiktok.com/ZS9Mwfq1pvEdA-MZxFY/" },
+  "gula melaka":      { shopee: "https://s.shopee.com.my/7prh1EI7Uq", tiktok: "https://vt.tiktok.com/ZS9MwfqjmCo3y-3sEdY/" },
+  "daun limau purut": { shopee: "https://s.shopee.com.my/2g9armWJaU", tiktok: "https://vt.tiktok.com/ZS9MwfcTLpYr6-tFPht/" },
+  "lada hitam":       { shopee: "https://s.shopee.com.my/2qT145VgFX", tiktok: "https://vt.tiktok.com/ZS9MwfoFLDLF3-0Yw5L/" },
+  "limau nipis":      { shopee: "https://s.shopee.com.my/3g283cSVYi", tiktok: "https://vt.tiktok.com/ZS9MwPRaMxo6S-FVjY1/" },
+  "udang":            { shopee: "https://s.shopee.com.my/3qLYFvRsDl", tiktok: "https://vt.tiktok.com/ZS9MwPYmaM8fj-t3NaI/" },
+  "serbuk koko":      { shopee: "https://s.shopee.com.my/3LPHf0TmEg", tiktok: "https://vt.tiktok.com/ZS9MwP6LchsPc-9Ibjj/" },
+  "susu pekat":       { shopee: "https://s.shopee.com.my/3qLYFzdrxm", tiktok: "https://vt.tiktok.com/ZS9MwPAYYGAt4-b9V0Q/" },
+  "susu sejat":       { shopee: "https://s.shopee.com.my/3qLYFzdrxm", tiktok: "https://vt.tiktok.com/ZS9MwPAYYGAt4-b9V0Q/" },
+  "daun pandan":      { shopee: "https://s.shopee.com.my/3g283geVIl", tiktok: "https://vt.tiktok.com/ZS9MwPmFf6HMr-gJpB9/" },
+  "baking powder":    { shopee: "https://s.shopee.com.my/4AyOebcbHs", tiktok: "https://vt.tiktok.com/ZS9MwP9NAPqCa-xEDPC/" },
+  "baking soda":      { shopee: "https://s.shopee.com.my/4AyOebcbHs", tiktok: "https://vt.tiktok.com/ZS9MwP9NAPqCa-xEDPC/" },
+  "serbuk penaik":    { shopee: "https://s.shopee.com.my/4AyOebcbHs", tiktok: "https://vt.tiktok.com/ZS9MwP9NAPqCa-xEDPC/" },
+  "tepung penaik":    { shopee: "https://s.shopee.com.my/4AyOebcbHs", tiktok: "https://vt.tiktok.com/ZS9MwP9NAPqCa-xEDPC/" },
+  "bikarbonat soda":  { shopee: "https://s.shopee.com.my/4AyOebcbHs", tiktok: "https://vt.tiktok.com/ZS9MwP9NAPqCa-xEDPC/" },
+  "ikan bilis":       { shopee: "https://s.shopee.com.my/40eySIdEcr", tiktok: "https://vt.tiktok.com/ZS9MwPVhSLMv8-KLJ9j/" },
+  "kunyit hidup":     { shopee: "https://s.shopee.com.my/4VbF3DbKby", tiktok: "https://vt.tiktok.com/ZS9MwPpGPafvK-AAo4n/" },
+  "laici":            { shopee: "https://s.shopee.com.my/9Uzv0RPjqE", tiktok: "https://vt.tiktok.com/ZS9Mw9kmWVDYB-6IDXv/" },
+  "cendawan":         { shopee: "https://s.shopee.com.my/9KgUo8QNBD", tiktok: "https://vt.tiktok.com/ZS9Mw992v75S2-Foqea/" },
+  "kiub pati ayam":   { shopee: "https://s.shopee.com.my/AUsSCHLvoS", tiktok: "https://vt.tiktok.com/ZS9Mw9CEDU2rh-FDla6/" },
+  "serbuk kunyit":    { shopee: "https://s.shopee.com.my/AKZ1zyMZ9R", tiktok: "https://vt.tiktok.com/ZS9Mw9py5uGE9-11CVe/" },
+  "ketumbar":         { shopee: "https://s.shopee.com.my/AAFbnfNCUQ", tiktok: "https://vt.tiktok.com/ZS9MwxFhjWpvj-nAbWV/" },
+  // Kunci berasingan supaya baris "daun/serbuk ketumbar" tidak terpadan
+  // dengan link biji ketumbar; tiktok masih carian generik (link belum ada).
+  "daun ketumbar":    { shopee: "https://s.shopee.com.my/60Q2q2uP61", tiktok: "" },
+  "serbuk ketumbar":  { shopee: "https://s.shopee.com.my/6VMJQxsV58", tiktok: "" },
+  "tepung beras":     { shopee: "https://s.shopee.com.my/6L2tEet8Q7", tiktok: "https://vt.tiktok.com/ZS9MwxqLcxdCM-ApBZS/" },
+  "pisang":           { shopee: "https://s.shopee.com.my/5VTmF7wJ6y", tiktok: "https://vt.tiktok.com/ZS9MwxTbVEbp6-Su3ih/" },
+  "kentang":          { shopee: "https://s.shopee.com.my/5LAM2owwRx", tiktok: "https://vt.tiktok.com/ZS9MwQeBE7Rmd-UPEfY/" },
+  "serbuk kopi":      { shopee: "https://s.shopee.com.my/5AqvqYIhKq", tiktok: "https://vt.tiktok.com/ZS9MwQMhsEH4Q-tpq2w/" },
+  "jintan putih":     { shopee: "https://s.shopee.com.my/50XVeFJKfp", tiktok: "https://vt.tiktok.com/ZS9MwQWNjPWMm-jKJxU/" },
+  "kayu manis":       { shopee: "https://s.shopee.com.my/4qE5RwJy0o", tiktok: "https://vt.tiktok.com/ZS9MwQWNjPWMm-jKJxU/" },
+  "esen vanila":      { shopee: "https://s.shopee.com.my/4fufFdKbLn", tiktok: "https://vt.tiktok.com/ZS9MwQ3YVsUVR-jXdu7/" },
+
+  // ── Jenama (branded) ──
+  "milo":             { shopee: "https://s.shopee.com.my/8AUXQ8iuna", tiktok: "https://vt.tiktok.com/ZS9Mwy91KurNq-XDeIC/" },
+  "cadbury":          { shopee: "https://s.shopee.com.my/80B7DpjY8Z", tiktok: "https://vt.tiktok.com/ZS9MwyvQdcuo7-rLJ3k/" },
+  "ajinomoto":        { shopee: "https://s.shopee.com.my/9AN4byf6lo", tiktok: "https://vt.tiktok.com/ZS9MwfRXnwuYU-huL6h/" },
+  "mahsuri":          { shopee: "https://s.shopee.com.my/903ePffk6n", tiktok: "https://vt.tiktok.com/ZS9Mwf6YLhgny-ulNCg/" },
+  "marigold":         { shopee: "https://s.shopee.com.my/8pkEDMgNRm", tiktok: "https://vt.tiktok.com/ZS9MwfScg36Xs-afS2i/" },
+  "f&n":              { shopee: "https://s.shopee.com.my/8AUXQA5suf", tiktok: "https://vt.tiktok.com/ZS9Mwf5u5WNjy-YKECF/" },
+
+  // ── Peralatan dapur (tools) ──
+  "kuali":            { shopee: "https://s.shopee.com.my/4AyOerNgJm", tiktok: "https://vt.tiktok.com/ZS9Mwh2nLCRts-c6adF/" },
+  "blender":          { shopee: "https://s.shopee.com.my/40eySYOJel", tiktok: "https://vt.tiktok.com/ZS9MwhXxwd9vU-RaVdN/" },
+  "papan pemotong":   { shopee: "https://s.shopee.com.my/5AqvqhJsI0", tiktok: "https://vt.tiktok.com/ZS9MwhK51VhRJ-y3Fq5/" },
+  "pisau":            { shopee: "https://s.shopee.com.my/50XVeOKVcz", tiktok: "https://vt.tiktok.com/ZS9MwkrUqF49B-BAYuD/" },
+  "senduk":           { shopee: "https://s.shopee.com.my/4qE5S5L8xy", tiktok: "https://vt.tiktok.com/ZS9MwkgsJJ98C-Kzvtg/" },
+  "senduk nasi":      { shopee: "https://s.shopee.com.my/80B7Dw2v0b", tiktok: "https://vt.tiktok.com/ZS9Mwu9RgjLpD-OKB6p/" },
+  "periuk":           { shopee: "https://s.shopee.com.my/8V7Nor10zi", tiktok: "https://vt.tiktok.com/ZS9Mwu4VpmErW-obdQc/" },
+  "periuk nasi":      { shopee: "https://s.shopee.com.my/8KnxcY1eKh", tiktok: "https://vt.tiktok.com/ZS9MwuDosnNh3-TlbGY/" },
+  "periuk besar":     { shopee: "https://s.shopee.com.my/8pkEDSzkJo", tiktok: "https://vt.tiktok.com/ZS9MwHYPYYJoM-MnmKe/" },
+  "penapis":          { shopee: "https://s.shopee.com.my/8fQo1A0Nen", tiktok: "https://vt.tiktok.com/ZS9MwupBP3nuo-51pM9/" },
+  "penyepit":         { shopee: "https://s.shopee.com.my/40eyScQTtn", tiktok: "https://vt.tiktok.com/ZS9MwHLcLWoBH-XPQVX/" },
+  "balang":           { shopee: "https://s.shopee.com.my/3qLYGJR7Em", tiktok: "https://vt.tiktok.com/ZS9MwHCQRV8AL-aaoxD/" },
 };
 
 // Bersihkan baris bahan kepada kata kunci produk untuk carian kedai.

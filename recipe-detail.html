@@ -774,9 +774,10 @@
       // Support / official product mini-card
       const supportMiniEl = document.getElementById('chefSupportMini');
       if (chef.products && chef.products.length) {
-        const links = chef.products.map(p =>
-          `<a href="${p.url}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee" style="justify-content:center;">${icon('shopee')} ${p.name}</a>`
-        ).join('');
+        const links = chef.products.map(p => [
+          p.shopee ? `<a href="${p.shopee}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee" style="justify-content:center;">${icon('shopee')} ${p.name}</a>` : '',
+          p.tiktok ? `<a href="${p.tiktok}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-tiktok" style="justify-content:center;">${icon('tiktok')} ${p.name}</a>` : '',
+        ].join('')).join('');
         supportMiniEl.innerHTML = `
           <div class="support-card">
             <h3 style="font-size:0.9rem;">🛍️ Sokong ${chef.name}</h3>
@@ -873,6 +874,7 @@
       list.forEach((step, i) => {
         const div = document.createElement('div');
         div.className = 'step-item' + (doneSteps.has(i) ? ' done' : '');
+        div.id = 'step-' + (i + 1);
         div.innerHTML = `
           <div class="step-num">${i + 1}</div>
           <div class="step-text">${step}</div>
@@ -1025,9 +1027,16 @@
         totalTime: (pInt + cInt) ? 'PT' + (pInt + cInt) + 'M' : undefined,
         nutrition: nut ? { '@type': 'NutritionInformation', calories: nut.kcal + ' kcal' } : undefined,
         recipeIngredient: recipe.ingredients.filter(x => !/:\s*$/.test(x)),
-        recipeInstructions: recipe.steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, text: s })),
+        recipeInstructions: recipe.steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: 'Langkah ' + (i + 1), text: s, url: canonUrl + '#step-' + (i + 1) })),
       };
       if (recipe.tiktok_embed) {
+        // TikTok video ids are snowflakes — the top 32 bits hold the Unix
+        // upload timestamp, so the real uploadDate can be derived offline.
+        let uploadDate;
+        const vidMatch = String(recipe.tiktok_url || recipe.tiktok_embed).match(/(\d{15,20})/);
+        if (vidMatch) {
+          try { uploadDate = new Date(Number(BigInt(vidMatch[1]) >> 32n) * 1000).toISOString(); } catch (e) {}
+        }
         recipeLD.video = {
           '@type': 'VideoObject',
           name: recipe.title,
@@ -1035,6 +1044,7 @@
           embedUrl: recipe.tiktok_embed,
           contentUrl: recipe.tiktok_url || recipe.tiktok_embed,
           thumbnailUrl: absImg,
+          uploadDate: uploadDate,
         };
       }
       const crumbLD = {
