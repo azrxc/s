@@ -120,6 +120,15 @@
     document.querySelectorAll('.nav-search a.nav-search-btn[href="/search.html"]').forEach(a => {
       a.innerHTML = SVG.search;
     });
+
+    // Brand mark (chef hat, same as favicon) before the wordmark.
+    const logo = document.querySelector('.nav-logo');
+    if (logo && !logo.querySelector('.nav-logo-mark')) {
+      const mark = document.createElement('span');
+      mark.className = 'nav-logo-mark';
+      mark.innerHTML = '<svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#f5a623"/><g transform="translate(7.2,6.4) scale(1.4)" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21a1 1 0 0 0 1-1v-5.3c0-.5.3-.9.7-1.1a4 4 0 0 0-2.1-7.6 5 5 0 0 0-9.2 0 4 4 0 0 0-2.1 7.6c.4.2.7.6.7 1V20a1 1 0 0 0 1 1z"/><path d="M6 17h12"/></g></svg>';
+      logo.insertBefore(mark, logo.firstChild);
+    }
   }
 
   // ── Theme toggle (dark/light) ────────────────────────────────

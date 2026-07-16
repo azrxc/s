@@ -1604,6 +1604,8 @@ img.img-loaded { animation: img-fade 0.4s ease; background: none; }
 .hero-meta-item svg { width: 14px; height: 14px; vertical-align: -2px; margin-right: 5px; }
 .cat-emoji svg { width: 34px; height: 34px; }
 .btn svg { vertical-align: -2.5px; }
+.nav-logo-mark { display: inline-flex; margin-right: 9px; }
+.nav-logo-mark svg { display: block; }
 
 /* ── ResipiBot assistant ── */
 .rb-fab {

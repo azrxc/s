@@ -2323,7 +2323,7 @@
         document.getElementById('heroTitle').textContent = recipe.title;
         document.getElementById('heroCook').textContent = recipe.cook_time;
         document.getElementById('heroServing').textContent = recipe.servings;
-        document.getElementById('heroChef').textContent = chef ? '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.3c0-.5.3-.9.7-1.1a4 4 0 0 0-2.1-7.6 5 5 0 0 0-9.2 0 4 4 0 0 0-2.1 7.6c.4.2.7.6.7 1V20a1 1 0 0 0 1 1z"/><path d="M6 17h12"/></svg> ' + chef.name : '';
+        document.getElementById('heroChef').innerHTML = chef ? '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.3c0-.5.3-.9.7-1.1a4 4 0 0 0-2.1-7.6 5 5 0 0 0-9.2 0 4 4 0 0 0-2.1 7.6c.4.2.7.6.7 1V20a1 1 0 0 0 1 1z"/><path d="M6 17h12"/></svg> ' + chef.name : '';
         document.getElementById('heroDesc').textContent = recipe.description;
         document.getElementById('heroBtn').href = recipeUrl(recipe.id);
         setTimeout(() => {
