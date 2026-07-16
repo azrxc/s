@@ -236,8 +236,10 @@ h1, h2, h3 { line-height: 1.2; }
 .hero-banner {
   position: relative;
   width: 100%;
-  height: 85vh;
-  min-height: 520px;
+  /* auto height + min-height: long titles grow the banner downward
+     instead of pushing the badge up underneath the fixed navbar */
+  height: auto;
+  min-height: max(520px, 85vh);
   overflow: hidden;
   display: flex;
   align-items: flex-end;
@@ -267,7 +269,9 @@ h1, h2, h3 { line-height: 1.2; }
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 0 5% 64px;
+  /* top padding keeps the badge clear of the fixed navbar even when
+     a long title makes the content column tall */
+  padding: calc(var(--nav-h) + 20px) 5% 64px;
   max-width: 580px;
   animation: heroFadeUp 0.8s ease both;
 }
@@ -295,6 +299,15 @@ h1, h2, h3 { line-height: 1.2; }
   line-height: 1.1;
   margin-bottom: 12px;
   text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+/* very long recipe names: cap at 2 lines on the rotating home hero only
+   (a recipe's own page always shows its full name) */
+.hero-banner .hero-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .hero-meta {
@@ -750,9 +763,12 @@ h1, h2, h3 { line-height: 1.2; }
 /* ── CHEF DETAIL PAGE ──────────────────────────────────────── */
 .chef-hero {
   position: relative;
-  height: 340px;
+  height: auto;
+  min-height: 340px;
   overflow: hidden;
   margin-top: var(--nav-h);
+  display: flex;
+  align-items: flex-end;
 }
 
 .chef-hero-bg {
@@ -772,10 +788,10 @@ h1, h2, h3 { line-height: 1.2; }
 .chef-hero-content {
   position: relative;
   z-index: 2;
-  height: 100%;
+  width: 100%;
   display: flex;
   align-items: flex-end;
-  padding: 0 5% 36px;
+  padding: 24px 5% 36px;
   gap: 24px;
 }
 
@@ -833,9 +849,12 @@ h1, h2, h3 { line-height: 1.2; }
 /* ── RECIPE DETAIL PAGE ────────────────────────────────────── */
 .recipe-hero {
   position: relative;
-  height: 70vh;
-  min-height: 400px;
+  /* grows downward with long titles instead of hiding text under the navbar */
+  height: auto;
+  min-height: max(400px, 70vh);
   overflow: hidden;
+  display: flex;
+  align-items: flex-end;
 }
 
 .recipe-hero-bg {
@@ -854,9 +873,8 @@ h1, h2, h3 { line-height: 1.2; }
 }
 
 .recipe-hero-content {
-  position: absolute;
-  bottom: 0; left: 0;
-  padding: 0 5% 48px;
+  position: relative;
+  padding: calc(var(--nav-h) + 20px) 5% 48px;
   z-index: 2;
   max-width: 600px;
 }
@@ -1372,7 +1390,7 @@ h1, h2, h3 { line-height: 1.2; }
     border-bottom: 1px solid var(--border);
   }
 
-  .hero-banner { height: 75vh; }
+  .hero-banner { min-height: 75vh; }
   .hero-content { max-width: 100%; }
 
   .chef-hero-content { flex-direction: column; align-items: flex-start; gap: 12px; }

@@ -1059,9 +1059,10 @@
       // Support / official product mini-card
       const supportMiniEl = document.getElementById('chefSupportMini');
       if (chef.products && chef.products.length) {
-        const links = chef.products.map(p =>
-          `<a href="${p.url}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee" style="justify-content:center;">${icon('shopee')} ${p.name}</a>`
-        ).join('');
+        const links = chef.products.map(p => [
+          p.shopee ? `<a href="${p.shopee}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-shopee" style="justify-content:center;">${icon('shopee')} ${p.name}</a>` : '',
+          p.tiktok ? `<a href="${p.tiktok}" target="_blank" rel="sponsored noopener" class="chip-icon-btn brand-tiktok" style="justify-content:center;">${icon('tiktok')} ${p.name}</a>` : '',
+        ].join('')).join('');
         supportMiniEl.innerHTML = `
           <div class="support-card">
             <h3 style="font-size:0.9rem;"><svg viewBox="0 0 48 48" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14 16V13a10 10 0 0 1 20 0v3h5l2 26H7l2-26h5zm4 0h12v-3a6 6 0 0 0-12 0v3z"/></svg> Sokong ${chef.name}</h3>
