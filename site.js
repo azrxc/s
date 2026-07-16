@@ -29,7 +29,7 @@
         <div>
           <div class="footer-brand-name">Resepi<span>Lokal</span></div>
           <p class="footer-desc">Platform resepi chef & influencer masakan Malaysia. Tonton video asal, baca resepi dwibahasa, dan masak dengan mudah. Kredit penuh kepada semua pencipta asal.</p>
-          <div class="footer-col-title" style="margin-top:18px;">📬 Newsletter</div>
+          <div class="footer-col-title" style="margin-top:18px;"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-9 5.7a1.9 1.9 0 0 1-2 0L2 7"/></svg> Newsletter</div>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0;">Resepi baharu terus ke emel anda.</p>
           <form class="newsletter-form" id="newsletterForm" aria-label="Langgan newsletter">
             <input type="email" id="newsletterEmail" placeholder="Emel anda" required aria-label="Alamat emel"/>
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© ${YEAR} ResipiLokal.com — Dibuat dengan ❤️ untuk rakyat Malaysia</p>
+        <p>© ${YEAR} ResipiLokal.com — Dibuat dengan <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.8 5.1a5 5 0 0 0-7.1 0L12 5.8l-.7-.7a5 5 0 1 0-7.1 7.1l.7.7L12 20l7.1-7.1.7-.7a5 5 0 0 0 0-7.1z"/></svg> untuk rakyat Malaysia</p>
         <p style="font-size:0.78rem;color:var(--text-muted);">ResipiLokal bukan milik mana-mana chef. Semua resepi & video adalah hak cipta pencipta asal masing-masing. Butang beli mengandungi link affiliate — lihat <a href="/affiliate-disclosure.html" style="color:var(--text-muted);text-decoration:underline;">penafian affiliate</a>.</p>
       </div>`;
 
@@ -74,7 +74,7 @@
           list.push({ email: document.getElementById('newsletterEmail').value, at: Date.now() });
           localStorage.setItem('rl_newsletter', JSON.stringify(list));
         } catch (err) { /* storage unavailable — ignore */ }
-        form.innerHTML = '<p style="color:var(--accent);font-size:0.85rem;margin:0;">✅ Terima kasih! Anda telah dilanggan.</p>';
+        form.innerHTML = '<p style="color:var(--accent);font-size:0.85rem;margin:0;">Terima kasih! Anda telah dilanggan.</p>';
       });
     }
   }

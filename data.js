@@ -84,7 +84,7 @@ const CHEFS = [
 
 // ── RECIPES ──────────────────────────────────────────────────
 // category options: "Lauk", "Nasi", "Kuih", "Kek", "Minuman", "Dessert", "Sup", "Sambal", "Seafood", "Mee & Pasta", "Sarapan", "Western"
-// ⚠️ tiktok_embed: paste the full TikTok embed URL like https://www.tiktok.com/embed/v2/VIDEOID
+// <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.5 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4M12 17h.01"/></svg> tiktok_embed: paste the full TikTok embed URL like https://www.tiktok.com/embed/v2/VIDEOID
 
 const RECIPES = [
   {
@@ -8051,18 +8051,18 @@ function searchRecipes(query) {
 
 // ── CATEGORIES ───────────────────────────────────────────────
 const CATEGORIES = [
-  { id: "lauk", name: "Lauk-Pauk", emoji: "🍛" },
-  { id: "nasi", name: "Nasi", emoji: "🍚" },
-  { id: "kuih", name: "Kuih-Muih", emoji: "🟡" },
-  { id: "kek", name: "Kek & Bakeri", emoji: "🎂" },
-  { id: "sup", name: "Sup & Bubur", emoji: "🥣" },
-  { id: "sambal", name: "Sambal", emoji: "🌶️" },
-  { id: "seafood", name: "Seafood", emoji: "🦐" },
-  { id: "minuman", name: "Minuman", emoji: "🥤" },
-  { id: "dessert", name: "Dessert", emoji: "🍮" },
-  { id: "mee", name: "Mee & Pasta", emoji: "🍜" },
-  { id: "sarapan", name: "Sarapan", emoji: "🍳" },
-  { id: "western", name: "Western", emoji: "🍔" },
+  { id: "lauk", name: "Lauk-Pauk", emoji: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h20"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><path d="m5 8 15-4"/></svg>' },
+  { id: "nasi", name: "Nasi", emoji: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16a8 8 0 0 1-16 0z"/><path d="M9 8h.01M12 6h.01M15 8h.01"/></svg>' },
+  { id: "kuih", name: "Kuih-Muih", emoji: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 9-9 9-9-9z"/><path d="M7.5 7.5l9 9"/></svg>' },
+  { id: "kek", name: "Kek & Bakeri", emoji: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3M12 8v3M17 8v3"/><path d="M7 4h.01M12 4h.01M17 4h.01"/></svg>' },
+  { id: "sup", name: "Sup & Bubur", emoji: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16a8 8 0 0 1-16 0z"/><path d="M8 7c0-1 1-1 1-2M12 7c0-1 1-1 1-2M16 7c0-1 1-1 1-2"/></svg>' },
+  { id: "sambal", name: "Sambal", emoji: "<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6c0 6-4 12-9 13 6 2 14-2 14-11 0-1-.5-2-2-2h-3z"/><path d="M14 6c0-2 1.5-3 3-3"/></svg>" },
+  { id: "seafood", name: "Seafood", emoji: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 12c1-3.5 4.5-6 8.5-6 3.5 0 5.5 2.5 6.5 6-1 3.5-3 6-6.5 6-4 0-7.5-2.5-8.5-6z"/><path d="M2.5 9.5 6.5 12l-4 2.5z"/><path d="M17 11h.01"/></svg>' },
+  { id: "minuman", name: "Minuman", emoji: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1.5 12a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1L6 8z"/><path d="m12 8 3-6"/></svg>' },
+  { id: "dessert", name: "Dessert", emoji: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15c0-4.5 2.5-8 6-8s6 3.5 6 8"/><path d="M3 15h18"/><path d="M12 4h.01"/></svg>' },
+  { id: "mee", name: "Mee & Pasta", emoji: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16a8 8 0 0 1-16 0z"/><path d="M8 9V3M12 9V3M16 9V3"/></svg>' },
+  { id: "sarapan", name: "Sarapan", emoji: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg>' },
+  { id: "western", name: "Western", emoji: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10c0-4 3.5-6 8-6s8 2 8 6H4z"/><path d="M4 14h16"/><path d="M5 18h14c.6 0 1-.4 1-1v-1H4v1c0 .6.4 1 1 1z"/></svg>' },
 ];
 
 // ══════════════════════════════════════════════════════════════
@@ -8077,7 +8077,7 @@ const CATEGORIES = [
 //      shopee: "https://shopee.com.my/search?keyword={q}&af_id=ANDA123",
 //      atau guna short-link generator anda sendiri.
 const AFFILIATE_CONFIG = {
-  // ⚠️ Eksperimen: params affiliate (an_12313750134) disalin daripada link
+  // <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.5 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4M12 17h.01"/></svg> Eksperimen: params affiliate (an_12313750134) disalin daripada link
   // rasmi yang dijana portal affiliate — sahkan klik direkod dalam
   // Shopee Affiliate > Report > Click Report (ambil 1-2 hari), jika tidak
   // kekalkan link shope.ee yang dijana portal sahaja.
@@ -8145,7 +8145,7 @@ const AFFILIATE_LINKS = {
   "ketumbar":         { shopee: "https://s.shopee.com.my/AAFbnfNCUQ", tiktok: "https://vt.tiktok.com/ZS9MwxFhjWpvj-nAbWV/" },
   // Kunci berasingan supaya baris "daun/serbuk ketumbar" tidak terpadan
   // dengan link biji ketumbar.
-  // ⚠️ Link tiktok daun ketumbar = BENIH tanaman (planting seeds), bukan
+  // <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.5 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4M12 17h.01"/></svg> Link tiktok daun ketumbar = BENIH tanaman (planting seeds), bukan
   // daun segar untuk memasak — ganti bila jumpa produk daun segar.
   "daun ketumbar":    { shopee: "https://s.shopee.com.my/60Q2q2uP61", tiktok: "https://vt.tiktok.com/ZS9MwGRXy6dHV-14VB4/" },
   "serbuk ketumbar":  { shopee: "https://s.shopee.com.my/6VMJQxsV58", tiktok: "https://vt.tiktok.com/ZS9MwGjTyafRb-JRAHD/" },
@@ -8170,7 +8170,7 @@ const AFFILIATE_LINKS = {
   "teh bunga":         { shopee: "https://s.shopee.com.my/8fQo3AURqj", tiktok: "https://vt.tiktok.com/ZS9Mwt6PC2p3q-sSOkE/" },
   "nestlé":           { shopee: "https://s.shopee.com.my/1gH3iZj4dp", tiktok: "https://vt.tiktok.com/ZS9MwtQCm1Lcx-fyHVs/" },
   "susu tepung":      { shopee: "https://s.shopee.com.my/1VxdWGjhyo", tiktok: "https://vt.tiktok.com/ZS9MwtXF1JHmu-nfbEc/" },
-  // ⚠️ Biskut durian (bukan aiskrim) — pengganti terdekat yang ada di TikTok
+  // <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.7 18-8-14a2 2 0 0 0-3.5 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4M12 17h.01"/></svg> Biskut durian (bukan aiskrim) — pengganti terdekat yang ada di TikTok
   // Shop untuk baris "aiskrim nestlé musang king"; tukar jika jumpa aiskrim.
   "musang king":      { shopee: "https://s.shopee.com.my/7VEqfLDCOx", tiktok: "https://vt.tiktok.com/ZS9MwndJHFXw2-rL2a7/" },
 

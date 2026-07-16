@@ -1590,6 +1590,21 @@ img.img-loaded { animation: img-fade 0.4s ease; background: none; }
 .restaurant-tips li { font-size: 0.82rem; color: var(--text-sub); line-height: 1.6; padding-left: 18px; position: relative; }
 .restaurant-tips li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
 
+/* ── Emoji→SVG swap: contextual icon sizing & alignment ── */
+.section-eyebrow svg, .recipe-section-title svg, .sidebar-card-title svg,
+.footer-col-title svg, .hero-badge svg, .support-card h3 svg,
+.restaurant-card h3 svg, h1 svg, h2 svg, h3 svg {
+  vertical-align: -2.5px; margin-right: 7px;
+}
+.recipe-card-chef svg, .recipe-card-hover-meta svg, .related-card-meta svg,
+.chef-mini-sub svg, .chef-hero-followers svg, .cat-count svg,
+.restaurant-facts strong svg {
+  width: 12px; height: 12px; vertical-align: -1.5px; margin-right: 3px;
+}
+.hero-meta-item svg { width: 14px; height: 14px; vertical-align: -2px; margin-right: 5px; }
+.cat-emoji svg { width: 34px; height: 34px; }
+.btn svg { vertical-align: -2.5px; }
+
 /* Accessibility: visible keyboard focus */
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   outline: 2px solid var(--accent);
