@@ -291,6 +291,11 @@ h1, h2, h3 { line-height: 1.2; }
   margin-bottom: 16px;
 }
 
+/* Recipe pages: the category badge sits in a flex row beside the
+   Kegemaran button — the standalone bottom margin would push it up
+   out of alignment there. */
+#recipeCatBadge { margin-bottom: 0; }
+
 .hero-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.2rem, 5vw, 4rem);
