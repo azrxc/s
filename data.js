@@ -8144,9 +8144,11 @@ const AFFILIATE_LINKS = {
   "serbuk kunyit":    { shopee: "https://s.shopee.com.my/AKZ1zyMZ9R", tiktok: "https://vt.tiktok.com/ZS9Mw9py5uGE9-11CVe/" },
   "ketumbar":         { shopee: "https://s.shopee.com.my/AAFbnfNCUQ", tiktok: "https://vt.tiktok.com/ZS9MwxFhjWpvj-nAbWV/" },
   // Kunci berasingan supaya baris "daun/serbuk ketumbar" tidak terpadan
-  // dengan link biji ketumbar; tiktok masih carian generik (link belum ada).
-  "daun ketumbar":    { shopee: "https://s.shopee.com.my/60Q2q2uP61", tiktok: "" },
-  "serbuk ketumbar":  { shopee: "https://s.shopee.com.my/6VMJQxsV58", tiktok: "" },
+  // dengan link biji ketumbar.
+  // ⚠️ Link tiktok daun ketumbar = BENIH tanaman (planting seeds), bukan
+  // daun segar untuk memasak — ganti bila jumpa produk daun segar.
+  "daun ketumbar":    { shopee: "https://s.shopee.com.my/60Q2q2uP61", tiktok: "https://vt.tiktok.com/ZS9MwGRXy6dHV-14VB4/" },
+  "serbuk ketumbar":  { shopee: "https://s.shopee.com.my/6VMJQxsV58", tiktok: "https://vt.tiktok.com/ZS9MwGjTyafRb-JRAHD/" },
   "tepung beras":     { shopee: "https://s.shopee.com.my/6L2tEet8Q7", tiktok: "https://vt.tiktok.com/ZS9MwxqLcxdCM-ApBZS/" },
   "pisang":           { shopee: "https://s.shopee.com.my/5VTmF7wJ6y", tiktok: "https://vt.tiktok.com/ZS9MwxTbVEbp6-Su3ih/" },
   "kentang":          { shopee: "https://s.shopee.com.my/5LAM2owwRx", tiktok: "https://vt.tiktok.com/ZS9MwQeBE7Rmd-UPEfY/" },
@@ -8156,26 +8158,43 @@ const AFFILIATE_LINKS = {
   "esen vanila":      { shopee: "https://s.shopee.com.my/4fufFdKbLn", tiktok: "https://vt.tiktok.com/ZS9MwQ3YVsUVR-jXdu7/" },
 
   // ── Jenama (branded) ──
-  "milo":             { shopee: "https://s.shopee.com.my/8AUXQ8iuna", tiktok: "https://vt.tiktok.com/ZS9Mwy91KurNq-XDeIC/" },
+  "milo":             { shopee: "https://s.shopee.com.my/gOWWYRgKv", tiktok: "https://vt.tiktok.com/ZS9Mwy91KurNq-XDeIC/" },
   "cadbury":          { shopee: "https://s.shopee.com.my/80B7DpjY8Z", tiktok: "https://vt.tiktok.com/ZS9MwyvQdcuo7-rLJ3k/" },
   "ajinomoto":        { shopee: "https://s.shopee.com.my/9AN4byf6lo", tiktok: "https://vt.tiktok.com/ZS9MwfRXnwuYU-huL6h/" },
   "mahsuri":          { shopee: "https://s.shopee.com.my/903ePffk6n", tiktok: "https://vt.tiktok.com/ZS9Mwf6YLhgny-ulNCg/" },
   "marigold":         { shopee: "https://s.shopee.com.my/8pkEDMgNRm", tiktok: "https://vt.tiktok.com/ZS9MwfScg36Xs-afS2i/" },
   "f&n":              { shopee: "https://s.shopee.com.my/8AUXQA5suf", tiktok: "https://vt.tiktok.com/ZS9Mwf5u5WNjy-YKECF/" },
+  "susu soya":        { shopee: "https://s.shopee.com.my/6pz9riMsb6", tiktok: "https://vt.tiktok.com/ZS9MwGoduGcAn-AT1jM/" },
+  "yeo's":            { shopee: "https://s.shopee.com.my/Llg7oFCbN", tiktok: "https://vt.tiktok.com/ZS9Mwtry8Fxjo-VenIy/" },
+  "teh chrysanthemum": { shopee: "https://s.shopee.com.my/8fQo3AURqj", tiktok: "https://vt.tiktok.com/ZS9Mwt6PC2p3q-sSOkE/" },
+  "teh bunga":         { shopee: "https://s.shopee.com.my/8fQo3AURqj", tiktok: "https://vt.tiktok.com/ZS9Mwt6PC2p3q-sSOkE/" },
+  "nestlé":           { shopee: "https://s.shopee.com.my/1gH3iZj4dp", tiktok: "https://vt.tiktok.com/ZS9MwtQCm1Lcx-fyHVs/" },
+  "susu tepung":      { shopee: "https://s.shopee.com.my/1VxdWGjhyo", tiktok: "https://vt.tiktok.com/ZS9MwtXF1JHmu-nfbEc/" },
+  // ⚠️ Biskut durian (bukan aiskrim) — pengganti terdekat yang ada di TikTok
+  // Shop untuk baris "aiskrim nestlé musang king"; tukar jika jumpa aiskrim.
+  "musang king":      { shopee: "https://s.shopee.com.my/7VEqfLDCOx", tiktok: "https://vt.tiktok.com/ZS9MwndJHFXw2-rL2a7/" },
 
   // ── Peralatan dapur (tools) ──
-  "kuali":            { shopee: "https://s.shopee.com.my/4AyOerNgJm", tiktok: "https://vt.tiktok.com/ZS9Mwh2nLCRts-c6adF/" },
-  "blender":          { shopee: "https://s.shopee.com.my/40eySYOJel", tiktok: "https://vt.tiktok.com/ZS9MwhXxwd9vU-RaVdN/" },
+  "kuali":            { shopee: "https://s.shopee.com.my/6VMJUqtJkJ", tiktok: "https://vt.tiktok.com/ZS9Mwh2nLCRts-c6adF/" },
+  "blender":          { shopee: "https://s.shopee.com.my/3LPHirCuSo", tiktok: "https://vt.tiktok.com/ZS9MwhXxwd9vU-RaVdN/" },
   "papan pemotong":   { shopee: "https://s.shopee.com.my/5AqvqhJsI0", tiktok: "https://vt.tiktok.com/ZS9MwhK51VhRJ-y3Fq5/" },
-  "pisau":            { shopee: "https://s.shopee.com.my/50XVeOKVcz", tiktok: "https://vt.tiktok.com/ZS9MwkrUqF49B-BAYuD/" },
+  "pisau":            { shopee: "https://s.shopee.com.my/18pl1RP31", tiktok: "https://vt.tiktok.com/ZS9MwkrUqF49B-BAYuD/" },
   "senduk":           { shopee: "https://s.shopee.com.my/4qE5S5L8xy", tiktok: "https://vt.tiktok.com/ZS9MwkgsJJ98C-Kzvtg/" },
   "senduk nasi":      { shopee: "https://s.shopee.com.my/80B7Dw2v0b", tiktok: "https://vt.tiktok.com/ZS9Mwu9RgjLpD-OKB6p/" },
   "periuk":           { shopee: "https://s.shopee.com.my/8V7Nor10zi", tiktok: "https://vt.tiktok.com/ZS9Mwu4VpmErW-obdQc/" },
-  "periuk nasi":      { shopee: "https://s.shopee.com.my/8KnxcY1eKh", tiktok: "https://vt.tiktok.com/ZS9MwuDosnNh3-TlbGY/" },
-  "periuk besar":     { shopee: "https://s.shopee.com.my/8pkEDSzkJo", tiktok: "https://vt.tiktok.com/ZS9MwHYPYYJoM-MnmKe/" },
+  "periuk nasi":      { shopee: "https://s.shopee.com.my/4qE5VeseRI", tiktok: "https://vt.tiktok.com/ZS9MwuDosnNh3-TlbGY/" },
+  "periuk besar":     { shopee: "https://s.shopee.com.my/5AqvuQoNDm", tiktok: "https://vt.tiktok.com/ZS9MwHYPYYJoM-MnmKe/" },
   "penapis":          { shopee: "https://s.shopee.com.my/8fQo1A0Nen", tiktok: "https://vt.tiktok.com/ZS9MwupBP3nuo-51pM9/" },
   "penyepit":         { shopee: "https://s.shopee.com.my/40eyScQTtn", tiktok: "https://vt.tiktok.com/ZS9MwHLcLWoBH-XPQVX/" },
   "balang":           { shopee: "https://s.shopee.com.my/3qLYGJR7Em", tiktok: "https://vt.tiktok.com/ZS9MwHCQRV8AL-aaoxD/" },
+  "pan leper":        { shopee: "https://s.shopee.com.my/6VMJTJ8F2u", tiktok: "https://vt.tiktok.com/ZS9Mw4jYVegcK-oOviP/" },
+  "toaster":          { shopee: "https://s.shopee.com.my/W56LmOJXS", tiktok: "https://vt.tiktok.com/ZS9Mw4fGbwVfa-hbXZT/" },
+  "mangkuk":          { shopee: "https://s.shopee.com.my/6ffjfoGN5q", tiktok: "https://vt.tiktok.com/ZS9Mw4uAPMFAX-xmdeS/" },
+  // shopee disalin dari "pisau" — kunci lebih panjang menang, jangan biar kosong.
+  "pisau chef":       { shopee: "https://s.shopee.com.my/50XVeOKVcz", tiktok: "https://vt.tiktok.com/ZS9Mw4XkqkgLg-oByE3/" },
+  "air fryer":        { shopee: "https://s.shopee.com.my/7fYGsjh6oN", tiktok: "https://vt.tiktok.com/ZS9Mw4gabR8Q4-4S3CA/" },
+  // DESSINI AF-60 (oven + air fryer) — produk sama di kedua-dua kedai.
+  "oven":             { shopee: "https://s.shopee.com.my/2VqAi0iBi0", tiktok: "https://vt.tiktok.com/ZS9Mw4pY17WDJ-OThvp/" },
 };
 
 // Bersihkan baris bahan kepada kata kunci produk untuk carian kedai.
