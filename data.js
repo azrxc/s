@@ -28,9 +28,11 @@ const CHEFS = [
     // NOTE: keep `url` in sync with `shopee` — 100+ already-baked static
     // pages (resepi/*.html, chef/*.html) embed an older script that still
     // reads `p.url`, and won't get a fresh prerender bake just for this.
+    // TikTok = link kedai rasmi @khairulamingbrand (jenama tidak buka
+    // program affiliate, jadi ini link sokongan biasa tanpa komisen).
     products: [
-      { name: "Sambal Nyet Berapi", url: "https://shope.ee/AKCF5tXW44", shopee: "https://shope.ee/AKCF5tXW44", tiktok: "" },
-      { name: "Dendeng Nyet Berapi", url: "https://shope.ee/ViJNuXbXV", shopee: "https://shope.ee/ViJNuXbXV", tiktok: "" },
+      { name: "Sambal Nyet Berapi", url: "https://shope.ee/AKCF5tXW44", shopee: "https://shope.ee/AKCF5tXW44", tiktok: "https://vt.tiktok.com/ZSXU2mbNr/?page=TikTokShop" },
+      { name: "Dendeng Nyet Berapi", url: "https://shope.ee/ViJNuXbXV", shopee: "https://shope.ee/ViJNuXbXV", tiktok: "https://vt.tiktok.com/ZSXU2mbNr/?page=TikTokShop" },
     ],
     // ✅ Restoran rasmi — perniagaan F&B fizikal pertama Khairul Aming (dibuka Januari 2026).
     // Fakta & pautan tempahan disahkan daripada rembayung.com dan liputan media (Malay Mail, The Rakyat Post).
