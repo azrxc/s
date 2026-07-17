@@ -579,9 +579,9 @@
       else if (/che ?sayang/.test(raw)) { pool = pool.filter(function (r) { return r.chef_id === 'che-sayang'; }); notes.push('resepi Che Sayang Kitchen'); }
 
       // category filter
-      var cat = null;
+      var cat = null, catRe = null;
       for (var c = 0; c < CAT_SYN.length; c++) {
-        if (CAT_SYN[c][0].test(raw)) { cat = CAT_SYN[c][1]; break; }
+        if (CAT_SYN[c][0].test(raw)) { cat = CAT_SYN[c][1]; catRe = CAT_SYN[c][0]; break; }
       }
       if (cat) { pool = pool.filter(function (r) { return r.category === cat; }); notes.push('kategori ' + cat); }
 
@@ -606,8 +606,18 @@
         notes.push('menu raya');
       }
 
-      // ingredient / keyword scoring
-      var tokens = raw.replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(function (t) {
+      // ingredient / keyword scoring — consume intent words first so a
+      // request like "cadangkan dessert" doesn't leak "dessert" into the
+      // ingredient matching and shrink the results.
+      var rest = raw
+        .replace(/khairul|aming|che ?sayang/g, ' ')
+        .replace(/(?:bawah|kurang|under|dalam)\s*\d+\s*min\w*/g, ' ')
+        .replace(/cepat|pantas|quick|express|segera/g, ' ')
+        .replace(/senang|mudah|easy|simple|beginner/g, ' ')
+        .replace(/berbuka|iftar|ramadhan|ramadan|raya/g, ' ')
+        .replace(/cadang\w*|suggest\w*|idea|random/g, ' ');
+      if (catRe) rest = rest.replace(catRe, ' ');
+      var tokens = rest.replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(function (t) {
         return t.length >= 3 && STOP.indexOf(t) === -1;
       });
       var scored = pool.map(function (r) {
