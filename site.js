@@ -1,5 +1,5 @@
 // ============================================================
-// ResipiLokal.com — SHARED SITE SCRIPT
+// ResepiLokal.com — SHARED SITE SCRIPT
 // Injects the standard footer, keeps the navbar consistent,
 // theme toggle, favorites, Netflix-style row arrows, newsletter
 // and image fade-in on every page.
@@ -59,8 +59,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© ${YEAR} ResipiLokal.com — Dibuat dengan <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.8 5.1a5 5 0 0 0-7.1 0L12 5.8l-.7-.7a5 5 0 1 0-7.1 7.1l.7.7L12 20l7.1-7.1.7-.7a5 5 0 0 0 0-7.1z"/></svg> untuk rakyat Malaysia</p>
-        <p style="font-size:0.78rem;color:var(--text-muted);">ResipiLokal bukan milik mana-mana chef. Semua resepi & video adalah hak cipta pencipta asal masing-masing. Butang beli mengandungi link affiliate — lihat <a href="/affiliate-disclosure.html" style="color:var(--text-muted);text-decoration:underline;">penafian affiliate</a>.</p>
+        <p>© ${YEAR} ResepiLokal.com — Dibuat dengan <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.8 5.1a5 5 0 0 0-7.1 0L12 5.8l-.7-.7a5 5 0 1 0-7.1 7.1l.7.7L12 20l7.1-7.1.7-.7a5 5 0 0 0 0-7.1z"/></svg> untuk rakyat Malaysia</p>
+        <p style="font-size:0.78rem;color:var(--text-muted);">ResepiLokal bukan milik mana-mana chef. Semua resepi & video adalah hak cipta pencipta asal masing-masing. Butang beli mengandungi link affiliate — lihat <a href="/affiliate-disclosure.html" style="color:var(--text-muted);text-decoration:underline;">penafian affiliate</a>.</p>
       </div>`;
 
     const form = document.getElementById('newsletterForm');
@@ -441,7 +441,7 @@
 })();
 
 // ============================================================
-// ResipiBot — pembantu resepi pintar (client-side, tiada kos API).
+// ResepiBot — pembantu resepi pintar (client-side, tiada kos API).
 // Memahami bahan ("saya ada ayam dan santan"), kategori, masa
 // ("bawah 30 minit"), chef, dan cadangan rawak — semua dijawab
 // terus daripada data resepi tempatan.
@@ -465,18 +465,18 @@
     var fab = document.createElement('button');
     fab.id = 'rbFab';
     fab.className = 'rb-fab';
-    fab.setAttribute('aria-label', 'Buka ResipiBot — pembantu resepi');
+    fab.setAttribute('aria-label', 'Buka ResepiBot — pembantu resepi');
     fab.innerHTML = hatSvg;
     document.body.appendChild(fab);
 
     var panel = document.createElement('div');
     panel.className = 'rb-panel';
     panel.setAttribute('role', 'dialog');
-    panel.setAttribute('aria-label', 'ResipiBot');
+    panel.setAttribute('aria-label', 'ResepiBot');
     panel.innerHTML =
       '<div class="rb-head">' +
         '<div class="rb-head-avatar">' + hatSvg + '</div>' +
-        '<div><div class="rb-head-name">ResipiBot</div>' +
+        '<div><div class="rb-head-name">ResepiBot</div>' +
         '<div class="rb-head-sub">Pembantu resepi — jawab serta-merta</div></div>' +
         '<button class="rb-close" type="button" aria-label="Tutup">' + closeSvg + '</button>' +
       '</div>' +
@@ -528,7 +528,7 @@
     });
 
     // ── Brain ──
-    var STOP = ['saya', 'ada', 'nak', 'hendak', 'mahu', 'masak', 'memasak', 'resepi', 'resipi', 'recipe',
+    var STOP = ['saya', 'ada', 'nak', 'hendak', 'mahu', 'masak', 'memasak', 'resepi', 'Resepi', 'recipe',
       'apa', 'yang', 'dengan', 'dan', 'untuk', 'buat', 'boleh', 'tolong', 'cari', 'carikan', 'nakkan',
       'kan', 'lah', 'kat', 'dekat', 'dalam', 'guna', 'pakai', 'bahan', 'hari', 'ini', 'hari', 'sedap',
       'senaraikan', 'tunjuk', 'bagi', 'saja', 'sahaja', 'the', 'have', 'want', 'cook', 'with', 'and', 'for'];
@@ -565,7 +565,7 @@
       var raw = q.toLowerCase().trim();
 
       if (/^(hai|hi|hello|helo|salam|assalam|hey)\b/.test(raw)) {
-        return { text: 'Hai! Saya ResipiBot. Beritahu saya bahan yang anda ada (cth: "saya ada ayam dan santan"), kategori ("nak dessert"), atau masa ("bawah 30 minit") — saya akan cadangkan resepi yang sesuai daripada ' + RECIPES.length + ' resepi chef Malaysia.' };
+        return { text: 'Hai! Saya ResepiBot. Beritahu saya bahan yang anda ada (cth: "saya ada ayam dan santan"), kategori ("nak dessert"), atau masa ("bawah 30 minit") — saya akan cadangkan resepi yang sesuai daripada ' + RECIPES.length + ' resepi chef Malaysia.' };
       }
       if (/terima kasih|thanks|tq\b|thank you/.test(raw)) {
         return { text: 'Sama-sama! Selamat memasak &#127858;' };
@@ -660,7 +660,7 @@
       panel.classList.add('open');
       if (!greeted) {
         greeted = true;
-        addMsg('Hai! Saya <strong>ResipiBot</strong>. Tanya saya apa-apa tentang ' + RECIPES.length + ' resepi di sini — bahan yang anda ada, kategori, atau masa memasak.', 'bot');
+        addMsg('Hai! Saya <strong>ResepiBot</strong>. Tanya saya apa-apa tentang ' + RECIPES.length + ' resepi di sini — bahan yang anda ada, kategori, atau masa memasak.', 'bot');
       }
       setTimeout(function () { input.focus(); }, 60);
     }

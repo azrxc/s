@@ -8,16 +8,16 @@
   <link rel="apple-touch-icon" href="/favicon.svg"/>
   <meta name="theme-color" content="#f5a623"/>
   <link rel="canonical" href="https://www.resepilokal.com/chef-detail.html"/>
-  <meta property="og:title" content="Chef — ResipiLokal"/>
-  <meta property="og:description" content="Profil chef & resepi di ResipiLokal."/>
+  <meta property="og:title" content="Chef — ResepiLokal"/>
+  <meta property="og:description" content="Profil chef & resepi di ResepiLokal."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:image" content="https://www.resepilokal.com/images/og-default.jpg"/>
-  <meta property="og:site_name" content="ResipiLokal"/>
+  <meta property="og:image" content="https://www.resepilokal.com/images/og-default.png"/>
+  <meta property="og:site_name" content="ResepiLokal"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://www.resepilokal.com/images/og-default.jpg"/>
+  <meta name="twitter:image" content="https://www.resepilokal.com/images/og-default.png"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chef — ResipiLokal</title>
-  <meta name="description" content="Resepi dari chef Malaysia terbaik di ResipiLokal."/>
+  <title>Chef — ResepiLokal</title>
+  <meta name="description" content="Resepi dari chef Malaysia terbaik di ResepiLokal."/>
   <link rel="stylesheet" href="/style.css"/>
   <!-- ✅ ADSENSE -->
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
@@ -173,7 +173,7 @@
     if (!chef) window.location.href = '/chefs.html';
 
     // ── Populate chef info ────────────────────
-    document.title = `${chef.name} — ResipiLokal`;
+    document.title = `${chef.name} — ResepiLokal`;
 
     document.getElementById('chefHeroBg').style.backgroundImage = `url('${chef.cover}')`;
 
@@ -397,18 +397,18 @@
       canon.href = canonUrl;
       document.head.appendChild(canon);
 
-      const desc = `${chef.name} — ${allRecipes.length} resepi video asli di ResipiLokal. ${chef.bio}`.slice(0, 200);
+      const desc = `${chef.name} — ${allRecipes.length} resepi video asli di ResepiLokal. ${chef.bio}`.slice(0, 200);
       let metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute('content', desc);
-      document.title = `${chef.name} — ResipiLokal`;
+      document.title = `${chef.name} — ResepiLokal`;
 
       const og = [
-        ['og:title', chef.name + ' — ResipiLokal'],
+        ['og:title', chef.name + ' — ResepiLokal'],
         ['og:description', desc],
         ['og:image', absImg],
         ['og:url', canonUrl],
         ['og:type', 'profile'],
-        ['og:site_name', 'ResipiLokal'],
+        ['og:site_name', 'ResepiLokal'],
       ];
       og.forEach(([p, c]) => {
         const m = document.createElement('meta');

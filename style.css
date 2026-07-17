@@ -1,5 +1,5 @@
 /* ============================================================
-   ResipiLokal.com — Main Stylesheet
+   ResepiLokal.com — Main Stylesheet
    Netflix-inspired dark theme for Malaysian recipe platform
    ============================================================ */
 
@@ -1630,7 +1630,7 @@ img.img-loaded { animation: img-fade 0.4s ease; background: none; }
 .nav-logo-mark { display: inline-flex; margin-right: 9px; }
 .nav-logo-mark svg { display: block; }
 
-/* ── ResipiBot assistant ── */
+/* ── ResepiBot assistant ── */
 .rb-fab {
   position: fixed; right: 20px; bottom: 20px; z-index: 900;
   width: 54px; height: 54px; border-radius: 50%;

@@ -1,5 +1,5 @@
 // ============================================================
-// ResipiLokal.com — INLINE ICON LIBRARY
+// ResepiLokal.com — INLINE ICON LIBRARY
 // Self-contained SVG marks (no external icon CDN / no broken
 // image-hotlink risk). Used for social, share and buy buttons
 // so people recognize the platform at a glance instead of text.

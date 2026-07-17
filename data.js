@@ -1,5 +1,5 @@
 // ============================================================
-// ResipiLokal.com — DATA FILE
+// ResepiLokal.com — DATA FILE
 // ✅ TO ADD A NEW CHEF: copy one chef object and fill in the details
 // ✅ TO ADD A NEW RECIPE: copy one recipe object and fill in the details
 // ============================================================
@@ -12,7 +12,7 @@ const CHEFS = [
     slug: "khairul-aming",
     image: "/images/chefs/khairul-aming.jpg",
     cover: "https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Nasi-Lemak.webp?fit=1080%2C1920&ssl=1",
-    bio: "Pencipta kandungan masakan paling terkenal Malaysia. Dikenali dengan resepi mudah, bahan simple tapi sedap gila — dan produk viral Sambal Nyet Berapi. Siri '30 Hari 30 Resipi' beliau setiap Ramadan menjadi fenomena tahunan.",
+    bio: "Pencipta kandungan masakan paling terkenal Malaysia. Dikenali dengan resepi mudah, bahan simple tapi sedap gila — dan produk viral Sambal Nyet Berapi. Siri '30 Hari 30 Resepi' beliau setiap Ramadan menjadi fenomena tahunan.",
     bio_en: "Malaysia's most famous recipe content creator. Known for simple ingredients, easy steps, and incredibly delicious results — plus the viral Sambal Nyet Berapi product. His annual '30 Days 30 Recipes' Ramadan series is a national phenomenon.",
     followers: "10M+",
     recipes_count: 124,
@@ -4083,10 +4083,10 @@ const RECIPES = [
       "Nestlé Musang King durian ice cream",
     ],
     steps: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     steps_en: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/7016258792925056283",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/7016258792925056283",
@@ -4142,10 +4142,10 @@ const RECIPES = [
       "2 tablespoons cornflour slurry (cornflour mixed with water)",
     ],
     steps: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     steps_en: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/7002521868733287706",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/7002521868733287706",
@@ -4187,10 +4187,10 @@ const RECIPES = [
       "Milo powder, for topping",
     ],
     steps: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     steps_en: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/6982829176160046362",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/6982829176160046362",
@@ -4228,10 +4228,10 @@ const RECIPES = [
       "Gardenia Original Classic white bread",
     ],
     steps: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     steps_en: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/6977599068780449050",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/6977599068780449050",
@@ -4277,10 +4277,10 @@ const RECIPES = [
       "1/2 tablespoon salt",
     ],
     steps: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     steps_en: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/6960911012581084417",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/6960911012581084417",
@@ -4336,10 +4336,10 @@ const RECIPES = [
       "4 tablespoons cooking oil",
     ],
     steps: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     steps_en: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/6956109482460056833",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/6956109482460056833",
@@ -4389,10 +4389,10 @@ const RECIPES = [
       "Bird's eye chillies (cili padi)",
     ],
     steps: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     steps_en: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/6954601935886355714",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/6954601935886355714",
@@ -4430,10 +4430,10 @@ const RECIPES = [
       "1 cup ice",
     ],
     steps: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     steps_en: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/6953231654475418881",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/6953231654475418881",
@@ -4489,10 +4489,10 @@ const RECIPES = [
       "2 tablespoons cornflour slurry (cornflour mixed with water)",
     ],
     steps: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     steps_en: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/6952445285280845057",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/6952445285280845057",
@@ -4544,10 +4544,10 @@ const RECIPES = [
       "Calamansi lime (limau kasturi)",
     ],
     steps: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     steps_en: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/6951993327575141633",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/6951993327575141633",
@@ -4603,10 +4603,10 @@ const RECIPES = [
       "Coriander leaves (daun ketumbar)",
     ],
     steps: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     steps_en: [
-      "Laman asal tidak menyediakan arahan memasak bertulis untuk resipi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
+      "Laman asal tidak menyediakan arahan memasak bertulis untuk Resepi ini — hanya senarai bahan yang dipaparkan. Kaedah penyediaan penuh hanya ditunjukkan dalam video TikTok/Instagram yang disertakan pada halaman rasmi.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/6951623802912558338",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/6951623802912558338",
@@ -4911,11 +4911,11 @@ const RECIPES = [
     popular: false,
   },
   {
-    id: "ka-rendang-ayam-resipi-mak",
+    id: "ka-rendang-ayam-Resepi-mak",
     chef_id: "khairul-aming",
-    title: "Rendang Ayam Resipi Mak",
+    title: "Rendang Ayam Resepi Mak",
     title_en: "Mother's Recipe Chicken Rendang",
-    thumbnail: "https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Rendang-Ayam-Resipi-Mak.webp?fit=720%2C720&ssl=1",
+    thumbnail: "https://i0.wp.com/khairulaming.my/wp-content/uploads/2024/07/Rendang-Ayam-Resepi-Mak.webp?fit=720%2C720&ssl=1",
     category: "Lauk",
     tags: ["Lauk", "Ayam", "Viral TikTok"],
     prep_time: "22 minit",
@@ -4923,7 +4923,7 @@ const RECIPES = [
     servings: 4,
     difficulty: "Susah",
     calories: 320,
-    description: "Resepi Rendang Ayam Resipi Mak daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.",
+    description: "Resepi Rendang Ayam Resepi Mak daripada Khairul Aming. Bahan-bahan penuh di bawah — tonton video beliau di TikTok untuk kaedah memasak.",
     description_en: "Mother's Recipe Chicken Rendang by Khairul Aming. Full ingredient list below — watch his TikTok video for the cooking method.",
     ingredients: [
       "3 biji bawang besar",
@@ -4967,7 +4967,7 @@ const RECIPES = [
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/7535069349359439111",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/7535069349359439111",
-    source: "https://khairulaming.my/rendang-ayam-resipi-mak/",
+    source: "https://khairulaming.my/rendang-ayam-Resepi-mak/",
     featured: false,
     popular: false,
   },
@@ -5892,10 +5892,10 @@ const RECIPES = [
       "3 eggs",
     ],
     steps: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     steps_en: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/7476807227114835218",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/7476807227114835218",
@@ -5951,10 +5951,10 @@ const RECIPES = [
       "1/2 chicken",
     ],
     steps: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     steps_en: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/7477428153808325906",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/7477428153808325906",
@@ -5988,10 +5988,10 @@ const RECIPES = [
       "Rice cooker",
     ],
     steps: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     steps_en: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/7617718005950172434",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/7617718005950172434",
@@ -6029,10 +6029,10 @@ const RECIPES = [
       "30 pieces Marie biscuits, broken in half",
     ],
     steps: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     steps_en: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/7092671985238478106",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/7092671985238478106",
@@ -6066,10 +6066,10 @@ const RECIPES = [
       "Icing sugar for topping",
     ],
     steps: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     steps_en: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/7610718382635191570",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/7610718382635191570",
@@ -6119,10 +6119,10 @@ const RECIPES = [
       "Chili",
     ],
     steps: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     steps_en: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/7478170848759696648",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/7478170848759696648",
@@ -6170,10 +6170,10 @@ const RECIPES = [
       "1 tablespoon fried ikan bilis (dried anchovies)",
     ],
     steps: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     steps_en: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/7260349234627497223",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/7260349234627497223",
@@ -6280,10 +6280,10 @@ const RECIPES = [
       "1 bowl cooked white rice",
     ],
     steps: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     steps_en: [
-      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama resipi ini.",
+      "Cara membuat tidak dinyatakan secara bertulis pada laman sumber — kaedah penyediaan ditunjukkan dalam video Instagram yang disertakan bersama Resepi ini.",
     ],
     tiktok_embed: "https://www.tiktok.com/embed/v2/7348073040355282178",
     tiktok_url: "https://www.tiktok.com/@khairulaming/video/7348073040355282178",

@@ -8,16 +8,16 @@
   <link rel="apple-touch-icon" href="/favicon.svg"/>
   <meta name="theme-color" content="#f5a623"/>
   <link rel="canonical" href="https://www.resepilokal.com/recipe-detail.html"/>
-  <meta property="og:title" content="Resepi — ResipiLokal"/>
-  <meta property="og:description" content="Resepi masakan Malaysia terbaik di ResipiLokal."/>
+  <meta property="og:title" content="Resepi — ResepiLokal"/>
+  <meta property="og:description" content="Resepi masakan Malaysia terbaik di ResepiLokal."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:image" content="https://www.resepilokal.com/images/og-default.jpg"/>
-  <meta property="og:site_name" content="ResipiLokal"/>
+  <meta property="og:image" content="https://www.resepilokal.com/images/og-default.png"/>
+  <meta property="og:site_name" content="ResepiLokal"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:image" content="https://www.resepilokal.com/images/og-default.jpg"/>
+  <meta name="twitter:image" content="https://www.resepilokal.com/images/og-default.png"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resepi — ResipiLokal</title>
-  <meta name="description" content="Resepi masakan Malaysia terbaik di ResipiLokal."/>
+  <title>Resepi — ResepiLokal</title>
+  <meta name="description" content="Resepi masakan Malaysia terbaik di ResepiLokal."/>
   <link rel="stylesheet" href="/style.css"/>
   <!-- ✅ ADSENSE -->
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
@@ -331,7 +331,7 @@
       </div>
 
       <!-- Best for / Common mistakes / Substitutes — original site
-           content written for ResipiLokal, not from the source creator. -->
+           content written for ResepiLokal, not from the source creator. -->
       <div style="margin-bottom:36px;">
         <h2 class="recipe-section-title" id="bestForTitle"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> Sesuai Untuk</h2>
         <div id="bestForList" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
@@ -525,7 +525,7 @@
     }
 
     // ── Populate hero ─────────────────────────
-    document.title = `${recipe.title} — ResipiLokal`;
+    document.title = `${recipe.title} — ResepiLokal`;
     document.getElementById('pageFavBtn').dataset.recipeId = recipe.id;
     document.getElementById('recipeHeroBg').style.backgroundImage = `url('${recipe.thumbnail}')`;
     document.getElementById('recipeTitle').textContent = recipe.title;
@@ -942,12 +942,12 @@
     }
 
     function shareWhatsApp() {
-      const text = `Cuba resepi ${recipe.title} dari ${chef ? chef.name : 'ResipiLokal'}! 🍳\n${window.location.href}`;
+      const text = `Cuba resepi ${recipe.title} dari ${chef ? chef.name : 'ResepiLokal'}! 🍳\n${window.location.href}`;
       window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
     }
 
     function shareTelegram() {
-      const text = `Cuba resepi ${recipe.title} dari ${chef ? chef.name : 'ResipiLokal'}! 🍳`;
+      const text = `Cuba resepi ${recipe.title} dari ${chef ? chef.name : 'ResepiLokal'}! 🍳`;
       window.open(`https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(text)}`, '_blank');
     }
 
@@ -982,15 +982,15 @@
 
       let metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute('content', recipe.description);
-      document.title = recipe.title + ' — ResipiLokal';
+      document.title = recipe.title + ' — ResepiLokal';
 
       const og = [
-        ['og:title', recipe.title + ' — ResipiLokal'],
+        ['og:title', recipe.title + ' — ResepiLokal'],
         ['og:description', recipe.description],
         ['og:image', absImg],
         ['og:url', canonUrl],
         ['og:type', 'article'],
-        ['og:site_name', 'ResipiLokal'],
+        ['og:site_name', 'ResepiLokal'],
       ];
       og.forEach(([p, c]) => {
         const m = document.createElement('meta');

@@ -1,11 +1,11 @@
 // ============================================================
-// ResipiLokal.com — RECIPE ENRICHMENT ENGINE
+// ResepiLokal.com — RECIPE ENRICHMENT ENGINE
 // Loaded AFTER data.js. Generates per-recipe guidance content
 // (tips, mistakes, storage, reheating, kitchen tools, nutrition
 // estimate, FAQ) from the recipe's category and ingredients, plus
 // real ingredient substitutions scanned from each recipe's own
 // ingredient list and "best for" tags from its category/tags.
-// This is original site content, written for ResipiLokal — not
+// This is original site content, written for ResepiLokal — not
 // copied from the source creator's caption or video.
 // All values marked "Anggaran" (estimate) in the UI.
 // ============================================================
