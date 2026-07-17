@@ -126,7 +126,7 @@
     if (logo && !logo.querySelector('.nav-logo-mark')) {
       const mark = document.createElement('span');
       mark.className = 'nav-logo-mark';
-      mark.innerHTML = '<svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#f5a623"/><g transform="translate(7.2,6.4) scale(1.4)" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21a1 1 0 0 0 1-1v-5.3c0-.5.3-.9.7-1.1a4 4 0 0 0-2.1-7.6 5 5 0 0 0-9.2 0 4 4 0 0 0-2.1 7.6c.4.2.7.6.7 1V20a1 1 0 0 0 1 1z"/><path d="M6 17h12"/></g></svg>';
+      mark.innerHTML = '<svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#f5a623"/><g transform="translate(4,3.5) scale(1.65)"><path fill="#141414" d="M12 21c-4.2 0-7.4-3.2-7.4-7.4 0-3.7 2.2-6.2 4.1-8.6.3 2.4 1.2 4 2.7 4.8-.5-2.7.1-5.4 2-7.5.7 3.1 2.1 5.1 3.8 7 1.4 1.7 2.1 3.2 2.1 4.6 0 4.2-2.9 7.4-7.4 7.4z"/><path fill="#f5a623" d="M12 18c-1.8 0-3-1.3-3-3.1 0-1.2.6-2 1.4-2.9.1.9.5 1.6 1.1 1.9-.2-1.1.1-2 .8-2.7.3 1.2.9 1.9 1.5 2.6.6.7.9 1.2.9 1.7 0 1.6-1.1 2.5-2.7 2.5z"/></g></svg>';
       logo.insertBefore(mark, logo.firstChild);
     }
   }
@@ -456,7 +456,7 @@
     if (typeof RECIPES === 'undefined' || !Array.isArray(RECIPES) || !RECIPES.length) return;
     if (document.getElementById('rbFab')) return; // never duplicate on baked pages
 
-    var hatSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21a1 1 0 0 0 1-1v-5.3c0-.5.3-.9.7-1.1a4 4 0 0 0-2.1-7.6 5 5 0 0 0-9.2 0 4 4 0 0 0-2.1 7.6c.4.2.7.6.7 1V20a1 1 0 0 0 1 1z"/><path d="M6 17h12"/></svg>';
+    var hatSvg = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="#141414" d="M12 21c-4.2 0-7.4-3.2-7.4-7.4 0-3.7 2.2-6.2 4.1-8.6.3 2.4 1.2 4 2.7 4.8-.5-2.7.1-5.4 2-7.5.7 3.1 2.1 5.1 3.8 7 1.4 1.7 2.1 3.2 2.1 4.6 0 4.2-2.9 7.4-7.4 7.4z"/><ellipse cx="9.9" cy="10.6" rx="0.95" ry="1.15" fill="#f5a623"/><ellipse cx="13.7" cy="10.1" rx="0.95" ry="1.15" fill="#f5a623"/><path d="M10.3 14.3q1.7 1.5 3.4 0" stroke="#f5a623" stroke-width="1" stroke-linecap="round" fill="none"/></svg>';
     var sendSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>';
     var closeSvg = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>';
     var clockSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
